@@ -7,6 +7,7 @@ import {useTheme} from "app/providers/ThemeProvider";
 import {AboutPage} from "pages/AboutPage";
 import {MainPage} from "pages/MainPage";
 import {AppRouter} from "app/providers/router";
+import {Navbar} from "widgets/Navbar";
 
 
 const App = () => {
@@ -14,10 +15,9 @@ const App = () => {
 
     return (
         <div className={classNames('app', {}, [theme])}>
-            <button onClick={toggleTheme}>TOGGLE</button>
-            <Link to={'/'}>Main page</Link>
-            <Link to={'/about'}>About page</Link>
+            <Navbar />
             <AppRouter />
+            <button onClick={toggleTheme}>toggle</button>
         </div>
     );
 };
