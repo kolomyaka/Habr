@@ -1,9 +1,8 @@
 import HTMLWebpackPlugin from "html-webpack-plugin";
-import path from "path";
 import webpack from "webpack";
 import {BuildOptions} from "./types/config";
 import MiniCssExtractPlugin from "mini-css-extract-plugin";
-
+import ReactRefreshWebpackPlugin from "@pmmmwh/react-refresh-webpack-plugin"
 
 export function buildPlugins({paths, isDev}: BuildOptions): webpack.WebpackPluginInstance[] {
     // Функция, которая возвращает список плагинов в конфиге
@@ -22,6 +21,9 @@ export function buildPlugins({paths, isDev}: BuildOptions): webpack.WebpackPlugi
         // Плагин для создания глобальных переменных
         new webpack.DefinePlugin({
             __IS_DEV__: JSON.stringify(isDev)
-        })
+        }),
+        // Плагин для обновления элементов без перезагрузки страницы
+        new webpack.HotModuleReplacementPlugin(),
+        new ReactRefreshWebpackPlugin()
     ]
 }
