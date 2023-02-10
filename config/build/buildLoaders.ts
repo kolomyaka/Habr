@@ -9,6 +9,20 @@ export function buildLoaders({isDev}: BuildOptions): webpack.RuleSetRule[] {
 
     // Для каждого лоадера создаем отдельную переменную, чтобы удобнее было следить за порядком лоадеров
 
+    const fileLoader = {
+        test: /\.(png|jpe?g|gif)$/i,
+        use: [
+            {
+                loader: 'file-loader',
+            },
+        ],
+    };
+
+    const svgLoader = {
+        test: /\.svg$/,
+        use: ['@svgr/webpack'],
+    };
+
     const stylesLoader = {
         test: /\.s[ac]ss$/i,
         use: [
@@ -41,6 +55,8 @@ export function buildLoaders({isDev}: BuildOptions): webpack.RuleSetRule[] {
 
     return [
         typeScriptLoader,
-        stylesLoader
+        stylesLoader,
+        svgLoader,
+        fileLoader
     ]
 }
