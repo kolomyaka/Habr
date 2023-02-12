@@ -19,7 +19,7 @@
     }
   },
   "lint-staged": {
-    "**/*.{ts,tsx}": [
+    "*.tsx": [
       "eslint --fix",
       "git add"
     ]
