@@ -6,7 +6,8 @@ module.exports = {
     "extends": [
         "eslint:recommended",
         "plugin:react/recommended",
-        "plugin:@typescript-eslint/recommended"
+        "plugin:@typescript-eslint/recommended",
+        "plugin:i18next/recommended"
     ],
     "overrides": [
     ],
@@ -17,7 +18,8 @@ module.exports = {
     },
     "plugins": [
         "react",
-        "@typescript-eslint"
+        "@typescript-eslint",
+        "i18next"
     ],
     "settings": {
         "react": {
@@ -31,6 +33,7 @@ module.exports = {
         "react/react-in-jsx-scope": "off",
         "max-statements": [2, 15],
         "object-curly-spacing": [2, "always"],
+        "i18next/no-literal-string": ["error", { markupOnly: true }],
         "linebreak-style": [
             "error",
             "unix"
