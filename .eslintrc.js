@@ -33,7 +33,10 @@ module.exports = {
         'react/react-in-jsx-scope': 'off',
         'max-statements': [2, 15],
         'object-curly-spacing': [2, 'always'],
-        'i18next/no-literal-string': ['error', { markupOnly: true, ignoreAttribute: ['to'] }],
+        'i18next/no-literal-string': [
+            'error',
+            { markupOnly: true, ignoreAttribute: ['to'] }
+        ],
         'linebreak-style': [
             'error',
             'unix'
@@ -45,7 +48,8 @@ module.exports = {
         'semi': [
             'error',
             'always'
-        ]
+        ],
+        'max-len': ['error', { ignoreComments: true }]
     },
     globals: {
         '__IS_DEV__': true
