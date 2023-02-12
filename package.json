@@ -19,7 +19,7 @@
     }
   },
   "lint-staged": {
-    "*.ts": [
+    "*.{ts,tsx}": [
       "eslint '**/*.{ts,tsx}' --fix"
     ]
   },
