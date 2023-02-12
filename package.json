@@ -13,6 +13,21 @@
     "lint:scss:fix": "npx stylelint '**/*.scss' --fix",
     "unit": "jest --config ./config/jest/jest.config.ts"
   },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.{js,jsx}": [
+      "lint:ts:fix",
+      "git add"
+    ],
+    "*.{scss}": [
+      "lint:scss:fix",
+      "git add"
+    ]
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",
@@ -35,6 +50,7 @@
     "eslint-plugin-react-hooks": "^4.3.0",
     "file-loader": "^6.2.0",
     "html-webpack-plugin": "^5.5.0",
+    "husky": "^8.0.3",
     "jest": "^27.5.1",
     "mini-css-extract-plugin": "^2.5.3",
     "react-refresh": "^0.12.0",
