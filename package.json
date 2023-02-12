@@ -21,6 +21,9 @@
   "lint-staged": {
     "*.{ts,tsx}": [
       "eslint '**/*.{ts,tsx}' --fix"
+    ],
+    "*.scss": [
+      "npx stylelint '**/*.scss' --fix"
     ]
   },
   "keywords": [],

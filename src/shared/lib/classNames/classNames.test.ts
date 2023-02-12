@@ -11,6 +11,10 @@ describe('classNames', () => {
 
     test('check additional', () => {
         const expected = 'qwe upper middle hovered';
-        expect(classNames('qwe', { hovered:true, collapsed: false }, ['upper', 'middle'])).toBe(expected);
+        expect(classNames(
+            'qwe',
+            { hovered:true, collapsed: false },
+            ['upper', 'middle']))
+            .toBe(expected);
     });
 });
