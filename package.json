@@ -19,12 +19,8 @@
     }
   },
   "lint-staged": {
-    "*.{js,jsx}": [
-      "lint:ts:fix --max-errors=0",
-      "git add"
-    ],
-    "*.{scss}": [
-      "lint:scss:fix --max-errors=0",
+    "**/*.js": [
+      "eslint --fix",
       "git add"
     ]
   },
