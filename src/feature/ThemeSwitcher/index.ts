@@ -1,5 +1,5 @@
-import {ThemeSwitcher} from "feature/ThemeSwitcher/ui/ThemeSwitcher";
+import { ThemeSwitcher } from "feature/ThemeSwitcher/ui/ThemeSwitcher";
 
 export {
     ThemeSwitcher
-}
+};
