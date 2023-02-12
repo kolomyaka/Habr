@@ -37,7 +37,8 @@ export function buildLoaders({ isDev }: BuildOptions): webpack.RuleSetRule[] {
                         // Отображение названия файлов в зависимости от сборки
                         localIdentName: isDev
                             ? '[path][name]__[local]--[hash:base64:8]'
-                            : '[hash:base64:8]'
+                            : '[hash:base64:8]',
+                        exportLocalsConvention: 'camelCaseOnly',
                     },
                 },
             },

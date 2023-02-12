@@ -37,6 +37,7 @@ module.exports = {
             'error',
             { markupOnly: true, ignoreAttribute: ['to'] }
         ],
+        'max-len': ['error', { ignoreComments: true, code: 100 }],
         'linebreak-style': [
             'error',
             'unix'
@@ -49,7 +50,7 @@ module.exports = {
             'error',
             'always'
         ],
-        'max-len': ['error', { ignoreComments: true, code: 100 }]
+
     },
     globals: {
         '__IS_DEV__': true
