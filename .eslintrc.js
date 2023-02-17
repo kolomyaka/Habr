@@ -10,6 +10,12 @@ module.exports = {
         'plugin:i18next/recommended'
     ],
     'overrides': [
+        {
+            files: ['**/src/**/*.test.{ts,tsx}'],
+            rules: {
+                'i18next/no-literal-string': 'off'
+            }
+        }
     ],
     'parser': '@typescript-eslint/parser',
     'parserOptions': {
@@ -35,7 +41,7 @@ module.exports = {
         'object-curly-spacing': [2, 'always'],
         'i18next/no-literal-string': [
             'error',
-            { markupOnly: true, ignoreAttribute: ['to'] }
+            { markupOnly: true, ignoreAttribute: ['to', 'data-testid'] }
         ],
         'max-len': ['error', { ignoreComments: true, code: 100 }],
         'linebreak-style': [
