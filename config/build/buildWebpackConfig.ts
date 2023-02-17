@@ -9,7 +9,6 @@ import { buildDevServer } from './buildDevServer';
 export function BuildWebpackConfig(options: BuildOptions): webpack.Configuration {
 
     const { paths, mode, isDev } = options;
-    console.log('mode =', mode);
     // Различные правила конфига декомпозировали в отдельные функции
     return {
         mode,
