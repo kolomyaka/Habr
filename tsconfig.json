@@ -10,6 +10,7 @@
     "jsx": "react-jsx",
     // Позволяет компилятору обрабатывать так же js файлы
     "allowJs": true,
+    "strictBindCallApply": true,
     "moduleResolution": "node",
     "baseUrl": ".",
     "paths": {
