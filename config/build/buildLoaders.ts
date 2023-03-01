@@ -1,7 +1,6 @@
 import webpack from 'webpack';
-import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 import { BuildOptions } from './types/config';
-
+import { buildCssLoader } from './loaders/buildCssLoader';
 
 
 export function buildLoaders({ isDev }: BuildOptions): webpack.RuleSetRule[] {
@@ -23,29 +22,7 @@ export function buildLoaders({ isDev }: BuildOptions): webpack.RuleSetRule[] {
         use: ['@svgr/webpack'],
     };
 
-    const stylesLoader = {
-        test: /\.s[ac]ss$/i,
-        use: [
-            // Если дев-сборка, то оставляем css внутри js файла, если же прод, то выносим в отдельные css файлы
-            isDev ? 'style-loader' : MiniCssExtractPlugin.loader,
-            {
-                loader: 'css-loader',
-                options: {
-                    modules: {
-                        // Регулярка для файлов, которые будем обрабатывать в этом лоадере
-                        auto: /\.module\.\w+$/i,
-                        // Отображение названия файлов в зависимости от сборки
-                        localIdentName: isDev
-                            ? '[path][name]__[local]--[hash:base64:8]'
-                            : '[hash:base64:8]',
-                        exportLocalsConvention: 'camelCaseOnly',
-                    },
-                },
-            },
-            // Compiles Sass to CSS
-            'sass-loader',
-        ],
-    };
+    const stylesLoader = buildCssLoader(isDev);
 
     // Если не используем typescript, то нужен бы был babel-loader
     const typeScriptLoader = {

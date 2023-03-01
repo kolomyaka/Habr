@@ -38,6 +38,7 @@ module.exports = {
         'react/jsx-props-no-spreading': 'warn',
         'react/react-in-jsx-scope': 'off',
         'max-statements': [2, 15],
+        'react/display-name': 'off',
         'object-curly-spacing': [2, 'always'],
         'i18next/no-literal-string': [
             'error',

@@ -11,7 +11,7 @@ export const ErrorFallback = ({ error, resetErrorBoundary }: FallbackProps) => {
         <div role="alert">
             <p>{t('Что-то пошло не так')}</p>
             <pre>{error.message}</pre>
-            <button onClick={resetErrorBoundary}>{t('Try again')}</button>
+            <button onClick={resetErrorBoundary}>{t('Обновить страницу')}</button>
         </div>
     );
 };
