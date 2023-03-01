@@ -6,8 +6,8 @@ import ReactRefreshWebpackPlugin from '@pmmmwh/react-refresh-webpack-plugin';
 import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer';
 
 export function buildPlugins({ paths, isDev }: BuildOptions): webpack.WebpackPluginInstance[] {
-    // Функция, которая возвращает список плагинов в конфиге
-    return [
+
+    const plugins = [
         // Плагин для html  странички, в настройках указываем темплейт нашей html странички из public
         new HTMLWebpackPlugin({
             template: paths.html
@@ -23,11 +23,21 @@ export function buildPlugins({ paths, isDev }: BuildOptions): webpack.WebpackPlu
         new webpack.DefinePlugin({
             __IS_DEV__: JSON.stringify(isDev)
         }),
-        // Плагин для обновления элементов без перезагрузки страницы
-        new webpack.HotModuleReplacementPlugin(),
+
+
         new ReactRefreshWebpackPlugin(),
-        new BundleAnalyzerPlugin({
-            openAnalyzer: false
-        })
+
     ];
+
+    if (isDev) {
+        // Плагин для обновления элементов без перезагрузки страницы
+        plugins.push(new webpack.HotModuleReplacementPlugin());
+        // Плагин для анализа размеров сборки приложения
+        plugins.push(new BundleAnalyzerPlugin({
+            openAnalyzer: false
+        }));
+    }
+
+    // Функция, которая возвращает список плагинов в конфиге
+    return plugins;
 }
