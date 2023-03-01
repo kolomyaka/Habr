@@ -11,9 +11,10 @@
     "lint:ts:fix": "eslint '**/*.{ts,tsx}' --fix",
     "lint:scss": "npx stylelint '**/*.scss'",
     "lint:scss:fix": "npx stylelint '**/*.scss' --fix",
-    "unit": "jest --config ./config/jest/jest.config.ts",
+    "test:unit": "jest --config ./config/jest/jest.config.ts",
+    "test:ui": "loki test",
     "storybook": "start-storybook -p 6006 -c ./config/storybook ",
-    "build-storybook": "build-storybook -c ./config/storybook "
+    "storybook:build": "build-storybook -c ./config/storybook "
   },
   "husky": {
     "hooks": {
@@ -67,6 +68,7 @@
     "identity-obj-proxy": "^3.0.0",
     "jest": "^27.5.1",
     "lint-staged": "^13.1.1",
+    "loki": "^0.31.0",
     "mini-css-extract-plugin": "^2.5.3",
     "react-error-boundary": "^3.1.4",
     "react-refresh": "^0.12.0",
@@ -94,5 +96,20 @@
     "react-dom": "^17.0.2",
     "react-i18next": "^11.15.5",
     "react-router-dom": "^6.2.1"
+  },
+  "loki": {
+    "configurations": {
+      "chrome.laptop": {
+        "target": "chrome.app",
+        "width": 1366,
+        "height": 768,
+        "deviceScaleFactor": 1,
+        "mobile": false
+      },
+      "chrome.iphone7": {
+        "target": "chrome.app",
+        "preset": "iPhone 7"
+      }
+    }
   }
 }
