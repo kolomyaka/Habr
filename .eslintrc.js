@@ -11,9 +11,10 @@ module.exports = {
     ],
     'overrides': [
         {
-            files: ['**/src/**/*.test.{ts,tsx}'],
+            files: ['**/src/**/*.{test,stories}.{ts,tsx}'],
             rules: {
-                'i18next/no-literal-string': 'off'
+                'i18next/no-literal-string': 'off',
+                'max-len': 'off'
             }
         }
     ],
@@ -25,7 +26,8 @@ module.exports = {
     'plugins': [
         'react',
         '@typescript-eslint',
-        'i18next'
+        'i18next',
+        'react-hooks'
     ],
     'settings': {
         'react': {
@@ -42,6 +44,8 @@ module.exports = {
         'object-curly-spacing': [2, 'always'],
         'no-undef': 'off',
         '@typescript-eslint/no-var-requires': 'off',
+        'react-hooks/rules-of-hooks': 'error',
+        'react-hooks/exhaustive-deps': 'error',
         'i18next/no-literal-string': [
             'error',
             { markupOnly: true, ignoreAttribute: ['to', 'data-testid'] }
