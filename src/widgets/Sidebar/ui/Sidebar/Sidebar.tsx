@@ -36,7 +36,9 @@ export const Sidebar = ({ className }: SidebarProps) => {
                 className={cls.collapseBtn}
                 square
             >
-                {collapsed ? '>' : '<'}
+                {
+                    collapsed ? '>' : '<'
+                }
             </Button>
             <div className={cls.items}>
                 <AppLink
