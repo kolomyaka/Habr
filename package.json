@@ -25,7 +25,8 @@
   },
   "lint-staged": {
     "*.{ts,tsx}": [
-      "eslint '**/*.{ts,tsx}' --fix"
+      "eslint '**/*.{ts,tsx}' --fix",
+      "npm run test:unit"
     ],
     "*.scss": [
       "npx stylelint '**/*.scss' --fix"
