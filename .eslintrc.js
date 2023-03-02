@@ -40,6 +40,8 @@ module.exports = {
         'max-statements': [2, 15],
         'react/display-name': 'off',
         'object-curly-spacing': [2, 'always'],
+        'no-undef': 'off',
+        '@typescript-eslint/no-var-requires': 'off',
         'i18next/no-literal-string': [
             'error',
             { markupOnly: true, ignoreAttribute: ['to', 'data-testid'] }
