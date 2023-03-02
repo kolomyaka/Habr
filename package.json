@@ -25,8 +25,10 @@
   },
   "lint-staged": {
     "*.{ts,tsx}": [
-      "jest --config ./config/jest/jest.config.ts",
       "eslint '**/*.{ts,tsx}' --fix"
+    ],
+    "**.test.{ts,tsx}": [
+      "jest --config ./config/jest/jest.config.ts"
     ],
     "*.scss": [
       "npx stylelint '**/*.scss' --fix"
