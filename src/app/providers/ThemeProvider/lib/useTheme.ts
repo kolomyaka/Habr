@@ -1,5 +1,5 @@
 import { LOCAL_STORAGE_THEME_KEY, Theme, ThemeContext, ThemeContextProps } from './ThemeContext';
-import { useContext, useEffect } from 'react';
+import { useCallback, useContext, useEffect } from 'react';
 
 interface useThemeResult {
     toggleTheme: () => void;
@@ -15,8 +15,10 @@ export function useTheme(): useThemeResult {
         setTheme(newTheme);
     };
 
-    useEffect(() => {
+    const setThemeClass = useCallback(() => {
         const root = document.getElementById('root');
+        if (!root) return;
+
         if (theme === Theme.LIGHT) {
             root.classList.add(Theme.LIGHT);
             root.classList.remove(Theme.DARK);
@@ -25,6 +27,10 @@ export function useTheme(): useThemeResult {
             root.classList.remove(Theme.LIGHT);
         }
     }, [theme]);
+
+    useEffect(() => {
+        setThemeClass();
+    }, [setThemeClass, theme]);
 
     return { theme, toggleTheme };
 }
