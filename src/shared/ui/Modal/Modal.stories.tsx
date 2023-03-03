@@ -21,13 +21,4 @@ Primary.args = {
     children: 'Modal textModal text Modal text Modal text Modal text Modal text Modal text Modal text Modal text Modal text'
 };
 
-export const Dark = Template.bind({});
-
-Dark.args = {
-    isOpen: true,
-    children: 'Modal textModal text Modal text Modal text Modal text Modal text Modal text Modal text Modal text Modal text'
-};
-
-Dark.decorators = [ThemeDecorator(Theme.DARK)];
-
 
