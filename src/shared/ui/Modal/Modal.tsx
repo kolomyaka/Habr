@@ -1,6 +1,6 @@
 import { classNames } from 'shared/lib/classNames/classNames';
 import cls from './Modal.module.scss';
-import { ReactNode, TransitionEvent, useCallback, useEffect } from 'react';
+import { ReactNode, useCallback, useEffect } from 'react';
 import { Portal } from 'shared/ui/Portal/Portal';
 import { useTheme } from 'app/providers/ThemeProvider';
 

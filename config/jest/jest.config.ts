@@ -2,6 +2,10 @@ import path from 'path';
 
 
 export default {
+    // Так как наша тестовая среда не знает о переменных конфига (is_dev), то необходимо в конфиге указать их
+    globals: {
+        '__IS_DEV__': true
+    },
     clearMocks: true,
     testEnvironment: 'jsdom',
     coveragePathIgnorePatterns: [
