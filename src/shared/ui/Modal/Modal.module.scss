@@ -7,16 +7,6 @@
     color: var(--primary-color);
 }
 
-.modal.dark {
-    --bg-color: #0c0c69;
-    --primary-color: #11ea11;
-}
-
-.modal.light {
-    --bg-color: #e8e8ea;
-    --primary-color: #1043c5;
-}
-
 .overlay {
     background: var(--overlay-color);
     display: flex;

@@ -21,9 +21,9 @@ export const parameters = {
         icon: 'globe',
         default: 'light',
         list: [
-            { name: 'light', class: ['light'], color: '#11ea11' },
-            { name: 'dark', class: ['dark'], color: '#0c0c69' },
+            { name: 'light', class: [Theme.LIGHT], color: '#11ea11' },
+            { name: 'dark', class: [Theme.DARK], color: '#0c0c69' },
         ],
-        target: '.app'
+        target: '#root'
     },
 };

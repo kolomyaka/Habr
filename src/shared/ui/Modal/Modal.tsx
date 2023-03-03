@@ -25,7 +25,6 @@ export const Modal = (props: ModalProps) => {
     const mods: Record<string, boolean> = {
         [cls.opened]: isOpen,
         [cls.closed]: !isOpen,
-        [cls[theme]]: true
     };
 
     const closeHandler = useCallback(() => {
@@ -55,7 +54,9 @@ export const Modal = (props: ModalProps) => {
 
     return (
         <Portal>
-            <div data-testid={'modal'} className={classNames(cls.modal, mods, [className])}>
+            <div
+                data-testid={'modal'}
+                className={classNames(cls.modal, mods, [className])}>
                 <div className={cls.overlay} onClick={closeHandler}>
                     <div
                         className={cls.content}
