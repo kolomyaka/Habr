@@ -92,5 +92,7 @@ jobs:
         run: npm run build:prod
       - name: build storybook
         run: npm run storybook:build
+      - name: build update
+        run: loki update --storiesFilter="^shared\\/Modal Primary|widgets\\/Sidebar Light|widgets\\/Sidebar Dark\$" --reactUri="file:./storybook-static"
       - name: screenshot testing
         run: npm run test:ui:ci
