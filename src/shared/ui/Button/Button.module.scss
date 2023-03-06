@@ -20,6 +20,7 @@
     border: 1px solid var(--primary-color);
     color: var(--primary-color);
     background: none;
+    border-radius: var(--radius-s);
 }
 
 .background {
@@ -34,26 +35,39 @@
     border: none;
 }
 
+.backgroundLight {
+    background-color: var(--light-bg-color);
+    color: var(--inverted-primary-color);
+    border: none;
+}
+
 .square {
     padding: 0;
 }
 
-.square.size_m {
-    width: var(--font-line-m);
-    height: var(--font-line-m);
-    font-size: var(--font-size-m);
+.round {
+    border-radius: 50%;
 }
 
-.square.size_l {
-    width: var(--font-line-l);
-    height: var(--font-line-l);
-    font-size: var(--font-size-l);
-}
+.square,
+.round {
+    .size_m {
+        width: var(--font-line-m);
+        height: var(--font-line-m);
+        font-size: var(--font-size-m);
+    }
 
-.square.size_xl {
-    width: var(--font-line-xl);
-    height: var(--font-line-xl);
-    font-size: var(--font-size-xl);
+    .size_l {
+        width: var(--font-line-l);
+        height: var(--font-line-l);
+        font-size: var(--font-size-l);
+    }
+
+    .size_xl {
+        width: var(--font-line-xl);
+        height: var(--font-line-xl);
+        font-size: var(--font-size-xl);
+    }
 }
 
 .size_m {

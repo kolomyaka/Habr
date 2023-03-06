@@ -12,12 +12,15 @@
 
     // Размеры
     --navbar-height: 50px;
-    --sidebar-width: 300px;
-    --sidebar-width-collapsed: 80px;
+    --sidebar-width: 180px;
+    --sidebar-width-collapsed: 60px;
 
     // z-index
     --modal-z-index: 10;
 
     // Цвета
     --overlay-color: rgba(0 0 0 / 60%);
+
+    // Бордер радиус
+    --radius-s: 4px;
 }

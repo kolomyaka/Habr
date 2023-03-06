@@ -4,6 +4,7 @@ import { useTranslation } from 'react-i18next';
 import { Button, ButtonTheme } from 'shared/ui/Button/Button';
 import { useCallback, useState } from 'react';
 import { LoginModal } from 'feature/AuthByUsername';
+import { LangSwitcher } from 'feature/LangSwitcher';
 
 interface NavbarProps {
     className?: string
@@ -25,13 +26,16 @@ export const Navbar = ({ className }: NavbarProps) => {
 
     return (
         <div className={classNames(cls.navbar, {}, [className])}>
-            <Button
-                onClick={onShowModal}
-                theme={ButtonTheme.CLEAR_INVERTED}
-                className={cls.links}
-            >
-                {t('Войти')}
-            </Button>
+            <div className={cls.navbarControls}>
+                <LangSwitcher />
+                <Button
+                    onClick={onShowModal}
+                    theme={ButtonTheme.OUTLINE}
+                    className={cls.links}
+                >
+                    {t('Войти')}
+                </Button>
+            </div>
             <LoginModal
                 isOpen={isAuthModal}
                 onClose={onCloseModal}

@@ -2,7 +2,6 @@ import { classNames } from 'shared/lib/classNames/classNames';
 import cls from './Modal.module.scss';
 import { ReactNode, useCallback, useEffect, useState } from 'react';
 import { Portal } from 'shared/ui/Portal/Portal';
-import { useTheme } from 'app/providers/ThemeProvider';
 
 interface ModalProps {
     className?: string;
@@ -49,11 +48,8 @@ export const Modal = (props: ModalProps) => {
         if (isOpen) {
             setIsMounted(true);
         }
-
-        return () => {
-            setIsMounted(false);
-        };
     }, [isOpen]);
+
 
     useEffect(() => {
         if (isOpen) {
