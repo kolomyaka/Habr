@@ -16,7 +16,7 @@ export const Primary = Template.bind({});
 
 Primary.args = {
     isOpen: true,
-    children: 'Modal textModal text Modal text Modal text Modal text Modal text Modal text Modal text Modal text Modal text'
+    children: 'Modal textModal text Modal text'
 };
 
 
