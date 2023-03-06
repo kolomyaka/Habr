@@ -5,6 +5,7 @@
     "selector-class-pattern": null,
     "no-descending-specificity": null,
     "no-missing-end-of-source-newline": null,
-    "number-leading-zero": null
+    "number-leading-zero": null,
+    "property-no-vendor-prefix": null
   }
 }

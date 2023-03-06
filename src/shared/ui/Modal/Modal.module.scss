@@ -18,8 +18,9 @@
 
 .content {
     padding: 20px;
-
-    // box-shadow: 5px 5px 5px -5px rgb(91 96 99 / 70%);
+    box-shadow: 5px 5px 5px -5px rgb(91 96 99 / 70%);
+    -webkit-box-shadow: 5px 5px 5px -5px rgb(91 96 99 / 70%);
+    -moz-box-shadow: 5px 5px 5px -5px rgb(91 96 99 / 70%);
     background: var(--bg-color);
     border-radius: 8px;
     transition: .3s transform;

@@ -5,8 +5,9 @@
     display: flex;
     align-items: center;
     padding: 20px;
-
-    // box-shadow: 0 5px 5px -1px var(--shadow-color);
+    box-shadow: 0 5px 5px -1px var(--shadow-color);
+    -webkit-box-shadow: 0 5px 5px -1px var(--shadow-color);
+    -moz-box-shadow: 0 5px 5px -1px var(--shadow-color);
     position: relative;
     z-index: 1;
 }
