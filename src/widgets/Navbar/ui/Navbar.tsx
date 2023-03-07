@@ -5,6 +5,8 @@ import { Button, ButtonTheme } from 'shared/ui/Button/Button';
 import { useCallback, useState } from 'react';
 import { LoginModal } from 'feature/AuthByUsername';
 import { LangSwitcher } from 'feature/LangSwitcher';
+import { useDispatch, useSelector } from 'react-redux';
+import { getUserAuthData, userActions } from 'entities/User';
 
 interface NavbarProps {
     className?: string
@@ -13,7 +15,8 @@ interface NavbarProps {
 export const Navbar = ({ className }: NavbarProps) => {
 
     const { t } = useTranslation();
-
+    const dispatch = useDispatch();
+    const userAuthData = useSelector(getUserAuthData);
     const [isAuthModal, setIsAuthModal] = useState(false);
 
     const onCloseModal = useCallback(() => {
@@ -24,24 +27,43 @@ export const Navbar = ({ className }: NavbarProps) => {
         setIsAuthModal(true);
     }, [setIsAuthModal]);
 
+    const onLogoutHandler = useCallback(() => {
+        setIsAuthModal(false);
+        dispatch(userActions.logout());
+    }, [dispatch]);
+
     return (
         <div className={classNames(cls.navbar, {}, [className])}>
             <div className={cls.navbarControls}>
                 <LangSwitcher />
-                <Button
-                    onClick={onShowModal}
-                    theme={ButtonTheme.OUTLINE}
-                    className={cls.links}
-                >
-                    {t('Войти')}
-                </Button>
+                {
+                    userAuthData
+                        ? <Button
+                            onClick={onLogoutHandler}
+                            theme={ButtonTheme.OUTLINE}
+                            className={cls.links}
+                        >
+                            {t('Выйти')}
+                        </Button>
+                        : <Button
+                            onClick={onShowModal}
+                            theme={ButtonTheme.OUTLINE}
+                            className={cls.links}
+                        >
+                            {t('Войти')}
+                        </Button>
+                }
             </div>
-            <LoginModal
-                isOpen={isAuthModal}
-                onClose={onCloseModal}
-            />
+            {
+                !userAuthData && <LoginModal
+                    isOpen={isAuthModal}
+                    onClose={onCloseModal}
+                />
+            }
         </div>
     );
+
+
 };
 
 

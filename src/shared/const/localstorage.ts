@@ -1,0 +1,1 @@
+export const USER_LOCALSTORATE_KEY = 'user';
