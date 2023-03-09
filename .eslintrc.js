@@ -47,9 +47,10 @@ module.exports = {
         '@typescript-eslint/no-var-requires': 'off',
         'react-hooks/rules-of-hooks': 'error',
         'react-hooks/exhaustive-deps': 'error',
+        '@typescript-eslint/ban-ts-comment': 'off',
         'i18next/no-literal-string': [
             'error',
-            { markupOnly: true, ignoreAttribute: ['to', 'data-testid'] }
+            { markupOnly: true, ignoreAttribute: ['to', 'data-testid', 'name'] }
         ],
         'max-len': ['error', { ignoreComments: true, code: 120 }],
         'linebreak-style': [

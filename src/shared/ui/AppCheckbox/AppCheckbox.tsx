@@ -29,14 +29,13 @@ export const AppCheckbox = (props : AppCheckboxProps) => {
 
     return (
         <label
-            onChange={onChangeHandler}
             className={classNames(cls.appCheckbox, { [cls.short]: short }, [className])}
         >
             {
                 label && <p className={cls.label}>{label}</p>
             }
             <div className={cls.switcher}>
-                <input checked={checked} type="checkbox" />
+                <input onChange={onChangeHandler} checked={checked} type="checkbox" />
                 <span className={cls.slider}></span>
             </div>
         </label>
