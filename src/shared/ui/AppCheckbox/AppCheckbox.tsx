@@ -25,8 +25,6 @@ export const AppCheckbox = (props : AppCheckboxProps) => {
         onChange?.();
     };
 
-    console.log(className);
-
     return (
         <label
             className={classNames(cls.appCheckbox, { [cls.short]: short }, [className])}
