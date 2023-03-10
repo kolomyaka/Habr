@@ -1,7 +1,7 @@
 import { classNames } from 'shared/lib/classNames/classNames';
 import cls from './AppNavLink.module.scss';
 import { NavLink, NavLinkProps } from 'react-router-dom';
-import { FC } from 'react';
+import { FC, memo } from 'react';
 
 export enum AppNavLinkTheme {
     PRIMARY = 'primary',
@@ -13,7 +13,7 @@ interface AppNavLinkProps extends NavLinkProps{
     theme?: AppNavLinkTheme
 }
 
-export const AppNavLink: FC<AppNavLinkProps> = (props: AppNavLinkProps) => {
+export const AppNavLink = memo((props: AppNavLinkProps) => {
 
     const {
         to,
@@ -33,6 +33,6 @@ export const AppNavLink: FC<AppNavLinkProps> = (props: AppNavLinkProps) => {
             {children}
         </NavLink>
     );
-};
+});
 
 

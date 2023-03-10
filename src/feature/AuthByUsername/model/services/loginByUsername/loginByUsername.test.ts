@@ -37,8 +37,4 @@ describe('getLoginIsLoading.test', () => {
         expect(mockedAxios.post).toHaveBeenCalled();
         expect(result.payload).toBe('Invalid username or password');
     });
-
-
-
-
 });

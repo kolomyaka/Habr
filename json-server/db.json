@@ -8,7 +8,16 @@
   "comments": [
     { "id": "1", "body": "some comment", "postId": "1" }
   ],
-  "profile": { "name": "typicode" },
+  "profile": {
+    "first_name": "Nikita",
+    "last_name": "Kolomoycev",
+    "age": 22,
+    "currency": "RUB",
+    "county": "Russia",
+    "city": "Saint-Petersburg",
+    "username": "admin",
+    "avatar": "https://gravatar.com/avatar/d979bab081fc6611be42996b4f3a6994?s=400&d=monsterid&r=x"
+  },
   "users": [
     {
       "id": "1",

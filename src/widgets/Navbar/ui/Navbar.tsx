@@ -2,7 +2,7 @@ import { classNames } from 'shared/lib/classNames/classNames';
 import cls from './Navbar.module.scss';
 import { useTranslation } from 'react-i18next';
 import { Button, ButtonTheme } from 'shared/ui/Button/Button';
-import { useCallback, useState } from 'react';
+import { memo, useCallback, useState } from 'react';
 import { LoginModal } from 'feature/AuthByUsername';
 import { LangSwitcher } from 'feature/LangSwitcher';
 import { useDispatch, useSelector } from 'react-redux';
@@ -12,7 +12,7 @@ interface NavbarProps {
     className?: string
 }
 
-export const Navbar = ({ className }: NavbarProps) => {
+export const Navbar = memo(({ className }: NavbarProps) => {
 
     const { t } = useTranslation();
     const dispatch = useDispatch();
@@ -62,8 +62,6 @@ export const Navbar = ({ className }: NavbarProps) => {
             }
         </div>
     );
-
-
-};
+});
 
 

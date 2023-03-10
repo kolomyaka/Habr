@@ -1,6 +1,6 @@
 import { classNames } from 'shared/lib/classNames/classNames';
 import cls from './AppCheckbox.module.scss';
-import { InputHTMLAttributes, ReactNode } from 'react';
+import { InputHTMLAttributes, memo, ReactNode } from 'react';
 
 
 interface AppCheckboxProps extends InputHTMLAttributes<HTMLInputElement> {
@@ -11,7 +11,7 @@ interface AppCheckboxProps extends InputHTMLAttributes<HTMLInputElement> {
     onChange?: () => void;
 }
 
-export const AppCheckbox = (props : AppCheckboxProps) => {
+export const AppCheckbox = memo((props : AppCheckboxProps) => {
 
     const {
         className,
@@ -38,6 +38,6 @@ export const AppCheckbox = (props : AppCheckboxProps) => {
             </div>
         </label>
     );
-};
+});
 
 

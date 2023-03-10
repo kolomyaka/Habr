@@ -1,0 +1,30 @@
+.item {
+    display: flex;
+    align-items: center;
+    padding: 10px 12px;
+    background-color: var(--light-bg-color);
+    border-radius: var(--radius-s);
+}
+
+.link {
+    opacity: 1;
+    transition: .7s width;
+    transition: 1s opacity ease-in-out;
+    width: 100%;
+    margin-left: 12px;
+    white-space: nowrap;
+}
+
+.icon {
+    fill: var(--primary-color);
+    min-width: 20px;
+}
+
+.collapsed {
+    .link {
+        opacity: 0;
+        transition: .1s all;
+        width: 0;
+        margin-left: 0;
+    }
+}
