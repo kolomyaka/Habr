@@ -12,7 +12,7 @@ export function useTheme(): useThemeResult {
     const toggleTheme = () => {
         const newTheme = theme === Theme.DARK ? Theme.LIGHT : Theme.DARK;
         localStorage.setItem(LOCAL_STORAGE_THEME_KEY, newTheme);
-        setTheme(newTheme);
+        setTheme?.(newTheme);
     };
 
     const setThemeClass = useCallback(() => {
@@ -32,5 +32,8 @@ export function useTheme(): useThemeResult {
         setThemeClass();
     }, [setThemeClass, theme]);
 
-    return { theme, toggleTheme };
+    return {
+        theme: theme || Theme.LIGHT,
+        toggleTheme
+    };
 }

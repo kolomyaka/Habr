@@ -16,14 +16,14 @@ export const profileSlice = createSlice({
     extraReducers: (builder) => {
         builder
             .addCase(fetchProfileData.pending, (state) => {
-                state.error = null;
+                state.error = undefined;
                 state.isLoading = true;
             })
             .addCase(fetchProfileData.fulfilled, (state, action:PayloadAction<Profile>) => {
                 state.data = action.payload;
                 state.isLoading = false;
             })
-            .addCase(fetchProfileData.rejected, (state, action:PayloadAction<string>) => {
+            .addCase(fetchProfileData.rejected, (state, action: PayloadAction<string | undefined>) => {
                 state.error = action.payload;
                 state.isLoading = false;
             });

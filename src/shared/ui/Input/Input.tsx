@@ -30,7 +30,7 @@ export const Input = memo((props: InputProps) => {
     } = props;
 
     const [isFocused, setIsFocused] = useState(false);
-    const [caretPosition, setCaretPosition] = useState(0);
+    const [caretPosition, setCaretPosition] = useState<number | null>(0);
 
     const onChangeHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
         // Чтобы не делать if () {}

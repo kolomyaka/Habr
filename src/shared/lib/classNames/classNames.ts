@@ -4,7 +4,7 @@
 // string или Literal String - Record<"a", T> или Record<"a" | "b", T>. В качестве второго
 // параметра ожидается конкретный тип данных, который будет ассоциирован с каждым ключом.
 
-type Mods = Record<string, boolean | string>
+export type Mods = Record<string, boolean | string | undefined>
 
 export function classNames(
     cls: string,

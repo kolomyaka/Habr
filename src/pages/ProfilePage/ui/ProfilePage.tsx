@@ -14,7 +14,6 @@ const reducers: ReducersList = {
 };
 
 const ProfilePage = ({ className }: ProfilePageProps) => {
-    const { t } = useTranslation('profile');
     const dispatch = useAppDispatch();
 
     useEffect(() => {
