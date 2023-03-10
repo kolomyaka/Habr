@@ -3,6 +3,7 @@ import { StateSchema } from 'app/providers/StoreProvider/config/StateSchema';
 import { counterReducer } from 'entities/Counter';
 import { userReducer } from 'entities/User';
 import { createReducerManager } from 'app/providers/StoreProvider/config/reducerManager';
+import { $api } from 'shared/api/api';
 
 
 // Делаем initialState, чтобы в дальнейшем для SB или тестов могли подготовить какие-то данные
@@ -21,10 +22,20 @@ export const createReduxStore = (
 
     const reducerManager = createReducerManager(rootReducer);
 
-    const store = configureStore<StateSchema>({
+    const store = configureStore({
         reducer: reducerManager.reduce,
         devTools: __IS_DEV__,
-        preloadedState: initialState
+        preloadedState: initialState,
+        middleware: getDefaultMiddleware => getDefaultMiddleware({
+            // Настраиваем middleware для санки
+            thunk: {
+                // Настраиваем extra-аргументы санки
+                extraArgument: {
+                    // Делаем поле api и передаем как раз наш конфиг axios
+                    api: $api
+                }
+            }
+        })
     });
 
     // @ts-ignore

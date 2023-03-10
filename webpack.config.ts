@@ -17,6 +17,7 @@ export default (env: BuildEnv) => {
     // Смотрим в какой среде текущая сборка (дев, продакшн)
     const mode = env.mode || 'development';
     const isDev = mode === 'development';
+    const apiUrl = env.apiUrl || 'http://localhost:8000';
 
     // В зависимости от среды сборки смотрим из какого файла нужны .env-переменные
     dotenv.config({
@@ -30,6 +31,7 @@ export default (env: BuildEnv) => {
         mode,
         paths,
         isDev,
+        apiUrl,
         PORT
     });
 

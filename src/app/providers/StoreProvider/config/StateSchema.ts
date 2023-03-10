@@ -1,7 +1,8 @@
+import { AnyAction, CombinedState, EnhancedStore, Reducer, ReducersMapObject } from '@reduxjs/toolkit';
+import { AxiosInstance } from 'axios';
 import { CounterSchema } from 'entities/Counter';
 import { UserSchema } from 'entities/User';
 import { LoginSchema } from 'feature/AuthByUsername';
-import { AnyAction, CombinedState, EnhancedStore, Reducer, ReducersMapObject } from '@reduxjs/toolkit';
 import { ProfileSchema } from 'entities/Profile';
 
 // Типизируем наше хранилище редюсеров
@@ -23,6 +24,18 @@ export interface ReducerManager {
     remove: (key:StateSchemaKey) => void;
 }
 
+// Типизируем наше хранилище
 export interface ReduxStoreWithManager extends EnhancedStore<StateSchema> {
     reducerManager: ReducerManager;
+}
+
+// Типизируем поле extra у ThunkAPI
+export interface ThunkExtraArg {
+    api: AxiosInstance;
+}
+
+// Типизируем саму AsyncThunk
+export interface ThunkConfig<T> {
+    rejectValue: T;
+    extra: ThunkExtraArg
 }
