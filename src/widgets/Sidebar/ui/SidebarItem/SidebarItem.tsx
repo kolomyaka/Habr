@@ -4,6 +4,8 @@ import { AppNavLink, AppNavLinkTheme } from 'shared/ui/AppNavLink/AppNavLink';
 import { SidebarItemType } from '../../model/items';
 import { useTranslation } from 'react-i18next';
 import { memo } from 'react';
+import { useSelector } from 'react-redux';
+import { getUserAuthData } from 'entities/User';
 
 interface SidebarItemProps {
     item: SidebarItemType;
@@ -12,6 +14,11 @@ interface SidebarItemProps {
 
 export const SidebarItem = memo(({ item, collapsed }: SidebarItemProps) => {
     const { t } = useTranslation();
+    const isAuth = useSelector(getUserAuthData);
+
+    if (item.authOnly && !isAuth) {
+        return null;
+    }
 
     return (
         <AppNavLink

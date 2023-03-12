@@ -8,8 +8,13 @@
     outline: none;
     caret-color: transparent;
     color: var(--primary-color);
+    width: 100%;
 
-    :focus {
+    &:read-only {
+        cursor: default;
+    }
+
+    &:focus {
         outline: none;
     }
 }
@@ -31,6 +36,10 @@
     height: 3px;
     width: 1ch;
     animation: blink .7s infinite forwards;
+}
+
+.readonly {
+    opacity: .7;
 }
 
 @keyframes blink {

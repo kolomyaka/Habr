@@ -3,7 +3,6 @@ import cls from './Sidebar.module.scss';
 import { memo, useState } from 'react';
 import { Button, ButtonSize, ButtonTheme } from 'shared/ui/Button/Button';
 import { ThemeSwitcher } from 'feature/ThemeSwitcher';
-import { useTranslation } from 'react-i18next';
 import { SidebarItemsList } from 'widgets/Sidebar/model/items';
 import { SidebarItem } from 'widgets/Sidebar/ui/SidebarItem/SidebarItem';
 
@@ -38,7 +37,11 @@ export const Sidebar = memo(({ className }: SidebarProps) => {
             </Button>
             <div className={cls.items}>
                 {SidebarItemsList.map((item) => (
-                    <SidebarItem collapsed={collapsed} item={item} key={item.path} />
+                    <SidebarItem
+                        collapsed={collapsed}
+                        item={item}
+                        key={item.path}
+                    />
                 ))}
             </div>
             <div className={cls.switchers}>

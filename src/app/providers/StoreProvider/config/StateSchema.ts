@@ -37,5 +37,6 @@ export interface ThunkExtraArg {
 // Типизируем саму AsyncThunk
 export interface ThunkConfig<T> {
     rejectValue: T;
-    extra: ThunkExtraArg
+    extra: ThunkExtraArg;
+    state: StateSchema;
 }

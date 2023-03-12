@@ -3,9 +3,20 @@
     border: 1px solid var(--inverted-bg-color);
 }
 
-.header {
+.avatarWrapper {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+.loader {
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    margin-bottom: 15px;
+    justify-content: center;
+}
+
+.error {
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }

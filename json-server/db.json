@@ -1,22 +1,44 @@
 {
   "posts": [
-    { "id": "1", "title": "json-server", "author": "typicode" },
-    { "id": "2", "title": "json-server 2", "author": "typicode" },
-    { "id": "3", "title": "json-server3", "author": "typicode" },
-    { "id": "4", "title": "json-server4", "author": "typicode" }
+    {
+      "id": "12",
+      "title": "json-server",
+      "author": "typicode"
+    },
+    {
+      "id": "23",
+      "title": "json-server 2",
+      "author": "typicode"
+    },
+    {
+      "id": "34",
+      "title": "json-server3",
+      "author": "typicode"
+    },
+    {
+      "id": "45",
+      "title": "json-server4",
+      "author": "typicode"
+    }
   ],
   "comments": [
-    { "id": "1", "body": "some comment", "postId": "1" }
+    {
+      "id": "1",
+      "body": "some comment",
+      "postId": "1"
+    }
   ],
   "profile": {
-    "first_name": "Nikita",
+    "first_name": "Nikita1",
     "last_name": "Kolomoycev",
     "age": 22,
-    "currency": "RUB",
+    "currency": "EUR",
     "county": "Russia",
     "city": "Saint-Petersburg",
     "username": "admin",
-    "avatar": "https://gravatar.com/avatar/d979bab081fc6611be42996b4f3a6994?s=400&d=monsterid&r=x"
+    "avatar": "https://gravatar.com/avatar/d79a01fc6611be42996b4f3a6994?s=400&d=monsterid&r=x",
+    "": "EUR",
+    "country": "Russia"
   },
   "users": [
     {

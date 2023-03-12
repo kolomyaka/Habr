@@ -1,20 +1,22 @@
-import { classNames } from 'shared/lib/classNames/classNames';
+import { classNames, Mods } from 'shared/lib/classNames/classNames';
 import cls from './Input.module.scss';
 import { InputHTMLAttributes, memo, SyntheticEvent, useState } from 'react';
 
 // Omit - Первым параметром принимает тип, который забираем,
 // Вторым параметром исключаем типы, которые хотим исключить
-type HTMLInputProps = Omit<InputHTMLAttributes<HTMLInputElement>, 'value' | 'onChange'>
+type HTMLInputProps = Omit<InputHTMLAttributes<HTMLInputElement>, 'value' | 'onChange' | 'readOnly' | 'name'>
 
 // Если делать extends от обычного HTMLInput, то ТС будем ругаться, т.к переопределяем
 // Дефолтные типы инпута
 interface InputProps extends HTMLInputProps {
     className?: string;
-    value?: string;
+    value?: string | number;
     type?: string;
     label?: string;
+    name?: string;
     autoFocus?: boolean;
-    onChange?: (value: string) => void;
+    readonly?: boolean;
+    onChange?: (value: string, name: string) => void;
 }
 
 export const Input = memo((props: InputProps) => {
@@ -23,19 +25,27 @@ export const Input = memo((props: InputProps) => {
         className,
         value,
         label,
-        onChange,
+        readonly,
+        name,
         autoFocus,
         type = 'text',
+        onChange,
         ...otherProps
     } = props;
+
+    const mods: Mods = {
+        [cls.readonly]: readonly
+    };
 
     const [isFocused, setIsFocused] = useState(false);
     const [caretPosition, setCaretPosition] = useState<number | null>(0);
 
+    const isVisibleCaret = isFocused && !readonly;
+
     const onChangeHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
         // Чтобы не делать if () {}
         // Можем воспользоваться конструкцией для вызова функции func?.()
-        onChange?.(e.target.value);
+        onChange?.(e.target.value, e.target.name);
         setCaretPosition(e.target.value.length);
     };
 
@@ -52,16 +62,18 @@ export const Input = memo((props: InputProps) => {
     };
 
     return (
-        <label className={classNames(cls.inputWrapper, {}, [className])}>
+        <label className={classNames(cls.inputWrapper, mods, [className])}>
             {
                 label && <p className={cls.label}>{`${label}>`}</p>
             }
             <div className={cls.caretWrapper}>
                 <input
+                    name={name}
                     autoFocus={autoFocus}
                     className={cls.input}
                     type={type}
                     value={value}
+                    readOnly={readonly}
                     onChange={onChangeHandler}
                     onFocus={onFocusHandler}
                     onBlur={onBlurHandler}
@@ -69,7 +81,7 @@ export const Input = memo((props: InputProps) => {
                     {...otherProps}
                 />
                 {
-                    isFocused && (
+                    isVisibleCaret && (
                         <span
                             style={{ left: `${caretPosition}ch` }}
                             className={cls.caret}
