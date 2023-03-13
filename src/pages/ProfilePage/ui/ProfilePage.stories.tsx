@@ -4,7 +4,6 @@ import ProfilePage from './ProfilePage';
 import { StoreDecorator } from 'shared/config/storybook/StoreDecorator/StoreDecorator';
 import { Country } from 'entities/Country';
 import { Currency } from 'entities/Currency';
-import AvatarImg from 'shared/assets/tests/avatar.png';
 
 export default {
     title: 'pages/ProfilePage',
@@ -29,7 +28,7 @@ Normal.decorators = [StoreDecorator({
             country: Country.Russia,
             currency: Currency.RUB,
             city: 'Saint-Petersburg',
-            avatar: AvatarImg
+            avatar: 'https://gravatar.com/avatar/d79a01fc6611be42996b4f3a6994?s=400&d=monsterid&r=x'
         }
     }
 })];

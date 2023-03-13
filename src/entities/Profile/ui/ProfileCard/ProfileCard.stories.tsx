@@ -4,7 +4,6 @@ import { ProfileCard } from './ProfileCard';
 import { Currency } from 'entities/Currency';
 import { Country } from 'entities/Country';
 import { ValidateProfileError } from 'entities/Profile';
-import AvatarImg from 'shared/assets/tests/avatar.png';
 
 export default {
     title: 'entities/ProfileCard',
@@ -27,7 +26,7 @@ Primary.args = {
         country: Country.Russia,
         currency: Currency.RUB,
         city: 'Saint-Petersburg',
-        avatar: AvatarImg
+        avatar: 'https://gravatar.com/avatar/d79a01fc6611be42996b4f3a6994?s=400&d=monsterid&r=x'
     }
 };
 
