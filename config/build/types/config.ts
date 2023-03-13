@@ -18,5 +18,6 @@ export interface BuildOptions {
     paths: BuildPath;
     isDev: boolean;
     PORT: number | string;
-    apiUrl: string
+    apiUrl: string;
+    project: 'storybook' | 'frontend' | 'jest'
 }

@@ -1,7 +1,7 @@
 export {
     profileActions,
     profileReducer
-} from './model/slice/ProfileSlice';
+} from './model/slice/profileSlice';
 
 export {
     EditableProfileCard

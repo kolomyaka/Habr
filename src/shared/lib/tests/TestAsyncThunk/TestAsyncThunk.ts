@@ -21,11 +21,14 @@ export class TestAsyncThunk<Return, Arg, RejectedValue> {
     // Так же добавляем информацию о axios, который будем использовать в extra-парам в санке
     api: jest.MockedFunctionDeep<AxiosStatic>;
 
-    constructor(actionCreator: ActionCreatorType<Return, Arg, RejectedValue>) {
+    constructor(
+        actionCreator: ActionCreatorType<Return, Arg, RejectedValue>,
+        state?: DeepPartial<StateSchema>
+    ) {
         // При инициализации сохраняем поля нашего класса
         this.actionCreator = actionCreator;
         this.dispatch = jest.fn();
-        this.getState = jest.fn();
+        this.getState = jest.fn(() => state as StateSchema);
         // Указываем, что такое api
         this.api = mockedAxios;
     }

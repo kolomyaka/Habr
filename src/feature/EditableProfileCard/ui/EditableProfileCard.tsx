@@ -8,7 +8,7 @@ import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { getProfileIsLoading } from '../model/selectors/getProfileIsLoading/getProfileIsLoading';
 import { getProfileError } from '../model/selectors/getProfileError/getProfileError';
 import { EditableProfileCardHeader } from './EditableProfileCardHeader/EditableProfileCardHeader';
-import { profileActions } from '../model/slice/ProfileSlice';
+import { profileActions } from '../model/slice/profileSlice';
 import { getProfileReadonly } from '../model/selectors/getProfileReadonly/getProfileReadonly';
 import { getProfileForm } from '../model/selectors/getProfileForm/getProfileForm';
 import {
@@ -41,7 +41,9 @@ export const EditableProfileCard = ({ className }: EditableProfileCardProps) => 
     };
     
     useEffect(() => {
-        dispatch(fetchProfileData());
+        if (__PROJECT__ !== 'storybook') {
+            dispatch(fetchProfileData());
+        }
     }, [dispatch]);
 
     const onInputChangeHandler = useCallback((value: string, name: string) => {
