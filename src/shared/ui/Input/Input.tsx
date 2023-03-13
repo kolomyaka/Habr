@@ -46,7 +46,9 @@ export const Input = memo((props: InputProps) => {
         // Чтобы не делать if () {}
         // Можем воспользоваться конструкцией для вызова функции func?.()
         onChange?.(e.target.value, e.target.name);
-        setCaretPosition(e.target.value.length);
+        if (value) {
+            setCaretPosition(value?.toString().length);
+        }
     };
 
     const onFocusHandler = () => {

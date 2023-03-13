@@ -21,6 +21,7 @@
     color: var(--primary-color);
     background: none;
     border-radius: var(--radius-s);
+    padding: 5px 15px;
 }
 
 .background {
@@ -33,6 +34,7 @@
     background-color: var(--inverted-bg-color);
     color: var(--inverted-primary-color);
     border: none;
+    border-radius: var(--radius-s);
 }
 
 .backgroundLight {
