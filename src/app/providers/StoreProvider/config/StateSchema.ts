@@ -4,6 +4,7 @@ import { CounterSchema } from 'entities/Counter';
 import { UserSchema } from 'entities/User';
 import { LoginSchema } from 'feature/AuthByUsername';
 import { ProfileSchema } from 'entities/Profile';
+import { ArticleDetailsSchema } from 'entities/Article';
 
 // Типизируем наше хранилище редюсеров
 export interface StateSchema {
@@ -13,6 +14,7 @@ export interface StateSchema {
     // Асинхронные редюсеры
     profile?: ProfileSchema;
     loginForm?: LoginSchema;
+    articleDetails?: ArticleDetailsSchema;
 }
 
 export type StateSchemaKey = keyof StateSchema
