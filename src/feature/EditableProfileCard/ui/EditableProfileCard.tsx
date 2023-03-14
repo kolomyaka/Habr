@@ -39,12 +39,7 @@ export const EditableProfileCard = ({ className }: EditableProfileCardProps) => 
         [ValidateProfileError.NO_DATA]: t('Данные не указаны'),
         [ValidateProfileError.INCORRECT_USERNAME]: t('Логин обязателен')
     };
-    
-    useEffect(() => {
-        if (__PROJECT__ !== 'storybook') {
-            dispatch(fetchProfileData());
-        }
-    }, [dispatch]);
+
 
     const onInputChangeHandler = useCallback((value: string, name: string) => {
         switch (name) {
