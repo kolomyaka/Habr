@@ -1,6 +1,6 @@
 import React from 'react';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
-import { Text, TextTheme } from 'shared/ui/Text/Text';
+import { Text, TextSize, TextTheme } from 'shared/ui/Text/Text';
 
 export default {
     title: 'shared/Text',
@@ -45,3 +45,20 @@ TextDescription.args = {
     theme: TextTheme.ERROR,
     description: 'description text',
 };
+
+export const SizeM = Template.bind({});
+
+SizeM.args = {
+    title: 'Title text',
+    description: 'description text',
+    size: TextSize.M
+};
+
+export const SizeL = Template.bind({});
+
+SizeL.args = {
+    title: 'Title text',
+    description: 'description text',
+    size: TextSize.L
+};
+

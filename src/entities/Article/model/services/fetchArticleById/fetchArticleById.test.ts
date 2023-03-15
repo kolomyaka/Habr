@@ -1,11 +1,8 @@
-import React from 'react';
-import { ComponentMeta, ComponentStory } from '@storybook/react';
-import { ArticleDetails } from './ArticleDetails';
-import { StoreDecorator } from 'shared/config/storybook/StoreDecorator/StoreDecorator';
-import { Article } from 'entities/Article';
-import { ArticleBlockType, ArticleType } from 'entities/Article/model/types/article';
+import { TestAsyncThunk } from 'shared/lib/tests/TestAsyncThunk/TestAsyncThunk';
+import { fetchArticleById } from './fetchArticleById';
+import { ArticleBlockType, ArticleType, Article } from '../../types/article';
 
-const article: Article = {
+const data: Article = {
     'id': '1',
     'title': 'Javascript news',
     'subtitle': 'Что нового в JS за 2022 год?',
@@ -35,7 +32,7 @@ const article: Article = {
             'title': 'Заголовок этого блока',
             'paragraphs': [
                 'Программа, которую по традиции называют «Hello, world!», очень проста. Она выводит куда-либо фразу «Hello, world!», или другую подобную, средствами некоего языка.',
-                'Существуют и другие способы запуска JS-кода в браузере.'
+                'Существуют и другие способы запуска JS-кода в браузере. Так, если говорить об обычном использовании программ на JavaScript, они загружаются в браузер для обеспечения работы веб-страниц. Как правило, код оформляют в виде отдельных файлов с расширением .js, которые подключают к веб-страницам, но программный код можно включать и непосредственно в код страницы. Всё это делается с помощью тега <script>. Когда браузер обнаруживает такой код, он выполняет его. Подробности о теге script можно посмотреть на сайте w3school.com. В частности, рассмотрим пример, демонстрирующий работу с веб-страницей средствами JavaScript, приведённый на этом ресурсе. Этот пример можно запустить и средствами данного ресурса (ищите кнопку Try it Yourself), но мы поступим немного иначе. А именно, создадим в каком-нибудь текстовом редакторе (например — в VS Code или в Notepad++) новый файл, который назовём hello.html, и добавим в него следующий код:'
             ]
         },
         {
@@ -55,7 +52,7 @@ const article: Article = {
             'title': 'Заголовок этого блока',
             'paragraphs': [
                 'JavaScript — это язык, программы на котором можно выполнять в разных средах. В нашем случае речь идёт о браузерах и о серверной платформе Node.js. Если до сих пор вы не написали ни строчки кода на JS и читаете этот текст в браузере, на настольном компьютере, это значит, что вы буквально в считанных секундах от своей первой JavaScript-программы.',
-                'Существуют и другие способы запуска JS-кода в браузере.'
+                'Существуют и другие способы запуска JS-кода в браузере. Так, если говорить об обычном использовании программ на JavaScript, они загружаются в браузер для обеспечения работы веб-страниц. Как правило, код оформляют в виде отдельных файлов с расширением .js, которые подключают к веб-страницам, но программный код можно включать и непосредственно в код страницы. Всё это делается с помощью тега <script>. Когда браузер обнаруживает такой код, он выполняет его. Подробности о теге script можно посмотреть на сайте w3school.com. В частности, рассмотрим пример, демонстрирующий работу с веб-страницей средствами JavaScript, приведённый на этом ресурсе. Этот пример можно запустить и средствами данного ресурса (ищите кнопку Try it Yourself), но мы поступим немного иначе. А именно, создадим в каком-нибудь текстовом редакторе (например — в VS Code или в Notepad++) новый файл, который назовём hello.html, и добавим в него следующий код:'
             ]
         },
         {
@@ -75,42 +72,29 @@ const article: Article = {
     ]
 };
 
-export default {
-    title: 'entities/ArticleDetails',
-    component: ArticleDetails,
-    argTypes: {
-        backgroundColor: { control: 'color' },
-    },
-    decorators: [StoreDecorator({})]
-} as ComponentMeta<typeof ArticleDetails>;
+describe('fetchArticleById.test', () => {
 
+    test('should return fulfilled request', async () => {
+        // Создаем экземпляр нашего класса и передаем санку
+        const thunk = new TestAsyncThunk(fetchArticleById);
+        thunk.api.get.mockReturnValue(Promise.resolve({ data }));
+        // Вызываем метод класса, передавая данные для санки и получаем ответ от action'a
+        const result = await thunk.callThunk(data.id);
 
-const Template: ComponentStory<typeof ArticleDetails> = (args) => <ArticleDetails {...args} />;
+        expect(thunk.dispatch).toBeCalledTimes(2);
+        expect(thunk.api.get).toHaveBeenCalled();
+        expect(result.meta.requestStatus).toBe('fulfilled');
+        expect(result.payload).toEqual(data);
+    });
 
-export const Primary = Template.bind({});
-Primary.args = {};
-Primary.decorators = [StoreDecorator({
-    articleDetails: {
-        data: article
-    }
-})];
+    test('should return rejected request', async () => {
+        const thunk = new TestAsyncThunk(fetchArticleById);
+        thunk.api.get.mockReturnValue(Promise.resolve({ status: 403 }));
+        const result = await thunk.callThunk(data.id);
 
-export const Loading = Template.bind({});
-Loading.args = {};
-Loading.decorators = [StoreDecorator({
-    articleDetails: {
-        isLoading: true
-    }
-})];
-
-export const Error = Template.bind({});
-Error.args = {};
-Error.decorators = [StoreDecorator({
-    articleDetails: {
-        error: 'error'
-    }
-})];
-
-
-
-
+        expect(thunk.dispatch).toBeCalledTimes(2);
+        expect(thunk.api.get).toHaveBeenCalled();
+        expect(result.meta.requestStatus).toBe('rejected');
+        expect(result.payload).toBe('error');
+    });
+});

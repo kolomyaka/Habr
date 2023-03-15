@@ -7,6 +7,6 @@
     "no-missing-end-of-source-newline": null,
     "number-leading-zero": null,
     "property-no-vendor-prefix": null,
-    "block-no-empty": null
+    "block-no-empty": [true, {"severity": "warning"}]
   }
 }
