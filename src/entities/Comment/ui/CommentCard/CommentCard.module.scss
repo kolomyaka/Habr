@@ -1,0 +1,14 @@
+.commentCard {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  width: 100%;
+  padding: 2px 4px 8px;
+  border-bottom: 1px solid var(--comment-border);
+}

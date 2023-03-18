@@ -44,7 +44,7 @@
         {
           "id": "4",
           "type": "CODE",
-          "code": "<!DOCTYPE html>\n<html>\n  <body>\n    <p id=\"hello\"></p>\n\n    <script>\n      document.getElementById(\"hello\").innerHTML = \"Hello, world!\";\n    </script>\n  </body>\n</html>;"
+          "code": "<!DOCTYPE html><html>  <body>    <p id=hello></p>    <script>      document.getElementById(hello).innerHTML = Hello, world!;    </script>  </body></html>;"
         },
         {
           "id": "5",
@@ -64,7 +64,7 @@
         {
           "id": "3",
           "type": "CODE",
-          "code": "const path = require('path');\n\nconst server = jsonServer.create();\n\nconst router = jsonServer.router(path.resolve(__dirname, 'db.json'));\n\nserver.use(jsonServer.defaults({}));\nserver.use(jsonServer.bodyParser);"
+          "code": "const path = require(path);const server = jsonServer.create();const router = jsonServer.router(path.resolve(__dirname, db.json));server.use(jsonServer.defaults({}));server.use(jsonServer.bodyParser);"
         },
         {
           "id": "7",
@@ -106,7 +106,7 @@
       "userId": "2"
     },
     {
-      "id": "2",
+      "id": "3",
       "text": "some comment3",
       "articleId": "1",
       "userId": "1"
@@ -117,13 +117,15 @@
       "id": "1",
       "username": "admin",
       "password": "123",
-      "role": "ADMIN"
+      "role": "ADMIN",
+      "avatar": "https://gravatar.com/avatar/d79a01fc6611be42996b4f3a6994?s=400&d=monsterid&r=x"
     },
     {
       "id": "2",
       "username": "Kolomyaka",
       "password": "qwerty",
-      "role":"ADMIN"
+      "role":"ADMIN",
+      "avatar": "https://i.ytimg.com/vi/tXPUueXzmG8/maxresdefault.jpg"
     }
   ],
   "profile": {
@@ -135,7 +137,6 @@
     "city": "Saint-Petersburg",
     "username": "Kolomyaka",
     "avatar": "https://gravatar.com/avatar/d79a01fc6611be42996b4f3a6994?s=400&d=monsterid&r=x",
-    "": "EUR",
     "country": "Russia"
   }
 }

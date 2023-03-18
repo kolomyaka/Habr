@@ -1,49 +1,49 @@
 .title {
-    color: var(--primary-color);
+  color: var(--primary-color);
 }
 
 .description {
-    color: var(--secondary-color);
+  color: var(--secondary-color);
 }
 
 .error {
-    .title {
-        color: var(--red-light);
-    }
+  .title {
+    color: var(--red-light);
+  }
 
-    .description {
-        color: var(--red-dark);
-    }
+  .description {
+    color: var(--red-dark);
+  }
 }
 
 .left {
-    text-align: left;
+  text-align: left;
 }
 
 .center {
-    text-align: center;
+  text-align: center;
 }
 
 .right {
-    text-align: right;
+  text-align: right;
 }
 
 .sizeM {
-    .title {
-        font: var(--font-l);
-    }
+  .title {
+    font: var(--font-l);
+  }
 
-    .description {
-        font: var(--font-m);
-    }
+  .description {
+    font: var(--font-m);
+  }
 }
 
 .sizeL {
-    .title {
-        font: var(--font-xl);
-    }
+  .title {
+    font: var(--font-xl);
+  }
 
-    .description {
-        font: var(--font-l);
-    }
+  .description {
+    font: var(--font-l);
+  }
 }

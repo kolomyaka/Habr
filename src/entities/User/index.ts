@@ -4,7 +4,8 @@ export {
 } from './model/slice/userSlice';
 
 export {
-    UserSchema
+    UserSchema,
+    User
 } from './model/types/user';
 
 export {

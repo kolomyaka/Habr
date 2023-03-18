@@ -1,57 +1,57 @@
 .inputWrapper {
-    display: flex;
+  display: flex;
 }
 
 .input {
-    background: transparent;
-    border: none;
+  background: transparent;
+  border: none;
+  outline: none;
+  caret-color: transparent;
+  color: var(--primary-color);
+  width: 100%;
+
+  &:read-only {
+    cursor: default;
+  }
+
+  &:focus {
     outline: none;
-    caret-color: transparent;
-    color: var(--primary-color);
-    width: 100%;
-
-    &:read-only {
-        cursor: default;
-    }
-
-    &:focus {
-        outline: none;
-    }
+  }
 }
 
 .label {
-    margin-right: 5px;
+  margin-right: 5px;
 }
 
 .caretWrapper {
-    flex-grow: 1;
-    position: relative;
+  flex-grow: 1;
+  position: relative;
 }
 
 .caret {
-    background: var(--primary-color);
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    height: 3px;
-    width: 1ch;
-    animation: blink .7s infinite forwards;
+  background: var(--primary-color);
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 3px;
+  width: 1ch;
+  animation: blink .7s infinite forwards;
 }
 
 .readonly {
-    opacity: .7;
+  opacity: .7;
 }
 
 @keyframes blink {
-    0% {
-        opacity: 0;
-    }
+  0% {
+    opacity: 0;
+  }
 
-    50% {
-        opacity: 0.01;
-    }
+  50% {
+    opacity: 0.01;
+  }
 
-    100% {
-        opacity: 1;
-    }
+  100% {
+    opacity: 1;
+  }
 }

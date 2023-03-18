@@ -32,7 +32,7 @@ export const ProfileCard = memo((props: ProfileCardProps) => {
         onInputChangeHandler
     } = props;
 
-    const { t } = useTranslation(['profile','translation'] );
+    const { t } = useTranslation('profile' );
 
     if (isLoading) {
         return (
@@ -48,7 +48,7 @@ export const ProfileCard = memo((props: ProfileCardProps) => {
                 <Text
                     theme={TextTheme.ERROR}
                     title={t('Произошла ошибка при загрузке данных профиля')}
-                    description={t('Попробуйте обновить страницу', { ns: 'translation' })}
+                    description={t('Попробуйте обновить страницу')}
                     align={TextAlign.CENTER}
                 />
             </div>
@@ -65,7 +65,7 @@ export const ProfileCard = memo((props: ProfileCardProps) => {
                 )}
                 <Input
                     name={'first_name'}
-                    label={t('Имя')}
+                    label={t('Имя', { ns: 'profile' })}
                     value={data?.first_name}
                     className={cls.input}
                     readonly={readonly}
@@ -81,7 +81,7 @@ export const ProfileCard = memo((props: ProfileCardProps) => {
                 />
                 <Input
                     name={'username'}
-                    label={t('Логин')}
+                    label={t('Логин' )}
                     value={data?.username}
                     className={cls.input}
                     readonly={readonly}
