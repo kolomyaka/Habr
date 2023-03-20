@@ -44,7 +44,7 @@
         {
           "id": "4",
           "type": "CODE",
-          "code": "<!DOCTYPE html><html>  <body>    <p id=hello></p>    <script>      document.getElementById(hello).innerHTML = Hello, world!;    </script>  </body></html>;"
+          "code": "<!DOCTYPE HTML>\n<html>\n\n<body>\n\n  <p>Перед скриптом...</p>\n\n  <script>\n    alert( 'Привет, мир!' );\n  </script>\n\n  <p>...После скрипта.</p>\n\n</body>\n\n</html>"
         },
         {
           "id": "5",
@@ -64,7 +64,7 @@
         {
           "id": "3",
           "type": "CODE",
-          "code": "const path = require(path);const server = jsonServer.create();const router = jsonServer.router(path.resolve(__dirname, db.json));server.use(jsonServer.defaults({}));server.use(jsonServer.bodyParser);"
+          "code": "const path = require('path');\nconst server = jsonServer.create();\nconst router = jsonServer.router(path.resolve(__dirname, 'db.json'));\nserver.use(jsonServer.defaults({}));\nserver.use(jsonServer.bodyParser);"
         },
         {
           "id": "7",
