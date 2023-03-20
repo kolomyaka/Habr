@@ -29,7 +29,9 @@
       "img": "https://teknotower.com/wp-content/uploads/2020/11/js.png",
       "views": 1022,
       "createdAt": "26.02.2022",
-      "type": ["IT"],
+      "type": [
+        "IT"
+      ],
       "blocks": [
         {
           "id": "1",
@@ -110,33 +112,66 @@
       "text": "some comment3",
       "articleId": "1",
       "userId": "1"
+    },
+    {
+      "text": "qwe",
+      "articleId": "1",
+      "userId": "1",
+      "id": "UG44jl7"
+    },
+    {
+      "text": "zxc",
+      "articleId": "1",
+      "userId": "1",
+      "id": "j6FlnZ7"
+    },
+    {
+      "text": "asewqjeklqwjekl",
+      "articleId": "1",
+      "userId": "1",
+      "id": "mF1dHit"
     }
   ],
   "users": [
     {
       "id": "1",
-      "username": "admin",
+      "username": "kolomyaka",
       "password": "123",
       "role": "ADMIN",
-      "avatar": "https://gravatar.com/avatar/d79a01fc6611be42996b4f3a6994?s=400&d=monsterid&r=x"
+      "avatar": "https://i.ytimg.com/vi/tXPUueXzmG8/maxresdefault.jpg"
     },
     {
       "id": "2",
-      "username": "Kolomyaka",
-      "password": "qwerty",
-      "role":"ADMIN",
-      "avatar": "https://i.ytimg.com/vi/tXPUueXzmG8/maxresdefault.jpg"
+      "username": "Kizaru",
+      "password": "123",
+      "role": "ADMIN",
+      "avatar": "https://gravatar.com/avatar/d79a01fc6611be42996b4f3a6994?s=400&d=monsterid&r=x"
     }
   ],
-  "profile": {
-    "first_name": "Nikita",
-    "last_name": "Kolomoycev",
-    "age": 21,
-    "currency": "EUR",
-    "county": "Russia",
-    "city": "Saint-Petersburg",
-    "username": "Kolomyaka",
-    "avatar": "https://gravatar.com/avatar/d79a01fc6611be42996b4f3a6994?s=400&d=monsterid&r=x",
-    "country": "Russia"
-  }
+  "profile": [
+    {
+      "id": "1",
+      "first_name": "Nikita",
+      "last_name": "Kolomoycev",
+      "age": 22,
+      "currency": "EUR",
+      "county": "Russia",
+      "city": "Saint-Petersburg",
+      "username": "Kolomyaka",
+      "avatar": "https://i.ytimg.com/vi/tXPUueXzmG8/maxresdefault.jpg",
+      "country": "Russia"
+    },
+    {
+      "id": "2",
+      "first_name": "Oleg",
+      "last_name": "Nechiparenko",
+      "age": 21,
+      "currency": "EUR",
+      "county": "Russia",
+      "city": "Saint-Petersburg",
+      "username": "Kizaru",
+      "avatar": "https://gravatar.com/avatar/d79a01fc6611be42996b4f3a6994?s=400&d=monsterid&r=x",
+      "country": "Russia"
+    }
+  ]
 }

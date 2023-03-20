@@ -12,3 +12,13 @@
   padding: 2px 4px 8px;
   border-bottom: 1px solid var(--comment-border);
 }
+
+.loading {
+  .content {
+    border-bottom: none;
+  }
+}
+
+.commentUsername {
+  width: fit-content;
+}

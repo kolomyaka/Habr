@@ -5,6 +5,7 @@ import { Currency } from 'entities/Currency';
 import { ValidateProfileError } from 'entities/Profile';
 
 const data = {
+    id: '1',
     username: 'Kolomyaka',
     first_name: 'Nikita',
     last_name: 'Kolomoycev',
@@ -23,7 +24,7 @@ describe('fetchProfileData.test', () => {
         const thunk = new TestAsyncThunk(fetchProfileData);
         thunk.api.get.mockReturnValue(Promise.resolve({ data }));
         // Вызываем метод класса, передавая данные для санки и получаем ответ от action'a
-        const result = await thunk.callThunk();
+        const result = await thunk.callThunk(data.id);
 
         expect(thunk.dispatch).toBeCalledTimes(2);
         expect(thunk.api.get).toHaveBeenCalled();
@@ -34,7 +35,7 @@ describe('fetchProfileData.test', () => {
     test('should return rejected request', async () => {
         const thunk = new TestAsyncThunk(fetchProfileData);
         thunk.api.get.mockReturnValue(Promise.resolve({ status: 403 }));
-        const result = await thunk.callThunk();
+        const result = await thunk.callThunk(data.id);
 
         expect(thunk.dispatch).toBeCalledTimes(2);
         expect(thunk.api.get).toHaveBeenCalled();

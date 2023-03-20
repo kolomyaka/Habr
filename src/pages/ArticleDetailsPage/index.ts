@@ -4,4 +4,4 @@ export {
 
 export {
     ArticleDetailsCommentsSchema
-} from './model/types/ArticleDetailsCommentsSchema';
+} from '../../feature/ArticleDetailsComment/model/types/ArticleDetailsCommentsSchema';

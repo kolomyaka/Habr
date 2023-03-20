@@ -7,7 +7,7 @@ import { useTranslation } from 'react-i18next';
 import { Comment } from '../../model/types/comment';
 
 interface CommentListProps {
-    comments?: Comment[];
+    comments: Comment[];
     className?: string;
     isLoading?: boolean;
 }
@@ -21,9 +21,19 @@ export const CommentList = memo((props: CommentListProps) => {
         isLoading
     } = props;
 
+    if (isLoading) {
+        return (
+            <div className={classNames(cls.commentList, {}, [className])}>
+                <CommentCard isLoading />
+                <CommentCard isLoading />
+                <CommentCard isLoading />
+            </div>
+        );
+    }
+
     return (
         <div className={classNames(cls.commentList, {}, [className])}>
-            {comments?.length
+            {comments.length
                 ? comments.map((comment)=> (
                     <CommentCard
                         key={comment.id}

@@ -1,0 +1,16 @@
+.addArticleComment {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 24px;
+}
+
+.commentWrapper {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  padding: 10px;
+  align-items: center;
+  border: 1px solid var(--comment-border);
+  border-radius: var(--radius-s);
+}
