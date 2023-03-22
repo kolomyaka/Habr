@@ -10,6 +10,11 @@ export interface Article {
     blocks: ArticleBlock[]
 }
 
+export enum View {
+    BIG = 'BIG',
+    SMALL = 'SMALL'
+}
+
 // Типы, которые может принимать блок в статье
 export type ArticleBlock = ArticleTextBlock | ArticleImageBlock | ArticleCodeBlock;
 
