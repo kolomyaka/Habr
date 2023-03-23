@@ -1,9 +1,12 @@
 // Интерфес статьи
+import { User } from 'entities/User';
+
 export interface Article {
     id: string;
     title: string;
     subtitle: string;
     img: string;
+    user: User;
     views: number;
     createdAt: string;
     type: ArticleType[],
@@ -11,8 +14,8 @@ export interface Article {
 }
 
 export enum View {
-    BIG = 'BIG',
-    SMALL = 'SMALL'
+    BIG = 'big',
+    SMALL = 'small'
 }
 
 // Типы, которые может принимать блок в статье

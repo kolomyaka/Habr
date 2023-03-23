@@ -1,2 +1,106 @@
-.articleListItem {
+.articleViewInfo {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.small {
+  width: 230px;
+  margin: 0 auto;
+  cursor: pointer;
+
+  .articleCard {
+    transition: 0.2s;
+
+    &:hover {
+      transition: 0.2s;
+      background-color: var(--card-bg-hover);
+      transform: scale(1.01);
+
+      .articleCreated {
+        display: block;
+      }
+    }
+  }
+
+  .articleTags p {
+    max-width: 120px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .articleHeader {
+    position: relative;
+    width: 200px;
+    height: 200px;
+  }
+
+  .articleImage {
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+  }
+
+  .articleCreated {
+    position: absolute;
+    right: 15px;
+    top: 15px;
+    display: none;
+  }
+
+  .articleTitle p {
+    max-width: 200px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .articleInfo {
+    display: flex;
+    justify-content: space-between;
+    margin: 8px 0;
+  }
+}
+
+.big {
+  .articleCard {
+
+  }
+
+  .articleHeader {
+    display: flex;
+    align-items: center;
+  }
+
+  .articleUser {
+    margin-left: 8px;
+  }
+
+  .articleCreated {
+    margin-left: auto;
+  }
+
+  .articleTitle {
+
+  }
+
+  .articleImage {
+    width: 100%;
+    max-height: 250px;
+    object-fit: cover;
+    margin: 16px 0;
+  }
+
+  .articleFooter {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .articleText {
+    max-height: 200px;
+    overflow-y: hidden;
+    margin-bottom: 8px;
+    text-overflow: ellipsis;
+  }
 }

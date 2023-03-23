@@ -23,12 +23,12 @@ export const ArticleList = memo((props: ArticleListProps) => {
 
     const renderArticle = useCallback((article: Article) => {
         return (
-            <ArticleListItem article={article} view={view} />
+            <ArticleListItem key={article.id} article={article} view={view} />
         );
     }, [view]);
 
     return (
-        <div className={classNames(cls.articleList, {}, [className])}>
+        <div className={classNames(cls.articleList, {}, [className, cls[view]])}>
             {articles.length > 0
                 ? articles.map(renderArticle)
                 : <Text title={t('Нет статей')} />
