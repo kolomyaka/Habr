@@ -1,13 +1,13 @@
 import { classNames } from 'shared/lib/classNames/classNames';
 import cls from './ArticleListItem.module.scss';
 import { memo } from 'react';
-import { View } from '../../model/types/article';
+import { ArticleView } from '../../model/types/article';
 import { Card } from 'shared/ui/Card/Card';
 import { Skeleton } from 'shared/ui/Skeleton/Skeleton';
 
 interface ArticleListItemProps {
     className?: string;
-    view: View
+    view: ArticleView
 }
 
 export const ArticleListItemSkeleton = memo((props: ArticleListItemProps) => {
@@ -25,9 +25,9 @@ export const ArticleListItemSkeleton = memo((props: ArticleListItemProps) => {
     );
 
 
-    if (view === View.SMALL) {
+    if (view === ArticleView.SMALL) {
         return (
-            <div className={classNames(cls.articleListItem, {}, [className, cls[View.SMALL]])}>
+            <div className={classNames(cls.articleListItem, {}, [className, cls[ArticleView.SMALL]])}>
                 <Card className={cls.articleCard}>
                     <div className={cls.articleHeader}>
                         <Skeleton className={cls.articleImage} width={200} height={200} />
@@ -45,7 +45,7 @@ export const ArticleListItemSkeleton = memo((props: ArticleListItemProps) => {
     }
 
     return (
-        <div className={classNames(cls.articleListItem, {}, [className, cls[View.BIG]])}>
+        <div className={classNames(cls.articleListItem, {}, [className, cls[ArticleView.BIG]])}>
             <Card className={cls.articleCard}>
                 <div className={cls.articleHeader}>
                     <Skeleton width={30} height={30} border={'50%'} />

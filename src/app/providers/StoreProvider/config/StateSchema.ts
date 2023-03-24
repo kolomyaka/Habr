@@ -6,6 +6,8 @@ import { LoginSchema } from 'feature/AuthByUsername';
 import { ProfileSchema } from 'entities/Profile';
 import { ArticleDetailsSchema } from 'entities/Article';
 import { ArticleDetailsCommentFormSchema, ArticleDetailsCommentsSchema } from 'feature/ArticleDetailsComment';
+import { ArticlesPageSchema } from 'pages/ArticlesPage';
+
 
 // Типизируем наше хранилище редюсеров
 export interface StateSchema {
@@ -18,6 +20,7 @@ export interface StateSchema {
     articleDetails?: ArticleDetailsSchema;
     articleDetailsComments?: ArticleDetailsCommentsSchema;
     articleDetailsCommentForm?: ArticleDetailsCommentFormSchema;
+    articlesPage?: ArticlesPageSchema;
 }
 
 export type StateSchemaKey = keyof StateSchema

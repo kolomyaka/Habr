@@ -2,7 +2,7 @@ import { classNames } from 'shared/lib/classNames/classNames';
 import cls from './ArticleListItem.module.scss';
 import { memo, useCallback } from 'react';
 import { Article } from '../../model/types/article';
-import { ArticleBlockType, ArticleTextBlock, View } from '../../model/types/article';
+import { ArticleBlockType, ArticleTextBlock, ArticleView } from '../../model/types/article';
 import { Text } from 'shared/ui/Text/Text';
 import { Icon } from 'shared/ui/Icon/Icon';
 import EyeIcon from 'shared/assets/icons/eye-icon.svg';
@@ -17,7 +17,7 @@ import { RoutePath } from 'shared/config/routeConfig/routeConfig';
 interface ArticleListItemProps {
     className?: string;
     article: Article;
-    view: View
+    view: ArticleView
 }
 
 export const ArticleListItem = memo((props: ArticleListItemProps) => {
@@ -41,9 +41,9 @@ export const ArticleListItem = memo((props: ArticleListItemProps) => {
         navigate(`${RoutePath.article_details}${article.id}`);
     }, [article.id, navigate]);
 
-    if (view === View.SMALL) {
+    if (view === ArticleView.SMALL) {
         return (
-            <div className={classNames(cls.articleListItem, {}, [className, cls[View.SMALL]])}>
+            <div className={classNames(cls.articleListItem, {}, [className, cls[ArticleView.SMALL]])}>
                 <Card onClick={onOpenArticle} className={cls.articleCard}>
                     <div className={cls.articleHeader}>
                         <img alt={article.title} src={article.img} className={cls.articleImage} />
@@ -63,7 +63,7 @@ export const ArticleListItem = memo((props: ArticleListItemProps) => {
 
     const textBlock = article.blocks.find(block => block.type === ArticleBlockType.TEXT) as ArticleTextBlock;
     return (
-        <div className={classNames(cls.articleListItem, {}, [className, cls[View.BIG]])}>
+        <div className={classNames(cls.articleListItem, {}, [className, cls[ArticleView.BIG]])}>
             <Card className={cls.articleCard}>
                 <div className={cls.articleHeader}>
                     <Avatar size={30} src={article.user.avatar} />

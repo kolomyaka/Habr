@@ -1,7 +1,7 @@
 import { classNames } from 'shared/lib/classNames/classNames';
 import cls from './ArticleList.module.scss';
 import { memo, useCallback } from 'react';
-import { Article, View } from '../../model/types/article';
+import { Article, ArticleView } from '../../model/types/article';
 import { ArticleListItem } from '../ArticleListItem/ArticleListItem';
 import { Text } from 'shared/ui/Text/Text';
 import { useTranslation } from 'react-i18next';
@@ -10,12 +10,12 @@ import { ArticleListItemSkeleton } from '../ArticleListItem/ArticleListItemSkele
 interface ArticleListProps {
     className?: string;
     articles: Article[];
-    view?: View;
-    isLoading: boolean,
+    view?: ArticleView;
+    isLoading?: boolean,
 }
 
-const renderArticlesSkeleton = (view: View) => {
-    return new Array(view === View.SMALL ? 9 : 3)
+const renderArticlesSkeleton = (view: ArticleView) => {
+    return new Array(view === ArticleView.SMALL ? 9 : 3)
         .fill(0)
         .map((item, index) => (
             <ArticleListItemSkeleton key={index} view={view} />
@@ -26,7 +26,7 @@ export const ArticleList = memo((props: ArticleListProps) => {
     const {
         className,
         articles,
-        view = View.SMALL,
+        view = ArticleView.SMALL,
         isLoading
     } = props;
     const { t } = useTranslation();

@@ -13,7 +13,7 @@ export interface Article {
     blocks: ArticleBlock[]
 }
 
-export enum View {
+export enum ArticleView {
     BIG = 'big',
     SMALL = 'small'
 }
