@@ -52,7 +52,7 @@ module.exports = {
             'error',
             { markupOnly: true, ignoreAttribute: ['to', 'data-testid', 'name'] }
         ],
-        'max-len': 'off', // ['error', { ignoreComments: true, code: 120 }]
+        'max-len': ['error', { ignoreComments: true, code: 120 }],
         'linebreak-style': [
             'error',
             'unix'
