@@ -3,8 +3,6 @@ import cls from './ArticleList.module.scss';
 import { memo, useCallback } from 'react';
 import { Article, ArticleView } from '../../model/types/article';
 import { ArticleListItem } from '../ArticleListItem/ArticleListItem';
-import { Text } from 'shared/ui/Text/Text';
-import { useTranslation } from 'react-i18next';
 import { ArticleListItemSkeleton } from '../ArticleListItem/ArticleListItemSkeleton';
 
 interface ArticleListProps {
@@ -29,7 +27,6 @@ export const ArticleList = memo((props: ArticleListProps) => {
         view = ArticleView.SMALL,
         isLoading
     } = props;
-    const { t } = useTranslation();
 
     const renderArticle = useCallback((article: Article) => {
         return (
@@ -37,20 +34,14 @@ export const ArticleList = memo((props: ArticleListProps) => {
         );
     }, [view]);
 
-    if (isLoading) {
-        return (
-            <div className={classNames(cls.articleList, {}, [className, cls[view]])}>
-                {renderArticlesSkeleton(view)}
-            </div>
-        );
-    }
 
     return (
         <div className={classNames(cls.articleList, {}, [className, cls[view]])}>
             {articles.length > 0
                 ? articles.map(renderArticle)
-                : <Text title={t('Нет статей')} />
+                : null
             }
+            {isLoading && renderArticlesSkeleton(view)}
         </div>
     );
 });

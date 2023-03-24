@@ -3,7 +3,7 @@ import { ComponentMeta, ComponentStory } from '@storybook/react';
 import { ArticleList } from './ArticleList';
 import { Article, ArticleView } from '../../model/types/article';
 
-export const mockedArticle = {
+const mockedArticle = {
     'id': '1',
     'title': 'Javascript news qwe qwe qweasd asd',
     'subtitle': 'Что нового в JS за 2022 год?',

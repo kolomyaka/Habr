@@ -5,6 +5,7 @@ import { fetchProfileData } from 'feature/EditableProfileCard/model/services/fet
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { useParams } from 'react-router-dom';
 import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEffect';
+import { Page } from 'shared/ui/Page/Page';
 
 interface ProfilePageProps {
     className?: string
@@ -26,9 +27,9 @@ const ProfilePage = ({ className }: ProfilePageProps) => {
 
     return (
         <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
-            <div className={classNames('', {}, [className])}>
+            <Page className={classNames('', {}, [className])}>
                 <EditableProfileCard />
-            </div>
+            </Page>
         </DynamicModuleLoader>
     );
 };

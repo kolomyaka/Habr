@@ -2,7 +2,7 @@ import { createEntityAdapter, createSlice, PayloadAction, } from '@reduxjs/toolk
 import { StateSchema } from 'app/providers/StoreProvider';
 import { ArticlesPageSchema } from '../types/ArticlesPageSchema';
 import { Article, ArticleView } from 'entities/Article/model/types/article';
-import { fetchArticlesList } from '../services/fetchArticlesList';
+import { fetchArticlesList } from '../services/fetchArticlesList/fetchArticlesList';
 import { ARTICLE_VIEW_LOCALSTORAGE_KEY } from 'shared/const/localstorage';
 
 // Создаем адаптер для нормализации данных и указываем по какому полю будет идти поиск при нормализации
@@ -23,7 +23,9 @@ const articlesPageSlice = createSlice({
         error: undefined,
         ids: [],
         entities: {},
-        view: ArticleView.SMALL
+        view: ArticleView.SMALL,
+        page: 1,
+        hasMore: true
     }),
     reducers: {
         setView: (state, action: PayloadAction<ArticleView>) => {
@@ -31,7 +33,12 @@ const articlesPageSlice = createSlice({
             localStorage.setItem(ARTICLE_VIEW_LOCALSTORAGE_KEY, action.payload);
         },
         initState: (state) => {
-            state.view = localStorage.getItem(ARTICLE_VIEW_LOCALSTORAGE_KEY) as ArticleView;
+            const view = localStorage.getItem(ARTICLE_VIEW_LOCALSTORAGE_KEY) as ArticleView;
+            state.view = view;
+            state.limit = view === ArticleView.SMALL ? 9 : 4;
+        },
+        setPage: (state, action: PayloadAction<number>) => {
+            state.page = action.payload;
         }
     },
     extraReducers: (builder) => {
@@ -42,7 +49,8 @@ const articlesPageSlice = createSlice({
             })
             .addCase(fetchArticlesList.fulfilled, (state, action: PayloadAction<Article[]>) => {
                 state.isLoading = false;
-                articlesPageAdapter.setAll(state, action.payload);
+                articlesPageAdapter.addMany(state, action.payload);
+                state.hasMore = action.payload.length > 0;
             })
             .addCase(fetchArticlesList.rejected, (state, action: PayloadAction<string | undefined>) => {
                 state.isLoading = false;
