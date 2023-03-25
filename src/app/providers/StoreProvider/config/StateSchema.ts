@@ -7,12 +7,14 @@ import { ProfileSchema } from 'entities/Profile';
 import { ArticleDetailsSchema } from 'entities/Article';
 import { ArticleDetailsCommentFormSchema, ArticleDetailsCommentsSchema } from 'feature/ArticleDetailsComment';
 import { ArticlesPageSchema } from 'pages/ArticlesPage';
+import { ScrollSaveSchema } from 'feature/ScrollSave';
 
 
 // Типизируем наше хранилище редюсеров
 export interface StateSchema {
     counter: CounterSchema;
     user: UserSchema;
+    scrollSave: ScrollSaveSchema;
 
     // Асинхронные редюсеры
     profile?: ProfileSchema;

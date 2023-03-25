@@ -4,6 +4,7 @@ import { counterReducer } from 'entities/Counter';
 import { userReducer } from 'entities/User';
 import { createReducerManager } from 'app/providers/StoreProvider/config/reducerManager';
 import { $api } from 'shared/api/api';
+import { scrollSaveReducer } from 'feature/ScrollSave';
 
 
 // Делаем initialState, чтобы в дальнейшем для SB или тестов могли подготовить какие-то данные
@@ -17,7 +18,8 @@ export const createReduxStore = (
         // Асинхронные редюсеры, которые будем добавлять напрмер в СБ добавляем в наш рут редюсер
         ...asyncReducers,
         counter: counterReducer,
-        user: userReducer
+        user: userReducer,
+        scrollSave: scrollSaveReducer
     };
 
     const reducerManager = createReducerManager(rootReducer);

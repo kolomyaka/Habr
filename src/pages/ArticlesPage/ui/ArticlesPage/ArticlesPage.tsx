@@ -9,7 +9,7 @@ import { useSelector } from 'react-redux';
 import { getArticlesPageIsLoading, getArticlesPageView } from '../../model/selectors/articlesPage';
 import { ArticleList, ArticleView } from 'entities/Article';
 import { ArticleViewSelector } from 'feature/ArticleViewSelector';
-import { Page } from 'shared/ui/Page/Page';
+import { Page } from 'widgets/Page/ui/Page';
 import { fetchNextArticlesPage } from '../../model/services/fetchNextArticlesPage/fetchNextArticlesPage';
 import { initArticlesPage } from '../../model/services/initArticlesPage/initArticlesPage';
 
