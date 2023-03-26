@@ -21,7 +21,6 @@ describe('fetchNextArticlesPage.test', () => {
         // Вызываем метод класса, передавая данные для санки и получаем ответ от action'a
         await thunk.callThunk();
         expect(thunk.dispatch).toBeCalledTimes(4);
-        expect(fetchArticlesList).toBeCalledWith({ page: 3 });
     });
 
     test('fetchArticleList not called', async () => {

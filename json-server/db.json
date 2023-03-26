@@ -28,8 +28,8 @@
       "subtitle": "Что нового в JS за 2022 год?",
       "userId": "1",
       "img": "https://teknotower.com/wp-content/uploads/2020/11/js.png",
-      "views": 1022,
-      "createdAt": "26.02.2022",
+      "views": 228,
+      "createdAt": "21.03.2001",
       "type": [
         "IT"
       ],
@@ -49,10 +49,10 @@
     {
       "id": "2",
       "title": "Python news",
-      "subtitle": "Что нового в JS за 2022 год?",
+      "subtitle": "Что нового в python за 2022 год?",
       "userId": "1",
       "img": "https://создание-сайта.net/images/newsnew/newsnew/python-logo.jpg",
-      "views": 1022,
+      "views": 1337,
       "createdAt": "26.02.2022",
       "type": [
         "IT"
@@ -76,8 +76,8 @@
       "subtitle": "Что нового в TS за 2022 год?",
       "userId": "1",
       "img": "https://cdn.thenewstack.io/media/2022/01/10b88c68-typescript-logo-1024x576.png",
-      "views": 1022,
-      "createdAt": "26.02.2022",
+      "views": 1703,
+      "createdAt": "17.03.1703",
       "type": [
         "IT"
       ],
@@ -96,12 +96,12 @@
     },
     {
       "id": "4",
-      "title": "TypeScript news",
-      "subtitle": "Что нового в TS за 2022 год?",
+      "title": "Kotlin news",
+      "subtitle": "Что нового в Kotlin за 2022 год?",
       "userId": "1",
-      "img": "https://cdn.thenewstack.io/media/2022/01/10b88c68-typescript-logo-1024x576.png",
-      "views": 1022,
-      "createdAt": "26.02.2022",
+      "img": "https://avatars.dzeninfra.ru/get-zen_doc/5233352/pub_63563b50e580830e7094da1d_63563b67d1e4e820d480a909/scale_1200",
+      "views": 2103,
+      "createdAt": "16.02.2001",
       "type": [
         "IT"
       ],
@@ -120,12 +120,12 @@
     },
     {
       "id": "5",
-      "title": "TypeScript news",
-      "subtitle": "Что нового в TS за 2022 год?",
+      "title": "Matlab news",
+      "subtitle": "Что нового в Matlab за 2022 год? (Ничего)",
       "userId": "1",
-      "img": "https://cdn.thenewstack.io/media/2022/01/10b88c68-typescript-logo-1024x576.png",
-      "views": 1022,
-      "createdAt": "26.02.2022",
+      "img": "https://assets.onthehub.com/attachments/9/ae9419f9-387d-de11-b7f9-0030487d8896/b77d7798-efcd-4482-b6f1-067f6fb39cc4.png?t=637517824508130000",
+      "views": 0,
+      "createdAt": "26.02.1910",
       "type": [
         "IT"
       ],
@@ -144,11 +144,11 @@
     },
     {
       "id": "6",
-      "title": "TypeScript news",
-      "subtitle": "Что нового в TS за 2022 год?",
+      "title": "Web news",
+      "subtitle": "Что нового в вебе за 2022 год?",
       "userId": "1",
-      "img": "https://cdn.thenewstack.io/media/2022/01/10b88c68-typescript-logo-1024x576.png",
-      "views": 1022,
+      "img": "https://pomelnikov.com/images/obuchenie/Pomelnikov-htmlcss.jpg",
+      "views": 123123,
       "createdAt": "26.02.2022",
       "type": [
         "IT"
@@ -168,12 +168,12 @@
     },
     {
       "id": "7",
-      "title": "TypeScript news",
-      "subtitle": "Что нового в TS за 2022 год?",
+      "title": "React news",
+      "subtitle": "Что нового в React за 2023 год?",
       "userId": "1",
-      "img": "https://cdn.thenewstack.io/media/2022/01/10b88c68-typescript-logo-1024x576.png",
-      "views": 1022,
-      "createdAt": "26.02.2022",
+      "img": "https://tproger.ru/signed_image/aLkEMdtcfZNaaEOC5tlm5_6mjtNFM3OIlmx60TX8C0A/rs:fit:1520:0:1/cb:vimg_1/f:webp/aHR0cHM6Ly9tZWRpYS50cHJvZ2VyLnJ1L3VwbG9hZHMvMjAxNi8xMC9yZWFjdG1pbmkucG5n",
+      "views": 777,
+      "createdAt": "26.01.2023",
       "type": [
         "IT"
       ],
@@ -192,12 +192,12 @@
     },
     {
       "id": "8",
-      "title": "TypeScript news",
-      "subtitle": "Что нового в TS за 2022 год?",
+      "title": "Angular news",
+      "subtitle": "Что нового в Angular за 2022 год?",
       "userId": "1",
-      "img": "https://cdn.thenewstack.io/media/2022/01/10b88c68-typescript-logo-1024x576.png",
-      "views": 1022,
-      "createdAt": "26.02.2022",
+      "img": "https://miro.medium.com/v2/resize:fit:960/format:webp/1*VKY-Ldkt-iHobItql7G_5w.png",
+      "views": 666,
+      "createdAt": "11.11.2011",
       "type": [
         "IT"
       ],
@@ -216,10 +216,10 @@
     },
     {
       "id": "9",
-      "title": "TypeScript news",
-      "subtitle": "Что нового в TS за 2022 год?",
+      "title": "Vue news",
+      "subtitle": "Что нового в Vue за 2022 год?",
       "userId": "1",
-      "img": "https://cdn.thenewstack.io/media/2022/01/10b88c68-typescript-logo-1024x576.png",
+      "img": "https://blog.skillfactory.ru/wp-content/uploads/2021/12/logo-vuejs-9686556.png",
       "views": 1022,
       "createdAt": "26.02.2022",
       "type": [

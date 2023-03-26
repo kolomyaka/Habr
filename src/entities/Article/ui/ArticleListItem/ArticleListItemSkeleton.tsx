@@ -30,14 +30,14 @@ export const ArticleListItemSkeleton = memo((props: ArticleListItemProps) => {
             <div className={classNames(cls.articleListItem, {}, [className, cls[ArticleView.SMALL]])}>
                 <Card className={cls.articleCard}>
                     <div className={cls.articleHeader}>
-                        <Skeleton className={cls.articleImage} width={200} height={200} />
+                        <Skeleton className={cls.articleImage} width={'100%'} height={250} />
                     </div>
                     <div className={cls.articleFooter}>
                         <div className={cls.articleInfo}>
                             {types}
                             {views}
                         </div>
-                        <Skeleton width={200} height={24} />
+                        <Skeleton width={'100%'} height={24} />
                     </div>
                 </Card>
             </div>

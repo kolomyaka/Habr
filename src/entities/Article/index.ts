@@ -3,11 +3,12 @@ export {
 } from './ui/ArticleDetails/ArticleDetails';
 
 export type {
-    Article,
+    Article
 } from './model/types/article';
 
 export {
-    ArticleView
+    ArticleView,
+    ArticleSortField
 } from './model/types/article';
 
 export {
@@ -21,3 +22,7 @@ export type {
 export {
     ArticleList
 } from './ui/ArticleList/ArticleList';
+
+export {
+    ArticleSortSelector
+} from './ui/ArticleSortSelector/ArticleSortSelector';

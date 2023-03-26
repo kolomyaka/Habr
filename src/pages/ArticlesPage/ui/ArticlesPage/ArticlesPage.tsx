@@ -1,17 +1,18 @@
 import { classNames } from 'shared/lib/classNames/classNames';
 import cls from './ArticlesPage.module.scss';
 import { memo, useCallback } from 'react';
-import { articlesPageActions, articlesPageReducer, getArticles } from '../../model/slices/articlesPageSlice';
+import { articlesPageReducer, getArticles } from '../../model/slices/articlesPageSlice';
 import { DynamicModuleLoader, ReducersList } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEffect';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { useSelector } from 'react-redux';
 import { getArticlesPageIsLoading, getArticlesPageView } from '../../model/selectors/articlesPage';
-import { ArticleList, ArticleView } from 'entities/Article';
-import { ArticleViewSelector } from 'feature/ArticleViewSelector';
+import { ArticleList } from 'entities/Article';
 import { Page } from 'widgets/Page/ui/Page';
 import { fetchNextArticlesPage } from '../../model/services/fetchNextArticlesPage/fetchNextArticlesPage';
 import { initArticlesPage } from '../../model/services/initArticlesPage/initArticlesPage';
+import { ArticlesPageFilters } from '../ArticlesPageFilters/ArticlesPageFilters';
+import { useSearchParams } from 'react-router-dom';
 
 interface ArticlesPageProps {
     className?: string
@@ -29,17 +30,14 @@ const ArticlesPage = (props: ArticlesPageProps) => {
     const articles = useSelector(getArticles.selectAll);
     const isLoading = useSelector(getArticlesPageIsLoading);
     const view = useSelector(getArticlesPageView);
+    const [searchParams] = useSearchParams();
 
     useInitialEffect(() => {
-        dispatch(initArticlesPage());
+        dispatch(initArticlesPage(searchParams));
     });
 
     const onLoadNextPart = useCallback(() => {
         dispatch(fetchNextArticlesPage());
-    }, [dispatch]);
-
-    const onChangeView = useCallback((view: ArticleView) => {
-        dispatch(articlesPageActions.setView(view));
     }, [dispatch]);
 
     // TODO: Добавить возможный вывод ошибки
@@ -50,10 +48,7 @@ const ArticlesPage = (props: ArticlesPageProps) => {
                 onScrollEnd={onLoadNextPart}
                 className={classNames(cls.articlesPage, {}, [className])}
             >
-                <ArticleViewSelector
-                    onChangeView={onChangeView}
-                    view={view}
-                />
+                <ArticlesPageFilters />
                 <ArticleList
                     isLoading={isLoading}
                     articles={articles}
