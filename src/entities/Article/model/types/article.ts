@@ -57,6 +57,7 @@ export enum ArticleBlockType {
 }
 // Енам для типов статьи
 export enum ArticleType {
+    ALL = 'ALL',
     IT = 'IT',
     SCIENCE = 'SCIENCE',
     ECONOMIC = 'ECONOMIC'

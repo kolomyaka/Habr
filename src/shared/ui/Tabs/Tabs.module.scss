@@ -1,0 +1,10 @@
+.tabs {
+  display: flex;
+  margin-bottom: 16px;
+  gap: 12px;
+  cursor: pointer;
+}
+
+.selected {
+  background-color: var(--card-bg-hover);
+}

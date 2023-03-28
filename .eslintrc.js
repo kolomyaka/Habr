@@ -40,7 +40,7 @@ module.exports = {
         indent: [2,4],
         'react/jsx-props-no-spreading': 'warn',
         'react/react-in-jsx-scope': 'off',
-        'max-statements': [2, 15],
+        'max-statements': [2, 20],
         'react/display-name': 'off',
         'object-curly-spacing': [2, 'always'],
         'no-undef': 'off',

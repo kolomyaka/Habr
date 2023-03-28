@@ -5,7 +5,7 @@ import { Card } from 'shared/ui/Card/Card';
 import { Input } from 'shared/ui/Input/Input';
 import { useTranslation } from 'react-i18next';
 import { ArticleViewSelector } from 'feature/ArticleViewSelector';
-import { ArticleSortField, ArticleView, ArticleSortSelector } from 'entities/Article';
+import { ArticleSortField, ArticleSortSelector, ArticleType, ArticleView } from 'entities/Article';
 import { articlesPageActions } from '../../model/slices/articlesPageSlice';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { useSelector } from 'react-redux';
@@ -18,13 +18,15 @@ import {
 import { OrderType } from 'shared/types/types';
 import { fetchArticlesList } from '../../model/services/fetchArticlesList/fetchArticlesList';
 import { useDebounce } from 'shared/lib/hooks/useDebounce/useDebounce';
+import { TabItem } from 'shared/ui/Tabs/Tabs';
+import { ArticleTypeTabs } from 'feature/ArticleTypeTabs/ui/ArticleTypeTabs';
 
 interface ArticlesPageFiltersProps {
     className?: string
 }
 
 export const ArticlesPageFilters = memo(({ className }: ArticlesPageFiltersProps) => {
-    const { t } = useTranslation();
+    const { t } = useTranslation('articles');
     const dispatch = useAppDispatch();
     const view = useSelector(getArticlesPageView);
     const order = useSelector(getArticlesPageOrder);
@@ -60,6 +62,12 @@ export const ArticlesPageFilters = memo(({ className }: ArticlesPageFiltersProps
         debouncedFetchData();
     }, [dispatch, debouncedFetchData]);
 
+    const onChangeType = useCallback((tab: TabItem<ArticleType>) => {
+        dispatch(articlesPageActions.setType(tab.value));
+        dispatch(articlesPageActions.setPage(1));
+        fetchData();
+    }, [dispatch, fetchData]);
+
     return (
         <div className={classNames(cls.articlesPageFilters, {}, [className])}>
             <div className={cls.sortWrapper}>
@@ -81,6 +89,7 @@ export const ArticlesPageFilters = memo(({ className }: ArticlesPageFiltersProps
                     onChange={onChangeSearch}
                 />
             </Card>
+            <ArticleTypeTabs onChangeTab={onChangeType} />
         </div>
     );
 });

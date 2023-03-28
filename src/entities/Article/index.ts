@@ -8,7 +8,8 @@ export type {
 
 export {
     ArticleView,
-    ArticleSortField
+    ArticleSortField,
+    ArticleType
 } from './model/types/article';
 
 export {

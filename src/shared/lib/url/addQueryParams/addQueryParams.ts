@@ -4,6 +4,8 @@ export function getQueryParams(params: OptionalRecord<string, string>) {
     Object.entries(params).forEach(([name, value]) => {
         if (value) {
             searchParams.set(name, value);
+        } else {
+            searchParams.delete(name);
         }
     });
 

@@ -4,7 +4,7 @@ import { ArticlesPageSchema } from '../types/ArticlesPageSchema';
 import { fetchArticlesList } from '../services/fetchArticlesList/fetchArticlesList';
 import { ARTICLE_VIEW_LOCALSTORAGE_KEY } from 'shared/const/localstorage';
 import { OrderType } from 'shared/types/types';
-import { Article, ArticleSortField, ArticleView } from 'entities/Article';
+import { Article, ArticleSortField, ArticleView, ArticleType } from 'entities/Article';
 
 // Создаем адаптер для нормализации данных и указываем по какому полю будет идти поиск при нормализации
 // Обычно это айди сущности, который как раз берем из объекта комментария
@@ -31,7 +31,8 @@ const articlesPageSlice = createSlice({
         order: 'asc',
         limit: 4,
         search: '',
-        sort: ArticleSortField.CREATED
+        sort: ArticleSortField.CREATED,
+        type: ArticleType.ALL
     }),
     reducers: {
         setView: (state, action: PayloadAction<ArticleView>) => {
@@ -49,6 +50,9 @@ const articlesPageSlice = createSlice({
         },
         setSort: (state, action: PayloadAction<ArticleSortField>) => {
             state.sort = action.payload;
+        },
+        setType: (state, action: PayloadAction<ArticleType>) => {
+            state.type = action.payload;
         },
         initState: (state) => {
             const view = localStorage.getItem(ARTICLE_VIEW_LOCALSTORAGE_KEY) as ArticleView;
