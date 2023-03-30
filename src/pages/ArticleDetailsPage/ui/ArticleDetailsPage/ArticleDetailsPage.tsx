@@ -4,11 +4,13 @@ import { memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { ArticleDetails } from 'entities/Article';
 import { useNavigate, useParams } from 'react-router-dom';
-import { Text } from 'shared/ui/Text/Text';
 import { ArticleDetailsComment } from 'feature/ArticleDetailsComment';
 import { Button, ButtonTheme } from 'shared/ui/Button/Button';
 import { RoutePath } from 'shared/config/routeConfig/routeConfig';
 import { Page } from 'widgets/Page/ui/Page';
+import {
+    ArticleDetailsRecommendations
+} from 'feature/ArticleDetailsRecommendations/ui/ArticleDetailsRecommendations';
 
 
 interface ArticleDetailsPageProps {
@@ -37,7 +39,7 @@ const ArticleDetailsPage = ({ className }: ArticleDetailsPageProps) => {
                 {t('Назад к списку')}
             </Button>
             <ArticleDetails id={id} />
-            <Text className={cls.commentTitle} title={t('Комментарии')} />
+            <ArticleDetailsRecommendations />
             <ArticleDetailsComment />
         </Page>
     );

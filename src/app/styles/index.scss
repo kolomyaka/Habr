@@ -16,3 +16,13 @@
 .content-page {
   display: flex;
 }
+
+*::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: var(--scrollbar-background);
+  border-radius: 20px;       /* roundness of the scroll thumb */
+}

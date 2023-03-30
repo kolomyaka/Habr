@@ -1,6 +1,6 @@
 .app_dark_theme {
   --bg-color: #171616;
-  --light-bg-color: #202021;
+  --light-bg-color: #1d1d1e;
   --hover-bg-color: #3b3b3f;
   --primary-color: #e8e9ef;
   --inverted-bg-color: #e3e3e8;
@@ -22,4 +22,7 @@
   // card
   --card-bg: rgb(32 32 33 / 100%);
   --card-bg-hover: var(--hover-bg-color);
+
+  // scrollbar
+  --scrollbar-background: #5b5858;
 }

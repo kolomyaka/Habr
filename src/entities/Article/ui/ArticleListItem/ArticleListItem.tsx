@@ -1,8 +1,7 @@
 import { classNames } from 'shared/lib/classNames/classNames';
 import cls from './ArticleListItem.module.scss';
-import { memo, useCallback } from 'react';
-import { Article } from '../../model/types/article';
-import { ArticleBlockType, ArticleTextBlock, ArticleView } from '../../model/types/article';
+import { HTMLAttributeAnchorTarget, memo } from 'react';
+import { Article, ArticleBlockType, ArticleTextBlock, ArticleView } from '../../model/types/article';
 import { Text } from 'shared/ui/Text/Text';
 import { Icon } from 'shared/ui/Icon/Icon';
 import EyeIcon from 'shared/assets/icons/eye-icon.svg';
@@ -11,23 +10,24 @@ import { Avatar } from 'shared/ui/Avatar/Avatar';
 import { Button, ButtonTheme } from 'shared/ui/Button/Button';
 import { useTranslation } from 'react-i18next';
 import { ArticleTextBlockComponent } from '../ArticleTextBlockComponent/ArticleTextBlockComponent';
-import { useNavigate } from 'react-router-dom';
 import { RoutePath } from 'shared/config/routeConfig/routeConfig';
+import { AppLink } from 'shared/ui/AppLink/AppLink';
 
 interface ArticleListItemProps {
     className?: string;
     article: Article;
-    view: ArticleView
+    view: ArticleView;
+    target: HTMLAttributeAnchorTarget;
 }
 
 export const ArticleListItem = memo((props: ArticleListItemProps) => {
     const {
         className,
         view,
-        article
+        article,
+        target
     } = props;
     const { t } = useTranslation('articles');
-    const navigate = useNavigate();
 
     const types = <Text description={article.type.join(',')} className={cls.articleTags} />;
     const views = (
@@ -37,27 +37,25 @@ export const ArticleListItem = memo((props: ArticleListItemProps) => {
         </div>
     );
 
-    const onOpenArticle = useCallback(() => {
-        navigate(`${RoutePath.article_details}${article.id}`);
-    }, [article.id, navigate]);
-
     if (view === ArticleView.SMALL) {
         return (
-            <div className={classNames(cls.articleListItem, {}, [className, cls[ArticleView.SMALL]])}>
-                <Card onClick={onOpenArticle} className={cls.articleCard}>
-                    <div className={cls.articleHeader}>
-                        <img alt={article.title} src={article.img} className={cls.articleImage} />
-                        <Text description={article.createdAt} className={cls.articleCreated} />
-                    </div>
-                    <div className={cls.articleFooter}>
-                        <div className={cls.articleInfo}>
-                            {types}
-                            {views}
+            <AppLink target={target} to={`${RoutePath.article_details}${article.id}`}>
+                <div className={classNames(cls.articleListItem, {}, [className, cls[ArticleView.SMALL]])}>
+                    <Card className={cls.articleCard}>
+                        <div className={cls.articleHeader}>
+                            <img alt={article.title} src={article.img} className={cls.articleImage} />
+                            <Text description={article.createdAt} className={cls.articleCreated} />
                         </div>
-                        <Text className={cls.articleTitle} description={article.title} />
-                    </div>
-                </Card>
-            </div>
+                        <div className={cls.articleFooter}>
+                            <div className={cls.articleInfo}>
+                                {types}
+                                {views}
+                            </div>
+                            <Text className={cls.articleTitle} description={article.title} />
+                        </div>
+                    </Card>
+                </div>
+            </AppLink>
         );
     }
 
@@ -77,9 +75,11 @@ export const ArticleListItem = memo((props: ArticleListItemProps) => {
                     <ArticleTextBlockComponent className={cls.articleText} block={textBlock} />
                 )}
                 <div className={cls.articleFooter}>
-                    <Button onClick={onOpenArticle} theme={ButtonTheme.OUTLINE}>
-                        {t('Читать далее...')}
-                    </Button>
+                    <AppLink target={target} to={`${RoutePath.article_details}${article.id}`}>
+                        <Button theme={ButtonTheme.OUTLINE}>
+                            {t('Читать далее...')}
+                        </Button>
+                    </AppLink>
                     {views}
                 </div>
             </Card>

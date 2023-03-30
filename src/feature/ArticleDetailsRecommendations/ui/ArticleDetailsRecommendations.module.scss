@@ -1,0 +1,12 @@
+.recommendationsTitle {
+  margin: 16px 0;
+}
+
+.recommendationsList {
+  flex-wrap: nowrap;
+  overflow-y: hidden;
+  overflow-x: auto;
+  display: flex !important;
+  gap: 50px;
+  padding-bottom: 12px;
+}

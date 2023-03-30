@@ -8,6 +8,7 @@ import { ArticleDetailsSchema } from 'entities/Article';
 import { ArticleDetailsCommentFormSchema, ArticleDetailsCommentsSchema } from 'feature/ArticleDetailsComment';
 import { ArticlesPageSchema } from 'pages/ArticlesPage';
 import { ScrollSaveSchema } from 'feature/ScrollSave';
+import { ArticleDetailsRecommendationsSchema } from 'feature/ArticleDetailsRecommendations';
 
 
 // Типизируем наше хранилище редюсеров
@@ -22,6 +23,7 @@ export interface StateSchema {
     articleDetails?: ArticleDetailsSchema;
     articleDetailsComments?: ArticleDetailsCommentsSchema;
     articleDetailsCommentForm?: ArticleDetailsCommentFormSchema;
+    articleDetailsRecommendations?: ArticleDetailsRecommendationsSchema;
     articlesPage?: ArticlesPageSchema;
 }
 

@@ -19,6 +19,8 @@ import { sendComment } from '../../model/services/sendComment';
 import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEffect';
 import { fetchCommentsByArticleId } from 'feature/ArticleDetailsComment/model/services/fetchCommentsByArticleId';
 import { useParams } from 'react-router-dom';
+import { Text } from 'shared/ui/Text/Text';
+import { useTranslation } from 'react-i18next';
 
 export interface ArticleDetailsCommentProps {
     className?: string
@@ -30,6 +32,7 @@ const reducers: ReducersList = {
 };
 
 const ArticleDetailsComment = memo(({ className }: ArticleDetailsCommentProps) => {
+    const { t } = useTranslation('articles');
     const dispatch = useAppDispatch();
     const comments = useSelector(getArticleComments.selectAll);
     const isLoading = useSelector(getArticleDetailsCommentsIsLoading);
@@ -52,6 +55,7 @@ const ArticleDetailsComment = memo(({ className }: ArticleDetailsCommentProps) =
     return (
         <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
             <div className={classNames(cls.articleDetailsComment, {}, [className])}>
+                <Text className={cls.commentTitle} title={t('Комментарии')} />
                 <AddNewComment
                     onChangeCommentHandler={onChangeCommentHandler}
                     sendCommentHandler={onSendCommentHandler}
