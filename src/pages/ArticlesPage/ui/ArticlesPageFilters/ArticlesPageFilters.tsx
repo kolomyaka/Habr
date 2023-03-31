@@ -19,7 +19,7 @@ import { OrderType } from 'shared/types/types';
 import { fetchArticlesList } from '../../model/services/fetchArticlesList/fetchArticlesList';
 import { useDebounce } from 'shared/lib/hooks/useDebounce/useDebounce';
 import { TabItem } from 'shared/ui/Tabs/Tabs';
-import { ArticleTypeTabs } from 'feature/ArticleTypeTabs/ui/ArticleTypeTabs';
+import { ArticleTypeTabs } from 'feature/ArticleTypeTabs';
 
 interface ArticlesPageFiltersProps {
     className?: string

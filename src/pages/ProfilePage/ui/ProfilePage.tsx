@@ -1,11 +1,10 @@
 import { classNames } from 'shared/lib/classNames/classNames';
 import { DynamicModuleLoader, ReducersList } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
-import { EditableProfileCard, profileReducer } from 'feature/EditableProfileCard';
-import { fetchProfileData } from 'feature/EditableProfileCard/model/services/fetchProfileData/fetchProfileData';
+import { EditableProfileCard, profileReducer, fetchProfileData } from 'feature/EditableProfileCard';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { useParams } from 'react-router-dom';
 import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEffect';
-import { Page } from 'widgets/Page/ui/Page';
+import { Page } from 'widgets/Page';
 
 interface ProfilePageProps {
     className?: string

@@ -2,6 +2,10 @@ export {
     ArticleDetails
 } from './ui/ArticleDetails/ArticleDetails';
 
+export {
+    ArticleDetailsPageHeader
+} from './ui/ArticleDetailsPageHeader/ArticleDetailsPageHeader';
+
 export type {
     Article
 } from './model/types/article';

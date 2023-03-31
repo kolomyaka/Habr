@@ -1,9 +1,8 @@
-import { useCallback, useEffect } from 'react';
+import { useCallback } from 'react';
 import { useSelector } from 'react-redux';
 import { classNames } from 'shared/lib/classNames/classNames';
 import cls from './EditableProfileCard.module.scss';
 import { ProfileCard, ValidateProfileError } from 'entities/Profile';
-import { fetchProfileData } from '../model/services/fetchProfileData/fetchProfileData';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { getProfileIsLoading } from '../model/selectors/getProfileIsLoading/getProfileIsLoading';
 import { getProfileError } from '../model/selectors/getProfileError/getProfileError';
@@ -13,7 +12,7 @@ import { getProfileReadonly } from '../model/selectors/getProfileReadonly/getPro
 import { getProfileForm } from '../model/selectors/getProfileForm/getProfileForm';
 import {
     getProfileValidateErrors
-} from 'feature/EditableProfileCard/model/selectors/getProfileValidateErrors/getProfileValidateErrors';
+} from '../model/selectors/getProfileValidateErrors/getProfileValidateErrors';
 import { Text, TextTheme } from 'shared/ui/Text/Text';
 import { useTranslation } from 'react-i18next';
 

@@ -9,3 +9,9 @@
 .secondary {
   color: var(--inverted-primary-color);
 }
+
+.outline {
+  border: 1px solid var(--primary-color);
+  padding: 5px 15px;
+  border-radius: var(--radius-s);
+}

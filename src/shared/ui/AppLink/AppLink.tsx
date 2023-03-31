@@ -6,7 +6,8 @@ import { memo, ReactNode } from 'react';
 export enum AppLinkTheme {
     PRIMARY = 'primary',
     SECONDARY = 'secondary',
-    RED = 'red'
+    RED = 'red',
+    OUTLINE = 'outline'
 }
 
 interface AppLinkProps extends LinkProps{
