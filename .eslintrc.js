@@ -65,7 +65,6 @@ module.exports = {
             'error',
             'always'
         ],
-
     },
     globals: {
         '__IS_DEV__': true,

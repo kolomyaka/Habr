@@ -39,7 +39,6 @@ export const EditableProfileCard = ({ className }: EditableProfileCardProps) => 
         [ValidateProfileError.INCORRECT_USERNAME]: t('Логин обязателен')
     };
 
-
     const onInputChangeHandler = useCallback((value: string, name: string) => {
         switch (name) {
         case 'age':
