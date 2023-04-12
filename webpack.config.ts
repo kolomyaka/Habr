@@ -19,12 +19,12 @@ export default (env: BuildEnv) => {
     // Смотрим в какой среде текущая сборка (дев, продакшн)
     const mode = env.mode || 'development';
     const isDev = mode === 'development';
-    const apiUrl = env.apiUrl || 'http://localhost:8000';
 
     // В зависимости от среды сборки смотрим из какого файла нужны .env-переменные
     dotenv.config({
         path: path.resolve(__dirname, `.env.${isDev ? 'development' : 'production'}`)
     });
+    const apiUrl = process.env.apiUrl || 'http://localhost:8000';
     const PORT = process.env.port || 3000;
 
     // Конфигурируем конфиг webpack
