@@ -1,6 +1,7 @@
 import { TestAsyncThunk } from 'shared/lib/tests/TestAsyncThunk/TestAsyncThunk';
 import { fetchNextArticlesPage } from './fetchNextArticlesPage';
 import { fetchArticlesList } from '../fetchArticlesList/fetchArticlesList';
+import { ArticleView } from 'entities/Article';
 
 jest.mock('../fetchArticlesList/fetchArticlesList');
 
@@ -13,6 +14,7 @@ describe('fetchNextArticlesPage.test', () => {
                 page: 2,
                 ids: [],
                 entities: {},
+                view: ArticleView.SMALL,
                 limit: 5,
                 isLoading: false,
                 hasMore: true

@@ -1,6 +1,7 @@
 import { TestAsyncThunk } from 'shared/lib/tests/TestAsyncThunk/TestAsyncThunk';
 import { initArticlesPage } from './initArticlesPage';
 import { fetchArticlesList } from '../fetchArticlesList/fetchArticlesList';
+import { ArticleView } from 'entities/Article';
 
 jest.mock('../fetchArticlesList/fetchArticlesList');
 
@@ -10,7 +11,8 @@ describe('initArticlesPage.test', () => {
         const searchParams = new URLSearchParams();
         const thunk = new TestAsyncThunk(initArticlesPage, {
             articlesPage: {
-                _inited: false
+                _inited: false,
+                view: ArticleView.SMALL
             }
         });
         // Вызываем метод класса, передавая данные для санки и получаем ответ от action'a
@@ -23,7 +25,8 @@ describe('initArticlesPage.test', () => {
         // Создаем экземпляр нашего класса и передаем санку
         const thunk = new TestAsyncThunk(initArticlesPage, {
             articlesPage: {
-                _inited: true
+                _inited: true,
+                view: ArticleView.SMALL
             }
         });
         // Вызываем метод класса, передавая данные для санки и получаем ответ от action'a
