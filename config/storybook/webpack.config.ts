@@ -11,20 +11,13 @@ export default ({ config }: {config: webpack.Configuration}) => {
         build: '',
         html: '',
         entry: '',
-        src: path.resolve(__dirname, '..', '..', 'src')
+        src: path.resolve(__dirname, '..', '..', 'src'),
+        buildLocales: '',
+        locales: ''
     };
     // Уведовляем СБ о использовании абсолютных импортов
     config!.resolve!.modules!.push(paths.src);
     config!.resolve!.extensions!.push('.ts', '.tsx');
-
-    // Если находим какое-то правило, которое связано с svg, то добавляем exclude
-    // config!.module!.rules = config!.module!.rules!.map((rule: RuleSetRule) => {
-    //     if (/svg/.test(rule.test as string)) {
-    //         return { ...rule, exclude: /\.svg$/i };
-    //     }
-    //
-    //     return rule;
-    // });
 
     config.module!.rules = rules.map((rule) => (
         /svg/.test(rule.test as string)

@@ -2,13 +2,11 @@ import { classNames } from 'shared/lib/classNames/classNames';
 import cls from './ArticleDetailsPage.module.scss';
 import { memo } from 'react';
 import { useTranslation } from 'react-i18next';
-import { ArticleDetails } from 'entities/Article';
+import { ArticleDetails, ArticleDetailsPageHeader } from 'entities/Article';
 import { useParams } from 'react-router-dom';
 import { ArticleDetailsComment } from 'feature/ArticleDetailsComment';
 import { Page } from 'widgets/Page';
 import { ArticleDetailsRecommendations } from 'feature/ArticleDetailsRecommendations';
-import { ArticleDetailsPageHeader } from 'entities/Article';
-
 
 interface ArticleDetailsPageProps {
     className?: string

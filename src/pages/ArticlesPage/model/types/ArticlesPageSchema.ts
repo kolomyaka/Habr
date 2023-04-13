@@ -6,7 +6,7 @@ import { OrderType } from 'shared/types/types';
 export interface ArticlesPageSchema extends EntityState<Article> {
     error?: string;
     isLoading: boolean;
-    view: ArticleView;
+    view?: ArticleView;
     type: ArticleType;
 
     // Pagination

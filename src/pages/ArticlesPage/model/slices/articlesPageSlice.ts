@@ -17,6 +17,7 @@ export const getArticles = articlesPageAdapter.getSelectors<StateSchema>(
     (state) => state.articlesPage || articlesPageAdapter.getInitialState()
 );
 
+
 const articlesPageSlice = createSlice({
     name: 'articlesPageSlice',
     initialState: articlesPageAdapter.getInitialState<ArticlesPageSchema>({

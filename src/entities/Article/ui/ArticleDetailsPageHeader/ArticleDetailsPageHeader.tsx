@@ -1,12 +1,10 @@
 import { classNames } from 'shared/lib/classNames/classNames';
 import cls from './ArticleDetailsPageHeader.module.scss';
-import { memo, useCallback } from 'react';
-import { Button, ButtonTheme } from 'shared/ui/Button/Button';
-import { generatePath, useNavigate } from 'react-router-dom';
-import { RoutePath } from 'shared/config/routeConfig/routeConfig';
+import { memo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 import { getArticleDetailsData, getCanEditArticle } from '../../model/selectors/articleDetails';
+import { AppLink, AppLinkTheme } from 'shared/ui/AppLink/AppLink';
 
 interface ArticleDetailsPageHeaderProps {
     className?: string
@@ -14,29 +12,18 @@ interface ArticleDetailsPageHeaderProps {
 
 export const ArticleDetailsPageHeader = memo(({ className }: ArticleDetailsPageHeaderProps) => {
     const { t } = useTranslation('articles');
-    const navigate = useNavigate();
     const canEdit = useSelector(getCanEditArticle);
     const article = useSelector(getArticleDetailsData);
 
-    const onBackToList = useCallback(() => {
-        navigate(RoutePath.articles);
-    }, [navigate]);
-
-    const onEditArticle = useCallback(() => {
-        navigate(generatePath(`${RoutePath.article_edit}`, {
-            id: article?.id
-        }));
-    }, [article?.id, navigate]);
-
     return (
         <div className={classNames(cls.articleDetailsPageHeader, {}, [className])}>
-            <Button theme={ButtonTheme.OUTLINE} onClick={onBackToList}>
+            <AppLink theme={AppLinkTheme.OUTLINE} to={'/articles'}>
                 {t('Назад к списку')}
-            </Button>
+            </AppLink>
             {canEdit&&(
-                <Button onClick={onEditArticle} theme={ButtonTheme.BACKGROUND_INVERTED}>
+                <AppLink theme={AppLinkTheme.OUTLINE} to={`/articles/${article?.id}/edit`}>
                     {t('Редактировать')}
-                </Button>
+                </AppLink>
             )}
         </div>
     );
