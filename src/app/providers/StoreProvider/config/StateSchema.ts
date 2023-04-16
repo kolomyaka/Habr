@@ -1,14 +1,15 @@
 import { AnyAction, CombinedState, EnhancedStore, Reducer, ReducersMapObject } from '@reduxjs/toolkit';
 import { AxiosInstance } from 'axios';
-import { CounterSchema } from 'entities/Counter';
-import { UserSchema } from 'entities/User';
-import { LoginSchema } from 'feature/AuthByUsername';
-import { ProfileSchema } from 'entities/Profile';
-import { ArticleDetailsSchema } from 'entities/Article';
 import { ArticleDetailsCommentFormSchema, ArticleDetailsCommentsSchema } from 'feature/ArticleDetailsComment';
-import { ArticlesPageSchema } from 'pages/ArticlesPage';
-import { ScrollSaveSchema } from 'feature/ScrollSave';
 import { ArticleDetailsRecommendationsSchema } from 'feature/ArticleDetailsRecommendations';
+import { LoginSchema } from 'feature/AuthByUsername';
+import { ScrollSaveSchema } from 'feature/ScrollSave';
+
+import { ArticleDetailsSchema } from 'entities/Article';
+import { CounterSchema } from 'entities/Counter';
+import { ProfileSchema } from 'entities/Profile';
+import { UserSchema } from 'entities/User';
+import { ArticlesPageSchema } from 'pages/ArticlesPage';
 
 
 // Типизируем наше хранилище редюсеров

@@ -1,10 +1,13 @@
 import { createEntityAdapter, createSlice, PayloadAction, } from '@reduxjs/toolkit';
-import { StateSchema } from 'app/providers/StoreProvider';
-import { ArticleDetailsRecommendationsSchema } from '../types/ArticleDetailsRecommendationsSchema';
+
 import { Article } from 'entities/Article';
+
+import type { StateSchema } from 'app/providers/StoreProvider';
+
 import {
     fetchArticleRecommendations
 } from '../services/fetchArticleRecommendations';
+import { ArticleDetailsRecommendationsSchema } from '../types/ArticleDetailsRecommendationsSchema';
 
 // Создаем адаптер для нормализации данных и указываем по какому полю будет идти поиск при нормализации
 // Обычно это айди сущности, который как раз берем из объекта комментария

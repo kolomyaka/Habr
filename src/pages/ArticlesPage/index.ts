@@ -7,3 +7,7 @@ export {
 export {
     articlesPageReducer
 } from './model/slices/articlesPageSlice';
+
+export {
+    getArticlesPageType
+} from './model/selectors/articlesPage';

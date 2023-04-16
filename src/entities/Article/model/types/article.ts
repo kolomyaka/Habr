@@ -1,5 +1,5 @@
 // Интерфес статьи
-import { User } from 'entities/User';
+import type { User } from 'entities/User';
 
 export enum ArticleSortField {
     VIEWS = 'views',

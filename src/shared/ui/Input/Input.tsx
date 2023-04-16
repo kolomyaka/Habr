@@ -1,6 +1,8 @@
-import { classNames, Mods } from 'shared/lib/classNames/classNames';
-import cls from './Input.module.scss';
 import { InputHTMLAttributes, memo, SyntheticEvent, useState } from 'react';
+
+import { classNames, Mods } from '../../lib/classNames/classNames';
+
+import cls from './Input.module.scss';
 
 // Omit - Первым параметром принимает тип, который забираем,
 // Вторым параметром исключаем типы, которые хотим исключить

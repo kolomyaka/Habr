@@ -1,8 +1,9 @@
 import { profileActions, profileReducer } from 'feature/EditableProfileCard';
-import { ProfileSchema, ValidateProfileError } from 'entities/Profile';
+import { updateProfileData } from 'feature/EditableProfileCard/model/services/updateProfileData/updateProfileData';
+
 import { Country } from 'entities/Country';
 import { Currency } from 'entities/Currency';
-import { updateProfileData } from 'feature/EditableProfileCard/model/services/updateProfileData/updateProfileData';
+import { ProfileSchema, ValidateProfileError } from 'entities/Profile';
 
 const data = {
     username: 'Kolomyaka',

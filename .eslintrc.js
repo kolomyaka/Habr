@@ -7,7 +7,8 @@ module.exports = {
         'eslint:recommended',
         'plugin:react/recommended',
         'plugin:@typescript-eslint/recommended',
-        'plugin:i18next/recommended'
+        'plugin:i18next/recommended',
+        'plugin:conarti-fsd/recommended'
     ],
     'overrides': [
         {
@@ -28,7 +29,8 @@ module.exports = {
         'react',
         '@typescript-eslint',
         'i18next',
-        'react-hooks'
+        'react-hooks',
+        'conarti-fsd'
     ],
     'settings': {
         'react': {
@@ -36,6 +38,11 @@ module.exports = {
         }
     },
     'rules': {
+        'conarti-fsd/layers-slices': 'warn',
+        'conarti-fsd/absolute-relative': 'off',
+        'conarti-fsd/public-api': 'warn',
+        'import/order': 'warn',
+
         'react/jsx-indent': [2, 4, { indentLogicalExpressions: true }],
         indent: [2,4],
         'react/jsx-props-no-spreading': 'warn',

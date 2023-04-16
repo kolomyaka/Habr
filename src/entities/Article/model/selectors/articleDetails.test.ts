@@ -1,5 +1,7 @@
-import { StateSchema } from 'app/providers/StoreProvider';
+import type { StateSchema } from 'app/providers/StoreProvider';
+
 import { ArticleBlockType, ArticleType, Article } from '../types/article';
+
 import { getArticleDetailsData, getArticleDetailsError, getArticleDetailsIsLoading } from './articleDetails';
 
 describe('getArticleDetailsData.test', () => {

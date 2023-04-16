@@ -1,8 +1,9 @@
 import { TestAsyncThunk } from 'shared/lib/tests/TestAsyncThunk/TestAsyncThunk';
-import { fetchProfileData } from './fetchProfileData';
 import { Country } from 'entities/Country';
 import { Currency } from 'entities/Currency';
 import { ValidateProfileError } from 'entities/Profile';
+
+import { fetchProfileData } from './fetchProfileData';
 
 const data = {
     id: '1',

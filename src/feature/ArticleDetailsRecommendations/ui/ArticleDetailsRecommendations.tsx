@@ -1,23 +1,25 @@
-import { classNames } from 'shared/lib/classNames/classNames';
-import cls from './ArticleDetailsRecommendations.module.scss';
-import { memo } from 'react';
-import { useSelector } from 'react-redux';
 import {
     getArticleDetailsRecommendationsIsLoading
 } from 'feature/ArticleDetailsRecommendations/model/selectors/articleDetailsRecommendationsSelectors';
 import {
+    fetchArticleRecommendations
+} from 'feature/ArticleDetailsRecommendations/model/services/fetchArticleRecommendations';
+import {
     articleDetailsRecommendationsReducer,
     getArticleRecommendations
 } from 'feature/ArticleDetailsRecommendations/model/slices/articleDetailsRecommendationsSlice';
-import { Text } from 'shared/ui/Text/Text';
+import { memo } from 'react';
 import { useTranslation } from 'react-i18next';
-import { ArticleList } from 'entities/Article';
-import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEffect';
-import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
-import {
-    fetchArticleRecommendations
-} from 'feature/ArticleDetailsRecommendations/model/services/fetchArticleRecommendations';
+import { useSelector } from 'react-redux';
+
+import { classNames } from 'shared/lib/classNames/classNames';
 import { DynamicModuleLoader, ReducersList } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
+import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
+import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEffect';
+import { Text } from 'shared/ui/Text/Text';
+import { ArticleList } from 'entities/Article';
+
+import cls from './ArticleDetailsRecommendations.module.scss';
 
 interface ArticleDetailsRecommendationsListProps {
     className?: string

@@ -1,9 +1,12 @@
-import React from 'react';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
-import { ProfileCard } from './ProfileCard';
-import { Currency } from 'entities/Currency';
-import { Country } from 'entities/Country';
+import React from 'react';
+
 import { ValidateProfileError } from 'entities/Profile';
+
+import type { Country } from 'entities/Country';
+import type { Currency } from 'entities/Currency';
+
+import { ProfileCard } from './ProfileCard';
 
 export default {
     title: 'entities/ProfileCard',
@@ -24,8 +27,8 @@ Primary.args = {
         first_name: 'Nikita',
         last_name: 'Kolomoycev',
         age: 22,
-        country: Country.Russia,
-        currency: Currency.RUB,
+        country: 'Russia' as Country.Russia,
+        currency: 'RUB' as Currency.RUB,
         city: 'Saint-Petersburg',
         avatar: 'https://gravatar.com/avatar/d79a01fc6611be42996b4f3a6994?s=400&d=monsterid&r=x'
     }

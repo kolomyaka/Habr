@@ -1,10 +1,11 @@
 import { CombinedState, configureStore, Reducer, ReducersMapObject } from '@reduxjs/toolkit';
-import { StateSchema } from 'app/providers/StoreProvider/config/StateSchema';
+import { scrollSaveReducer } from 'feature/ScrollSave';
+
+import { $api } from 'shared/api/api';
 import { counterReducer } from 'entities/Counter';
 import { userReducer } from 'entities/User';
 import { createReducerManager } from 'app/providers/StoreProvider/config/reducerManager';
-import { $api } from 'shared/api/api';
-import { scrollSaveReducer } from 'feature/ScrollSave';
+import { StateSchema } from 'app/providers/StoreProvider/config/StateSchema';
 
 
 // Делаем initialState, чтобы в дальнейшем для SB или тестов могли подготовить какие-то данные

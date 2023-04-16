@@ -1,9 +1,11 @@
-import React from 'react';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
-import ProfilePage from './ProfilePage';
+import React from 'react';
+
 import { StoreDecorator } from 'shared/config/storybook/StoreDecorator/StoreDecorator';
 import { Country } from 'entities/Country';
 import { Currency } from 'entities/Currency';
+
+import ProfilePage from './ProfilePage';
 
 export default {
     title: 'pages/ProfilePage',

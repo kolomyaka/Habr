@@ -1,7 +1,9 @@
-import webpack, { RuleSetRule } from 'webpack';
-import { BuildPath } from '../build/types/config';
 import path from 'path';
+
+import webpack, { RuleSetRule } from 'webpack';
+
 import { buildCssLoader } from '../build/loaders/buildCssLoader';
+import { BuildPath } from '../build/types/config';
 
 // Настраиваем конфиг для сторибука
 

@@ -1,26 +1,29 @@
-import { classNames } from 'shared/lib/classNames/classNames';
-import cls from './ArticleDetailsComment.module.scss';
+import { fetchCommentsByArticleId } from 'feature/ArticleDetailsComment/model/services/fetchCommentsByArticleId';
 import { memo, useCallback } from 'react';
-import { DynamicModuleLoader, ReducersList } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
-import {
-    articleDetailsCommentsReducer,
-    getArticleComments
-} from '../../model/slice/articleDetailsCommentsSlice';
-import { AddNewComment } from 'entities/Comment/ui/AddNewComment/AddNewComment';
-import { CommentList } from 'entities/Comment';
+import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
+import { useParams } from 'react-router-dom';
+
+import { classNames } from 'shared/lib/classNames/classNames';
+import { DynamicModuleLoader, ReducersList } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
+import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
+import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEffect';
+import { Text } from 'shared/ui/Text/Text';
+import { CommentList } from 'entities/Comment';
+import { AddNewComment } from 'entities/Comment/ui/AddNewComment/AddNewComment';
+
 import { getArticleDetailsCommentsIsLoading, getArticleDetailsCommentText } from '../../model/selectors/comments';
+import { sendComment } from '../../model/services/sendComment';
 import {
     articleDetailsCommentFormActions,
     articleDetailsCommentFormReducer
 } from '../../model/slice/articleDetailsCommentFormSlice';
-import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
-import { sendComment } from '../../model/services/sendComment';
-import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEffect';
-import { fetchCommentsByArticleId } from 'feature/ArticleDetailsComment/model/services/fetchCommentsByArticleId';
-import { useParams } from 'react-router-dom';
-import { Text } from 'shared/ui/Text/Text';
-import { useTranslation } from 'react-i18next';
+import {
+    articleDetailsCommentsReducer,
+    getArticleComments
+} from '../../model/slice/articleDetailsCommentsSlice';
+
+import cls from './ArticleDetailsComment.module.scss';
 
 export interface ArticleDetailsCommentProps {
     className?: string

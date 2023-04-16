@@ -1,9 +1,11 @@
-import { classNames } from 'shared/lib/classNames/classNames';
-import { useTranslation } from 'react-i18next';
-import { Button, ButtonTheme } from 'shared/ui/Button/Button';
-import LangIcon from 'shared/assets/icons/language-icon.svg';
-import cls from './LangSwitcher.module.scss';
 import { memo } from 'react';
+import { useTranslation } from 'react-i18next';
+
+import LangIcon from 'shared/assets/icons/language-icon.svg';
+import { classNames } from 'shared/lib/classNames/classNames';
+import { Button, ButtonTheme } from 'shared/ui/Button/Button';
+
+import cls from './LangSwitcher.module.scss';
 
 interface LangSwitcherProps {
     className?: string;

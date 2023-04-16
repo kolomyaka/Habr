@@ -1,7 +1,9 @@
-import React from 'react';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
-import { Sidebar } from './Sidebar';
+import React from 'react';
+
 import { StoreDecorator } from 'shared/config/storybook/StoreDecorator/StoreDecorator';
+
+import { Sidebar } from './Sidebar';
 
 export default {
     title: 'widgets/Sidebar',

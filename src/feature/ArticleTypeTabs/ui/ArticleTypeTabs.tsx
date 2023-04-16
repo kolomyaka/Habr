@@ -1,10 +1,11 @@
-import { classNames } from 'shared/lib/classNames/classNames';
-import { useSelector } from 'react-redux';
-import { getArticlesPageType } from 'pages/ArticlesPage/model/selectors/articlesPage';
 import { useCallback, useMemo } from 'react';
+import { useTranslation } from 'react-i18next';
+import { useSelector } from 'react-redux';
+
+import { classNames } from 'shared/lib/classNames/classNames';
 import { TabItem, Tabs } from 'shared/ui/Tabs/Tabs';
 import { ArticleType } from 'entities/Article';
-import { useTranslation } from 'react-i18next';
+import { getArticlesPageType } from 'pages/ArticlesPage';
 
 interface ArticleTypeTabsProps {
     className?: string;

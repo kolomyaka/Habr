@@ -7,12 +7,13 @@ export {
 } from './ui/ArticleDetailsPageHeader/ArticleDetailsPageHeader';
 
 export type {
-    Article
+    Article,
 } from './model/types/article';
 
 export {
     ArticleView,
     ArticleSortField,
+    ArticleBlockType,
     ArticleType
 } from './model/types/article';
 

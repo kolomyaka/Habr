@@ -1,7 +1,9 @@
-import { classNames } from 'shared/lib/classNames/classNames';
-import cls from './AppNavLink.module.scss';
-import { NavLink, NavLinkProps } from 'react-router-dom';
 import { memo } from 'react';
+import { NavLink, NavLinkProps } from 'react-router-dom';
+
+import { classNames } from '../../lib/classNames/classNames';
+
+import cls from './AppNavLink.module.scss';
 
 export enum AppNavLinkTheme {
     PRIMARY = 'primary',

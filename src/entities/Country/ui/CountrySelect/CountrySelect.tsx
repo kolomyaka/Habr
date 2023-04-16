@@ -1,7 +1,9 @@
-import { Select } from 'shared/ui/Select/Select';
-import { Country } from '../../model/types/country';
-import { useTranslation } from 'react-i18next';
 import { memo, useCallback } from 'react';
+import { useTranslation } from 'react-i18next';
+
+import { Select } from 'shared/ui/Select/Select';
+
+import { Country } from '../../model/types/country';
 
 interface CountrySelectOptions {
     className?: string;

@@ -1,12 +1,14 @@
-import { classNames } from 'shared/lib/classNames/classNames';
-import cls from './ArticleDetailsPage.module.scss';
+import { ArticleDetailsComment } from 'feature/ArticleDetailsComment';
+import { ArticleDetailsRecommendations } from 'feature/ArticleDetailsRecommendations';
 import { memo } from 'react';
 import { useTranslation } from 'react-i18next';
-import { ArticleDetails, ArticleDetailsPageHeader } from 'entities/Article';
 import { useParams } from 'react-router-dom';
-import { ArticleDetailsComment } from 'feature/ArticleDetailsComment';
+
+import { classNames } from 'shared/lib/classNames/classNames';
+import { ArticleDetails, ArticleDetailsPageHeader } from 'entities/Article';
 import { Page } from 'widgets/Page';
-import { ArticleDetailsRecommendations } from 'feature/ArticleDetailsRecommendations';
+
+import cls from './ArticleDetailsPage.module.scss';
 
 interface ArticleDetailsPageProps {
     className?: string

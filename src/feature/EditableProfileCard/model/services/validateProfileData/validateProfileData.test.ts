@@ -1,7 +1,8 @@
 import { Country } from 'entities/Country';
 import { Currency } from 'entities/Currency';
-import { validateProfileData } from './validateProfileData';
 import { ValidateProfileError } from 'entities/Profile';
+
+import { validateProfileData } from './validateProfileData';
 
 const data = {
     id: '1',

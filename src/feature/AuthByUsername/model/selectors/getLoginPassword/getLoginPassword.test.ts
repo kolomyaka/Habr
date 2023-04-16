@@ -1,5 +1,6 @@
-import { getLoginPassword } from './getLoginPassword';
 import { StateSchema } from 'app/providers/StoreProvider';
+
+import { getLoginPassword } from './getLoginPassword';
 
 describe('getLoginIsLoading.test', () => {
     test('should return qwerty', () => {

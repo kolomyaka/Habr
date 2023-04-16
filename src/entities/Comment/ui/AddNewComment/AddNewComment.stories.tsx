@@ -1,7 +1,9 @@
-import React from 'react';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
-import { AddNewComment } from './AddNewComment';
+import React from 'react';
+
 import { StoreDecorator } from 'shared/config/storybook/StoreDecorator/StoreDecorator';
+
+import { AddNewComment } from './AddNewComment';
 
 export default {
     title: 'entities/AddNewComment',

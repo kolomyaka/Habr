@@ -1,6 +1,7 @@
-import React from 'react';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
-import { AppLink, AppLinkTheme } from 'shared/ui/AppLink/AppLink';
+import React from 'react';
+
+import { AppLink, AppLinkTheme } from './AppLink';
 
 export default {
     title: 'shared/AppLink',

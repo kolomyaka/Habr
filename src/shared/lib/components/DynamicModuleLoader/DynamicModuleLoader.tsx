@@ -1,7 +1,10 @@
+import { Reducer } from '@reduxjs/toolkit';
 import { FC, ReactNode, useEffect } from 'react';
 import { useDispatch, useStore } from 'react-redux';
-import { ReduxStoreWithManager, StateSchema, StateSchemaKey } from 'app/providers/StoreProvider/config/StateSchema';
-import { Reducer } from '@reduxjs/toolkit';
+
+import type {
+    ReduxStoreWithManager, StateSchema, StateSchemaKey
+} from 'app/providers/StoreProvider/config/StateSchema';
 
 export type ReducersList = {
     // Делаем более строгую типизацию для reducersList, чтобы не могли добавить ошибочный редюсер

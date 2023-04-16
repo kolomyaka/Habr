@@ -1,11 +1,15 @@
-import { classNames } from 'shared/lib/classNames/classNames';
-import cls from './SidebarItem.module.scss';
-import { AppNavLink, AppNavLinkTheme } from 'shared/ui/AppNavLink/AppNavLink';
-import { SidebarItemType } from '../../model/types/items';
-import { useTranslation } from 'react-i18next';
 import { memo } from 'react';
+import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
+
+import { classNames } from 'shared/lib/classNames/classNames';
+import { AppNavLink, AppNavLinkTheme } from 'shared/ui/AppNavLink/AppNavLink';
 import { getUserAuthData } from 'entities/User';
+
+import { SidebarItemType } from '../../model/types/items';
+
+import cls from './SidebarItem.module.scss';
+
 
 interface SidebarItemProps {
     item: SidebarItemType;

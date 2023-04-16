@@ -1,27 +1,30 @@
-import { classNames } from 'shared/lib/classNames/classNames';
-import cls from './ArticleDetails.module.scss';
-import { DynamicModuleLoader, ReducersList } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
-import { articleDetailsReducer } from '../../model/slice/articleDetailsSlice';
 import { memo, useCallback, useEffect } from 'react';
-import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
-import { fetchArticleById } from '../../model/services/fetchArticleById/fetchArticleById';
+import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
+
+import CalendarIcon from 'shared/assets/icons/calendar-icon.svg';
+import EyeIcon from 'shared/assets/icons/eye-icon.svg';
+import { classNames } from 'shared/lib/classNames/classNames';
+import { DynamicModuleLoader, ReducersList } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
+import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
+import { Avatar } from 'shared/ui/Avatar/Avatar';
+import { Icon } from 'shared/ui/Icon/Icon';
+import { Skeleton } from 'shared/ui/Skeleton/Skeleton';
+import { Text, TextAlign, TextSize, TextTheme } from 'shared/ui/Text/Text';
+
 import {
     getArticleDetailsData,
     getArticleDetailsError,
     getArticleDetailsIsLoading
 } from '../../model/selectors/articleDetails';
-import { Text, TextAlign, TextSize, TextTheme } from 'shared/ui/Text/Text';
-import { useTranslation } from 'react-i18next';
-import { Skeleton } from 'shared/ui/Skeleton/Skeleton';
-import { Avatar } from 'shared/ui/Avatar/Avatar';
-import EyeIcon from 'shared/assets/icons/eye-icon.svg';
-import CalendarIcon from 'shared/assets/icons/calendar-icon.svg';
-import { Icon } from 'shared/ui/Icon/Icon';
+import { fetchArticleById } from '../../model/services/fetchArticleById/fetchArticleById';
+import { articleDetailsReducer } from '../../model/slice/articleDetailsSlice';
 import { ArticleBlock, ArticleBlockType } from '../../model/types/article';
 import { ArticleCodeBlockComponent } from '../ArticleCodeBlockComponent/ArticleCodeBlockComponent';
 import { ArticleImageBlockComponent } from '../ArticleImageBlockComponent/ArticleImageBlockComponent';
 import { ArticleTextBlockComponent } from '../ArticleTextBlockComponent/ArticleTextBlockComponent';
+
+import cls from './ArticleDetails.module.scss';
 
 const reducers: ReducersList = {
     articleDetails: articleDetailsReducer

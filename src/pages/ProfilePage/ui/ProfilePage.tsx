@@ -1,8 +1,9 @@
+import { EditableProfileCard, profileReducer, fetchProfileData } from 'feature/EditableProfileCard';
+import { useParams } from 'react-router-dom';
+
 import { classNames } from 'shared/lib/classNames/classNames';
 import { DynamicModuleLoader, ReducersList } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
-import { EditableProfileCard, profileReducer, fetchProfileData } from 'feature/EditableProfileCard';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
-import { useParams } from 'react-router-dom';
 import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEffect';
 import { Page } from 'widgets/Page';
 

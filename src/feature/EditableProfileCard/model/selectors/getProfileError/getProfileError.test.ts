@@ -1,4 +1,5 @@
 import { StateSchema } from 'app/providers/StoreProvider';
+
 import { getProfileError } from '../../selectors/getProfileError/getProfileError';
 
 describe('getProfileError.test', () => {

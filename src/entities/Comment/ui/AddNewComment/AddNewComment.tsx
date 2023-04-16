@@ -1,12 +1,14 @@
-import { classNames } from 'shared/lib/classNames/classNames';
-import cls from './AddNewComment.module.scss';
 import { memo, useCallback } from 'react';
-import { Input } from 'shared/ui/Input/Input';
 import { useTranslation } from 'react-i18next';
-import { Button, ButtonTheme } from 'shared/ui/Button/Button';
-import { Avatar } from 'shared/ui/Avatar/Avatar';
 import { useSelector } from 'react-redux';
+
+import { classNames } from 'shared/lib/classNames/classNames';
+import { Avatar } from 'shared/ui/Avatar/Avatar';
+import { Button, ButtonTheme } from 'shared/ui/Button/Button';
+import { Input } from 'shared/ui/Input/Input';
 import { getUserAuthData } from 'entities/User';
+
+import cls from './AddNewComment.module.scss';
 
 interface AddArticleCommentProps {
     className?: string

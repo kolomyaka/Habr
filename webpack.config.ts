@@ -1,8 +1,10 @@
 import path from 'path';
+
+import dotenv from 'dotenv';
 import webpack from 'webpack';
+
 import { BuildWebpackConfig } from './config/build/buildWebpackConfig';
 import { BuildEnv, BuildPath } from './config/build/types/config';
-import dotenv from 'dotenv';
 
 export default (env: BuildEnv) => {
     // Указываем переменные для конфига, которые потом передадим в объект настроек и передадим в функцию

@@ -1,10 +1,13 @@
-import { classNames } from 'shared/lib/classNames/classNames';
-import cls from './ArticleDetailsPageHeader.module.scss';
 import { memo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
-import { getArticleDetailsData, getCanEditArticle } from '../../model/selectors/articleDetails';
+
+import { classNames } from 'shared/lib/classNames/classNames';
 import { AppLink, AppLinkTheme } from 'shared/ui/AppLink/AppLink';
+
+import { getArticleDetailsData, getCanEditArticle } from '../../model/selectors/articleDetails';
+
+import cls from './ArticleDetailsPageHeader.module.scss';
 
 interface ArticleDetailsPageHeaderProps {
     className?: string

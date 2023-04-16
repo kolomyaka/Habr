@@ -1,6 +1,7 @@
-import React from 'react';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
-import { Modal } from 'shared/ui/Modal/Modal';
+import React from 'react';
+
+import { Modal } from './Modal';
 
 export default {
     title: 'shared/Modal',

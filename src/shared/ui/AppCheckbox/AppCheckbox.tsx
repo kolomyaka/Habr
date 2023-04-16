@@ -1,6 +1,8 @@
-import { classNames } from 'shared/lib/classNames/classNames';
-import cls from './AppCheckbox.module.scss';
 import { InputHTMLAttributes, memo, ReactNode } from 'react';
+
+import { classNames } from '../../lib/classNames/classNames';
+
+import cls from './AppCheckbox.module.scss';
 
 
 interface AppCheckboxProps extends InputHTMLAttributes<HTMLInputElement> {

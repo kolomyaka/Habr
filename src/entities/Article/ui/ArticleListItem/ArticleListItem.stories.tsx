@@ -1,7 +1,9 @@
-import React from 'react';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
-import { ArticleListItem } from './ArticleListItem';
+import React from 'react';
+
 import { Article, ArticleView } from '../../model/types/article';
+
+import { ArticleListItem } from './ArticleListItem';
 
 const mockedArticle = {
     'id': '1',
