@@ -4,6 +4,8 @@ import { useSelector } from 'react-redux';
 
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { Button, ButtonTheme } from 'shared/ui/Button/Button';
+import { HStack } from 'shared/ui/Stack/HStack/HStack';
+import { VStack } from 'shared/ui/Stack/VStack/VStack';
 import { Text } from 'shared/ui/Text/Text';
 import { getUserAuthData } from 'entities/User';
 
@@ -11,8 +13,6 @@ import { getProfileData } from '../../model/selectors/getProfileData/getProfileD
 import { getProfileReadonly } from '../../model/selectors/getProfileReadonly/getProfileReadonly';
 import { updateProfileData } from '../../model/services/updateProfileData/updateProfileData';
 import { profileActions } from '../../model/slice/profileSlice';
-
-import cls from './EditableProfileCardHeader.module.scss';
 
 
 export const EditableProfileCardHeader = () => {
@@ -37,7 +37,7 @@ export const EditableProfileCardHeader = () => {
     }, [dispatch]);
 
     return (
-        <div className={cls.header}>
+        <HStack max justify={'between'} align={'center'}>
             <Text title={t('Профиль')} />
             {canEdit && (
                 <>
@@ -52,7 +52,7 @@ export const EditableProfileCardHeader = () => {
                                 </Button>
                             )
                             : (
-                                <div className={cls.editProfileBtn}>
+                                <HStack gap={4}>
                                     <Button
                                         theme={ButtonTheme.BACKGROUND_INVERTED}
                                         onClick={onCancelEditHandler}
@@ -65,12 +65,12 @@ export const EditableProfileCardHeader = () => {
                                     >
                                         {t('Сохранить')}
                                     </Button>
-                                </div>
+                                </HStack>
                             )
                     }
                 </>
             )}
-        </div>
+        </HStack>
     );
 };
 

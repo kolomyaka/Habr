@@ -5,6 +5,7 @@ import { classNames } from 'shared/lib/classNames/classNames';
 import { Avatar } from 'shared/ui/Avatar/Avatar';
 import { Input } from 'shared/ui/Input/Input';
 import { Loader } from 'shared/ui/Loader/Loader';
+import { VStack } from 'shared/ui/Stack/VStack/VStack';
 import { Text, TextAlign, TextTheme } from 'shared/ui/Text/Text';
 import { CountrySelect } from 'entities/Country';
 import { CurrencySelect } from 'entities/Currency';
@@ -39,95 +40,93 @@ export const ProfileCard = memo((props: ProfileCardProps) => {
 
     if (isLoading) {
         return (
-            <div className={classNames(cls.profileCard, {}, [className, cls.loader])}>
+            <VStack className={classNames(cls.profileCard, {}, [className, cls.loader])}>
                 <Loader />
-            </div>
+            </VStack>
         );
     }
 
     if (error) {
         return (
-            <div className={classNames(cls.profileCard, {}, [className, cls.error])}>
+            <VStack className={classNames(cls.profileCard, {}, [className, cls.error])}>
                 <Text
                     theme={TextTheme.ERROR}
                     title={t('Произошла ошибка при загрузке данных профиля')}
                     description={t('Попробуйте обновить страницу')}
                     align={TextAlign.CENTER}
                 />
-            </div>
+            </VStack>
         );
     }
 
     return (
-        <div className={classNames(cls.profileCard, {}, [className])}>
-            <div className={cls.data}>
-                {data?.avatar && (
-                    <div className={cls.avatarWrapper}>
-                        <Avatar src={data?.avatar} />
-                    </div>
-                )}
-                <Input
-                    name={'first_name'}
-                    label={t('Имя', { ns: 'profile' })}
-                    value={data?.first_name}
-                    className={cls.input}
-                    readonly={readonly}
-                    onChange={onInputChangeHandler}
-                />
-                <Input
-                    name={'last_name'}
-                    label={t('Фамилия')}
-                    value={data?.last_name}
-                    className={cls.input}
-                    readonly={readonly}
-                    onChange={onInputChangeHandler}
-                />
-                <Input
-                    name={'username'}
-                    label={t('Логин' )}
-                    value={data?.username}
-                    className={cls.input}
-                    readonly={readonly}
-                    onChange={onInputChangeHandler}
-                />
-                <Input
-                    name={'age'}
-                    label={t('Возраст')}
-                    value={data?.age}
-                    className={cls.input}
-                    readonly={readonly}
-                    onChange={onInputChangeHandler}
-                />
-                <Input
-                    name={'city'}
-                    label={t('Город')}
-                    value={data?.city}
-                    className={cls.input}
-                    readonly={readonly}
-                    onChange={onInputChangeHandler}
-                />
-                <Input
-                    name={'avatar'}
-                    label={t('Аватар')}
-                    value={data?.avatar}
-                    className={cls.input}
-                    readonly={readonly}
-                    onChange={onInputChangeHandler}
-                />
-                <CurrencySelect
-                    className={cls.input}
-                    value={data?.currency}
-                    readonly={readonly}
-                    onChange={onInputChangeHandler}
-                />
-                <CountrySelect
-                    className={cls.input}
-                    value={data?.country}
-                    readonly={readonly}
-                    onChange={onInputChangeHandler}
-                />
-            </div>
-        </div>
+        <VStack max gap={16} className={cls.profileCard}>
+            {data?.avatar && (
+                <div className={cls.avatarWrapper}>
+                    <Avatar src={data?.avatar} />
+                </div>
+            )}
+            <Input
+                name={'first_name'}
+                label={t('Имя', { ns: 'profile' })}
+                value={data?.first_name}
+                className={cls.input}
+                readonly={readonly}
+                onChange={onInputChangeHandler}
+            />
+            <Input
+                name={'last_name'}
+                label={t('Фамилия')}
+                value={data?.last_name}
+                className={cls.input}
+                readonly={readonly}
+                onChange={onInputChangeHandler}
+            />
+            <Input
+                name={'username'}
+                label={t('Логин' )}
+                value={data?.username}
+                className={cls.input}
+                readonly={readonly}
+                onChange={onInputChangeHandler}
+            />
+            <Input
+                name={'age'}
+                label={t('Возраст')}
+                value={data?.age}
+                className={cls.input}
+                readonly={readonly}
+                onChange={onInputChangeHandler}
+            />
+            <Input
+                name={'city'}
+                label={t('Город')}
+                value={data?.city}
+                className={cls.input}
+                readonly={readonly}
+                onChange={onInputChangeHandler}
+            />
+            <Input
+                name={'avatar'}
+                label={t('Аватар')}
+                value={data?.avatar}
+                className={cls.input}
+                readonly={readonly}
+                onChange={onInputChangeHandler}
+            />
+            <CurrencySelect
+                className={cls.input}
+                value={data?.currency}
+                readonly={readonly}
+                onChange={onInputChangeHandler}
+            />
+            <CountrySelect
+                className={cls.input}
+                value={data?.country}
+                readonly={readonly}
+                onChange={onInputChangeHandler}
+            />
+        </VStack>
     );
 });
 
