@@ -5,7 +5,7 @@ export {
 
 export {
     EditableProfileCard
-} from './ui/EditableProfileCard';
+} from './ui/EditableProfileCard/EditableProfileCard';
 
 export {
     fetchProfileData

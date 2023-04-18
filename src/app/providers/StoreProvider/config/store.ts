@@ -3,7 +3,6 @@ import { scrollSaveReducer } from 'feature/ScrollSave';
 
 import { $api } from 'shared/api/api';
 import { rtkApi } from 'shared/api/rtkApi';
-import { counterReducer } from 'entities/Counter';
 import { userReducer } from 'entities/User';
 
 import type { StateSchema } from './StateSchema';
@@ -21,7 +20,6 @@ export const createReduxStore = (
         // Асинхронные редюсеры, которые будем добавлять напрмер в СБ добавляем в наш рут редюсер
         ...asyncReducers,
         [rtkApi.reducerPath]: rtkApi.reducer,
-        counter: counterReducer,
         user: userReducer,
         scrollSave: scrollSaveReducer
     };

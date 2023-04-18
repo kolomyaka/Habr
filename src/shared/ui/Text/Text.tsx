@@ -18,7 +18,6 @@ export enum TextAlign {
 export enum TextSize {
     M = 'sizeM',
     L = 'sizeL'
-
 }
 
 interface TextProps {
@@ -28,6 +27,8 @@ interface TextProps {
     theme?: TextTheme;
     align?: TextAlign;
     size?: TextSize;
+
+    'data-testid'?: string;
 }
 
 export const Text = memo((props: TextProps) => {
@@ -38,7 +39,8 @@ export const Text = memo((props: TextProps) => {
         theme = TextTheme.PRIMARY,
         description,
         align = TextAlign.LEFT,
-        size = TextSize.M
+        size = TextSize.M,
+        'data-testid': dataTestId = ''
     } = props;
 
     const mods: Mods = {
@@ -48,8 +50,16 @@ export const Text = memo((props: TextProps) => {
 
     return (
         <div className={classNames(cls.text, mods, [className, cls[align]])}>
-            {title && <p className={cls.title}>{title}</p>}
-            {description && <p className={cls.description}>{description}</p>}
+            {title &&
+                <p className={cls.title} data-testid={`${dataTestId}.Title`}>
+                    {title}
+                </p>
+            }
+            {description &&
+                <p className={cls.description} data-testid={`${dataTestId}.Description`}>
+                    {description}
+                </p>
+            }
         </div>
     );
 });

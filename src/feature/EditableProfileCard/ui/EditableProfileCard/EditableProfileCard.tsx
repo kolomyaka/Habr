@@ -10,15 +10,14 @@ import { VStack } from 'shared/ui/Stack/VStack/VStack';
 import { Text, TextTheme } from 'shared/ui/Text/Text';
 import { ProfileCard } from 'entities/Profile';
 
-import { getProfileError } from '../model/selectors/getProfileError/getProfileError';
-import { getProfileForm } from '../model/selectors/getProfileForm/getProfileForm';
-import { getProfileIsLoading } from '../model/selectors/getProfileIsLoading/getProfileIsLoading';
-import { getProfileReadonly } from '../model/selectors/getProfileReadonly/getProfileReadonly';
-import { getProfileValidateErrors } from '../model/selectors/getProfileValidateErrors/getProfileValidateErrors';
-import { profileActions, profileReducer } from '../model/slice/profileSlice';
-import { ValidateProfileError } from '../model/types/EditableProfileCard';
-
-import { EditableProfileCardHeader } from './EditableProfileCardHeader/EditableProfileCardHeader';
+import { getProfileError } from '../../model/selectors/getProfileError/getProfileError';
+import { getProfileForm } from '../../model/selectors/getProfileForm/getProfileForm';
+import { getProfileIsLoading } from '../../model/selectors/getProfileIsLoading/getProfileIsLoading';
+import { getProfileReadonly } from '../../model/selectors/getProfileReadonly/getProfileReadonly';
+import { getProfileValidateErrors } from '../../model/selectors/getProfileValidateErrors/getProfileValidateErrors';
+import { profileActions, profileReducer } from '../../model/slice/profileSlice';
+import { ValidateProfileError } from '../../model/types/EditableProfileCard';
+import { EditableProfileCardHeader } from '../EditableProfileCardHeader/EditableProfileCardHeader';
 
 interface EditableProfileCardProps {
     className?: string;
@@ -74,6 +73,7 @@ export const EditableProfileCard = ({ className, id }: EditableProfileCardProps)
                         key={err}
                         theme={TextTheme.ERROR}
                         description={validateErrorTranslates[err]}
+                        data-testid={'EditableProfileCard.Error'}
                     />
                 ))}
                 <ProfileCard

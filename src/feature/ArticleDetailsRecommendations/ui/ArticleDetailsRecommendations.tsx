@@ -23,6 +23,10 @@ export const ArticleDetailsRecommendations = memo(({ className }: ArticleDetails
     const { t } = useTranslation('articles');
     const { isLoading, data: recommendations } = useGetArticleRecommendations(4);
 
+    if (isLoading || !recommendations) {
+        return null;
+    }
+
     return (
         <DynamicModuleLoader reducers={reducers}>
             <div className={classNames(cls.articleDetailsRecommendationsList, {}, [className])}>

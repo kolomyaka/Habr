@@ -8,14 +8,12 @@ import { ScrollSaveSchema } from 'feature/ScrollSave';
 
 import { rtkApi } from 'shared/api/rtkApi';
 import { ArticleDetailsSchema } from 'entities/Article';
-import { CounterSchema } from 'entities/Counter';
 import { UserSchema } from 'entities/User';
 import { ArticlesPageSchema } from 'pages/ArticlesPage';
 
 
 // Типизируем наше хранилище редюсеров
 export interface StateSchema {
-    counter: CounterSchema;
     user: UserSchema;
     scrollSave: ScrollSaveSchema;
     [rtkApi.reducerPath]: ReturnType<typeof rtkApi.reducer>
