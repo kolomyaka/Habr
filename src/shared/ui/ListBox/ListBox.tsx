@@ -51,11 +51,11 @@ export function ListBox<T extends string>(props: ListBoxProps<T>) {
         <HStack align={'center'} gap={4} max>
             <span
                 className={classNames(cls.label, { [cls.readonly]: readonly })}>{label + '>'}</span>
-            <HListBox<any, T | undefined>
+            <HListBox<'div', T | undefined>
                 as={'div'}
                 disabled={readonly}
                 ref={refs.setReference}
-                className={classNames(cls.listBox, { [cls.readonly]: readonly })}
+                className={classNames(cls.listBox, { [cls.readonly]: readonly }, [className])}
                 value={value}
                 onChange={onChangeHandler}
             >

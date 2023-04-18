@@ -1,10 +1,10 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 import React from 'react';
 
-import { ValidateProfileError } from 'entities/Profile';
-
 import type { Country } from 'entities/Country';
 import type { Currency } from 'entities/Currency';
+
+import { ValidateProfileError } from '../../../../feature/EditableProfileCard';
 
 import { ProfileCard } from './ProfileCard';
 

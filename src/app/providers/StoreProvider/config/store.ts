@@ -2,11 +2,13 @@ import { CombinedState, configureStore, Reducer, ReducersMapObject } from '@redu
 import { scrollSaveReducer } from 'feature/ScrollSave';
 
 import { $api } from 'shared/api/api';
+import { rtkApi } from 'shared/api/rtkApi';
 import { counterReducer } from 'entities/Counter';
 import { userReducer } from 'entities/User';
-import { createReducerManager } from 'app/providers/StoreProvider/config/reducerManager';
-import { StateSchema } from 'app/providers/StoreProvider/config/StateSchema';
 
+import type { StateSchema } from './StateSchema';
+
+import { createReducerManager } from './reducerManager';
 
 // Делаем initialState, чтобы в дальнейшем для SB или тестов могли подготовить какие-то данные
 export const createReduxStore = (
@@ -18,6 +20,7 @@ export const createReduxStore = (
     const rootReducer: ReducersMapObject<StateSchema> = {
         // Асинхронные редюсеры, которые будем добавлять напрмер в СБ добавляем в наш рут редюсер
         ...asyncReducers,
+        [rtkApi.reducerPath]: rtkApi.reducer,
         counter: counterReducer,
         user: userReducer,
         scrollSave: scrollSaveReducer
@@ -38,7 +41,7 @@ export const createReduxStore = (
                     api: $api
                 }
             }
-        })
+        }).concat(rtkApi.middleware)
     });
 
     // @ts-ignore

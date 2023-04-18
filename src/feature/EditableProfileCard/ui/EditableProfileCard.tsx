@@ -1,27 +1,35 @@
+import { fetchProfileData } from 'feature/EditableProfileCard';
 import { useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 
+import { DynamicModuleLoader, ReducersList } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
+import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEffect';
 import { VStack } from 'shared/ui/Stack/VStack/VStack';
 import { Text, TextTheme } from 'shared/ui/Text/Text';
-import { ProfileCard, ValidateProfileError } from 'entities/Profile';
+import { ProfileCard } from 'entities/Profile';
 
 import { getProfileError } from '../model/selectors/getProfileError/getProfileError';
 import { getProfileForm } from '../model/selectors/getProfileForm/getProfileForm';
 import { getProfileIsLoading } from '../model/selectors/getProfileIsLoading/getProfileIsLoading';
 import { getProfileReadonly } from '../model/selectors/getProfileReadonly/getProfileReadonly';
 import { getProfileValidateErrors } from '../model/selectors/getProfileValidateErrors/getProfileValidateErrors';
-import { profileActions } from '../model/slice/profileSlice';
+import { profileActions, profileReducer } from '../model/slice/profileSlice';
+import { ValidateProfileError } from '../model/types/EditableProfileCard';
 
 import { EditableProfileCardHeader } from './EditableProfileCardHeader/EditableProfileCardHeader';
 
-
 interface EditableProfileCardProps {
-    className?: string
+    className?: string;
+    id: string;
 }
 
-export const EditableProfileCard = ({ className }: EditableProfileCardProps) => {
+const reducers: ReducersList = {
+    profile: profileReducer
+};
+
+export const EditableProfileCard = ({ className, id }: EditableProfileCardProps) => {
     const dispatch = useAppDispatch();
     const { t } = useTranslation('profile');
     const formData = useSelector(getProfileForm);
@@ -51,24 +59,32 @@ export const EditableProfileCard = ({ className }: EditableProfileCardProps) => 
         }
     }, [dispatch]);
 
+    useInitialEffect(() => {
+        if (id) {
+            dispatch(fetchProfileData(id));
+        }
+    });
+
     return (
-        <VStack max gap={16}>
-            <EditableProfileCardHeader />
-            {validateErrors?.length && validateErrors.map(err => (
-                <Text
-                    key={err}
-                    theme={TextTheme.ERROR}
-                    description={validateErrorTranslates[err]}
+        <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
+            <VStack max gap={16}>
+                <EditableProfileCardHeader />
+                {validateErrors?.length && validateErrors.map(err => (
+                    <Text
+                        key={err}
+                        theme={TextTheme.ERROR}
+                        description={validateErrorTranslates[err]}
+                    />
+                ))}
+                <ProfileCard
+                    data={formData}
+                    isLoading={isLoading}
+                    error={error}
+                    readonly={readonly}
+                    onInputChangeHandler={onInputChangeHandler}
                 />
-            ))}
-            <ProfileCard
-                data={formData}
-                isLoading={isLoading}
-                error={error}
-                readonly={readonly}
-                onInputChangeHandler={onInputChangeHandler}
-            />
-        </VStack>
+            </VStack>
+        </DynamicModuleLoader>
     );
 };
 

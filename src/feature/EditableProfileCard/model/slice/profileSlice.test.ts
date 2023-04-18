@@ -3,7 +3,8 @@ import { updateProfileData } from 'feature/EditableProfileCard/model/services/up
 
 import { Country } from 'entities/Country';
 import { Currency } from 'entities/Currency';
-import { ProfileSchema, ValidateProfileError } from 'entities/Profile';
+
+import { ProfileSchema, ValidateProfileError } from '../types/EditableProfileCard';
 
 const data = {
     username: 'Kolomyaka',

@@ -401,6 +401,12 @@
       "articleId": "1",
       "userId": "1",
       "id": "XO2xs6B"
+    },
+    {
+      "text": "qwe",
+      "articleId": "4",
+      "userId": "1",
+      "id": "SwX92pM"
     }
   ],
   "users": [
@@ -425,7 +431,7 @@
       "first_name": "Nikita",
       "last_name": "Kolomoycev",
       "age": 22,
-      "currency": "RUB",
+      "currency": "USD",
       "county": "Russia",
       "city": "Saint-Petersburg",
       "username": "Kolomyaka",

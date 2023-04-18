@@ -35,22 +35,22 @@ export const ArticleList = memo((props: ArticleListProps) => {
         target = '_self'
     } = props;
     const { t } = useTranslation('articles');
+
     const renderArticle = useCallback((article: Article) => {
         return (
             <ArticleListItem target={target} key={article.id} article={article} view={view} />
         );
     }, [view, target]);
 
-    if (!isLoading && !articles.length) {
+    if (!isLoading && !articles?.length) {
         return (
             <Text title={t('Статей не найдено')} />
         );
     }
 
-
     return (
         <div className={classNames(cls.articleList, {}, [className, cls[view]])}>
-            {articles.length > 0
+            {articles?.length > 0
                 ? articles.map(renderArticle)
                 : null
             }

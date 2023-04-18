@@ -5,3 +5,7 @@ export {
 export {
     Comment
 } from './model/types/comment';
+
+export {
+    AddNewComment
+} from './ui/AddNewComment/AddNewComment';

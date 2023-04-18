@@ -23,17 +23,14 @@ Primary.args = {
     items: [
         {
             content: 'Content 1',
-            value: 'content1',
             onClick: () => {return;},
         },
         {
             content: 'Content 2',
-            value: 'content1',
             onClick: () => {return;},
         },
         {
             content: 'Content 2',
-            value: 'content1',
             onClick: () => {return;},
         }
     ]

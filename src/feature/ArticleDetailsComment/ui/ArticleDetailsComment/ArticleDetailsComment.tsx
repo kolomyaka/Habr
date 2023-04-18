@@ -2,15 +2,13 @@ import { fetchCommentsByArticleId } from 'feature/ArticleDetailsComment/model/se
 import { memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
-import { useParams } from 'react-router-dom';
 
 import { classNames } from 'shared/lib/classNames/classNames';
 import { DynamicModuleLoader, ReducersList } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEffect';
 import { Text } from 'shared/ui/Text/Text';
-import { CommentList } from 'entities/Comment';
-import { AddNewComment } from 'entities/Comment/ui/AddNewComment/AddNewComment';
+import { CommentList, AddNewComment } from 'entities/Comment';
 
 import { getArticleDetailsCommentsIsLoading, getArticleDetailsCommentText } from '../../model/selectors/comments';
 import { sendComment } from '../../model/services/sendComment';
@@ -18,15 +16,13 @@ import {
     articleDetailsCommentFormActions,
     articleDetailsCommentFormReducer
 } from '../../model/slice/articleDetailsCommentFormSlice';
-import {
-    articleDetailsCommentsReducer,
-    getArticleComments
-} from '../../model/slice/articleDetailsCommentsSlice';
+import { articleDetailsCommentsReducer, getArticleComments } from '../../model/slice/articleDetailsCommentsSlice';
 
 import cls from './ArticleDetailsComment.module.scss';
 
 export interface ArticleDetailsCommentProps {
-    className?: string
+    className?: string;
+    id: string;
 }
 
 const reducers: ReducersList = {
@@ -34,13 +30,12 @@ const reducers: ReducersList = {
     articleDetailsCommentForm: articleDetailsCommentFormReducer
 };
 
-const ArticleDetailsComment = memo(({ className }: ArticleDetailsCommentProps) => {
+const ArticleDetailsComment = memo(({ className, id }: ArticleDetailsCommentProps) => {
     const { t } = useTranslation('articles');
     const dispatch = useAppDispatch();
     const comments = useSelector(getArticleComments.selectAll);
     const isLoading = useSelector(getArticleDetailsCommentsIsLoading);
     const commentText = useSelector(getArticleDetailsCommentText);
-    const { id } = useParams<{id: string}>();
 
     useInitialEffect(() => {
         dispatch(fetchCommentsByArticleId(id));
