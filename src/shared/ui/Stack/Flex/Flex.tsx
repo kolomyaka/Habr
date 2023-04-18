@@ -71,8 +71,6 @@ export const Flex = memo((props: FlexProps) => {
         gap && gapClasses[gap]
     ];
 
-    console.log(justifyClasses[justify], justify, justifyClasses);
-
     return (
         <div className={classNames(cls.flex, mods, classes)}>
             {children}

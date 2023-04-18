@@ -8,6 +8,7 @@
   --inverted-secondary-color: #098107;
   --hover-bg-color: rgb(184 184 227);
   --shadow-color: rgb(53 57 60 / 20%);
+  --shadow: 0 2px 10px 0 var(--skeleton-shadow);
 
   // skeleton
   --skeleton-shadow: #8f8b9b;
@@ -25,4 +26,7 @@
 
   // scrollbar
   --scrollbar-background: rgb(138 137 137 / 100%);
+
+  // option
+  --option-bg: #b7b5b5;
 }

@@ -16,7 +16,8 @@
   --sidebar-width-collapsed: 60px;
 
   // z-index
-  --modal-z-index: 10;
+  --dropdown-z-index: 4;
+  --modal-z-index: 5;
 
   // Цвета
   --overlay-color: rgba(0 0 0 / 60%);
@@ -25,8 +26,8 @@
   --readonly-opacity: .7;
 
   // Бордер радиус
-  --radius-s: 4px;
-  --radius-m: 8px;
-  --radius-l: 12px;
-  --radius-xl: 16px;
+  --radius-4: 4px;
+  --radius-8: 8px;
+  --radius-12: 12px;
+  --radius-16: 16px;
 }

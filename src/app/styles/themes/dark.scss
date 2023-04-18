@@ -8,6 +8,7 @@
   --inverted-primary-color: #090808;
   --inverted-secondary-color: #326acc;
   --shadow-color: rgb(0 0 0 / 54%);
+  --shadow: 0 2px 10px 0 var(--skeleton-shadow);
 
   // skeleton
   --skeleton-shadow: #3b3b3f; // #49484b;
@@ -25,4 +26,7 @@
 
   // scrollbar
   --scrollbar-background: #5b5858;
+
+  // option
+  --option-bg: #494949;
 }

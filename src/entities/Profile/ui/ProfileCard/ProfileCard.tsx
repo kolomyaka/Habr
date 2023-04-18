@@ -40,7 +40,7 @@ export const ProfileCard = memo((props: ProfileCardProps) => {
 
     if (isLoading) {
         return (
-            <VStack className={classNames(cls.profileCard, {}, [className, cls.loader])}>
+            <VStack max className={classNames(cls.profileCard, {}, [className, cls.loader])}>
                 <Loader />
             </VStack>
         );
@@ -48,7 +48,7 @@ export const ProfileCard = memo((props: ProfileCardProps) => {
 
     if (error) {
         return (
-            <VStack className={classNames(cls.profileCard, {}, [className, cls.error])}>
+            <VStack max className={classNames(cls.profileCard, {}, [className, cls.error])}>
                 <Text
                     theme={TextTheme.ERROR}
                     title={t('Произошла ошибка при загрузке данных профиля')}

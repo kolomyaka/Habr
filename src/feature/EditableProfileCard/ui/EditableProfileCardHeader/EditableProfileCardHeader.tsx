@@ -5,7 +5,6 @@ import { useSelector } from 'react-redux';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { Button, ButtonTheme } from 'shared/ui/Button/Button';
 import { HStack } from 'shared/ui/Stack/HStack/HStack';
-import { VStack } from 'shared/ui/Stack/VStack/VStack';
 import { Text } from 'shared/ui/Text/Text';
 import { getUserAuthData } from 'entities/User';
 
@@ -22,7 +21,6 @@ export const EditableProfileCardHeader = () => {
     const authData = useSelector(getUserAuthData);
     const profileData = useSelector(getProfileData);
     const canEdit = authData?.id === profileData?.id;
-
 
     const onEditHandler = useCallback(() => {
         dispatch(profileActions.setReadonly(false));
@@ -52,7 +50,7 @@ export const EditableProfileCardHeader = () => {
                                 </Button>
                             )
                             : (
-                                <HStack gap={4}>
+                                <HStack gap={8}>
                                     <Button
                                         theme={ButtonTheme.BACKGROUND_INVERTED}
                                         onClick={onCancelEditHandler}

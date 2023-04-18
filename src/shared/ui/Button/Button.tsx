@@ -1,4 +1,4 @@
-import { ButtonHTMLAttributes, memo, ReactNode } from 'react';
+import { ButtonHTMLAttributes, forwardRef, memo, ReactNode } from 'react';
 
 import { classNames, Mods } from '../../lib/classNames/classNames';
 
@@ -29,7 +29,9 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
     children?: ReactNode;
 }
 
-export const Button = memo((props:ButtonProps) => {
+type Ref = HTMLButtonElement;
+
+export const Button = memo(forwardRef<Ref, ButtonProps>((props:ButtonProps, ref) => {
 
     const {
         className,
@@ -51,6 +53,7 @@ export const Button = memo((props:ButtonProps) => {
 
     return (
         <button
+            ref={ref}
             className={classNames(cls.button, mods, [className])}
             disabled={disabled}
             {...otherProps}
@@ -58,6 +61,6 @@ export const Button = memo((props:ButtonProps) => {
             {children}
         </button>
     );
-});
+}));
 
 

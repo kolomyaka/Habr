@@ -1,0 +1,54 @@
+.listBox {
+  position: relative;
+
+  &.readonly {
+    opacity: .7;
+  }
+}
+
+.trigger {
+  border: none;
+  background: none;
+  outline: none;
+  padding: 0;
+  margin-top: 0;
+}
+
+.options {
+  background-color: var(--light-bg-color);
+  padding: 12px 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  position: absolute;
+  z-index: var(--dropdown-z-index);
+  list-style: none;
+  border-radius: 12px;
+  box-shadow: var(--shadow);
+  min-width: 100%;
+}
+
+.option {
+  border-radius: var(--radius-8);
+  padding: 8px 12px;
+  cursor: pointer;
+}
+
+.disabled {
+  cursor: default;
+  background-color: var(--scrollbar-background);
+}
+
+.active {
+  background-color: var(--hover-bg-color);
+}
+
+.selected {
+  background-color: var(--option-bg);
+}
+
+.label {
+  &.readonly {
+    opacity: .7;
+  }
+}
