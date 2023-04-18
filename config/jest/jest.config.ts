@@ -18,6 +18,15 @@ export default {
         'node_modules',
         'src'
     ],
+    reporters: [
+        'default',
+        ['jest-html-reporters', {
+            publicPath: '<rootDir>/reports/unit',
+            inlineSource: true,
+            openReport: true,
+            filename: 'report.html'
+        }]
+    ],
     moduleFileExtensions: [
         'js',
         'jsx',
