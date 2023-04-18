@@ -1,3 +1,5 @@
+@import '../styles/mixins';
+
 .listBox {
   position: relative;
 
@@ -7,25 +9,11 @@
 }
 
 .trigger {
-  border: none;
-  background: none;
-  outline: none;
-  padding: 0;
-  margin-top: 0;
+  @include reset-trigger;
 }
 
 .options {
-  background-color: var(--light-bg-color);
-  padding: 12px 8px;
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-  position: absolute;
-  z-index: var(--dropdown-z-index);
-  list-style: none;
-  border-radius: 12px;
-  box-shadow: var(--shadow);
-  min-width: 100%;
+  @include dropdown-items;
 }
 
 .option {

@@ -16,7 +16,24 @@ export default {
 const Template: ComponentStory<typeof ListBox> = (args) => <ListBox {...args} />;
 
 export const Primary = Template.bind({});
-Primary.args = {};
+Primary.args = {
+    label: 'ListBox',
+    defaultValue: 'Выберите значение',
+    items: [
+        {
+            content: 'Content 1',
+            value: 'content1'
+        },
+        {
+            content: 'Content 2',
+            value: 'content1'
+        },
+        {
+            content: 'Content 2',
+            value: 'content1'
+        }
+    ]
+};
 
 
 

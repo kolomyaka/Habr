@@ -1,0 +1,23 @@
+@import '../styles/mixins';
+
+.dropdown {
+  position: relative;
+}
+
+.trigger {
+  @include reset-trigger;
+}
+
+.items {
+  @include dropdown-items;
+
+  min-width: unset;
+}
+
+.item {
+  width: 100%;
+}
+
+.itemLink {
+  width: 100%;
+}

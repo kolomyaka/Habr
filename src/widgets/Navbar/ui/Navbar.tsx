@@ -6,8 +6,9 @@ import { useDispatch, useSelector } from 'react-redux';
 
 import { RoutePath } from 'shared/config/routeConfig/routeConfig';
 import { classNames } from 'shared/lib/classNames/classNames';
-import { AppLink, AppLinkTheme } from 'shared/ui/AppLink/AppLink';
+import { Avatar } from 'shared/ui/Avatar/Avatar';
 import { Button, ButtonTheme } from 'shared/ui/Button/Button';
+import { Dropdown } from 'shared/ui/Dropdown/Dropdown';
 import { getUserAuthData, userActions } from 'entities/User';
 
 import cls from './Navbar.module.scss';
@@ -42,16 +43,23 @@ export const Navbar = memo(({ className }: NavbarProps) => {
                 {
                     userAuthData
                         ? <>
-                            <AppLink theme={AppLinkTheme.OUTLINE} to={RoutePath.article_create}>
-                                {t('Создать статью')}
-                            </AppLink>
-                            <Button
-                                onClick={onLogoutHandler}
-                                theme={ButtonTheme.OUTLINE}
-                                className={cls.links}
-                            >
-                                {t('Выйти')}
-                            </Button>
+                            <Dropdown
+                                trigger={<Avatar size={40} src={userAuthData.avatar} />}
+                                items={[
+                                    {
+                                        content: t('Профиль'),
+                                        href: `${RoutePath.profile}${userAuthData.id}`
+                                    },
+                                    {
+                                        content: t('Создать статью'),
+                                        href: RoutePath.article_create
+                                    },
+                                    {
+                                        content: t('Выйти'),
+                                        onClick: onLogoutHandler
+                                    }
+                                ]}
+                            />
                         </>
                         : <Button
                             onClick={onShowModal}
