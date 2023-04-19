@@ -1,10 +1,15 @@
 import webpack from 'webpack';
 
+import { buildBabelLoader } from './loaders/buildBabelLoader';
 import { buildCssLoader } from './loaders/buildCssLoader';
 import { BuildOptions } from './types/config';
 
 
-export function buildLoaders({ isDev }: BuildOptions): webpack.RuleSetRule[] {
+export function buildLoaders(options: BuildOptions): webpack.RuleSetRule[] {
+    const {
+        isDev
+    } = options;
+
     // Функция, которая возвращает список лоадеров в конфиге
 
     // Для каждого лоадера создаем отдельную переменную, чтобы удобнее было следить за порядком лоадеров
@@ -26,16 +31,21 @@ export function buildLoaders({ isDev }: BuildOptions): webpack.RuleSetRule[] {
     const stylesLoader = buildCssLoader(isDev);
 
     // Если не используем typescript, то нужен бы был babel-loader
-    const typeScriptLoader = {
-        test: /\.tsx?$/,
-        use: 'ts-loader',
-        exclude: /node_modules/,
-    };
+    // const typeScriptLoader = {
+    //     test: /\.tsx?$/,
+    //     use: 'ts-loader',
+    //     exclude: /node_modules/,
+    // };
+
+    const codeBabelLoader = buildBabelLoader({ ...options, isTSX: false });
+    const tsxCodeBabelLoader = buildBabelLoader({ ...options, isTSX: true });
 
     return [
-        typeScriptLoader,
-        stylesLoader,
+        // typeScriptLoader,
+        fileLoader,
         svgLoader,
-        fileLoader
+        codeBabelLoader,
+        tsxCodeBabelLoader,
+        stylesLoader,
     ];
 }

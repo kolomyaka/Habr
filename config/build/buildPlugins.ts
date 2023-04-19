@@ -1,6 +1,7 @@
 import ReactRefreshWebpackPlugin from '@pmmmwh/react-refresh-webpack-plugin';
 import CircularDependencyPlugin  from 'circular-dependency-plugin';
 import CopyPlugin from 'copy-webpack-plugin';
+import ForkTsCheckerWebpackPlugin from 'fork-ts-checker-webpack-plugin';
 import HTMLWebpackPlugin from 'html-webpack-plugin';
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 import webpack from 'webpack';
@@ -33,7 +34,6 @@ export function buildPlugins({ paths, isDev, apiUrl, project }: BuildOptions): w
                 { from: paths.locales, to: paths.buildLocales },
             ],
         }),
-
         new ReactRefreshWebpackPlugin(),
     ];
 
@@ -48,6 +48,15 @@ export function buildPlugins({ paths, isDev, apiUrl, project }: BuildOptions): w
             exclude: /node_modules/,
             failOnError: true,
         }));
+        plugins.push(new ForkTsCheckerWebpackPlugin({
+            typescript: {
+                diagnosticOptions: {
+                    semantic: true,
+                    syntactic: true,
+                },
+                mode: 'write-references',
+            },
+        }),);
     }
 
     // Функция, которая возвращает список плагинов в конфиге
