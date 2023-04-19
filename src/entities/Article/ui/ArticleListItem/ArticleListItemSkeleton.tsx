@@ -3,8 +3,7 @@ import { memo } from 'react';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { Card } from 'shared/ui/Card/Card';
 import { Skeleton } from 'shared/ui/Skeleton/Skeleton';
-
-import { ArticleView } from '../../model/types/article';
+import { ArticleView } from 'entities/Article';
 
 import cls from './ArticleListItem.module.scss';
 
@@ -28,9 +27,9 @@ export const ArticleListItemSkeleton = memo((props: ArticleListItemProps) => {
     );
 
 
-    if (view === ArticleView.SMALL) {
+    if (view === 'small') {
         return (
-            <div className={classNames(cls.articleListItem, {}, [className, cls[ArticleView.SMALL]])}>
+            <div className={classNames(cls.articleListItem, {}, [className, cls['small']])}>
                 <Card className={cls.articleCard}>
                     <div className={cls.articleHeader}>
                         <Skeleton className={cls.articleImage} width={'100%'} height={250} />
@@ -48,7 +47,7 @@ export const ArticleListItemSkeleton = memo((props: ArticleListItemProps) => {
     }
 
     return (
-        <div className={classNames(cls.articleListItem, {}, [className, cls[ArticleView.BIG]])}>
+        <div className={classNames(cls.articleListItem, {}, [className, cls['big']])}>
             <Card className={cls.articleCard}>
                 <div className={cls.articleHeader}>
                     <Skeleton width={30} height={30} border={'50%'} />

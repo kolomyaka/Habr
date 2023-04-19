@@ -8,13 +8,9 @@ export {
 
 export type {
     Article,
-} from './model/types/article';
-
-export {
     ArticleView,
-    ArticleSortField,
-    ArticleBlockType,
-    ArticleType
+    ArticleType,
+    ArticleSortField
 } from './model/types/article';
 
 export {
@@ -32,3 +28,7 @@ export {
 export {
     ArticleSortSelector
 } from './ui/ArticleSortSelector/ArticleSortSelector';
+
+export {
+    ArticleBlockType
+} from './model/consts/articleConsts';

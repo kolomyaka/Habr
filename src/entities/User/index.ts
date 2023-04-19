@@ -3,10 +3,9 @@ export {
     userReducer
 } from './model/slice/userSlice';
 
-export {
+export type {
     UserSchema,
-    User,
-    UserRoles
+    User
 } from './model/types/user';
 
 export {
@@ -22,3 +21,4 @@ export {
     getIsAdmin,
     getIsUser
 } from './model/selectors/getUserRoles/getUserRoles';
+export { UserRoles } from './model/consts/userConsts';

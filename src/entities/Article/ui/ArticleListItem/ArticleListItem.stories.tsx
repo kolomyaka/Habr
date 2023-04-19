@@ -1,7 +1,7 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 import React from 'react';
 
-import { Article, ArticleView } from '../../model/types/article';
+import type { Article } from '../../model/types/article';
 
 import { ArticleListItem } from './ArticleListItem';
 
@@ -101,13 +101,13 @@ const Template: ComponentStory<typeof ArticleListItem> = (args) => <ArticleListI
 export const SmallView = Template.bind({});
 SmallView.args = {
     article: article,
-    view: ArticleView.SMALL
+    view: 'small'
 };
 
 export const BigView = Template.bind({});
 BigView.args = {
     article: article,
-    view: ArticleView.BIG
+    view: 'big'
 };
 
 

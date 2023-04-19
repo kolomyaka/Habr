@@ -1,5 +1,4 @@
 import { TestAsyncThunk } from 'shared/lib/tests/TestAsyncThunk/TestAsyncThunk';
-import { ArticleView } from 'entities/Article';
 
 import { fetchArticlesList } from '../fetchArticlesList/fetchArticlesList';
 
@@ -16,7 +15,7 @@ describe('fetchNextArticlesPage.test', () => {
                 page: 2,
                 ids: [],
                 entities: {},
-                view: ArticleView.SMALL,
+                view: 'small',
                 limit: 5,
                 isLoading: false,
                 hasMore: true

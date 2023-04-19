@@ -1,10 +1,11 @@
-import { profileActions, profileReducer } from 'feature/EditableProfileCard';
-import { updateProfileData } from 'feature/EditableProfileCard/model/services/updateProfileData/updateProfileData';
 
 import { Country } from 'entities/Country';
 import { Currency } from 'entities/Currency';
 
+import { updateProfileData } from '../services/updateProfileData/updateProfileData';
 import { ProfileSchema, ValidateProfileError } from '../types/EditableProfileCard';
+
+import { profileActions, profileReducer } from './profileSlice';
 
 const data = {
     username: 'Kolomyaka',

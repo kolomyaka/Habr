@@ -11,11 +11,11 @@ import cls from './ArticleViewSelector.module.scss';
 
 const viewTypes = [
     {
-        view: ArticleView.SMALL,
+        view: 'small',
         icon: SmallIcon
     },
     {
-        view: ArticleView.BIG,
+        view: 'big',
         icon: BigIcon
     }
 ];
@@ -34,8 +34,8 @@ export const ArticleViewSelector = memo((props: ArticleViewSelectorProps) => {
         onChangeView
     } = props;
 
-    const onClick = (viewType: ArticleView) => () => {
-        onChangeView?.(viewType);
+    const onClick = (viewType: string) => () => {
+        onChangeView?.(viewType as ArticleView);
     };
 
     return (

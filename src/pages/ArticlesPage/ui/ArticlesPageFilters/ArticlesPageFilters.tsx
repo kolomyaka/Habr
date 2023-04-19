@@ -11,7 +11,7 @@ import { OrderType } from 'shared/types/types';
 import { Card } from 'shared/ui/Card/Card';
 import { Input } from 'shared/ui/Input/Input';
 import { TabItem } from 'shared/ui/Tabs/Tabs';
-import { ArticleSortField, ArticleSortSelector, ArticleType, ArticleView } from 'entities/Article';
+import { ArticleSortField, ArticleSortSelector, ArticleView, ArticleType } from 'entities/Article';
 
 import {
     getArticlesPageOrder,

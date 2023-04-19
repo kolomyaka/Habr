@@ -6,10 +6,10 @@ import { StoreProvider } from './ui/StoreProvider';
 export {
     StoreProvider,
     createReduxStore,
-    AppDispatch,
 };
 
 export type {
+    AppDispatch,
     ThunkConfig,
     StateSchema,
     ReduxStoreWithManager,

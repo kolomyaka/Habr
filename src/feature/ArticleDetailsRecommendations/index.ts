@@ -1,4 +1,4 @@
-export {
+export type {
     ArticleDetailsRecommendationsSchema
 } from './model/types/ArticleDetailsRecommendationsSchema';
 

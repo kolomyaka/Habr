@@ -3,8 +3,9 @@ import { useTranslation } from 'react-i18next';
 
 import { classNames } from 'shared/lib/classNames/classNames';
 import { Text } from 'shared/ui/Text/Text';
+import { ArticleView } from 'entities/Article';
 
-import { Article, ArticleView } from '../../model/types/article';
+import { Article } from '../../model/types/article';
 import { ArticleListItem } from '../ArticleListItem/ArticleListItem';
 import { ArticleListItemSkeleton } from '../ArticleListItem/ArticleListItemSkeleton';
 
@@ -19,7 +20,7 @@ interface ArticleListProps {
 }
 
 const renderArticlesSkeleton = (view: ArticleView) => {
-    return new Array(view === ArticleView.SMALL ? 9 : 3)
+    return new Array(view === 'big' ? 9 : 3)
         .fill(0)
         .map((item, index) => (
             <ArticleListItemSkeleton key={index} view={view} />
@@ -30,7 +31,7 @@ export const ArticleList = memo((props: ArticleListProps) => {
     const {
         className,
         articles,
-        view = ArticleView.SMALL,
+        view = 'small',
         isLoading,
         target = '_self'
     } = props;

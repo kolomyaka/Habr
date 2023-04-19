@@ -1,6 +1,9 @@
+import { ArticleBlockType } from 'entities/Article/model/consts/articleConsts';
+
+import type { Article } from '../types/article';
+import type { ArticleDetailsSchema } from '../types/ArticleDetailsSchema';
+
 import { fetchArticleById } from '../services/fetchArticleById/fetchArticleById';
-import { ArticleBlockType, ArticleType, Article } from '../types/article';
-import { ArticleDetailsSchema } from '../types/ArticleDetailsSchema';
 
 import { articleDetailsReducer } from './articleDetailsSlice';
 
@@ -16,7 +19,7 @@ const data: Article = {
         'avatar': 'https://i.ytimg.com/vi/tXPUueXzmG8/maxresdefault.jpg'
     },
     'createdAt': '26.02.2022',
-    'type': [ArticleType.IT],
+    'type': ['IT'],
     'blocks': [
         {
             'id': '1',

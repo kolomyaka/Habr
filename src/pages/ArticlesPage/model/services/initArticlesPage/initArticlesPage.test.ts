@@ -1,5 +1,4 @@
 import { TestAsyncThunk } from 'shared/lib/tests/TestAsyncThunk/TestAsyncThunk';
-import { ArticleView } from 'entities/Article';
 
 import { fetchArticlesList } from '../fetchArticlesList/fetchArticlesList';
 
@@ -14,7 +13,7 @@ describe('initArticlesPage.test', () => {
         const thunk = new TestAsyncThunk(initArticlesPage, {
             articlesPage: {
                 _inited: false,
-                view: ArticleView.SMALL
+                view: 'small'
             }
         });
         // Вызываем метод класса, передавая данные для санки и получаем ответ от action'a
@@ -28,7 +27,7 @@ describe('initArticlesPage.test', () => {
         const thunk = new TestAsyncThunk(initArticlesPage, {
             articlesPage: {
                 _inited: true,
-                view: ArticleView.SMALL
+                view: 'small'
             }
         });
         // Вызываем метод класса, передавая данные для санки и получаем ответ от action'a

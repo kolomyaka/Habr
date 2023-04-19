@@ -10,8 +10,9 @@ import { Button, ButtonTheme } from 'shared/ui/Button/Button';
 import { Card } from 'shared/ui/Card/Card';
 import { Icon } from 'shared/ui/Icon/Icon';
 import { Text } from 'shared/ui/Text/Text';
+import { ArticleBlockType, ArticleView } from 'entities/Article';
 
-import { Article, ArticleBlockType, ArticleTextBlock, ArticleView } from '../../model/types/article';
+import { Article, ArticleTextBlock } from '../../model/types/article';
 import { ArticleTextBlockComponent } from '../ArticleTextBlockComponent/ArticleTextBlockComponent';
 
 import cls from './ArticleListItem.module.scss';
@@ -40,10 +41,10 @@ export const ArticleListItem = memo((props: ArticleListItemProps) => {
         </div>
     );
 
-    if (view === ArticleView.SMALL) {
+    if (view === 'small') {
         return (
             <AppLink target={target} to={`${RoutePath.article_details}${article.id}`}>
-                <div className={classNames(cls.articleListItem, {}, [className, cls[ArticleView.SMALL]])}>
+                <div className={classNames(cls.articleListItem, {}, [className, cls['small']])}>
                     <Card className={cls.articleCard}>
                         <div className={cls.articleHeader}>
                             <img alt={article.title} src={article.img} className={cls.articleImage} />
@@ -64,7 +65,7 @@ export const ArticleListItem = memo((props: ArticleListItemProps) => {
 
     const textBlock = article.blocks.find(block => block.type === ArticleBlockType.TEXT) as ArticleTextBlock;
     return (
-        <div className={classNames(cls.articleListItem, {}, [className, cls[ArticleView.BIG]])}>
+        <div className={classNames(cls.articleListItem, {}, [className, cls['big']])}>
             <Card className={cls.articleCard}>
                 <div className={cls.articleHeader}>
                     <Avatar size={30} src={article.user.avatar} />

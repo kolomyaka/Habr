@@ -1,11 +1,14 @@
 // Интерфес статьи
 import type { User } from 'entities/User';
 
-export enum ArticleSortField {
-    VIEWS = 'views',
-    CREATED = 'createdAt',
-    TITLE = 'title'
-}
+import { ArticleBlockType } from '../consts/articleConsts';
+
+export type ArticleView = 'big' | 'small';
+
+export type ArticleSortField = 'views' | 'createdAt' | 'title';
+
+// Енам для типов статьи
+export type ArticleType = 'ALL' | 'IT' | 'SCIENCE' | 'ECONOMIC'
 
 export interface Article {
     id: string;
@@ -17,11 +20,6 @@ export interface Article {
     createdAt: string;
     type: ArticleType[],
     blocks: ArticleBlock[]
-}
-
-export enum ArticleView {
-    BIG = 'big',
-    SMALL = 'small'
 }
 
 // Типы, которые может принимать блок в статье
@@ -48,18 +46,5 @@ export interface ArticleImageBlock extends ArticleBlockBase {
 export interface ArticleBlockBase {
     id: string;
     type: ArticleBlockType
-}
-// Енам для типа блоков
-export enum ArticleBlockType {
-    TEXT = 'TEXT',
-    CODE = 'CODE',
-    IMAGE = 'IMAGE'
-}
-// Енам для типов статьи
-export enum ArticleType {
-    ALL = 'ALL',
-    IT = 'IT',
-    SCIENCE = 'SCIENCE',
-    ECONOMIC = 'ECONOMIC'
 }
 

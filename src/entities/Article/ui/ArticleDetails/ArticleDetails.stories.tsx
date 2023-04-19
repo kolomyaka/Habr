@@ -2,9 +2,9 @@ import { ComponentMeta, ComponentStory } from '@storybook/react';
 import React from 'react';
 
 import { StoreDecorator } from 'shared/config/storybook/StoreDecorator/StoreDecorator';
+import { ArticleBlockType } from 'entities/Article/model/consts/articleConsts';
 
-import { ArticleBlockType, ArticleType } from '../../model/types/article';
-import { Article } from '../../model/types/article';
+import type { Article } from '../../model/types/article';
 
 import { ArticleDetails } from './ArticleDetails';
 
@@ -20,7 +20,7 @@ const article: Article = {
         'avatar': 'https://i.ytimg.com/vi/tXPUueXzmG8/maxresdefault.jpg'
     },
     'createdAt': '26.02.2022',
-    'type': [ArticleType.IT],
+    'type': ['IT'],
     'blocks': [
         {
             'id': '1',

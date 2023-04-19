@@ -4,8 +4,9 @@ import { useSelector } from 'react-redux';
 
 import { classNames } from 'shared/lib/classNames/classNames';
 import { TabItem, Tabs } from 'shared/ui/Tabs/Tabs';
-import { ArticleType } from 'entities/Article';
 import { getArticlesPageType } from 'pages/ArticlesPage';
+
+import type { ArticleType } from 'entities/Article';
 
 interface ArticleTypeTabsProps {
     className?: string;
@@ -22,19 +23,19 @@ export const ArticleTypeTabs = (props: ArticleTypeTabsProps) => {
 
     const typeTabs = useMemo<TabItem<ArticleType>[]>(() => [
         {
-            value: ArticleType.ALL,
+            value: 'ALL',
             content: t('Все статьи')
         },
         {
-            value: ArticleType.IT,
+            value: 'IT',
             content: t('IT')
         },
         {
-            value: ArticleType.ECONOMIC,
+            value: 'ECONOMIC',
             content: t('Экономика')
         },
         {
-            value: ArticleType.SCIENCE,
+            value: 'SCIENCE',
             content: t('Наука')
         }
     ], [t]);

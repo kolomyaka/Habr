@@ -1,10 +1,10 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 
 import { addQueryParams } from 'shared/lib/url/addQueryParams/addQueryParams';
-import { ArticleType } from 'entities/Article';
 
 import type { ThunkConfig } from 'app/providers/StoreProvider';
 import type { Article } from 'entities/Article';
+
 
 
 import {
@@ -48,7 +48,7 @@ export const fetchArticlesList = createAsyncThunk<
                         _sort: sort,
                         _order: order,
                         replace:replace,
-                        type: type === ArticleType.ALL ? undefined : type,
+                        type: type === 'ALL' ? undefined : type,
                         q: search
                     }
                 });

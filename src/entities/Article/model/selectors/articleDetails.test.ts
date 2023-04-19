@@ -1,6 +1,8 @@
+import { ArticleBlockType } from 'entities/Article/model/consts/articleConsts';
+
+import type { Article } from '../types/article';
 import type { StateSchema } from 'app/providers/StoreProvider';
 
-import { ArticleBlockType, ArticleType, Article } from '../types/article';
 
 import { getArticleDetailsData, getArticleDetailsError, getArticleDetailsIsLoading } from './articleDetails';
 
@@ -18,7 +20,7 @@ describe('getArticleDetailsData.test', () => {
                 'avatar': 'https://i.ytimg.com/vi/tXPUueXzmG8/maxresdefault.jpg'
             },
             'createdAt': '26.02.2022',
-            'type': [ArticleType.IT],
+            'type': ['IT'],
             'blocks': [
                 {
                     'id': '1',

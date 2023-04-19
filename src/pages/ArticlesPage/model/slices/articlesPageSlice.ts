@@ -2,9 +2,10 @@ import { createEntityAdapter, createSlice, PayloadAction, } from '@reduxjs/toolk
 
 import { ARTICLE_VIEW_LOCALSTORAGE_KEY } from 'shared/const/localstorage';
 import { OrderType } from 'shared/types/types';
-import { Article, ArticleSortField, ArticleView, ArticleType } from 'entities/Article';
+import { ArticleSortField, ArticleType, ArticleView } from 'entities/Article';
 
 import type { StateSchema } from 'app/providers/StoreProvider';
+import type { Article } from 'entities/Article';
 
 import { fetchArticlesList } from '../services/fetchArticlesList/fetchArticlesList';
 import { ArticlesPageSchema } from '../types/ArticlesPageSchema';
@@ -20,7 +21,6 @@ export const getArticles = articlesPageAdapter.getSelectors<StateSchema>(
     (state) => state.articlesPage || articlesPageAdapter.getInitialState()
 );
 
-
 const articlesPageSlice = createSlice({
     name: 'articlesPageSlice',
     initialState: articlesPageAdapter.getInitialState<ArticlesPageSchema>({
@@ -28,15 +28,15 @@ const articlesPageSlice = createSlice({
         error: undefined,
         ids: [],
         entities: {},
-        view: ArticleView.SMALL,
         page: 1,
         hasMore: true,
         _inited: false,
         order: 'asc',
         limit: 4,
+        view: 'small',
+        type: 'ALL',
+        sort: 'createdAt',
         search: '',
-        sort: ArticleSortField.CREATED,
-        type: ArticleType.ALL
     }),
     reducers: {
         setView: (state, action: PayloadAction<ArticleView>) => {
@@ -61,7 +61,7 @@ const articlesPageSlice = createSlice({
         initState: (state) => {
             const view = localStorage.getItem(ARTICLE_VIEW_LOCALSTORAGE_KEY) as ArticleView;
             state.view = view;
-            state.limit = view === ArticleView.SMALL ? 9 : 4;
+            state.limit = view === 'small' ? 9 : 4;
         }
     },
     extraReducers: (builder) => {

@@ -1,8 +1,8 @@
-export {
+export type {
     ArticleDetailsCommentFormSchema
 } from './model/types/ArticleDetailsCommentFormSchema';
 
-export {
+export type {
     ArticleDetailsCommentsSchema
 } from './model/types/ArticleDetailsCommentsSchema';
 
