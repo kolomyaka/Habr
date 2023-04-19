@@ -1,4 +1,5 @@
 import ReactRefreshWebpackPlugin from '@pmmmwh/react-refresh-webpack-plugin';
+import CircularDependencyPlugin  from 'circular-dependency-plugin';
 import CopyPlugin from 'copy-webpack-plugin';
 import HTMLWebpackPlugin from 'html-webpack-plugin';
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
@@ -42,6 +43,10 @@ export function buildPlugins({ paths, isDev, apiUrl, project }: BuildOptions): w
         // Плагин для анализа размеров сборки приложения
         plugins.push(new BundleAnalyzerPlugin({
             openAnalyzer: false
+        }));
+        plugins.push(new CircularDependencyPlugin({
+            exclude: /node_modules/,
+            failOnError: true,
         }));
     }
 

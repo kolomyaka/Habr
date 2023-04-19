@@ -22,14 +22,14 @@ const Template: ComponentStory<typeof ArticleDetailsRecommendations> = (args) =>
 
 const article: Article = {
     id: '1',
-    img: '',
-    createdAt: '',
+    img: 'https://cdn.thenewstack.io/media/2022/01/10b88c68-typescript-logo-1024x576.png',
+    createdAt: '21.03.2001',
     views: 123,
     user: { id: '1', username: '123' },
     blocks: [],
-    type: [],
-    title: '123',
-    subtitle: 'asdasd'
+    type: ['IT'],
+    title: 'Название статьи',
+    subtitle: 'Подзаголовок статьи'
 };
 
 export const Primary = Template.bind({});

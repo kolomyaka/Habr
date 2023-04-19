@@ -11,8 +11,8 @@ import { Avatar } from 'shared/ui/Avatar/Avatar';
 import { Icon } from 'shared/ui/Icon/Icon';
 import { Skeleton } from 'shared/ui/Skeleton/Skeleton';
 import { Text, TextAlign, TextSize, TextTheme } from 'shared/ui/Text/Text';
-import { ArticleBlockType } from 'entities/Article';
 
+import { ArticleBlockType } from '../../model/consts/articleConsts';
 import {
     getArticleDetailsData,
     getArticleDetailsError,
