@@ -5,7 +5,8 @@ export {
 
 export {
     UserSchema,
-    User
+    User,
+    UserRoles
 } from './model/types/user';
 
 export {
@@ -15,3 +16,9 @@ export {
 export {
     getUserAuthData,
 } from './model/selectors/getUserAuthData/getUserAuthData';
+
+export {
+    getUserRoles,
+    getIsAdmin,
+    getIsUser
+} from './model/selectors/getUserRoles/getUserRoles';

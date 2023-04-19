@@ -9,7 +9,7 @@ import { classNames } from 'shared/lib/classNames/classNames';
 import { Avatar } from 'shared/ui/Avatar/Avatar';
 import { Button, ButtonTheme } from 'shared/ui/Button/Button';
 import { Dropdown } from 'shared/ui/Dropdown/Dropdown';
-import { getUserAuthData, userActions } from 'entities/User';
+import { getIsAdmin, getUserAuthData, userActions } from 'entities/User';
 
 import cls from './Navbar.module.scss';
 
@@ -22,6 +22,7 @@ export const Navbar = memo(({ className }: NavbarProps) => {
     const dispatch = useDispatch();
     const userAuthData = useSelector(getUserAuthData);
     const [isAuthModal, setIsAuthModal] = useState(false);
+    const isAdmin = useSelector(getIsAdmin);
     
     const onCloseModal = useCallback(() => {
         setIsAuthModal(false);
@@ -46,6 +47,10 @@ export const Navbar = memo(({ className }: NavbarProps) => {
                             <Dropdown
                                 trigger={<Avatar size={40} src={userAuthData.avatar} />}
                                 items={[
+                                    ...(isAdmin ?[{
+                                        content: t('Админка'),
+                                        href: RoutePath.admin_panel
+                                    }]:[]),
                                     {
                                         content: t('Профиль'),
                                         href: `${RoutePath.profile}${userAuthData.id}`

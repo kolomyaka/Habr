@@ -414,14 +414,14 @@
       "id": "1",
       "username": "kolomyaka",
       "password": "123",
-      "role": "ADMIN",
+      "roles": ["ADMIN"],
       "avatar": "https://i.ytimg.com/vi/tXPUueXzmG8/maxresdefault.jpg"
     },
     {
       "id": "2",
       "username": "kizaru",
       "password": "123",
-      "role": "ADMIN",
+      "roles": ["USER"],
       "avatar": "https://gravatar.com/avatar/d79a01fc6611be42996b4f3a6994?s=400&d=monsterid&r=x"
     }
   ],
