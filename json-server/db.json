@@ -407,6 +407,12 @@
       "articleId": "4",
       "userId": "1",
       "id": "SwX92pM"
+    },
+    {
+      "text": "qwe",
+      "articleId": "4",
+      "userId": "1",
+      "id": "PQt4tRx"
     }
   ],
   "users": [
@@ -414,14 +420,18 @@
       "id": "1",
       "username": "kolomyaka",
       "password": "123",
-      "roles": ["ADMIN"],
+      "roles": [
+        "ADMIN"
+      ],
       "avatar": "https://i.ytimg.com/vi/tXPUueXzmG8/maxresdefault.jpg"
     },
     {
       "id": "2",
       "username": "kizaru",
       "password": "123",
-      "roles": ["USER"],
+      "roles": [
+        "USER"
+      ],
       "avatar": "https://gravatar.com/avatar/d79a01fc6611be42996b4f3a6994?s=400&d=monsterid&r=x"
     }
   ],

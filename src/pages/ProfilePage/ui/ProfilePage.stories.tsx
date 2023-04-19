@@ -22,6 +22,7 @@ export const Normal = Template.bind({});
 Normal.args = {};
 Normal.decorators = [StoreDecorator({
     profile: {
+        readonly: true,
         form: {
             username: 'Kolomyaka',
             first_name: 'Nikita',

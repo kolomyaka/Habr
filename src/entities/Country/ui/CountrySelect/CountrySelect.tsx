@@ -23,7 +23,7 @@ export const CountrySelect = memo((props: CountrySelectOptions) => {
         onChange
     } = props;
 
-    const onChangeHandler = useCallback((value: Country, name) => {
+    const onChangeHandler = useCallback((value: Country, name: string) => {
         onChange?.(value as Country, name);
     }, [onChange]);
 

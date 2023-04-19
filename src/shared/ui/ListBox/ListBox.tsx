@@ -18,11 +18,11 @@ interface ListBoxProps<T extends string> {
     items?: ListBoxItem[];
     className?: string;
     value?: T;
-    defaultValue?: string;
+    defaultValue?: string | null;
     readonly?: boolean;
-    name?: string;
-    label?: string;
-    onChange: (value: T, name: string | undefined) => void
+    name: string;
+    label?: string | null;
+    onChange: (value: T, name: string) => void
 }
 
 export function ListBox<T extends string>(props: ListBoxProps<T>) {

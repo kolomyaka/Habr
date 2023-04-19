@@ -22,7 +22,7 @@ import cls from './ArticleDetailsComment.module.scss';
 
 export interface ArticleDetailsCommentProps {
     className?: string;
-    id: string;
+    id?: string;
 }
 
 const reducers: ReducersList = {

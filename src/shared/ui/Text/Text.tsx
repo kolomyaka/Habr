@@ -22,8 +22,8 @@ export enum TextSize {
 
 interface TextProps {
     className?: string;
-    title?: string;
-    description?: string;
+    title?: string | null;
+    description?: string | null;
     theme?: TextTheme;
     align?: TextAlign;
     size?: TextSize;

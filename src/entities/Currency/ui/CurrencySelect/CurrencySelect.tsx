@@ -23,7 +23,7 @@ export const CurrencySelect = memo((props: CurrencySelectProps) => {
         onChange
     } = props;
 
-    const onChangeHandler = useCallback((value: Currency, name) => {
+    const onChangeHandler = useCallback((value: Currency, name: string) => {
         onChange?.(value, name);
     }, [onChange]);
 

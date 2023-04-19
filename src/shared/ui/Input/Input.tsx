@@ -14,7 +14,7 @@ interface InputProps extends HTMLInputProps {
     className?: string;
     value?: string | number;
     type?: string;
-    label?: string;
+    label?: string | null;
     name?: string;
     autoFocus?: boolean;
     readonly?: boolean;

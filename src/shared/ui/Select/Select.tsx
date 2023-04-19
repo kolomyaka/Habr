@@ -11,7 +11,7 @@ export interface SelectOption<T extends string> {
 
 interface SelectProps<T extends string>{
     className?: string;
-    label?: string;
+    label?: string | null;
     options: SelectOption<T>[]
     value?: T;
     name?: string;
