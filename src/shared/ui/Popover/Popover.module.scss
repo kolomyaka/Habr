@@ -1,0 +1,11 @@
+@import '../styles/mixins';
+
+.trigger {
+  @include reset-trigger;
+}
+
+.panel {
+  @include dropdown-items;
+
+  padding: 12px;
+}
