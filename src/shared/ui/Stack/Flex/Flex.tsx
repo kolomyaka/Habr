@@ -4,7 +4,7 @@ import { classNames, Mods } from 'shared/lib/classNames/classNames';
 
 import cls from './Flex.module.scss';
 
-type FlexAlign = 'center' | 'start' | 'end';
+type FlexAlign = 'center' | 'start' | 'end' | 'inherit';
 
 type FlexJustify = 'center' | 'between' | 'start' | 'end'
 
@@ -32,7 +32,8 @@ const justifyClasses: Record<FlexJustify, string> = {
 const alignClasses: Record<FlexAlign, string> = {
     center: cls.alignCenter,
     start: cls.alignStart,
-    end: cls.alignEnd
+    end: cls.alignEnd,
+    inherit: cls.alignInherit
 };
 
 const directionClasses: Record<FlexDirection, string> = {
@@ -53,7 +54,7 @@ export const Flex = memo((props: FlexProps) => {
 
     const {
         className,
-        align = 'start',
+        align = 'inherit',
         gap = 8,
         justify = 'start',
         direction = 'row',

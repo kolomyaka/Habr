@@ -18,11 +18,6 @@ export const getSidebarItems = createSelector(
                 text: 'Главная',
                 Icon: MainIcon,
             },
-            {
-                path: RoutePath.about,
-                text: 'О сайте',
-                Icon: AboutIcon,
-            },
         ];
 
         if (userData) {
@@ -41,6 +36,14 @@ export const getSidebarItems = createSelector(
                 }
             );
         }
+
+        sidebarItemsList.push(
+            {
+                path: RoutePath.about,
+                text: 'О сайте',
+                Icon: AboutIcon,
+            }
+        );
 
         return sidebarItemsList;
     }

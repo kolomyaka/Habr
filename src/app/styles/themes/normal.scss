@@ -1,14 +1,15 @@
 :root {
-  --bg-color: #d1d3dc;
-  --primary-color: #3a3a3d;
-  --light-bg-color: rgb(221 221 224);
+  --bg-color: #edeef0;
+  --primary-color: #000;
+  --light-bg-color: #fff;
   --inverted-bg-color: #504d54;
   --secondary-color: #39393b;
   --inverted-primary-color: #dbdbe7;
   --inverted-secondary-color: #098107;
-  --hover-bg-color: rgb(184 184 227);
+  --hover-bg-color: #f0f2f5;
   --shadow-color: rgb(53 57 60 / 20%);
   --shadow: 0 2px 10px 0 var(--skeleton-shadow);
+  --drawer-shadow: 0 3px 10px 6px var(--skeleton-shadow);
 
   // skeleton
   --skeleton-shadow: #8f8b9b;
@@ -21,12 +22,12 @@
   --comment-border: #918896;
 
   // card
-  --card-bg: rgb(232 232 234 / 100%);
+  --card-bg: #fff;
   --card-bg-hover: rgb(190 190 192 / 50%);
 
   // scrollbar
   --scrollbar-background: rgb(138 137 137 / 100%);
 
   // option
-  --option-bg: #b7b5b5;
+  --option-bg: #fff;
 }

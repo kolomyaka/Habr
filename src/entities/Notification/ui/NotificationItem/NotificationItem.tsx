@@ -1,4 +1,4 @@
-import { memo } from 'react';
+import { memo, useCallback } from 'react';
 
 import { classNames } from 'shared/lib/classNames/classNames';
 import { AppLink } from 'shared/ui/AppLink/AppLink';
@@ -20,26 +20,30 @@ export const NotificationItem = memo((props: NotificationItemProps) => {
         notification
     } = props;
 
-    const content = (
-        <Card className={classNames(cls.notificationItem, {}, [className])}>
+    const content = useCallback((isLink: boolean) => (
+        <Card className={classNames('',   { [cls.isLink]: isLink },[className])}>
             <Text
                 title={notification.title}
                 description={notification.description}
             />
         </Card>
-    );
-
-    if (notification.href) {
-        return (
-            <AppLink to={notification.href} className={cls.notificationLink}>
-                {content}
-            </AppLink>
-        );
-    }
-
+    ), [className, notification.description, notification.title]);
+    
     return (
         <>
-            {content}
+            {
+                notification.href ?
+                    (
+                        <AppLink to={notification.href} className={cls.notificationLink}>
+                            {content(true)}
+                        </AppLink>
+                    )
+                    : (
+                        <>
+                            {content(false)}
+                        </>
+                    )
+            }
         </>
     );
 });

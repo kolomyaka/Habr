@@ -1,5 +1,7 @@
 import { ReactNode, useCallback, useEffect, useState } from 'react';
 
+import { Overlay } from 'shared/ui/Overlay/Overlay';
+
 import { classNames, Mods } from '../../lib/classNames/classNames';
 import { Portal } from '../Portal/Portal';
 
@@ -42,10 +44,6 @@ export const Modal = (props: ModalProps) => {
         }
     }, [closeHandler]);
 
-    const onContentClick = (e: React.MouseEvent) => {
-        e.stopPropagation();
-    };
-
     useEffect(() => {
         if (isOpen) {
             setIsMounted(true);
@@ -70,13 +68,11 @@ export const Modal = (props: ModalProps) => {
             <div
                 data-testid={'modal'}
                 className={classNames(cls.modal, mods, [className])}>
-                <div className={cls.overlay} onClick={closeHandler}>
-                    <div
-                        className={cls.content}
-                        onClick={onContentClick}
-                    >
-                        {children}
-                    </div>
+                <Overlay onClick={closeHandler } />
+                <div
+                    className={cls.content}
+                >
+                    {children}
                 </div>
             </div>
         </Portal>

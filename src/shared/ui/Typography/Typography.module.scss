@@ -1,0 +1,47 @@
+.XL {
+  font: var(--font-xl);
+}
+
+.L {
+  font: var(--font-l);
+}
+
+.M {
+  font: var(--font-m);
+}
+
+.S {
+  font: var(--font-s);
+}
+
+.left {
+  text-align: left;
+}
+
+.center {
+  text-align: center;
+}
+
+.right {
+  text-align: right;
+}
+
+.light {
+  font-weight: 300;
+}
+
+.regular {
+  font-weight: 400;
+}
+
+.medium {
+  font-weight: 500;
+}
+
+.dark {
+  color: var(--primary-color);
+}
+
+.gray {
+  color: var(--gray-color);
+}
