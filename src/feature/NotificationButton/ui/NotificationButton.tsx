@@ -18,7 +18,6 @@ export const NotificationButton = ({ className }: NotificationButtonProps) => {
 
     const [isOpen, setIsOpen] = useState(false);
     const isMobile = useDevice();
-    console.log(isMobile);
 
     const onOpenDrawer = useCallback(() => {
         setIsOpen(true);

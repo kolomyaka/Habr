@@ -22,18 +22,18 @@ export const NotificationsList = memo(({ className }: NotificationsListProps) =>
         return (
             <VStack
                 gap={4}
-                className={classNames(cls.notificationsList, {}, [className])}
+                className={classNames('', {}, [className])}
             >
-                <Skeleton border={8} className={cls.notificationLoader} width={280} height={86} />
-                <Skeleton border={8} className={cls.notificationLoader} width={280} height={86} />
-                <Skeleton border={8} className={cls.notificationLoader} width={280} height={86} />
+                <Skeleton border={8} className={cls.notificationLoader} height={86} />
+                <Skeleton border={8} className={cls.notificationLoader} height={86} />
+                <Skeleton border={8} className={cls.notificationLoader} height={86} />
             </VStack>
         );
     }
 
     return (
         <VStack
-            className={classNames(cls.notificationsList, {}, [className])}
+            className={classNames('', {}, [className])}
         >
             {notifications?.map(notification => (
                 <NotificationItem

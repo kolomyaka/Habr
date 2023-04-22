@@ -39,7 +39,7 @@ export const Popover = (props: PopoverProps) => {
                     position: strategy,
                     top: y ?? 35,
                     left: x ?? 0,
-                    width: 'max-content',
+                    width: '100%',
                 }}
             >
                 {children}
