@@ -3,9 +3,9 @@
   inset: 0;
   opacity: 0;
   pointer-events: none;
-  z-index: -1;
   display: flex;
   align-items: flex-end;
+  transition: .3s opacity ease-in-out;
 }
 
 .content {
@@ -17,7 +17,7 @@
   width: 100%;
   min-height: 100px;
   padding: 20px;
-  transition: 0.3s tranform;
+  transition: 0.3s transform ease-in-out;
   transform: translateY(100%);
   overflow-y: auto;
   overflow-x: hidden;
