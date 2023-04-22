@@ -1,7 +1,7 @@
 import { AsyncThunkAction } from '@reduxjs/toolkit';
 import axios, { AxiosStatic } from 'axios';
 
-import type { StateSchema } from 'app/providers/StoreProvider';
+import type { StateSchema } from '@/app/providers/StoreProvider';
 
 // Типизируем экшн-креатор (next AC)
 // 1. То что возвращает AC

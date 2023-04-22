@@ -1,14 +1,13 @@
-import { fetchCommentsByArticleId } from 'feature/ArticleDetailsComment/model/services/fetchCommentsByArticleId';
 import { memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 
-import { classNames } from 'shared/lib/classNames/classNames';
-import { DynamicModuleLoader, ReducersList } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
-import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
-import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEffect';
-import { Text } from 'shared/ui/Text/Text';
-import { CommentList, AddNewComment } from 'entities/Comment';
+import { classNames } from '@/shared/lib/classNames/classNames';
+import { DynamicModuleLoader, ReducersList } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
+import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
+import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect/useInitialEffect';
+import { Text } from '@/shared/ui/Text/Text';
+import { CommentList, AddNewComment } from '@/entities/Comment';
 
 import { getArticleDetailsCommentsIsLoading, getArticleDetailsCommentText } from '../../model/selectors/comments';
 import { sendComment } from '../../model/services/sendComment';
@@ -19,6 +18,8 @@ import {
 import { articleDetailsCommentsReducer, getArticleComments } from '../../model/slice/articleDetailsCommentsSlice';
 
 import cls from './ArticleDetailsComment.module.scss';
+
+import { fetchCommentsByArticleId } from '@/feature/ArticleDetailsComment/model/services/fetchCommentsByArticleId';
 
 export interface ArticleDetailsCommentProps {
     className?: string;

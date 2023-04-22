@@ -2,7 +2,7 @@ import { ComponentMeta, ComponentStory } from '@storybook/react';
 import React from 'react';
 import withMock from 'storybook-addon-mock';
 
-import { Notification } from 'entities/Notification';
+import { Notification } from '@/entities/Notification';
 
 import { NotificationsList } from './NotificationsList';
 

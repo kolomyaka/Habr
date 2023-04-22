@@ -1,9 +1,9 @@
-import { EditableProfileCard } from 'feature/EditableProfileCard';
-import { useTranslation } from 'react-i18next';
 import { useParams } from 'react-router-dom';
 
-import { classNames } from 'shared/lib/classNames/classNames';
-import { Page } from 'widgets/Page';
+import { classNames } from '@/shared/lib/classNames/classNames';
+import { Page } from '@/widgets/Page';
+
+import { EditableProfileCard } from '@/feature/EditableProfileCard';
 
 interface ProfilePageProps {
     className?: string
@@ -11,7 +11,6 @@ interface ProfilePageProps {
 
 const ProfilePage = ({ className }: ProfilePageProps) => {
     const { id } = useParams<{id: string}>();
-    const { t } = useTranslation('profile');
 
     return (
         <Page className={classNames('', {}, [className])}>

@@ -32,6 +32,8 @@ export default ({ config }: {config: webpack.Configuration}) => {
         use: ['@svgr/webpack'],
     });
 
+    config.resolve!.alias = { '@': paths.src };
+
     // Увеодмляем СБ о использовании css-modules
     config!.module!.rules!.push(buildCssLoader(true));
     config!.plugins!.push(new webpack.DefinePlugin({

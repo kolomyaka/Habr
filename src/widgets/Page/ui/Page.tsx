@@ -1,18 +1,19 @@
-import { scrollSaveActions } from 'feature/ScrollSave';
-import { getScrollSaveByPath } from 'feature/ScrollSave/model/selectors/scrollSaveSelectors';
 import { MutableRefObject, ReactNode, useRef } from 'react';
 import { useSelector } from 'react-redux';
 import { useLocation } from 'react-router-dom';
 
-import { classNames } from 'shared/lib/classNames/classNames';
-import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
-import { useInfiniteScroll } from 'shared/lib/hooks/useInfiniteScroll/useInfiniteScroll';
-import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEffect';
-import { useThrottle } from 'shared/lib/hooks/useThrottle/useThrottle';
+import { classNames } from '@/shared/lib/classNames/classNames';
+import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
+import { useInfiniteScroll } from '@/shared/lib/hooks/useInfiniteScroll/useInfiniteScroll';
+import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect/useInitialEffect';
+import { useThrottle } from '@/shared/lib/hooks/useThrottle/useThrottle';
 
-import type { StateSchema } from 'app/providers/StoreProvider';
+import type { StateSchema } from '@/app/providers/StoreProvider';
 
 import cls from './Page.module.scss';
+
+import { scrollSaveActions } from '@/feature/ScrollSave';
+import { getScrollSaveByPath } from '@/feature/ScrollSave/model/selectors/scrollSaveSelectors';
 
 interface PageProps {
     className?: string;

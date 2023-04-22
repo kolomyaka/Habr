@@ -1,5 +1,5 @@
 // Интерфес статьи
-import type { User } from 'entities/User';
+import type { User } from '@/entities/User';
 
 import { ArticleBlockType } from '../consts/articleConsts';
 

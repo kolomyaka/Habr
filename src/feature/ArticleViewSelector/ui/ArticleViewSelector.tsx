@@ -1,11 +1,11 @@
 import { memo } from 'react';
 
-import BigIcon from 'shared/assets/icons/big_view.svg';
-import SmallIcon from 'shared/assets/icons/small_view.svg';
-import { classNames } from 'shared/lib/classNames/classNames';
-import { Button, ButtonTheme } from 'shared/ui/Button/Button';
-import { Icon } from 'shared/ui/Icon/Icon';
-import { ArticleView } from 'entities/Article';
+import BigIcon from '@/shared/assets/icons/big_view.svg';
+import SmallIcon from '@/shared/assets/icons/small_view.svg';
+import { classNames } from '@/shared/lib/classNames/classNames';
+import { Button, ButtonTheme } from '@/shared/ui/Button/Button';
+import { Icon } from '@/shared/ui/Icon/Icon';
+import { ArticleView } from '@/entities/Article';
 
 import cls from './ArticleViewSelector.module.scss';
 

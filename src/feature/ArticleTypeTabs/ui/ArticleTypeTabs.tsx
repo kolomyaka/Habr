@@ -2,11 +2,11 @@ import { useCallback, useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 
-import { classNames } from 'shared/lib/classNames/classNames';
-import { TabItem, Tabs } from 'shared/ui/Tabs/Tabs';
-import { getArticlesPageType } from 'pages/ArticlesPage';
+import { classNames } from '@/shared/lib/classNames/classNames';
+import { TabItem, Tabs } from '@/shared/ui/Tabs/Tabs';
+import { getArticlesPageType } from '@/pages/ArticlesPage';
 
-import type { ArticleType } from 'entities/Article';
+import type { ArticleType } from '@/entities/Article';
 
 interface ArticleTypeTabsProps {
     className?: string;

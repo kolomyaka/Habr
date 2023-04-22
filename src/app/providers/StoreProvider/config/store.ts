@@ -1,13 +1,15 @@
 import { CombinedState, configureStore, Reducer, ReducersMapObject } from '@reduxjs/toolkit';
-import { scrollSaveReducer } from 'feature/ScrollSave';
 
-import { $api } from 'shared/api/api';
-import { rtkApi } from 'shared/api/rtkApi';
-import { userReducer } from 'entities/User';
+
+import { $api } from '@/shared/api/api';
+import { rtkApi } from '@/shared/api/rtkApi';
+import { userReducer } from '@/entities/User';
 
 import type { StateSchema } from './StateSchema';
 
 import { createReducerManager } from './reducerManager';
+
+import { scrollSaveReducer } from '@/feature/ScrollSave';
 
 // Делаем initialState, чтобы в дальнейшем для SB или тестов могли подготовить какие-то данные
 export const createReduxStore = (
