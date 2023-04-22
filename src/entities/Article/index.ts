@@ -32,3 +32,7 @@ export {
 export {
     ArticleBlockType
 } from './model/consts/articleConsts';
+
+export {
+    getArticleDetailsData
+} from './model/selectors/articleDetails';

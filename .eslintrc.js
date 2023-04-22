@@ -18,6 +18,12 @@ module.exports = {
                 'max-len': 'off',
                 'react/jsx-props-no-spreading': 'off'
             }
+        },
+        {
+            files: ['**.config.ts'],
+            rules: {
+                '@typescript-eslint/no-non-null-assertion': 'off'
+            }
         }
     ],
     'parser': '@typescript-eslint/parser',
@@ -41,7 +47,7 @@ module.exports = {
         'conarti-fsd/layers-slices': 'warn',
         'conarti-fsd/absolute-relative': 'off',
         'conarti-fsd/public-api': 'warn',
-        'import/order': 'warn',
+        'import/order': 'off',
 
         'react/jsx-indent': [2, 4, { indentLogicalExpressions: true }],
         indent: [2,4],

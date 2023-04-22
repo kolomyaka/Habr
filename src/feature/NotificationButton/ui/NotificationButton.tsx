@@ -10,11 +10,7 @@ import { NotificationsList } from '@/entities/Notification';
 
 import cls from './NotificationButton.module.scss';
 
-interface NotificationButtonProps {
-    className?: string
-}
-
-export const NotificationButton = ({ className }: NotificationButtonProps) => {
+export const NotificationButton = () => {
 
     const [isOpen, setIsOpen] = useState(false);
     const isMobile = useDevice();

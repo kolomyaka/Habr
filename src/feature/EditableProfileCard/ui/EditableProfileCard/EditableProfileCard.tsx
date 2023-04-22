@@ -20,7 +20,6 @@ import { ValidateProfileError } from '../../model/types/EditableProfileCard';
 import { EditableProfileCardHeader } from '../EditableProfileCardHeader/EditableProfileCardHeader';
 
 interface EditableProfileCardProps {
-    className?: string;
     id?: string;
 }
 
@@ -28,7 +27,7 @@ const reducers: ReducersList = {
     profile: profileReducer
 };
 
-export const EditableProfileCard = ({ className, id }: EditableProfileCardProps) => {
+export const EditableProfileCard = ({ id }: EditableProfileCardProps) => {
     const dispatch = useAppDispatch();
     const { t } = useTranslation('profile');
     const formData = useSelector(getProfileForm);
