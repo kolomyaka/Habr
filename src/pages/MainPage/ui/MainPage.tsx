@@ -10,7 +10,11 @@ const MainPage = () => {
     return (
         <Page>
             {t('Главная')}
-            <RatingCard feedbackTitle={t('Оставьте отзыв о статье')} title={t('Оставьте отзыв о статье')} />
+            <RatingCard
+                feedbackTitle={t('Оставьте отзыв о статье')}
+                title={t('Как вам статья?')}
+                hasFeedback
+            />
         </Page>
     );
 };

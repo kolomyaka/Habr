@@ -7,7 +7,10 @@ import { Modal } from '@/shared/ui/Modal/Modal';
 import { VStack } from '@/shared/ui/Stack/VStack/VStack';
 import { Input } from '@/shared/ui/Input/Input';
 import { HStack } from '@/shared/ui/Stack/HStack/HStack';
-import { Button } from '@/shared/ui/Button/Button';
+import { Button, ButtonSize } from '@/shared/ui/Button/Button';
+import { Card } from '@/shared/ui/Card/Card';
+import { useDevice } from '@/shared/lib/hooks/useDevice/useDevice';
+import { Drawer } from '@/shared/ui/Drawer/Drawer';
 
 interface RatingCardProps {
     className?: string;
@@ -32,41 +35,81 @@ export const RatingCard = (props: RatingCardProps) => {
     const [isOpenModal, setIsOpenModal] = useState(false);
     const [feedback, setFeedback] = useState('');
     const [starsCount, setStarsCount] = useState(0);
+    const isMobile = useDevice();
 
-    const onSelectHandler = useCallback((starCount: number) => {
-        setStarsCount(starCount);
+    const onSelectHandler = useCallback((selectedStarsCount: number) => {
+        setStarsCount(selectedStarsCount);
 
         if (hasFeedback) {
             setIsOpenModal(true);
         } else {
-            onAccept?.(starCount, feedback);
+            onAccept?.(selectedStarsCount, feedback);
         }
     }, [feedback, hasFeedback, onAccept]);
 
-    return (
-        <div className={classNames('', {}, [className])}>
-            <Typography as={'h4'}>{title}</Typography>
-            <StarRating onSelect={onSelectHandler} />
-            <Modal isOpen={isOpenModal}>
-                <VStack max gap={32}>
-                    <Typography as={'h4'}>{feedbackTitle}</Typography>
-                    <Input
-                        label={t('Оставьте ваш отзыв')}
-                        value={feedback}
-                        onChange={setFeedback}
-                    />
-                    <HStack gap={16} justify={'end'}>
-                        <Button>
-                            {t('Отменить')}
-                        </Button>
-                        <Button>
-                            {t('Отправить')}
-                        </Button>
-                    </HStack>
-                </VStack>
+    const onAcceptHandler = useCallback(() => {
+        setIsOpenModal(false);
+        onAccept?.(starsCount, feedback);
+    }, [feedback, onAccept, starsCount]);
 
-            </Modal>
-        </div>
+    const onCancelHandler = useCallback(() => {
+        setIsOpenModal(false);
+        onCancel?.(starsCount);
+    }, [onCancel, starsCount]);
+
+    const modalContent = (
+        <>
+            <Typography size={'L'} as={'h4'}>{feedbackTitle}</Typography>
+            <Input
+                label={t('Оставьте ваш отзыв')}
+                value={feedback}
+                onChange={setFeedback}
+            />
+        </>
+    );
+
+    return (
+        <Card className={classNames('', {}, [className])}>
+            <VStack gap={8} align={'center'}>
+                <Typography size={'L'} as={'h4'}>{title}</Typography>
+                <StarRating onSelect={onSelectHandler} />
+            </VStack>
+            {
+                isMobile
+                    ? (
+                        <Drawer isOpen={isOpenModal} onClose={onCancelHandler}>
+                            <VStack max gap={32}>
+                                {modalContent}
+                                <Button
+                                    size={ButtonSize.L}
+                                    onClick={onAcceptHandler}
+                                >
+                                    {t('Отправить')}
+                                </Button>
+                            </VStack>
+                        </Drawer>
+                    )
+                    : (
+                        <Modal isOpen={isOpenModal}>
+                            <VStack max gap={32}>
+                                {modalContent}
+                                <HStack gap={16} justify={'end'}>
+                                    <Button
+                                        onClick={onCancelHandler}
+                                    >
+                                        {t('Отменить')}
+                                    </Button>
+                                    <Button
+                                        onClick={onAcceptHandler}
+                                    >
+                                        {t('Отправить')}
+                                    </Button>
+                                </HStack>
+                            </VStack>
+                        </Modal>
+                    )
+            }
+        </Card>
     );
 };
 
