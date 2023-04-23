@@ -8,7 +8,7 @@ type FlexAlign = 'center' | 'start' | 'end' | 'inherit';
 
 type FlexJustify = 'center' | 'between' | 'start' | 'end'
 
-type FlexGap = 4 | 8 | 12 | 16 | 20 | 24
+type FlexGap = 4 | 8 | 12 | 16 | 20 | 24 | 32
 
 type FlexDirection = 'row' | 'column'
 
@@ -47,7 +47,8 @@ const gapClasses: Record<FlexGap, string> = {
     12: cls.gap12,
     16: cls.gap16,
     20: cls.gap20,
-    24: cls.gap24
+    24: cls.gap24,
+    32: cls.gap32
 };
 
 export const Flex = memo((props: FlexProps) => {

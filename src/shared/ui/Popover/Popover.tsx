@@ -1,8 +1,9 @@
 import { autoUpdate, flip, offset, shift, useFloating } from '@floating-ui/react';
 import { Popover as HPopover } from '@headlessui/react';
-import { ReactNode } from 'react';
+import { Fragment, ReactNode } from 'react';
 
 import cls from './Popover.module.scss';
+import { classNames } from '@/shared/lib/classNames/classNames';
 
 interface PopoverProps {
     className?: string;
@@ -26,9 +27,9 @@ export const Popover = (props: PopoverProps) => {
     return (
         <HPopover
             ref={refs.setReference}
-            className={cls.popover}
+            className={classNames(cls.popover, {}, [className])}
         >
-            <HPopover.Button className={cls.trigger}>
+            <HPopover.Button as={Fragment}>
                 {trigger}
             </HPopover.Button>
 

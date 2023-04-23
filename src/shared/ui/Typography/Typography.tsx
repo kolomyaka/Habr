@@ -7,7 +7,7 @@ import cls from './Typography.module.scss';
 export interface TypographyProps {
     children: ReactNode;
     className?: string;
-    as?: 'p' | 'h1' | 'h2' | 'h3' | 'span';
+    as?: 'p' | 'h1' | 'h2' | 'h3' | 'h4' | 'span';
     color?: 'dark' | 'gray' | 'green';
     size?: 'XL' | 'L' | 'M' | 'S';
     align?: 'center' | 'left' | 'right';
@@ -29,7 +29,7 @@ export const Typography = memo((props: TypographyProps) => {
     return (
         <Component
             className={classNames(
-                '',
+                cls.typography,
                 {},
                 [className, cls[as], cls[color], cls[size], cls[align], cls[weight]]
             )}
