@@ -7,6 +7,7 @@ import { ArticleBlockType } from '@/entities/Article';
 import type { Article } from '@/entities/Article';
 
 import ArticleDetailsPage from './ArticleDetailsPage';
+import { withQuery } from '@storybook/addon-queryparams';
 
 const article: Article = {
     'id': '1',
@@ -89,8 +90,19 @@ export default {
     argTypes: {
         backgroundColor: { control: 'color' },
     },
+    decorators: [withQuery],
+    parameters: {
+        query: {
+            userId: '1',
+        }
+    }
 } as ComponentMeta<typeof ArticleDetailsPage>;
 
+export const WithMockedSearch = () => {
+    const urlParams = new URLSearchParams(document.location.search);
+    const mockedParam = urlParams.get('userId');
+    return <div>Mocked value: {mockedParam}</div>;
+};
 
 const Template: ComponentStory<typeof ArticleDetailsPage> = () => <ArticleDetailsPage />;
 

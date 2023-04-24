@@ -481,5 +481,48 @@
       "avatar": "https://gravatar.com/avatar/d79a01fc6611be42996b4f3a6994?s=400&d=monsterid&r=x",
       "country": "Russia"
     }
+  ],
+  "article-rating": [
+    {
+      "id": "1",
+      "rate": 4,
+      "feedback": "Хорошая статья!",
+      "userId": "1",
+      "articleId": "1"
+    },
+    {
+      "id": "1",
+      "rate": 3,
+      "feedback": "Хорошая статья!",
+      "userId": "1",
+      "articleId": "2"
+    },
+    {
+      "articleId": "4",
+      "userId": "1",
+      "rate": 3,
+      "id": "QfrmfZq"
+    },
+    {
+      "articleId": "7",
+      "userId": "1",
+      "rate": 4,
+      "feedback": "Оставил отзыв с фидбеком!",
+      "id": "kGDKTFQ"
+    },
+    {
+      "articleId": "6",
+      "userId": "1",
+      "rate": 2,
+      "feedback": "123",
+      "id": "B04ZTlg"
+    },
+    {
+      "articleId": "9",
+      "userId": "1",
+      "rate": 3,
+      "feedback": "12312313",
+      "id": "5vZgjI9"
+    }
   ]
 }

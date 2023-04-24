@@ -56,7 +56,7 @@ export function buildPlugins({ paths, isDev, apiUrl, project }: BuildOptions): w
                 },
                 mode: 'write-references',
             },
-        }),);
+        }));
     }
 
     // Функция, которая возвращает список плагинов в конфиге

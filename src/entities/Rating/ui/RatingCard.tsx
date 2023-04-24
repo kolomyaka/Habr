@@ -1,4 +1,3 @@
-import { classNames } from '@/shared/lib/classNames/classNames';
 import { Typography } from '@/shared/ui/Typography/Typography';
 import { useTranslation } from 'react-i18next';
 import { StarRating } from '@/shared/ui/StarRating';
@@ -17,6 +16,7 @@ interface RatingCardProps {
     title?: string | null;
     feedbackTitle?: string | null;
     hasFeedback?: boolean;
+    rate?: number;
     onCancel?: (starCount: number) => void;
     onAccept?: (starCount: number, feedback: string) => void;
 }
@@ -27,6 +27,7 @@ export const RatingCard = (props: RatingCardProps) => {
         title,
         hasFeedback,
         feedbackTitle,
+        rate = 0,
         onAccept,
         onCancel,
     } = props;
@@ -34,7 +35,7 @@ export const RatingCard = (props: RatingCardProps) => {
     const { t } = useTranslation();
     const [isOpenModal, setIsOpenModal] = useState(false);
     const [feedback, setFeedback] = useState('');
-    const [starsCount, setStarsCount] = useState(0);
+    const [starsCount, setStarsCount] = useState(rate);
     const isMobile = useDevice();
 
     const onSelectHandler = useCallback((selectedStarsCount: number) => {
@@ -69,10 +70,12 @@ export const RatingCard = (props: RatingCardProps) => {
     );
 
     return (
-        <Card className={classNames('', {}, [className])}>
+        <Card className={className}>
             <VStack gap={8} align={'center'}>
-                <Typography size={'L'} as={'h4'}>{title}</Typography>
-                <StarRating onSelect={onSelectHandler} />
+                <Typography size={'L'} as={'h4'}>
+                    {starsCount ? t('Спасибо за ваш отзыв!') :  title }
+                </Typography>
+                <StarRating selectedStars={starsCount} onSelect={onSelectHandler} />
             </VStack>
             {
                 isMobile
