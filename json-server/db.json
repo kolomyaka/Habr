@@ -524,5 +524,32 @@
       "feedback": "12312313",
       "id": "5vZgjI9"
     }
+  ],
+  "profile-rating": [
+    {
+      "id": "1",
+      "rate": 3,
+      "feedback": "Хороший профиль!",
+      "userId": "1",
+      "profileId": "1"
+    },
+    {
+      "profileId": "1",
+      "userId": "1",
+      "rate": 3,
+      "id": "03nbz0x"
+    },
+    {
+      "profileId": "1",
+      "userId": "1",
+      "rate": 2,
+      "id": "VgoAIO1"
+    },
+    {
+      "profileId": "1",
+      "userId": "1",
+      "rate": 2,
+      "id": "9F7e3qW"
+    }
   ]
 }

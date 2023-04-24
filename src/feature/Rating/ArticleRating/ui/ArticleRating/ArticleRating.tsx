@@ -1,4 +1,3 @@
-import cls from './ArticleRating.module.scss';
 import { memo, useCallback } from 'react';
 import { RatingCard } from '@/entities/Rating';
 import { useTranslation } from 'react-i18next';
@@ -53,7 +52,6 @@ const ArticleRating = memo(({ articleId }: ArticleRatingProps) => {
             onAccept={onAcceptHandler}
             onCancel={onCancelHandler}
             rate={rating?.rate}
-            className={cls.articleRating}
             title={t('Оцените статью')}
             feedbackTitle={t('Оставьте отзыв о статье')}
             hasFeedback

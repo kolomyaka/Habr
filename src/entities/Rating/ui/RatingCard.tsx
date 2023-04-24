@@ -19,6 +19,7 @@ interface RatingCardProps {
     rate?: number;
     onCancel?: (starCount: number) => void;
     onAccept?: (starCount: number, feedback: string) => void;
+    isLoading?: boolean;
 }
 
 export const RatingCard = (props: RatingCardProps) => {

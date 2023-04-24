@@ -20,7 +20,7 @@ interface ArticleListProps {
 }
 
 const renderArticlesSkeleton = (view: ArticleView) => {
-    return new Array(view === 'big' ? 9 : 4)
+    return new Array(view === 'big' ? 9 : 3)
         .fill(0)
         .map((item, index) => (
             <ArticleListItemSkeleton key={index} view={view} />
