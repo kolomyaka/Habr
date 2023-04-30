@@ -8,7 +8,6 @@ import { VStack } from '@/shared/ui/Stack/VStack/VStack';
 import { Text, TextAlign, TextTheme } from '@/shared/ui/Text/Text';
 import { CountrySelect } from '@/entities/Country';
 import { CurrencySelect } from '@/entities/Currency';
-
 import { Profile } from '../../model/types/profile';
 
 import cls from './ProfileCard.module.scss';

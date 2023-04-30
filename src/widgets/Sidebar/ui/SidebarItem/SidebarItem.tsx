@@ -6,6 +6,7 @@ import { classNames } from '@/shared/lib/classNames/classNames';
 import { AppNavLink, AppNavLinkTheme } from '@/shared/ui/AppNavLink/AppNavLink';
 import { getUserAuthData } from '@/entities/User';
 
+
 import { SidebarItemType } from '../../model/types/items';
 
 import cls from './SidebarItem.module.scss';

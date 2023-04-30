@@ -1,7 +1,7 @@
 import { classNames } from '@/shared/lib/classNames/classNames';
 import cls from './StarRating.module.scss';
 import { memo, useState } from 'react';
-import { Icon } from '@/shared/ui/Icon/Icon';
+import { Icon } from '../../../Icon/Icon';
 import StarIcon from '@/shared/assets/icons/starIcon.svg';
 
 interface StarRatingProps {
@@ -67,5 +67,3 @@ export const StarRating = memo((props: StarRatingProps) => {
         </div>
     );
 });
-
-

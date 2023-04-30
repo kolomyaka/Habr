@@ -3,8 +3,8 @@ import { Listbox as HListBox } from '@headlessui/react';
 import { Fragment, ReactNode } from 'react';
 
 import { classNames } from '@/shared/lib/classNames/classNames';
-import { Button } from '@/shared/ui/Button/Button';
-import { HStack } from '@/shared/ui/Stack/HStack/HStack';
+import { Button } from '../Button/Button';
+import { HStack } from '../Stack/HStack/HStack';
 
 import cls from './ListBox.module.scss';
 

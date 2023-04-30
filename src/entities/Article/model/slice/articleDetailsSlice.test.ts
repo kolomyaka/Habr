@@ -1,4 +1,4 @@
-import { ArticleBlockType } from '@/entities/Article/model/consts/articleConsts';
+import { ArticleBlockType } from '../consts/articleConsts';
 
 import type { Article } from '../types/article';
 import type { ArticleDetailsSchema } from '../types/ArticleDetailsSchema';

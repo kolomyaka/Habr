@@ -45,7 +45,7 @@ module.exports = {
     },
     'rules': {
         'conarti-fsd/layers-slices': 'warn',
-        'conarti-fsd/absolute-relative': 'off',
+        'conarti-fsd/absolute-relative': 'warn',
         'conarti-fsd/public-api': 'warn',
         'import/order': 'off',
 

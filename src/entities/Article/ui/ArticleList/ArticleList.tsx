@@ -8,7 +8,6 @@ import { ArticleView } from '../../model/types/article';
 import { Article } from '../../model/types/article';
 import { ArticleListItem } from '../ArticleListItem/ArticleListItem';
 import { ArticleListItemSkeleton } from '../ArticleListItem/ArticleListItemSkeleton';
-
 import cls from './ArticleList.module.scss';
 
 interface ArticleListProps {
