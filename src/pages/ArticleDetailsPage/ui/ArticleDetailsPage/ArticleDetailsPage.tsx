@@ -1,13 +1,19 @@
 import { memo } from 'react';
 import { useParams } from 'react-router-dom';
 
-import { ArticleDetails, ArticleDetailsPageHeader } from '@/entities/Article';
 import { Page } from '@/widgets/Page';
+import { ArticleDetailsComment } from '@/features/ArticleDetailsComment';
+import { ArticleDetailsRecommendations } from '@/features/ArticleDetailsRecommendations';
+import { ArticleRating } from '@/features/Rating/ArticleRating';
 
-import { ArticleDetailsComment } from '@/feature/ArticleDetailsComment';
-import { ArticleDetailsRecommendations } from '@/feature/ArticleDetailsRecommendations';
-import { ArticleRating } from '@/feature/Rating/ArticleRating';
+import { ArticleDetails, ArticleDetailsPageHeader } from '@/entities/Article';
 import { VStack } from '@/shared/ui/Stack/VStack/VStack';
+
+
+
+
+
+
 
 const ArticleDetailsPage = () => {
     const { id } = useParams<{id: string}>();

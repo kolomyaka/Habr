@@ -2,9 +2,10 @@ import { autoUpdate, flip, shift, useFloating } from '@floating-ui/react';
 import { Menu } from '@headlessui/react';
 import { ReactNode } from 'react';
 
-import { classNames } from '@/shared/lib/classNames/classNames';
-import { AppLink } from '../AppLink/AppLink';
-import { Button, ButtonTheme } from '../Button/Button';
+import { classNames } from '@/shared/lib';
+
+import { AppLink } from '@/shared/ui';
+import { Button, ButtonTheme } from '@/shared/ui';
 
 import cls from './Dropdown.module.scss';
 

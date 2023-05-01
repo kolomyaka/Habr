@@ -8,7 +8,10 @@ module.exports = {
         'plugin:react/recommended',
         'plugin:@typescript-eslint/recommended',
         'plugin:i18next/recommended',
-        'plugin:conarti-fsd/recommended'
+        "@feature-sliced/eslint-config/rules/import-order",
+        '@feature-sliced/eslint-config/rules/public-api',
+        "@feature-sliced/eslint-config/rules/public-api/lite",
+        "@feature-sliced/eslint-config/rules/layers-slices",
     ],
     'overrides': [
         {
@@ -26,7 +29,7 @@ module.exports = {
             }
         }
     ],
-    'parser': '@typescript-eslint/parser',
+    "parser": "@typescript-eslint/parser",
     'parserOptions': {
         'ecmaVersion': 'latest',
         'sourceType': 'module'
@@ -36,18 +39,21 @@ module.exports = {
         '@typescript-eslint',
         'i18next',
         'react-hooks',
-        'conarti-fsd'
     ],
     'settings': {
         'react': {
             'version': 'detect'
+        },
+        "import/resolver": {
+            "typescript": {
+                "alwaysTryTypes": true
+            }
         }
     },
     'rules': {
-        'conarti-fsd/layers-slices': 'warn',
-        'conarti-fsd/absolute-relative': 'warn',
-        'conarti-fsd/public-api': 'warn',
-        'import/order': 'off',
+        "import/order": "warn",
+        "import/no-internal-modules": 'off',
+        "boundaries/element-types": "off",
 
         'react/jsx-indent': [2, 4, { indentLogicalExpressions: true }],
         indent: [2,4],

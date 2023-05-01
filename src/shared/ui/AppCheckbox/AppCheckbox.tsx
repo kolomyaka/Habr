@@ -1,6 +1,6 @@
 import { InputHTMLAttributes, memo, ReactNode } from 'react';
 
-import { classNames } from '../../lib/classNames/classNames';
+import { classNames } from '@/shared/lib';
 
 import cls from './AppCheckbox.module.scss';
 

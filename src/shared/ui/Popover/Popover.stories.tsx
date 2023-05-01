@@ -1,8 +1,9 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 import React from 'react';
-import { Button } from '../Button/Button';
-import { VStack } from '../Stack/VStack/VStack';
-import { Typography } from '../Typography/Typography';
+
+import { VStack } from '@/shared/ui';
+import { Button } from '@/shared/ui';
+import { Typography } from '@/shared/ui';
 
 import { Popover } from './Popover';
 

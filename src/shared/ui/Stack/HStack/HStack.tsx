@@ -1,6 +1,6 @@
 import { memo } from 'react';
 
-import { Flex, FlexProps } from '../Flex/Flex';
+import { Flex, FlexProps } from '@/shared/ui/Stack';
 
 type HStackProps = Omit<FlexProps, 'direction'>
 

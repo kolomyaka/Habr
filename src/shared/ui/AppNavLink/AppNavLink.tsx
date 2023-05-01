@@ -1,7 +1,7 @@
 import { memo } from 'react';
 import { NavLink, NavLinkProps } from 'react-router-dom';
 
-import { classNames } from '../../lib/classNames/classNames';
+import { classNames } from '@/shared/lib';
 
 import cls from './AppNavLink.module.scss';
 

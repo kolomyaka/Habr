@@ -2,9 +2,10 @@ import { autoUpdate, flip, offset, shift, useFloating } from '@floating-ui/react
 import { Listbox as HListBox } from '@headlessui/react';
 import { Fragment, ReactNode } from 'react';
 
-import { classNames } from '@/shared/lib/classNames/classNames';
-import { Button } from '../Button/Button';
-import { HStack } from '../Stack/HStack/HStack';
+import { classNames } from '@/shared/lib';
+
+import { Button } from '@/shared/ui';
+import { HStack } from '@/shared/ui';
 
 import cls from './ListBox.module.scss';
 

@@ -2,14 +2,16 @@ import { createRoot } from 'react-dom/client';
 import { ErrorBoundary } from 'react-error-boundary';
 import { BrowserRouter } from 'react-router-dom';
 
+
+
+import { StoreProvider } from '@/app/providers/StoreProvider';
 import { ThemeProvider } from '@/app/providers/ThemeProvider';
+import { ErrorFallback } from '@/widgets/ErrorFalback';
 
 import App from './app/App';
 
 import './shared/config/i18n/i18n';
 import '../src/app/styles/index.scss';
-import { ErrorFallback } from '@/widgets/ErrorFalback';
-import { StoreProvider } from '@/app/providers/StoreProvider';
 
 
 const container = document.getElementById('root');

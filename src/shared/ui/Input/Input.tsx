@@ -1,6 +1,6 @@
 import { InputHTMLAttributes, memo, SyntheticEvent, useState } from 'react';
 
-import { classNames, Mods } from '../../lib/classNames/classNames';
+import { classNames, Mods } from '@/shared/lib';
 
 import cls from './Input.module.scss';
 

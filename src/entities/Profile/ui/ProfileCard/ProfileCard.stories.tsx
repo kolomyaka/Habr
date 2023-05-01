@@ -4,7 +4,7 @@ import React from 'react';
 import type { Country } from '@/entities/Country';
 import type { Currency } from '@/entities/Currency';
 
-import { ValidateProfileError } from '../../../../feature/EditableProfileCard';
+import { ValidateProfileError } from '../../../../features/EditableProfileCard';
 
 import { ProfileCard } from './ProfileCard';
 
