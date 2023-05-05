@@ -11,8 +11,7 @@ import { ErrorFallback } from '@/widgets/ErrorFalback';
 import App from './app/App';
 
 import './shared/config/i18n/i18n';
-import '../src/app/styles/index.scss';
-
+import '@/app/styles/index.scss';
 
 const container = document.getElementById('root');
 

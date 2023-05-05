@@ -2,11 +2,10 @@ import { memo } from 'react';
 import { useTranslation } from 'react-i18next';
 
 import { ArticleList } from '@/entities/Article';
-import { classNames } from '@/shared/lib/classNames/classNames';
-import { DynamicModuleLoader, ReducersList } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
-import { Text } from '@/shared/ui/Text/Text';
-
-
+import { classNames } from '@/shared/lib';
+import { DynamicModuleLoader } from '@/shared/lib';
+import type { ReducersList } from '@/shared/lib/components';
+import { Text } from '@/shared/ui';
 
 import { useGetArticleRecommendations } from '../api/articleRecommendationsApi';
 import { articleDetailsRecommendationsReducer } from '../model/slices/articleDetailsRecommendationsSlice';

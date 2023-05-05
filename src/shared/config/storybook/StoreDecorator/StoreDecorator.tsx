@@ -9,16 +9,7 @@ import { loginReducer } from '@/features/AuthByUsername';
 import { profileReducer } from '@/features/EditableProfileCard';
 
 import { articleDetailsReducer } from '@/entities/Article';
-import { ReducersList } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
-
-
-
-
-
-
-
-
-
+import { ReducersList } from '@/shared/lib/components';
 
 const defaultAsyncReducers: ReducersList = {
     loginForm: loginReducer,

@@ -2,17 +2,16 @@ import { memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 
-import { fetchCommentsByArticleId } from '@/features/ArticleDetailsComment/model/services/fetchCommentsByArticleId';
-
 import { CommentList, AddNewComment } from '@/entities/Comment';
-import { classNames } from '@/shared/lib/classNames/classNames';
-import { DynamicModuleLoader, ReducersList } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
-import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
-import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect/useInitialEffect';
-import { Text } from '@/shared/ui/Text/Text';
+import { classNames } from '@/shared/lib';
+import { DynamicModuleLoader } from '@/shared/lib';
+import type { ReducersList } from '@/shared/lib/components';
+import { useAppDispatch } from '@/shared/lib';
+import { useInitialEffect } from '@/shared/lib';
+import { Text } from '@/shared/ui';
 
 
-
+import { fetchCommentsByArticleId } from '../../model/services/fetchCommentsByArticleId';
 import { getArticleDetailsCommentsIsLoading, getArticleDetailsCommentText } from '../../model/selectors/comments';
 import { sendComment } from '../../model/services/sendComment';
 import {

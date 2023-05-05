@@ -3,13 +3,12 @@ import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 
 import { ProfileCard } from '@/entities/Profile';
-import { DynamicModuleLoader, ReducersList } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
-import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
-import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect/useInitialEffect';
-import { VStack } from '@/shared/ui/Stack/VStack/VStack';
-import { Text, TextTheme } from '@/shared/ui/Text/Text';
-
-
+import { DynamicModuleLoader } from '@/shared/lib';
+import type { ReducersList } from '@/shared/lib/components';
+import { useAppDispatch } from '@/shared/lib';
+import { useInitialEffect } from '@/shared/lib';
+import { VStack } from '@/shared/ui';
+import { Text, TextTheme } from '@/shared/ui';
 
 import { getProfileError } from '../../model/selectors/getProfileError/getProfileError';
 import { getProfileForm } from '../../model/selectors/getProfileForm/getProfileForm';

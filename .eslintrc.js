@@ -8,10 +8,7 @@ module.exports = {
         'plugin:react/recommended',
         'plugin:@typescript-eslint/recommended',
         'plugin:i18next/recommended',
-        "@feature-sliced/eslint-config/rules/import-order",
-        '@feature-sliced/eslint-config/rules/public-api',
-        "@feature-sliced/eslint-config/rules/public-api/lite",
-        "@feature-sliced/eslint-config/rules/layers-slices",
+        'plugin:boundaries/recommended'
     ],
     'overrides': [
         {
@@ -29,7 +26,7 @@ module.exports = {
             }
         }
     ],
-    "parser": "@typescript-eslint/parser",
+    'parser': '@typescript-eslint/parser',
     'parserOptions': {
         'ecmaVersion': 'latest',
         'sourceType': 'module'
@@ -44,16 +41,57 @@ module.exports = {
         'react': {
             'version': 'detect'
         },
-        "import/resolver": {
-            "typescript": {
-                "alwaysTryTypes": true
+        'boundaries/elements': [
+            { type: 'app', pattern: 'app/*' },
+            { type: 'pages', pattern: 'pages/*' },
+            { type: 'widgets', pattern: 'widgets/*' },
+            { type: 'features', pattern: 'features/*' },
+            { type: 'entities', pattern: 'entities/*' },
+            { type: 'shared', pattern: 'shared/*' }
+        ],
+        'boundaries/ignore': ['**/*.test.*'],
+        'import/resolver': {
+            'typescript': {
+                'alwaysTryTypes': true
             }
         }
     },
     'rules': {
-        "import/order": "warn",
-        "import/no-internal-modules": 'off',
-        "boundaries/element-types": "off",
+        'boundaries/element-types': [
+            'warn',
+            {
+                default: 'disallow',
+                rules: [
+                    { from: 'app', allow: ['pages', 'widgets', 'features', 'entities', 'shared'] },
+                    { from: 'pages', allow: ['widgets', 'features', 'entities', 'shared'] },
+                    { from: 'widgets', allow: ['features', 'entities', 'shared'] },
+                    { from: 'features', allow: ['entities', 'shared'] },
+                    { from: 'entities', allow: ['shared'] },
+                    { from: 'shared', allow: ['shared'] }
+                ]
+            }
+        ],
+        'no-restricted-imports': [
+            'error',
+            {
+                patterns: [
+                    { message: 'Private imports are prohibited, use public imports instead', group: ['@/app/*/*/**'] },
+                    { message: 'Private imports are prohibited, use public imports instead', group: ['@/pages/*/**'] },
+                    { message: 'Private imports are prohibited, use public imports instead', group: ['@/widgets/*/**'] },
+                    { message: 'Private imports are prohibited, use public imports instead', group: ['@/features/*/**'] },
+                    { message: 'Private imports are prohibited, use public imports instead', group: ['@/entities/*/**'] },
+                    { message: 'Private imports are prohibited, use public imports instead', group: ['@/shared/*/*/*/**'] },
+                    { message: 'Prefer absolute imports instead of relatives (for root modules)', group: ['../**/app'] },
+                    { message: 'Prefer absolute imports instead of relatives (for root modules)', group: ['../**/processes'] },
+                    { message: 'Prefer absolute imports instead of relatives (for root modules)', group: ['../**/pages'] },
+                    { message: 'Prefer absolute imports instead of relatives (for root modules)', group: ['../**/widgets'] },
+                    { message: 'Prefer absolute imports instead of relatives (for root modules)', group: ['../**/features'] },
+                    { message: 'Prefer absolute imports instead of relatives (for root modules)', group: ['../**/entities'] },
+                    { message: 'Prefer absolute imports instead of relatives (for root modules)', group: ['../**/shared'] }
+                ]
+            }
+        ],
+
 
         'react/jsx-indent': [2, 4, { indentLogicalExpressions: true }],
         indent: [2,4],
@@ -74,7 +112,7 @@ module.exports = {
                     ['to', 'data-testid', 'name', 'target', 'align', 'justify', 'gap', 'direction', 'as']
             }
         ],
-        'max-len': ['error', { ignoreComments: true, code: 120 }],
+        'max-len': ['error', { ignoreComments: true, code: 130 }],
         'linebreak-style': [
             'error',
             'unix'

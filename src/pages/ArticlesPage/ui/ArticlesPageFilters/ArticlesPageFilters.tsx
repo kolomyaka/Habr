@@ -6,13 +6,13 @@ import { ArticleTypeTabs } from '@/features/ArticleTypeTabs';
 import { ArticleViewSelector } from '@/features/ArticleViewSelector';
 
 import { ArticleSortField, ArticleSortSelector, ArticleView, ArticleType } from '@/entities/Article';
-import { classNames } from '@/shared/lib/classNames/classNames';
-import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
-import { useDebounce } from '@/shared/lib/hooks/useDebounce/useDebounce';
+import { classNames } from '@/shared/lib';
+import { useAppDispatch } from '@/shared/lib';
+import { useDebounce } from '@/shared/lib';
 import { OrderType } from '@/shared/types/types';
-import { Card } from '@/shared/ui/Card/Card';
-import { Input } from '@/shared/ui/Input/Input';
-import { TabItem } from '@/shared/ui/Tabs/Tabs';
+import { Card } from '@/shared/ui';
+import { Input } from '@/shared/ui';
+import { TabItem } from '@/shared/ui';
 
 
 

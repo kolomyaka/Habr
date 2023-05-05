@@ -3,9 +3,10 @@ import { useSearchParams } from 'react-router-dom';
 
 import { Page } from '@/widgets/Page';
 import { classNames } from '@/shared/lib/classNames/classNames';
-import { DynamicModuleLoader, ReducersList } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
-import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
-import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect/useInitialEffect';
+import { DynamicModuleLoader } from '@/shared/lib';
+import type { ReducersList } from '@/shared/lib/components';
+import { useAppDispatch } from '@/shared/lib';
+import { useInitialEffect } from '@/shared/lib';
 
 
 

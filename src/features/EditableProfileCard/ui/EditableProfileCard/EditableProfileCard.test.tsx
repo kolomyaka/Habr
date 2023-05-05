@@ -10,7 +10,7 @@ import { Country } from '@/entities/Country';
 import { Currency } from '@/entities/Currency';
 import { Profile } from '@/entities/Profile';
 import { $api } from '@/shared/api/api';
-import { componentRender } from '@/shared/lib/tests/componentRender/componentRender';
+import { componentRender } from '@/shared/lib';
 
 
 const mockData: Profile = {

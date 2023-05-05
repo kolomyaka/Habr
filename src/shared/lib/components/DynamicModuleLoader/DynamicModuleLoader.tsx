@@ -4,7 +4,7 @@ import { useDispatch, useStore } from 'react-redux';
 
 import type {
     ReduxStoreWithManager, StateSchema, StateSchemaKey
-} from '@/app/providers/StoreProvider/config/StateSchema';
+} from '@/app/providers/StoreProvider';
 
 export type ReducersList = {
     // Делаем более строгую типизацию для reducersList, чтобы не могли добавить ошибочный редюсер

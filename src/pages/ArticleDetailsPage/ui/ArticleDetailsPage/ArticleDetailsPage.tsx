@@ -4,16 +4,10 @@ import { useParams } from 'react-router-dom';
 import { Page } from '@/widgets/Page';
 import { ArticleDetailsComment } from '@/features/ArticleDetailsComment';
 import { ArticleDetailsRecommendations } from '@/features/ArticleDetailsRecommendations';
-import { ArticleRating } from '@/features/Rating/ArticleRating';
+import { ArticleRating } from '@/features/Rating';
 
 import { ArticleDetails, ArticleDetailsPageHeader } from '@/entities/Article';
-import { VStack } from '@/shared/ui/Stack/VStack/VStack';
-
-
-
-
-
-
+import { VStack } from '@/shared/ui';
 
 const ArticleDetailsPage = () => {
     const { id } = useParams<{id: string}>();

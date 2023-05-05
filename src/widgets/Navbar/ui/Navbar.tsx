@@ -8,9 +8,9 @@ import { LangSwitcher } from '@/features/LangSwitcher';
 import { NotificationButton } from '@/features/NotificationButton';
 
 import { getUserAuthData } from '@/entities/User';
-import { classNames } from '@/shared/lib/classNames/classNames';
-import { Button, ButtonTheme } from '@/shared/ui/Button/Button';
-import { HStack } from '@/shared/ui/Stack/HStack/HStack';
+import { classNames } from '@/shared/lib';
+import { Button, ButtonTheme } from '@/shared/ui';
+import { HStack } from '@/shared/ui';
 
 
 

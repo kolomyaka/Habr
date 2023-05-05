@@ -2,7 +2,7 @@ import { memo, useState } from 'react';
 import { useSelector } from 'react-redux';
 
 
-import { getSidebarItems } from '@/widgets/Sidebar/model';
+import { getSidebarItems } from '../../model';
 import { ThemeSwitcher } from '@/features/ThemeSwitcher';
 
 import { classNames } from '@/shared/lib';

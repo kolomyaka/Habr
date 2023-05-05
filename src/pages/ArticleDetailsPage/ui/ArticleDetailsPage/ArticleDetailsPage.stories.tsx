@@ -5,7 +5,7 @@ import React from 'react';
 
 import { ArticleBlockType } from '@/entities/Article';
 import type { Article } from '@/entities/Article';
-import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDecorator';
+import { StoreDecorator } from '@/shared/config';
 
 import ArticleDetailsPage from './ArticleDetailsPage';
 

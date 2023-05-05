@@ -30,3 +30,11 @@ export {
     useAppDispatch,
     useDebounce
 } from './hooks';
+
+export {
+    componentRender
+} from './tests/componentRender/componentRender';
+
+export {
+    TestAsyncThunk
+} from './tests/TestAsyncThunk/TestAsyncThunk';
