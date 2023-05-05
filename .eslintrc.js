@@ -8,7 +8,6 @@ module.exports = {
         'plugin:react/recommended',
         'plugin:@typescript-eslint/recommended',
         'plugin:i18next/recommended',
-        'plugin:conarti-fsd/recommended'
     ],
     'overrides': [
         {
@@ -36,7 +35,7 @@ module.exports = {
         '@typescript-eslint',
         'i18next',
         'react-hooks',
-        'conarti-fsd'
+        'kolomyaka-fsd-plugin'
     ],
     'settings': {
         'react': {
@@ -44,11 +43,8 @@ module.exports = {
         }
     },
     'rules': {
-        'conarti-fsd/layers-slices': 'warn',
-        'conarti-fsd/absolute-relative': 'warn',
-        'conarti-fsd/public-api': 'warn',
-        'import/order': 'off',
 
+        'kolomyaka-fsd-plugin/path-checker': 'error',
         'react/jsx-indent': [2, 4, { indentLogicalExpressions: true }],
         indent: [2,4],
         'react/jsx-props-no-spreading': 'warn',
