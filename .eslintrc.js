@@ -35,7 +35,6 @@ module.exports = {
         '@typescript-eslint',
         'i18next',
         'react-hooks',
-        'kolomyaka-fsd-plugin'
     ],
     'settings': {
         'react': {
@@ -44,7 +43,6 @@ module.exports = {
     },
     'rules': {
 
-        'kolomyaka-fsd-plugin/path-checker': 'error',
         'react/jsx-indent': [2, 4, { indentLogicalExpressions: true }],
         indent: [2,4],
         'react/jsx-props-no-spreading': 'warn',
