@@ -5,7 +5,7 @@ interface windowSizeInterface {
     height: number;
 }
 
-export function useWindowSize() {
+export const useWindowSize = () => {
     const [windowSize, setWindowSize] = useState<windowSizeInterface>({
         width: 0,
         height: 0,
@@ -28,4 +28,4 @@ export function useWindowSize() {
         return () => window.removeEventListener('resize', handleResize);
     }, []); // Empty array ensures that effect is only run on mount
     return windowSize;
-}
+};
