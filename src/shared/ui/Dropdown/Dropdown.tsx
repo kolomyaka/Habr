@@ -3,6 +3,7 @@ import { Menu } from '@headlessui/react';
 import { ReactNode } from 'react';
 
 import { classNames } from '@/shared/lib/classNames/classNames';
+
 import { AppLink } from '../AppLink/AppLink';
 import { Button, ButtonTheme } from '../Button/Button';
 
