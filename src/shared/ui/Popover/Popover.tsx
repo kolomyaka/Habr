@@ -2,8 +2,9 @@ import { autoUpdate, flip, offset, shift, useFloating } from '@floating-ui/react
 import { Popover as HPopover } from '@headlessui/react';
 import { Fragment, ReactNode } from 'react';
 
-import cls from './Popover.module.scss';
 import { classNames } from '@/shared/lib/classNames/classNames';
+
+import cls from './Popover.module.scss';
 
 interface PopoverProps {
     className?: string;

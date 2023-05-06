@@ -1,18 +1,15 @@
 import { memo } from 'react';
 import { useTranslation } from 'react-i18next';
 
-import { classNames } from '@/shared/lib/classNames/classNames';
-import { Avatar } from '@/shared/ui/Avatar/Avatar';
-import { Input } from '@/shared/ui/Input/Input';
-import { VStack } from '@/shared/ui/Stack/VStack/VStack';
-import { Text, TextAlign, TextTheme } from '@/shared/ui/Text/Text';
 import { CountrySelect } from '@/entities/Country';
 import { CurrencySelect } from '@/entities/Currency';
+
+import { classNames } from '@/shared/lib';
+import { Avatar , Input , VStack , Text, TextAlign, TextTheme , Card , Skeleton } from '@/shared/ui';
+
 import { Profile } from '../../model/types/profile';
 
 import cls from './ProfileCard.module.scss';
-import { Card } from '@/shared/ui/Card/Card';
-import { Skeleton } from '@/shared/ui/Skeleton/Skeleton';
 
 interface ProfileCardProps {
     className?: string;

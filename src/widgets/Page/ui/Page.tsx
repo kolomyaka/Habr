@@ -2,18 +2,14 @@ import { MutableRefObject, ReactNode, useRef } from 'react';
 import { useSelector } from 'react-redux';
 import { useLocation } from 'react-router-dom';
 
-import { classNames } from '@/shared/lib/classNames/classNames';
-import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
-import { useInfiniteScroll } from '@/shared/lib/hooks/useInfiniteScroll/useInfiniteScroll';
-import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect/useInitialEffect';
-import { useThrottle } from '@/shared/lib/hooks/useThrottle/useThrottle';
-
 import type { StateSchema } from '@/app/providers/StoreProvider';
 
-import cls from './Page.module.scss';
+import { scrollSaveActions , getScrollSaveByPath } from '@/features/ScrollSave';
 
-import { scrollSaveActions } from '@/feature/ScrollSave';
-import { getScrollSaveByPath } from '@/feature/ScrollSave/model/selectors/scrollSaveSelectors';
+import { classNames } from '@/shared/lib/classNames';
+import { useAppDispatch , useInfiniteScroll , useInitialEffect , useThrottle } from '@/shared/lib/hooks';
+
+import cls from './Page.module.scss';
 
 interface PageProps {
     className?: string;

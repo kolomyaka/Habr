@@ -2,14 +2,15 @@ import { memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 
-import { classNames } from '@/shared/lib/classNames/classNames';
-import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
-import { useDebounce } from '@/shared/lib/hooks/useDebounce/useDebounce';
-import { OrderType } from '@/shared/types/types';
-import { Card } from '@/shared/ui/Card/Card';
-import { Input } from '@/shared/ui/Input/Input';
-import { TabItem } from '@/shared/ui/Tabs/Tabs';
+import { ArticleTypeTabs } from '@/features/ArticleTypeTabs';
+import { ArticleViewSelector } from '@/features/ArticleViewSelector';
+
 import { ArticleSortField, ArticleSortSelector, ArticleView, ArticleType } from '@/entities/Article';
+
+import { classNames } from '@/shared/lib/classNames';
+import { useAppDispatch , useDebounce } from '@/shared/lib/hooks';
+import { OrderType } from '@/shared/types/types';
+import { Card , Input , TabItem } from '@/shared/ui';
 
 import {
     getArticlesPageOrder,
@@ -22,8 +23,6 @@ import { articlesPageActions } from '../../model/slices/articlesPageSlice';
 
 import cls from './ArticlesPageFilters.module.scss';
 
-import { ArticleTypeTabs } from '@/feature/ArticleTypeTabs';
-import { ArticleViewSelector } from '@/feature/ArticleViewSelector';
 
 interface ArticlesPageFiltersProps {
     className?: string
