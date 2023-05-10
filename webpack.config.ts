@@ -1,7 +1,7 @@
 import path from 'path';
 
 import dotenv from 'dotenv';
-import webpack from 'webpack';
+import Webpack from 'webpack';
 
 import { BuildWebpackConfig } from './config/build/buildWebpackConfig';
 import { BuildEnv, BuildPath } from './config/build/types/config';
@@ -31,7 +31,7 @@ export default (env: BuildEnv) => {
 
     // Конфигурируем конфиг webpack
     // Декомпозировали конфиг вебпака в отдельную функцию
-    const config: webpack.Configuration = BuildWebpackConfig({
+    const config: Webpack.Configuration = BuildWebpackConfig({
         mode,
         paths,
         isDev,

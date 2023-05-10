@@ -5,9 +5,7 @@ import { useTheme } from '@/app/providers/ThemeProvider';
 import { classNames, Mods } from '@/shared/lib';
 import { AnimationProvider, useAnimationModules } from '@/shared/lib/components';
 import { useWindowSize } from '@/shared/lib/hooks';
-
-import { Overlay } from '../Overlay/Overlay';
-import { Portal } from '../Portal/Portal';
+import { Overlay , Portal } from '@/shared/ui';
 
 import cls from './Drawer.module.scss';
 
@@ -24,7 +22,6 @@ const DrawerContent = memo((props: DrawerProps) => {
         className,
         children,
         isOpen,
-        lazy,
         onClose
     } = props;
     const { theme } = useTheme();

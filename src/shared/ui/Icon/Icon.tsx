@@ -1,10 +1,10 @@
-import React, { memo } from 'react';
+import React, { memo, SVGAttributes } from 'react';
 
-import { classNames } from '../../lib/classNames/classNames';
+import { classNames } from '@/shared/lib';
 
 import cls from './Icon.module.scss';
 
-interface IconProps extends React.SVGAttributes<SVGElement>{
+interface IconProps extends SVGAttributes<SVGElement>{
     className?: string;
     Svg: React.FunctionComponent<React.SVGAttributes<SVGElement>>;
 }
