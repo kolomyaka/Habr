@@ -28,6 +28,12 @@ module.exports = {
             rules: {
                 '@typescript-eslint/no-non-null-assertion': 'off'
             }
+        },
+        {
+            files: ['**/src/shared/ui/**/*.tsx', '**/src/**/*.async.tsx'],
+            rules: {
+                'react/jsx-props-no-spreading': 'off'
+            }
         }
     ],
     'parser': '@typescript-eslint/parser',
@@ -54,9 +60,12 @@ module.exports = {
             { type: 'widgets', pattern: 'widgets/*' },
             { type: 'features', pattern: 'features/*' },
             { type: 'entities', pattern: 'entities/*' },
-            { type: 'shared', pattern: 'shared/*' }
+            { type: 'shared', pattern: 'shared/*' },
         ],
-        'boundaries/ignore': ['**/*.test.*'],
+        'boundaries/ignore': [
+            '**/*.test.*',
+            '**/StoreDecorator.tsx'
+        ],
         'import/resolver': {
             'typescript': {
                 'alwaysTryTypes': true
@@ -115,7 +124,8 @@ module.exports = {
             }
         ],
 
-
+        'import/no-named-as-default': 'off',
+        'import/no-named-as-default-member': 'off',
         'react/jsx-indent': [2, 4, { indentLogicalExpressions: true }],
         indent: [2,4],
         'react/jsx-props-no-spreading': 'warn',

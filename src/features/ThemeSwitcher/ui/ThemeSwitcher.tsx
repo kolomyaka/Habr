@@ -1,11 +1,11 @@
 import { memo } from 'react';
 import { useTranslation } from 'react-i18next';
 
-import { Theme, useTheme } from '@/app/providers/ThemeProvider';
-
 import IconMoon from '@/shared/assets/icons/icon-moon.svg';
 import IconSun from '@/shared/assets/icons/icon-sun.svg';
+import { Theme } from '@/shared/const/theme';
 import { classNames } from '@/shared/lib/classNames';
+import { useTheme } from '@/shared/lib/hooks';
 import { AppCheckbox } from '@/shared/ui';
 
 import cls from './ThemeSwitcher.module.scss';

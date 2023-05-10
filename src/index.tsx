@@ -9,9 +9,7 @@ import '@/app/styles/index.scss';
 import { ErrorFallback } from '@/widgets/ErrorFalback';
 
 import App from './app/App';
-
 import './shared/config/i18n/i18n';
-
 
 const container = document.getElementById('root');
 

@@ -33,3 +33,7 @@ export {
 export {
     useWindowSize
 } from './useWindowSize/useWindowSize';
+
+export {
+    useTheme
+} from './useTheme/useTheme';
