@@ -12,7 +12,6 @@ export const $api = axios.create({
 
 $api.interceptors.request.use((config) => {
     const token = localStorage.getItem(USER_LOCALSTORAGE_KEY);
-
     if (token) {
         axios.defaults.headers.common['authorization'] = token;
     }
