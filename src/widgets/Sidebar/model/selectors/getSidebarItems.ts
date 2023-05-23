@@ -45,7 +45,6 @@ export const getSidebarItems = createSelector(
                 Icon: AboutIcon,
             }
         );
-
         return sidebarItemsList;
     }
 );
