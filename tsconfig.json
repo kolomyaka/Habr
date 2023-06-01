@@ -17,6 +17,7 @@
     "paths": {
       "@/*": ["./src/*"]
     },
+
     // Позволяет работать с пакетами, которые используют commonJs
     // Как с обычными пакетами с помощью import
     // import Moment from 'moment' -->  Moment === undefined  (Без флага)
