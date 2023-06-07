@@ -4,6 +4,8 @@ import { useTranslation } from 'react-i18next';
 import EyeIcon from '@/shared/assets/icons/eye-icon.svg';
 import { getRouteArticleDetails } from '@/shared/const/router';
 import { classNames } from '@/shared/lib/classNames/classNames';
+import { Skeleton } from '@/shared/ui';
+import { AppImage } from '@/shared/ui/AppImage';
 import { AppLink } from '@/shared/ui/AppLink/AppLink';
 import { Avatar } from '@/shared/ui/Avatar/Avatar';
 import { Button, ButtonTheme } from '@/shared/ui/Button/Button';
@@ -47,7 +49,12 @@ export const ArticleListItem = memo((props: ArticleListItemProps) => {
                 <div className={classNames(cls.articleListItem, {}, [className, cls['small']])}>
                     <Card className={cls.articleCard}>
                         <div className={cls.articleHeader}>
-                            <img alt={article.title} src={article.img} className={cls.articleImage} />
+                            <AppImage
+                                alt={article.title}
+                                src={article.img}
+                                className={cls.articleImage}
+                                fallback={<Skeleton width={'100%'} height={250} />}
+                            />
                             <Text description={article.createdAt} className={cls.articleCreated} />
                         </div>
                         <div className={cls.articleFooter}>
@@ -74,7 +81,12 @@ export const ArticleListItem = memo((props: ArticleListItemProps) => {
                 </div>
                 <Text title={article.title} className={cls.articleTitle} />
                 {types}
-                <img src={article.img} className={cls.articleImage} alt={article.title} />
+                <AppImage
+                    fallback={<Skeleton width={'100%'} height={250} />}
+                    src={article.img}
+                    className={cls.articleImage}
+                    alt={article.title}
+                />
                 {textBlock && (
                     <ArticleTextBlockComponent className={cls.articleText} block={textBlock} />
                 )}
