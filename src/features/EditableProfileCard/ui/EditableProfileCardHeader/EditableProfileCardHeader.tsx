@@ -2,12 +2,13 @@ import { useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 
+
 import { getUserAuthData } from '@/entities/User';
 
 import { useAppDispatch } from '@/shared/lib/hooks';
 import { HStack , Text , Button, ButtonTheme } from '@/shared/ui';
 
-import { getProfileData } from '../../model/selectors/getProfileData/getProfileData';
+import { useProfileData } from '../../model/selectors/getProfileData/getProfileData';
 import { getProfileReadonly } from '../../model/selectors/getProfileReadonly/getProfileReadonly';
 import { updateProfileData } from '../../model/services/updateProfileData/updateProfileData';
 import { profileActions } from '../../model/slice/profileSlice';
@@ -18,7 +19,7 @@ export const EditableProfileCardHeader = () => {
     const { t } = useTranslation('profile');
     const readonly = useSelector(getProfileReadonly);
     const authData = useSelector(getUserAuthData);
-    const profileData = useSelector(getProfileData);
+    const profileData = useProfileData();
     const canEdit = authData?.id === profileData?.id;
 
     const onEditHandler = useCallback(() => {
