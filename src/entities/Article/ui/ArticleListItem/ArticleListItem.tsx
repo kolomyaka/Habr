@@ -2,7 +2,7 @@ import { HTMLAttributeAnchorTarget, memo } from 'react';
 import { useTranslation } from 'react-i18next';
 
 import EyeIcon from '@/shared/assets/icons/eye-icon.svg';
-import { RoutePath } from '@/shared/const/router';
+import { getRouteArticleDetails } from '@/shared/const/router';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { AppLink } from '@/shared/ui/AppLink/AppLink';
 import { Avatar } from '@/shared/ui/Avatar/Avatar';
@@ -43,7 +43,7 @@ export const ArticleListItem = memo((props: ArticleListItemProps) => {
 
     if (view === 'small') {
         return (
-            <AppLink target={target} to={`${RoutePath.article_details}${article.id}`}>
+            <AppLink target={target} to={getRouteArticleDetails(article.id)}>
                 <div className={classNames(cls.articleListItem, {}, [className, cls['small']])}>
                     <Card className={cls.articleCard}>
                         <div className={cls.articleHeader}>
@@ -79,7 +79,7 @@ export const ArticleListItem = memo((props: ArticleListItemProps) => {
                     <ArticleTextBlockComponent className={cls.articleText} block={textBlock} />
                 )}
                 <div className={cls.articleFooter}>
-                    <AppLink target={target} to={`${RoutePath.article_details}${article.id}`}>
+                    <AppLink target={target} to={getRouteArticleDetails(article.id)}>
                         <Button theme={ButtonTheme.OUTLINE}>
                             {t('Читать далее...')}
                         </Button>

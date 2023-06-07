@@ -48,7 +48,6 @@ export const Select = <T extends string>(props: SelectProps<T>) => {
     }, [options]);
 
     const onChangeHandler = (e: ChangeEvent<HTMLSelectElement>) => {
-        console.log('val',e.target.value, 'name',e.target.name);
         onChange?.(e.target.value as T, e.target.name);
     };
 
