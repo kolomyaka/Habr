@@ -19,6 +19,3 @@ export {
     useAnimationModules
 } from './components';
 
-export {
-    componentRender
-} from './tests/componentRender/componentRender';

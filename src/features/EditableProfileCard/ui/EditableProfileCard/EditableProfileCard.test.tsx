@@ -9,7 +9,7 @@ import { Currency } from '@/entities/Currency';
 import { Profile } from '@/entities/Profile';
 
 import { $api } from '@/shared/api/api';
-import { componentRender } from '@/shared/lib';
+import { componentRender } from '@/shared/lib/tests/componentRender';
 
 
 const mockData: Profile = {
