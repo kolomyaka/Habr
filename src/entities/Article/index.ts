@@ -26,10 +26,6 @@ export {
 } from './ui/ArticleList/ArticleList';
 
 export {
-    ArticleSortSelector
-} from './ui/ArticleSortSelector/ArticleSortSelector';
-
-export {
     ArticleBlockType
 } from './model/consts/articleConsts';
 

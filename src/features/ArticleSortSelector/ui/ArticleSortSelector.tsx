@@ -12,7 +12,7 @@ import cls from './ArticleSortSelector.module.scss';
 interface ArticleSortSelectorProps {
     className?: string;
     order: OrderType;
-    sortField: ArticleSortField;
+    sortField: ArticleSortField; 
     onChangeOrder: (order: OrderType) => void;
     onChangeSortField: (sortField: ArticleSortField) => void;
 }
