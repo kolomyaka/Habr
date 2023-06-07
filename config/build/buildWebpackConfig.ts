@@ -28,7 +28,7 @@ export function BuildWebpackConfig(options: BuildOptions): webpack.Configuration
         // Когда вебпак собирает весь наш исходный код в один файл (bundle.js), может быть сложно отследить ошибку
         // В одном из файлов, который будет добавлен в bundle.js и если один из файлов будет содержать ошибку, то
         // источником будет bundle.js. Этой настройкой webpack будет генерить мапу и можно будет узнать откуда ошибка
-        devtool: isDev ? 'inline-source-map' : undefined,
+        devtool: isDev ? 'eval-cheap-module-source-map' : undefined,
         devServer: isDev ? buildDevServer(options) : undefined,
     };
 }

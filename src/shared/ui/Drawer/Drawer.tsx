@@ -1,10 +1,11 @@
 import { memo, ReactNode, useCallback, useEffect } from 'react';
 
-
 import { classNames, Mods } from '@/shared/lib';
 import { AnimationProvider, useAnimationModules } from '@/shared/lib/components';
 import { useWindowSize , useTheme } from '@/shared/lib/hooks';
-import { Overlay , Portal } from '@/shared/ui';
+
+import { Overlay } from '../Overlay/Overlay';
+import { Portal } from '../Portal/Portal';
 
 import cls from './Drawer.module.scss';
 

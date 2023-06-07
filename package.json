@@ -23,8 +23,9 @@
     "test:ui:report": "npm run test:ui:json && npm run test:ui:html",
     "test:ui:json": "node ./scripts/generate-visual-json.js",
     "test:ui:html": "reg-cli --from .loki/report.json --report .loki/report.html",
-    "storybook": "start-storybook -p 6006 -c ./config/storybook ",
-    "storybook:build": "build-storybook -c ./config/storybook "
+    "storybook": "start-storybook -p 6006 -c ./config/storybook",
+    "storybook:build": "build-storybook -c ./config/storybook",
+    "postinstall": "node ./scripts/clear-cache.js"
   },
   "husky": {
     "hooks": {
