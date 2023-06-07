@@ -49,6 +49,7 @@ module.exports = {
         '@typescript-eslint',
         'i18next',
         'react-hooks',
+        'unused-imports'
     ],
     'settings': {
         'react': {
@@ -87,6 +88,7 @@ module.exports = {
                 ]
             }
         ],
+        'unused-imports/no-unused-imports': 'error',
         'no-restricted-imports': [
             'error',
             {
@@ -123,7 +125,6 @@ module.exports = {
                 groups: ['builtin', 'external', 'internal', 'parent', 'sibling', 'index']
             }
         ],
-
         'import/no-named-as-default': 'off',
         'import/no-named-as-default-member': 'off',
         'react/jsx-indent': [2, 4, { indentLogicalExpressions: true }],
