@@ -4,16 +4,15 @@ import { useLocation } from 'react-router-dom';
 
 import type { StateSchema } from '@/app/providers/StoreProvider';
 
-
 import { scrollSaveActions , getScrollSaveByPath } from '@/features/ScrollSave';
 
 import { classNames } from '@/shared/lib/classNames';
 import { useAppDispatch , useInfiniteScroll , useInitialEffect , useThrottle } from '@/shared/lib/hooks';
-
+import { TestsProps } from '@/shared/types/tests';
 
 import cls from './Page.module.scss';
 
-interface PageProps {
+interface PageProps extends TestsProps{
     className?: string;
     children: ReactNode;
     onScrollEnd?: () => void;
@@ -53,6 +52,7 @@ export const Page = (props: PageProps) => {
             onScroll={onScroll}
             ref={wrapperRef}
             className={classNames(cls.page, {}, [className])}
+            data-testid={props['data-testid'] ?? 'Page'}
         >
             {children}
             {onScrollEnd&&<div className={cls.trigger} ref={triggerRef} />}
