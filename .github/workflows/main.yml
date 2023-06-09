@@ -75,6 +75,15 @@ jobs:
         run: npm ci
       - name: unit testing
         run: npm run test:unit
+      - name: Setup pages
+        uses: actions/configure-pages@v2
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v1
+        with:
+          path: 'reports'
+      - name: Deploy to Github Pages
+        id: deployment
+        uses: actions/deploy-pages@v1
 
   storybook:
     runs-on: ubuntu-latest
