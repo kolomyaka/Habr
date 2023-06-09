@@ -4,6 +4,13 @@ on:
     branches: [main]
   pull_request:
     branches: [main]
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+concurrency:
+  group: 'pages'
+  cancel-in-progress: true
 jobs:
   typescript:
     runs-on: ubuntu-latest
@@ -18,8 +25,7 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
       - name: install modules
-        run: npm i
-        # run: npm ci
+        run: npm ci
       - name: Cache deps
         uses: actions/cache@v3
         with:
@@ -45,7 +51,7 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
       - name: install modules
-        run: npm i
+        run: npm ci
       - name: linting css
         run: npm run lint:scss
 
@@ -66,7 +72,7 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
       - name: install modules
-        run: npm i
+        run: npm ci
       - name: unit testing
         run: npm run test:unit
 
@@ -87,10 +93,21 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
       - name: install modules
-        run: npm i
+        run: npm ci
       - name: build production project
         run: npm run build:prod
       - name: build storybook
         run: npm run storybook:build
       - name: screenshot testing
         run: npm run test:ui:ci
+      - name: Generate HTML report
+        run: npm run test:ui:report
+      - name: Setup pages
+        uses: actions/configure-pages@v2
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v1
+        with:
+          path: '.loki'
+      - name: Deploy to Github Pages
+        id: deployment
+        uses: actions/deploy-pages@v1
