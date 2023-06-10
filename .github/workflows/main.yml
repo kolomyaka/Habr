@@ -85,7 +85,7 @@ jobs:
         id: deployment
         uses: actions/deploy-pages@v1
 
-  create reports:
+  reports:
     runs-on: ubuntu-latest
     strategy:
       matrix:
