@@ -85,7 +85,7 @@ jobs:
         id: deployment
         uses: actions/deploy-pages@v1
 
-  storybook & testing report:
+  create reports:
     runs-on: ubuntu-latest
     strategy:
       matrix:
