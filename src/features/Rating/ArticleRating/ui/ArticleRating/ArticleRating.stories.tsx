@@ -15,4 +15,6 @@ export default {
 const Template: ComponentStory<typeof ArticleRating> = (args) => <ArticleRating {...args} />;
 
 export const Primary = Template.bind({});
-Primary.args = {};
+Primary.args = {
+    articleId: '1'
+};

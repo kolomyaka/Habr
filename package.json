@@ -19,7 +19,8 @@
     "test:unit:watch": "jest --config ./config/jest/jest.config.ts --watch",
     "test:ui": "loki test",
     "test:ui:ok": "loki approve",
-    "test:ui:ci": "npx loki --requireReference --reactUri file:./storybook-static",
+
+    "test:ui:ci": "concurrently -s first -k \"npm run storybook\" \"npm run test:ui\"",
     "test:ui:report": "npm run test:ui:json && npm run test:ui:html",
     "test:ui:json": "node ./scripts/generate-visual-json.js",
     "test:ui:html": "reg-cli --from .loki/report.json --report .loki/report.html",
