@@ -35,12 +35,21 @@ export const AddNewComment = memo((props: AddArticleCommentProps) => {
 
 
     return (
-        <div className={classNames(cls.addArticleComment, {}, [className])}>
+        <div
+            className={classNames(cls.addArticleComment, {}, [className])}
+            data-testid={'AddNewComment'}
+        >
             <Avatar src={userData?.avatar} size={50} />
             <div className={cls.commentWrapper}>
-                <Input onChange={onChangeCommentHandler} value={text} label={t('Введите комментарий')} />
+                <Input
+                    data-testid={'AddNewComment.Input'}
+                    onChange={onChangeCommentHandler}
+                    value={text}
+                    label={t('Введите комментарий')}
+                />
             </div>
             <Button
+                data-testid={'AddNewComment.Button'}
                 theme={ButtonTheme.OUTLINE}
                 onClick={onSendHandler}
             >

@@ -49,7 +49,10 @@ export const StarRating = memo((props: StarRatingProps) => {
     };
 
     return (
-        <div className={classNames(cls.starRating, {}, [className])}>
+        <div
+            className={classNames(cls.starRating, {}, [className])}
+            data-testid={'StarRating'}
+        >
             {stars.map(star => (
                 <Icon
                     className={classNames(
@@ -66,6 +69,8 @@ export const StarRating = memo((props: StarRatingProps) => {
                     onMouseEnter={onEnter(star)}
                     onMouseLeave={onLeave}
                     onClick={onClick(star)}
+                    data-testid={`StarRating.${star}`}
+                    data-selected={currentStarsCount >= star}
                 />
             ))}
         </div>

@@ -56,6 +56,7 @@ export const RatingCard = (props: RatingCardProps) => {
         <>
             <Typography size={'L'} as={'h4'}>{feedbackTitle}</Typography>
             <Input
+                data-testid={'RatingCard.Input'}
                 label={t('Оставьте ваш отзыв')}
                 value={feedback}
                 onChange={setFeedback}
@@ -64,7 +65,7 @@ export const RatingCard = (props: RatingCardProps) => {
     );
 
     return (
-        <Card className={className}>
+        <Card className={className} data-testid={'RatingCard'}>
             <VStack gap={8} align={'center'}>
                 <Typography size={'L'} as={'h4'}>
                     {starsCount ? t('Спасибо за ваш отзыв!') :  title }
@@ -92,11 +93,13 @@ export const RatingCard = (props: RatingCardProps) => {
                                 {modalContent}
                                 <HStack gap={16} justify={'end'}>
                                     <Button
+                                        data-testid={'RatingCard.Cancel'}
                                         onClick={onCancelHandler}
                                     >
                                         {t('Отменить')}
                                     </Button>
                                     <Button
+                                        data-testid={'RatingCard.Send'}
                                         onClick={onAcceptHandler}
                                     >
                                         {t('Отправить')}

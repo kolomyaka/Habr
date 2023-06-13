@@ -54,7 +54,10 @@ const ArticleDetailsComment = memo(({ className, id }: ArticleDetailsCommentProp
 
     return (
         <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
-            <div className={classNames(cls.articleDetailsComment, {}, [className])}>
+            <div
+                className={classNames(cls.articleDetailsComment, {}, [className])}
+                data-testid={'ArticleDetailsComment'}
+            >
                 <Text className={cls.commentTitle} title={t('Комментарии')} />
                 <AddNewComment
                     onChangeCommentHandler={onChangeCommentHandler}
