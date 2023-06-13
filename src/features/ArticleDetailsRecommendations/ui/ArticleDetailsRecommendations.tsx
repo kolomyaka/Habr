@@ -30,7 +30,10 @@ export const ArticleDetailsRecommendations = memo(({ className }: ArticleDetails
 
     return (
         <DynamicModuleLoader reducers={reducers}>
-            <div className={classNames(cls.articleDetailsRecommendationsList, {}, [className])}>
+            <div
+                className={classNames(cls.articleDetailsRecommendationsList, {}, [className])}
+                data-testid={'ArticleDetailsRecommendations'}
+            >
                 <Text className={cls.recommendationsTitle} title={t('Рекомендации')} />
                 <ArticleList
                     target={'_blank'}

@@ -1,3 +1,3 @@
 export const selectByTestId = (dataTestId: string) => {
-    return `[data-testid=${dataTestId}]`;
+    return `[data-testid="${dataTestId}"]`;
 };

@@ -489,6 +489,18 @@
       "username": "Kizaru",
       "avatar": "https://gravatar.com/avatar/d79a01fc6611be42996b4f3a6994?s=400&d=monsterid&r=x",
       "country": "Russia"
+    },
+    {
+      "id": "3",
+      "first_name": "Test",
+      "last_name": "User",
+      "age": 22,
+      "currency": "RUB",
+      "county": "Russia",
+      "city": "Saint-Petersburg",
+      "username": "testUser",
+      "avatar": "https://i.ytimg.com/vi/tXPUueXzmG8/maxresdefault.jpg",
+      "country": "Russia"
     }
   ],
   "article-rating": [

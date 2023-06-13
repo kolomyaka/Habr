@@ -46,7 +46,7 @@ export const ArticleListItem = memo((props: ArticleListItemProps) => {
     if (view === 'small') {
         return (
             <AppLink target={target} to={getRouteArticleDetails(article.id)}>
-                <div className={classNames(cls.articleListItem, {}, [className, cls['small']])}>
+                <div data-testid={'ArticleListItem'} className={classNames(cls.articleListItem, {}, [className, cls['small']])}>
                     <Card className={cls.articleCard}>
                         <div className={cls.articleHeader}>
                             <AppImage
@@ -72,7 +72,7 @@ export const ArticleListItem = memo((props: ArticleListItemProps) => {
 
     const textBlock = article.blocks.find(block => block.type === ArticleBlockType.TEXT) as ArticleTextBlock;
     return (
-        <div className={classNames(cls.articleListItem, {}, [className, cls['big']])}>
+        <div data-testid={'ArticleListItem'} className={classNames(cls.articleListItem, {}, [className, cls['big']])}>
             <Card className={cls.articleCard}>
                 <div className={cls.articleHeader}>
                     <Avatar size={30} src={article.user.avatar} />
