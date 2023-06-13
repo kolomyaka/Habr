@@ -193,6 +193,7 @@ module.exports = {
             ignoreComments: true,
             code: 130
         }],
+        '@typescript-eslint/no-namespace': 'off',
         'linebreak-style': ['error', 'unix'],
         'quotes': ['error', 'single'],
         'semi': ['error', 'always']

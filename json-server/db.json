@@ -454,6 +454,15 @@
         "USER"
       ],
       "avatar": "https://gravatar.com/avatar/d79a01fc6611be42996b4f3a6994?s=400&d=monsterid&r=x"
+    },
+    {
+      "id": "3",
+      "username": "testUser",
+      "password": "123",
+      "roles": [
+        "ADMIN"
+      ],
+      "avatar": "https://i.ytimg.com/vi/tXPUueXzmG8/maxresdefault.jpg"
     }
   ],
   "profile": [
