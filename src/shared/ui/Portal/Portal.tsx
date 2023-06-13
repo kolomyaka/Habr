@@ -10,7 +10,7 @@ export const Portal = (props : PortalProps) => {
 
     const {
         children,
-        container = document.querySelector('#root') || document.body
+        container = document.querySelector('.app') || document.body
     } = props;
 
     return createPortal(

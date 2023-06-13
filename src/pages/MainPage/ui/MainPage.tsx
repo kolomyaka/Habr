@@ -8,7 +8,7 @@ const MainPage = () => {
 
     return (
         <Page data-testid={'MainPage'}>
-            {t('Глав')}
+            {t('Главная')}
         </Page>
     );
 };
