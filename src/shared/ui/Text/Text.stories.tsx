@@ -11,14 +11,13 @@ export default {
     },
 } as ComponentMeta<typeof Text>;
 
-
 const Template: ComponentStory<typeof Text> = (args) => <Text {...args} />;
 
 export const Primary = Template.bind({});
 
 Primary.args = {
     title: 'title text',
-    description: 'description text'
+    description: 'description text',
 };
 
 export const TitleOnly = Template.bind({});
@@ -37,7 +36,7 @@ export const TextError = Template.bind({});
 
 TextError.args = {
     theme: TextTheme.ERROR,
-    title: 'title text'
+    title: 'title text',
 };
 
 export const TextDescription = Template.bind({});
@@ -52,7 +51,7 @@ export const SizeM = Template.bind({});
 SizeM.args = {
     title: 'Title text',
     description: 'description text',
-    size: TextSize.M
+    size: TextSize.M,
 };
 
 export const SizeL = Template.bind({});
@@ -60,6 +59,5 @@ export const SizeL = Template.bind({});
 SizeL.args = {
     title: 'Title text',
     description: 'description text',
-    size: TextSize.L
+    size: TextSize.L,
 };
-

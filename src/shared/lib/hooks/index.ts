@@ -1,39 +1,19 @@
-export {
-    useDevice
-} from './useDevice/useDevice';
+export { useDevice } from './useDevice/useDevice';
 
-export {
-    useAppDispatch
-} from './useAppDispatch/useAppDispatch';
+export { useAppDispatch } from './useAppDispatch/useAppDispatch';
 
-export {
-    useDebounce
-} from './useDebounce/useDebounce';
+export { useDebounce } from './useDebounce/useDebounce';
 
-export {
-    useHover
-} from './useHover/useHover';
+export { useHover } from './useHover/useHover';
 
-export {
-    useInfiniteScroll
-} from './useInfiniteScroll/useInfiniteScroll';
+export { useInfiniteScroll } from './useInfiniteScroll/useInfiniteScroll';
 
-export {
-    useInitialEffect
-} from './useInitialEffect/useInitialEffect';
+export { useInitialEffect } from './useInitialEffect/useInitialEffect';
 
-export {
-    useModal
-} from './useModal/useModal';
+export { useModal } from './useModal/useModal';
 
-export {
-    useThrottle
-} from './useThrottle/useThrottle';
+export { useThrottle } from './useThrottle/useThrottle';
 
-export {
-    useWindowSize
-} from './useWindowSize/useWindowSize';
+export { useWindowSize } from './useWindowSize/useWindowSize';
 
-export {
-    useTheme
-} from './useTheme/useTheme';
+export { useTheme } from './useTheme/useTheme';

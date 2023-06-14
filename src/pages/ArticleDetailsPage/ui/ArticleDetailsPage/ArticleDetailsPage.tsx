@@ -12,7 +12,7 @@ import { ArticleDetails, ArticleDetailsPageHeader } from '@/entities/Article';
 import { VStack } from '@/shared/ui';
 
 const ArticleDetailsPage = () => {
-    const { id } = useParams<{id: string}>();
+    const { id } = useParams<{ id: string }>();
 
     if (!id) {
         return null;
@@ -32,5 +32,3 @@ const ArticleDetailsPage = () => {
 };
 
 export default memo(ArticleDetailsPage);
-
-

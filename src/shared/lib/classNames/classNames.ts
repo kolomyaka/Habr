@@ -4,20 +4,18 @@
 // string или Literal String - Record<"a", T> или Record<"a" | "b", T>. В качестве второго
 // параметра ожидается конкретный тип данных, который будет ассоциирован с каждым ключом.
 
-export type Mods = Record<string, boolean | string | undefined>
+export type Mods = Record<string, boolean | string | undefined>;
 
 export function classNames(
     cls: string,
     mods: Mods = {},
-    additional: Array<string | undefined> = []
+    additional: Array<string | undefined> = [],
 ): string {
-
     return [
         cls,
         ...additional.filter(Boolean),
         ...Object.entries(mods)
             .filter(([_, value]) => Boolean(value))
-            .map(([className]) => className)
+            .map(([className]) => className),
     ].join(' ');
 }
-

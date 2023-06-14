@@ -13,19 +13,18 @@ export default {
     },
 } as ComponentMeta<typeof AddNewComment>;
 
-
-const Template: ComponentStory<typeof AddNewComment> = (args) => <AddNewComment {...args} />;
+const Template: ComponentStory<typeof AddNewComment> = (args) => (
+    <AddNewComment {...args} />
+);
 
 export const Primary = Template.bind({});
 Primary.args = {};
-Primary.decorators = [StoreDecorator({
-    user: {
-        authData: {
-            avatar: 'https://i.ytimg.com/vi/tXPUueXzmG8/maxresdefault.jpg'
-        }
-    }
-})];
-
-
-
-
+Primary.decorators = [
+    StoreDecorator({
+        user: {
+            authData: {
+                avatar: 'https://i.ytimg.com/vi/tXPUueXzmG8/maxresdefault.jpg',
+            },
+        },
+    }),
+];

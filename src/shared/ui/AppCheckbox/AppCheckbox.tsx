@@ -4,7 +4,6 @@ import { classNames } from '../../lib/classNames/classNames';
 
 import cls from './AppCheckbox.module.scss';
 
-
 interface AppCheckboxProps extends InputHTMLAttributes<HTMLInputElement> {
     className?: string;
     label?: string | ReactNode;
@@ -13,15 +12,8 @@ interface AppCheckboxProps extends InputHTMLAttributes<HTMLInputElement> {
     onChange?: () => void;
 }
 
-export const AppCheckbox = memo((props : AppCheckboxProps) => {
-
-    const {
-        className,
-        label,
-        checked,
-        short,
-        onChange,
-    } = props;
+export const AppCheckbox = memo((props: AppCheckboxProps) => {
+    const { className, label, checked, short, onChange } = props;
 
     const onChangeHandler = () => {
         onChange?.();
@@ -29,17 +21,19 @@ export const AppCheckbox = memo((props : AppCheckboxProps) => {
 
     return (
         <label
-            className={classNames(cls.appCheckbox, { [cls.short]: short }, [className])}
+            className={classNames(cls.appCheckbox, { [cls.short]: short }, [
+                className,
+            ])}
         >
-            {
-                label && <p className={cls.label}>{label}</p>
-            }
+            {label && <p className={cls.label}>{label}</p>}
             <div className={cls.switcher}>
-                <input onChange={onChangeHandler} checked={checked} type="checkbox" />
+                <input
+                    onChange={onChangeHandler}
+                    checked={checked}
+                    type="checkbox"
+                />
                 <span className={cls.slider}></span>
             </div>
         </label>
     );
 });
-
-

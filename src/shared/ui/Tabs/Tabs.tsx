@@ -12,23 +12,21 @@ export interface TabItem<T extends string> {
 }
 
 interface TabsProps<T extends string> {
-    className?: string
+    className?: string;
     tabs: TabItem<T>[];
     value: T;
     onTabClick: (tab: TabItem<T>) => void;
 }
 
 export const Tabs = <T extends string>(props: TabsProps<T>) => {
-    const {
-        className,
-        tabs,
-        value,
-        onTabClick
-    } = props;
+    const { className, tabs, value, onTabClick } = props;
 
-    const onTabClickHandler = useCallback((tab: TabItem<T>) => () => {
-        onTabClick(tab);
-    }, [onTabClick]);
+    const onTabClickHandler = useCallback(
+        (tab: TabItem<T>) => () => {
+            onTabClick(tab);
+        },
+        [onTabClick],
+    );
 
     return (
         <div className={classNames(cls.tabs, {}, [className])}>
@@ -36,7 +34,9 @@ export const Tabs = <T extends string>(props: TabsProps<T>) => {
                 <Card
                     data-testid={`ArticleTab.${tab.value}`}
                     key={tab.value}
-                    className={classNames(cls.tabItem, { [cls.selected]: tab.value === value })}
+                    className={classNames(cls.tabItem, {
+                        [cls.selected]: tab.value === value,
+                    })}
                     onClick={onTabClickHandler(tab)}
                 >
                     <Text description={tab.content} />
@@ -45,5 +45,3 @@ export const Tabs = <T extends string>(props: TabsProps<T>) => {
         </div>
     );
 };
-
-

@@ -1,4 +1,8 @@
-import { createEntityAdapter, createSlice, PayloadAction, } from '@reduxjs/toolkit';
+import {
+    createEntityAdapter,
+    createSlice,
+    PayloadAction,
+} from '@reduxjs/toolkit';
 
 import { StateSchema } from '@/app/providers/StoreProvider';
 
@@ -15,17 +19,20 @@ const commentsAdapter = createEntityAdapter<Comment>({
 
 // Создаем селектор для получения всех комментариев статьи
 export const getArticleComments = commentsAdapter.getSelectors<StateSchema>(
-    (state) => state.articleDetailsComments || commentsAdapter.getInitialState()
+    (state) =>
+        state.articleDetailsComments || commentsAdapter.getInitialState(),
 );
 
 const articleDetailsCommentsSlice = createSlice({
     name: 'articleDetailsCommentsSlice',
-    initialState: commentsAdapter.getInitialState<ArticleDetailsCommentsSchema>({
-        isLoading: false,
-        error: undefined,
-        ids: [],
-        entities: {}
-    }),
+    initialState: commentsAdapter.getInitialState<ArticleDetailsCommentsSchema>(
+        {
+            isLoading: false,
+            error: undefined,
+            ids: [],
+            entities: {},
+        },
+    ),
     reducers: {},
     extraReducers: (builder) => {
         builder
@@ -33,16 +40,24 @@ const articleDetailsCommentsSlice = createSlice({
                 state.isLoading = true;
                 state.error = undefined;
             })
-            .addCase(fetchCommentsByArticleId.fulfilled, (state, action: PayloadAction<Comment[]>) => {
-                state.isLoading = false;
-                commentsAdapter.setAll(state, action.payload);
-            })
-            .addCase(fetchCommentsByArticleId.rejected, (state, action: PayloadAction<string | undefined>) => {
-                state.isLoading = false;
-                state.error = action.payload;
-            });
+            .addCase(
+                fetchCommentsByArticleId.fulfilled,
+                (state, action: PayloadAction<Comment[]>) => {
+                    state.isLoading = false;
+                    commentsAdapter.setAll(state, action.payload);
+                },
+            )
+            .addCase(
+                fetchCommentsByArticleId.rejected,
+                (state, action: PayloadAction<string | undefined>) => {
+                    state.isLoading = false;
+                    state.error = action.payload;
+                },
+            );
     },
 });
 
-export const { reducer: articleDetailsCommentsReducer } = articleDetailsCommentsSlice;
-export const { actions: articleDetailsCommentsActions } = articleDetailsCommentsSlice;
+export const { reducer: articleDetailsCommentsReducer } =
+    articleDetailsCommentsSlice;
+export const { actions: articleDetailsCommentsActions } =
+    articleDetailsCommentsSlice;

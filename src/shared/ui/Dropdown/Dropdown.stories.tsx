@@ -5,7 +5,6 @@ import { Button } from '../Button/Button';
 
 import { Dropdown } from './Dropdown';
 
-
 export default {
     title: 'shared/Dropdown',
     component: Dropdown,
@@ -14,8 +13,9 @@ export default {
     },
 } as ComponentMeta<typeof Dropdown>;
 
-
-const Template: ComponentStory<typeof Dropdown> = (args) => <Dropdown {...args} />;
+const Template: ComponentStory<typeof Dropdown> = (args) => (
+    <Dropdown {...args} />
+);
 
 export const Primary = Template.bind({});
 Primary.args = {
@@ -23,19 +23,21 @@ Primary.args = {
     items: [
         {
             content: 'Content 1',
-            onClick: () => {return;},
+            onClick: () => {
+                return;
+            },
         },
         {
             content: 'Content 2',
-            onClick: () => {return;},
+            onClick: () => {
+                return;
+            },
         },
         {
             content: 'Content 2',
-            onClick: () => {return;},
-        }
-    ]
+            onClick: () => {
+                return;
+            },
+        },
+    ],
 };
-
-
-
-

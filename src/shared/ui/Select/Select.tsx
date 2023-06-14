@@ -5,14 +5,14 @@ import { classNames, Mods } from '../../lib/classNames/classNames';
 import cls from './Select.module.scss';
 
 export interface SelectOption<T extends string> {
-    value:T;
+    value: T;
     content: string;
 }
 
-interface SelectProps<T extends string>{
+interface SelectProps<T extends string> {
     className?: string;
     label?: string | null;
-    options: SelectOption<T>[]
+    options: SelectOption<T>[];
     value?: T;
     name?: string;
     readonly?: boolean;
@@ -20,28 +20,16 @@ interface SelectProps<T extends string>{
 }
 
 export const Select = <T extends string>(props: SelectProps<T>) => {
-
-    const {
-        className,
-        label,
-        options,
-        value,
-        readonly,
-        name,
-        onChange
-    } = props;
+    const { className, label, options, value, readonly, name, onChange } =
+        props;
 
     const mods: Mods = {
-        [cls.readonly]: readonly
+        [cls.readonly]: readonly,
     };
 
     const optionsList = useMemo(() => {
-        return options?.map(opt => (
-            <option
-                className={cls.option}
-                key={opt.value}
-                value={opt.value}
-            >
+        return options?.map((opt) => (
+            <option className={cls.option} key={opt.value} value={opt.value}>
                 {opt.content}
             </option>
         ));
@@ -53,9 +41,7 @@ export const Select = <T extends string>(props: SelectProps<T>) => {
 
     return (
         <label className={classNames(cls.wrapper, mods, [className])}>
-            {label && (
-                <p className={cls.label}>{label + '>'}</p>
-            )}
+            {label && <p className={cls.label}>{label + '>'}</p>}
             <select
                 name={name}
                 disabled={readonly}
@@ -68,5 +54,3 @@ export const Select = <T extends string>(props: SelectProps<T>) => {
         </label>
     );
 };
-
-

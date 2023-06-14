@@ -4,14 +4,18 @@ import { useDispatch, useSelector } from 'react-redux';
 
 import { getIsAdmin, getUserAuthData, userActions } from '@/entities/User';
 
-import { getRouteAdmin, getRouteArticleCreate, getRouteProfile } from '@/shared/const/router';
+import {
+    getRouteAdmin,
+    getRouteArticleCreate,
+    getRouteProfile,
+} from '@/shared/const/router';
 import { classNames } from '@/shared/lib/classNames/classNames';
-import { Avatar , Dropdown } from '@/shared/ui';
+import { Avatar, Dropdown } from '@/shared/ui';
 
 import cls from './AvatarDropdown.module.scss';
 
 interface AvatarDropdownProps {
-    className?: string
+    className?: string;
 }
 
 export const AvatarDropdown = memo((props: AvatarDropdownProps) => {
@@ -20,7 +24,7 @@ export const AvatarDropdown = memo((props: AvatarDropdownProps) => {
     const dispatch = useDispatch();
     const isAdmin = useSelector(getIsAdmin);
     const userAuthData = useSelector(getUserAuthData);
-    
+
     const onLogoutHandler = useCallback(() => {
         dispatch(userActions.logout());
     }, [dispatch]);
@@ -34,25 +38,27 @@ export const AvatarDropdown = memo((props: AvatarDropdownProps) => {
             className={classNames(cls.avatarDropdown, {}, [className])}
             trigger={<Avatar size={40} src={userAuthData.avatar} />}
             items={[
-                ...(isAdmin ?[{
-                    content: t('Админка'),
-                    href: getRouteAdmin()
-                }]:[]),
+                ...(isAdmin
+                    ? [
+                          {
+                              content: t('Админка'),
+                              href: getRouteAdmin(),
+                          },
+                      ]
+                    : []),
                 {
                     content: t('Профиль'),
-                    href: getRouteProfile(userAuthData.id)
+                    href: getRouteProfile(userAuthData.id),
                 },
                 {
                     content: t('Создать статью'),
-                    href: getRouteArticleCreate()
+                    href: getRouteArticleCreate(),
                 },
                 {
                     content: t('Выйти'),
-                    onClick: onLogoutHandler
-                }
+                    onClick: onLogoutHandler,
+                },
             ]}
         />
     );
 });
-
-

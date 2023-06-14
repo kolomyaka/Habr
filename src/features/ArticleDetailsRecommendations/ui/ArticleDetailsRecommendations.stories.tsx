@@ -16,8 +16,9 @@ export default {
     decorators: [],
 } as ComponentMeta<typeof ArticleDetailsRecommendations>;
 
-const Template: ComponentStory<typeof ArticleDetailsRecommendations> = (args) =>
-    <ArticleDetailsRecommendations {...args} />;
+const Template: ComponentStory<typeof ArticleDetailsRecommendations> = (
+    args,
+) => <ArticleDetailsRecommendations {...args} />;
 
 const article: Article = {
     id: '1',
@@ -28,7 +29,7 @@ const article: Article = {
     blocks: [],
     type: ['IT'],
     title: 'Название статьи',
-    subtitle: 'Подзаголовок статьи'
+    subtitle: 'Подзаголовок статьи',
 };
 
 export const Primary = Template.bind({});
@@ -42,13 +43,9 @@ Primary.parameters = {
                 { ...article, id: '1' },
                 { ...article, id: '2' },
                 { ...article, id: '3' },
-            ]
+            ],
         },
     ],
 };
 Primary.args = {};
 Primary.decorators = [StoreDecorator({})];
-
-
-
-

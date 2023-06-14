@@ -13,37 +13,45 @@ import { articleDetailsRecommendationsReducer } from '../model/slices/articleDet
 import cls from './ArticleDetailsRecommendations.module.scss';
 
 interface ArticleDetailsRecommendationsListProps {
-    className?: string
+    className?: string;
 }
 
 const reducers: ReducersList = {
-    articleDetailsRecommendations: articleDetailsRecommendationsReducer
+    articleDetailsRecommendations: articleDetailsRecommendationsReducer,
 };
 
-export const ArticleDetailsRecommendations = memo(({ className }: ArticleDetailsRecommendationsListProps) => {
-    const { t } = useTranslation('articles');
-    const { isLoading, data: recommendations } = useGetArticleRecommendations(4);
+export const ArticleDetailsRecommendations = memo(
+    ({ className }: ArticleDetailsRecommendationsListProps) => {
+        const { t } = useTranslation('articles');
+        const { isLoading, data: recommendations } =
+            useGetArticleRecommendations(4);
 
-    if (isLoading || !recommendations) {
-        return null;
-    }
+        if (isLoading || !recommendations) {
+            return null;
+        }
 
-    return (
-        <DynamicModuleLoader reducers={reducers}>
-            <div
-                className={classNames(cls.articleDetailsRecommendationsList, {}, [className])}
-                data-testid={'ArticleDetailsRecommendations'}
-            >
-                <Text className={cls.recommendationsTitle} title={t('Рекомендации')} />
-                <ArticleList
-                    target={'_blank'}
-                    articles={recommendations}
-                    isLoading={isLoading}
-                    className={cls.recommendationsList}
-                />
-            </div>
-        </DynamicModuleLoader>
-    );
-});
-
-
+        return (
+            <DynamicModuleLoader reducers={reducers}>
+                <div
+                    className={classNames(
+                        cls.articleDetailsRecommendationsList,
+                        {},
+                        [className],
+                    )}
+                    data-testid={'ArticleDetailsRecommendations'}
+                >
+                    <Text
+                        className={cls.recommendationsTitle}
+                        title={t('Рекомендации')}
+                    />
+                    <ArticleList
+                        target={'_blank'}
+                        articles={recommendations}
+                        isLoading={isLoading}
+                        className={cls.recommendationsList}
+                    />
+                </div>
+            </DynamicModuleLoader>
+        );
+    },
+);

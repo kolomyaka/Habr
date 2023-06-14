@@ -14,14 +14,15 @@ export default {
     decorators: [],
 } as ComponentMeta<typeof NotificationsList>;
 
-
-const Template: ComponentStory<typeof NotificationsList> = (args) => <NotificationsList {...args} />;
+const Template: ComponentStory<typeof NotificationsList> = (args) => (
+    <NotificationsList {...args} />
+);
 
 const notification: Notification = {
     id: '1',
     userId: '1',
     title: 'Тайтл уведомления',
-    description: 'Описание уведомления'
+    description: 'Описание уведомления',
 };
 
 export const Primary = Template.bind({});
@@ -34,12 +35,13 @@ Primary.parameters = {
             response: [
                 { ...notification, id: '1' },
                 { ...notification, id: '2' },
-                { ...notification, id: '3', href: 'qwe', description: 'Уведомление с сылкой' },
-            ]
+                {
+                    ...notification,
+                    id: '3',
+                    href: 'qwe',
+                    description: 'Уведомление с сылкой',
+                },
+            ],
         },
     ],
 };
-
-
-
-

@@ -8,7 +8,7 @@ import { Text } from '@/shared/ui/Text/Text';
 import {
     getArticlesPageError,
     getArticlesPageIsLoading,
-    getArticlesPageView
+    getArticlesPageView,
 } from '../../model/selectors/articlesPage';
 import { getArticles } from '../../model/slices/articlesPageSlice';
 
@@ -24,12 +24,6 @@ export const ArticleInfiniteList = () => {
     }
 
     return (
-        <ArticleList
-            isLoading={isLoading}
-            articles={articles}
-            view={view}
-        />
+        <ArticleList isLoading={isLoading} articles={articles} view={view} />
     );
 };
-
-

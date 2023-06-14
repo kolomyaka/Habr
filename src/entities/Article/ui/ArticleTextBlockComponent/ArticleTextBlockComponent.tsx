@@ -10,17 +10,24 @@ interface ArticleTextBlockComponentProps {
     block: ArticleTextBlock;
 }
 
-export const ArticleTextBlockComponent = ({ className,block }: ArticleTextBlockComponentProps) => {
+export const ArticleTextBlockComponent = ({
+    className,
+    block,
+}: ArticleTextBlockComponentProps) => {
     return (
-        <div className={classNames(cls.articleTextBlockComponent, {}, [className])}>
-            {block.title && (
-                <Text title={block.title} className={cls.title} />
-            )}
+        <div
+            className={classNames(cls.articleTextBlockComponent, {}, [
+                className,
+            ])}
+        >
+            {block.title && <Text title={block.title} className={cls.title} />}
             {block.paragraphs.map((paragraph) => (
-                <Text description={paragraph} key={paragraph} className={cls.paragraph} />
+                <Text
+                    description={paragraph}
+                    key={paragraph}
+                    className={cls.paragraph}
+                />
             ))}
         </div>
     );
 };
-
-

@@ -10,18 +10,16 @@ interface ArticleImageBlockComponentProps {
     block: ArticleImageBlock;
 }
 
-export const ArticleImageBlockComponent = ({ className, block }: ArticleImageBlockComponentProps) => {
+export const ArticleImageBlockComponent = ({
+    className,
+    block,
+}: ArticleImageBlockComponentProps) => {
     return (
         <div className={classNames('', {}, [className])}>
             <img src={block.src} alt={block.title} className={cls.image} />
-            {block.title&& (
-                <Text
-                    description={block.title}
-                    align={TextAlign.CENTER}
-                />
+            {block.title && (
+                <Text description={block.title} align={TextAlign.CENTER} />
             )}
         </div>
     );
 };
-
-

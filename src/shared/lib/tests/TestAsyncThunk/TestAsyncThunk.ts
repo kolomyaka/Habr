@@ -8,8 +8,9 @@ import type { StateSchema } from '@/app/providers/StoreProvider';
 // 2. Аргументы которые принимет наш AC
 // 3. Тип данных, которые будут в случае ошибки
 
-type ActionCreatorType<Return, Arg, RejectedValue> =
-    (arg: Arg) => AsyncThunkAction<Return, Arg, {rejectValue: RejectedValue}>
+type ActionCreatorType<Return, Arg, RejectedValue> = (
+    arg: Arg,
+) => AsyncThunkAction<Return, Arg, { rejectValue: RejectedValue }>;
 
 jest.mock('axios');
 const mockedAxios = jest.mocked(axios, true);
@@ -24,7 +25,7 @@ export class TestAsyncThunk<Return, Arg, RejectedValue> {
 
     constructor(
         actionCreator: ActionCreatorType<Return, Arg, RejectedValue>,
-        state?: DeepPartial<StateSchema>
+        state?: DeepPartial<StateSchema>,
     ) {
         // При инициализации сохраняем поля нашего класса
         this.actionCreator = actionCreator;
@@ -43,9 +44,8 @@ export class TestAsyncThunk<Return, Arg, RejectedValue> {
             this.dispatch,
             this.getState,
             // И параметром как раз передаем информацию об extra
-            { api: this.api }
+            { api: this.api },
         );
         return result;
     }
-
 }

@@ -17,35 +17,33 @@ export interface componentRenderOptions {
     route?: string;
     initialState?: DeepPartial<StateSchema>;
     asyncReducers?: DeepPartial<ReducersMapObject<StateSchema>>;
-    theme?: Theme
+    theme?: Theme;
 }
 
 interface TestProviderProps {
     children: ReactNode;
-    options?: componentRenderOptions
+    options?: componentRenderOptions;
 }
 
 export const TestProvider = (props: TestProviderProps) => {
-    const {
-        children,
-        options = {},
-    } = props;
+    const { children, options = {} } = props;
 
     const {
         route = '/',
         initialState,
         asyncReducers,
-        theme = Theme.LIGHT
+        theme = Theme.LIGHT,
     } = options;
 
     return (
-        <StoreProvider asyncReducers={asyncReducers} initialState={initialState}>
+        <StoreProvider
+            asyncReducers={asyncReducers}
+            initialState={initialState}
+        >
             <MemoryRouter initialEntries={[route]}>
                 <I18nextProvider i18n={i18nForTest}>
                     <ThemeProvider initialTheme={theme}>
-                        <div className={'app'}>
-                            {children}
-                        </div>
+                        <div className={'app'}>{children}</div>
                     </ThemeProvider>
                 </I18nextProvider>
             </MemoryRouter>
@@ -53,9 +51,9 @@ export const TestProvider = (props: TestProviderProps) => {
     );
 };
 
-export function componentRender(component: ReactNode, options?: componentRenderOptions) {
-
-    return render(
-        <TestProvider options={options}>{component}</TestProvider>
-    );
+export function componentRender(
+    component: ReactNode,
+    options?: componentRenderOptions,
+) {
+    return render(<TestProvider options={options}>{component}</TestProvider>);
 }

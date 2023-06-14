@@ -3,7 +3,6 @@ import React from 'react';
 
 import { ArticleSortSelector } from './ArticleSortSelector';
 
-
 export default {
     title: 'entities/ArticleSortSelector',
     component: ArticleSortSelector,
@@ -12,12 +11,9 @@ export default {
     },
 } as ComponentMeta<typeof ArticleSortSelector>;
 
-
-const Template: ComponentStory<typeof ArticleSortSelector> = (args) => <ArticleSortSelector {...args} />;
+const Template: ComponentStory<typeof ArticleSortSelector> = (args) => (
+    <ArticleSortSelector {...args} />
+);
 
 export const Primary = Template.bind({});
 Primary.args = {};
-
-
-
-

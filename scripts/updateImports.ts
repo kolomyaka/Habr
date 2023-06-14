@@ -13,9 +13,9 @@ const isAbsolute = (value: string) => {
     return layers.some((layer) => value.startsWith(layer));
 };
 
-files.forEach(sourceFile => {
+files.forEach((sourceFile) => {
     const importDeclarations = sourceFile.getImportDeclarations();
-    importDeclarations.forEach(importDeclaration => {
+    importDeclarations.forEach((importDeclaration) => {
         const value = importDeclaration.getModuleSpecifierValue();
 
         if (isAbsolute(value)) {

@@ -8,7 +8,7 @@ export type ArticleView = 'big' | 'small';
 export type ArticleSortField = 'views' | 'createdAt' | 'title';
 
 // Енам для типов статьи
-export type ArticleType = 'ALL' | 'IT' | 'SCIENCE' | 'ECONOMIC'
+export type ArticleType = 'ALL' | 'IT' | 'SCIENCE' | 'ECONOMIC';
 
 export interface Article {
     id: string;
@@ -18,18 +18,21 @@ export interface Article {
     user: User;
     views: number;
     createdAt: string;
-    type: ArticleType[],
-    blocks: ArticleBlock[]
+    type: ArticleType[];
+    blocks: ArticleBlock[];
 }
 
 // Типы, которые может принимать блок в статье
-export type ArticleBlock = ArticleTextBlock | ArticleImageBlock | ArticleCodeBlock;
+export type ArticleBlock =
+    | ArticleTextBlock
+    | ArticleImageBlock
+    | ArticleCodeBlock;
 
 // Типизация отдельного блока в статье
 export interface ArticleTextBlock extends ArticleBlockBase {
     type: ArticleBlockType.TEXT;
     title?: string;
-    paragraphs: string[]
+    paragraphs: string[];
 }
 
 export interface ArticleCodeBlock extends ArticleBlockBase {
@@ -45,6 +48,5 @@ export interface ArticleImageBlock extends ArticleBlockBase {
 
 export interface ArticleBlockBase {
     id: string;
-    type: ArticleBlockType
+    type: ArticleBlockType;
 }
-

@@ -13,21 +13,20 @@ interface CodeProps {
 }
 
 export const Code = memo(({ className, children }: CodeProps) => {
-
     const onCopy = useCallback(() => {
         navigator.clipboard.writeText(children);
     }, [children]);
 
     return (
         <pre className={classNames(cls.code, {}, [className])}>
-            <Button onClick={onCopy} theme={ButtonTheme.CLEAR} className={cls.copyBtn}>
+            <Button
+                onClick={onCopy}
+                theme={ButtonTheme.CLEAR}
+                className={cls.copyBtn}
+            >
                 <CopyIcon />
             </Button>
-            <code>
-                {children}
-            </code>
+            <code>{children}</code>
         </pre>
     );
 });
-
-

@@ -7,7 +7,7 @@ import { BuildPath } from '../build/types/config';
 
 // Настраиваем конфиг для сторибука
 
-export default ({ config }: {config: webpack.Configuration}) => {
+export default ({ config }: { config: webpack.Configuration }) => {
     const rules = config!.module!.rules as RuleSetRule[];
     const paths: BuildPath = {
         build: '',
@@ -15,17 +15,17 @@ export default ({ config }: {config: webpack.Configuration}) => {
         entry: '',
         src: path.resolve(__dirname, '..', '..', 'src'),
         buildLocales: '',
-        locales: ''
+        locales: '',
     };
     // Уведовляем СБ о использовании абсолютных импортов
     config!.resolve!.modules!.push(paths.src);
     config!.resolve!.extensions!.push('.ts', '.tsx');
 
-    config.module!.rules = rules.map((rule) => (
+    config.module!.rules = rules.map((rule) =>
         /svg/.test(rule.test as string)
             ? { ...rule, exclude: /\.svg$/i }
-            : rule
-    ));
+            : rule,
+    );
 
     config!.module!.rules!.push({
         test: /\.svg$/,
@@ -36,12 +36,13 @@ export default ({ config }: {config: webpack.Configuration}) => {
 
     // Увеодмляем СБ о использовании css-modules
     config!.module!.rules!.push(buildCssLoader(true));
-    config!.plugins!.push(new webpack.DefinePlugin({
-        '__IS_DEV__': JSON.stringify(true),
-        '__API__': JSON.stringify('https://testapi.ru'),
-        '__PROJECT__': JSON.stringify('storybook')
-    }));
-
+    config!.plugins!.push(
+        new webpack.DefinePlugin({
+            __IS_DEV__: JSON.stringify(true),
+            __API__: JSON.stringify('https://testapi.ru'),
+            __PROJECT__: JSON.stringify('storybook'),
+        }),
+    );
 
     return config;
 };

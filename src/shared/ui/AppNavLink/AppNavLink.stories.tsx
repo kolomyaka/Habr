@@ -10,15 +10,16 @@ export default {
         backgroundColor: { control: 'color' },
     },
     args: {
-        to: '/'
-    }
+        to: '/',
+    },
 } as ComponentMeta<typeof AppNavLink>;
 
-
-const Template: ComponentStory<typeof AppNavLink> = (args) => <AppNavLink {...args} />;
+const Template: ComponentStory<typeof AppNavLink> = (args) => (
+    <AppNavLink {...args} />
+);
 
 export const Primary = Template.bind({});
 Primary.args = {
     children: 'Text',
-    theme: AppNavLinkTheme.PRIMARY
+    theme: AppNavLinkTheme.PRIMARY,
 };

@@ -8,7 +8,7 @@ export default {
     component: Modal,
     argTypes: {
         backgroundColor: { control: 'color' },
-    }
+    },
 } as ComponentMeta<typeof Modal>;
 
 const Template: ComponentStory<typeof Modal> = (args) => <Modal {...args} />;
@@ -18,7 +18,5 @@ export const Primary = Template.bind({});
 Primary.args = {
     isOpen: true,
     lazy: false,
-    children: 'Modal textModal text Modal text'
+    children: 'Modal textModal text Modal text',
 };
-
-

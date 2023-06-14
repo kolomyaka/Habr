@@ -1,3 +1,1 @@
-export {
-    TestAsyncThunk
-} from './TestAsyncThunk/TestAsyncThunk';
+export { TestAsyncThunk } from './TestAsyncThunk/TestAsyncThunk';

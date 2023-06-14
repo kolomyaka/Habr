@@ -6,7 +6,10 @@ import cls from './Input.module.scss';
 
 // Omit - Первым параметром принимает тип, который забираем,
 // Вторым параметром исключаем типы, которые хотим исключить
-type HTMLInputProps = Omit<InputHTMLAttributes<HTMLInputElement>, 'value' | 'onChange' | 'readOnly' | 'name'>
+type HTMLInputProps = Omit<
+    InputHTMLAttributes<HTMLInputElement>,
+    'value' | 'onChange' | 'readOnly' | 'name'
+>;
 
 // Если делать extends от обычного HTMLInput, то ТС будем ругаться, т.к переопределяем
 // Дефолтные типы инпута
@@ -22,7 +25,6 @@ interface InputProps extends HTMLInputProps {
 }
 
 export const Input = memo((props: InputProps) => {
-
     const {
         className,
         value,
@@ -36,7 +38,7 @@ export const Input = memo((props: InputProps) => {
     } = props;
 
     const mods: Mods = {
-        [cls.readonly]: readonly
+        [cls.readonly]: readonly,
     };
 
     const [isFocused, setIsFocused] = useState(false);
@@ -67,9 +69,7 @@ export const Input = memo((props: InputProps) => {
 
     return (
         <label className={classNames(cls.inputWrapper, mods, [className])}>
-            {
-                label && <p className={cls.label}>{`${label}>`}</p>
-            }
+            {label && <p className={cls.label}>{`${label}>`}</p>}
             <div className={cls.caretWrapper}>
                 <input
                     name={name}
@@ -84,17 +84,13 @@ export const Input = memo((props: InputProps) => {
                     onSelect={onSelectHandler}
                     {...otherProps}
                 />
-                {
-                    isVisibleCaret && (
-                        <span
-                            style={{ left: `${caretPosition}ch` }}
-                            className={cls.caret}
-                        ></span>
-                    )
-                }
+                {isVisibleCaret && (
+                    <span
+                        style={{ left: `${caretPosition}ch` }}
+                        className={cls.caret}
+                    ></span>
+                )}
             </div>
         </label>
     );
 });
-
-

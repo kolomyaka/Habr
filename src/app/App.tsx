@@ -10,9 +10,7 @@ import { classNames } from '@/shared/lib/classNames/classNames';
 
 import { AppRouter } from './providers/router';
 
-
 const App = () => {
-
     const dispatch = useDispatch();
     const inited = useSelector(getUserInited);
 

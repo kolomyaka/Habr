@@ -2,7 +2,18 @@ import { useCallback, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 
 import { useDevice } from '@/shared/lib/hooks';
-import { Typography , StarRating , Modal , VStack , Input , HStack , Button, ButtonSize , Card , Drawer } from '@/shared/ui';
+import {
+    Typography,
+    StarRating,
+    Modal,
+    VStack,
+    Input,
+    HStack,
+    Button,
+    ButtonSize,
+    Card,
+    Drawer,
+} from '@/shared/ui';
 
 interface RatingCardProps {
     className?: string;
@@ -32,15 +43,18 @@ export const RatingCard = (props: RatingCardProps) => {
     const [starsCount, setStarsCount] = useState(rate);
     const isMobile = useDevice();
 
-    const onSelectHandler = useCallback((selectedStarsCount: number) => {
-        setStarsCount(selectedStarsCount);
+    const onSelectHandler = useCallback(
+        (selectedStarsCount: number) => {
+            setStarsCount(selectedStarsCount);
 
-        if (hasFeedback) {
-            setIsOpenModal(true);
-        } else {
-            onAccept?.(selectedStarsCount, feedback);
-        }
-    }, [feedback, hasFeedback, onAccept]);
+            if (hasFeedback) {
+                setIsOpenModal(true);
+            } else {
+                onAccept?.(selectedStarsCount, feedback);
+            }
+        },
+        [feedback, hasFeedback, onAccept],
+    );
 
     const onAcceptHandler = useCallback(() => {
         setIsOpenModal(false);
@@ -54,7 +68,9 @@ export const RatingCard = (props: RatingCardProps) => {
 
     const modalContent = (
         <>
-            <Typography size={'L'} as={'h4'}>{feedbackTitle}</Typography>
+            <Typography size={'L'} as={'h4'}>
+                {feedbackTitle}
+            </Typography>
             <Input
                 data-testid={'RatingCard.Input'}
                 label={t('Оставьте ваш отзыв')}
@@ -68,49 +84,43 @@ export const RatingCard = (props: RatingCardProps) => {
         <Card className={className} data-testid={'RatingCard'}>
             <VStack gap={8} align={'center'}>
                 <Typography size={'L'} as={'h4'}>
-                    {starsCount ? t('Спасибо за ваш отзыв!') :  title }
+                    {starsCount ? t('Спасибо за ваш отзыв!') : title}
                 </Typography>
-                <StarRating selectedStars={starsCount} onSelect={onSelectHandler} />
+                <StarRating
+                    selectedStars={starsCount}
+                    onSelect={onSelectHandler}
+                />
             </VStack>
-            {
-                isMobile
-                    ? (
-                        <Drawer isOpen={isOpenModal} onClose={onCancelHandler}>
-                            <VStack max gap={32}>
-                                {modalContent}
-                                <Button
-                                    size={ButtonSize.L}
-                                    onClick={onAcceptHandler}
-                                >
-                                    {t('Отправить')}
-                                </Button>
-                            </VStack>
-                        </Drawer>
-                    )
-                    : (
-                        <Modal isOpen={isOpenModal}>
-                            <VStack max gap={32}>
-                                {modalContent}
-                                <HStack gap={16} justify={'end'}>
-                                    <Button
-                                        data-testid={'RatingCard.Cancel'}
-                                        onClick={onCancelHandler}
-                                    >
-                                        {t('Отменить')}
-                                    </Button>
-                                    <Button
-                                        data-testid={'RatingCard.Send'}
-                                        onClick={onAcceptHandler}
-                                    >
-                                        {t('Отправить')}
-                                    </Button>
-                                </HStack>
-                            </VStack>
-                        </Modal>
-                    )
-            }
+            {isMobile ? (
+                <Drawer isOpen={isOpenModal} onClose={onCancelHandler}>
+                    <VStack max gap={32}>
+                        {modalContent}
+                        <Button size={ButtonSize.L} onClick={onAcceptHandler}>
+                            {t('Отправить')}
+                        </Button>
+                    </VStack>
+                </Drawer>
+            ) : (
+                <Modal isOpen={isOpenModal}>
+                    <VStack max gap={32}>
+                        {modalContent}
+                        <HStack gap={16} justify={'end'}>
+                            <Button
+                                data-testid={'RatingCard.Cancel'}
+                                onClick={onCancelHandler}
+                            >
+                                {t('Отменить')}
+                            </Button>
+                            <Button
+                                data-testid={'RatingCard.Send'}
+                                onClick={onAcceptHandler}
+                            >
+                                {t('Отправить')}
+                            </Button>
+                        </HStack>
+                    </VStack>
+                </Modal>
+            )}
         </Card>
     );
 };
-
-

@@ -13,8 +13,8 @@ describe('initArticlesPage.test', () => {
         const thunk = new TestAsyncThunk(initArticlesPage, {
             articlesPage: {
                 _inited: false,
-                view: 'small'
-            }
+                view: 'small',
+            },
         });
         // Вызываем метод класса, передавая данные для санки и получаем ответ от action'a
         await thunk.callThunk(searchParams);
@@ -27,13 +27,12 @@ describe('initArticlesPage.test', () => {
         const thunk = new TestAsyncThunk(initArticlesPage, {
             articlesPage: {
                 _inited: true,
-                view: 'small'
-            }
+                view: 'small',
+            },
         });
         // Вызываем метод класса, передавая данные для санки и получаем ответ от action'a
         await thunk.callThunk(searchParams);
         expect(thunk.dispatch).toBeCalledTimes(2);
         expect(fetchArticlesList).not.toHaveBeenCalled();
     });
-
 });

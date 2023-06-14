@@ -20,9 +20,7 @@ export const RequireAuth = ({ children, roles }: RequireAuthProps) => {
             return true;
         }
 
-        return roles.some(role => (
-            userRoles?.includes(role)
-        ));
+        return roles.some((role) => userRoles?.includes(role));
     }, [roles, userRoles]);
 
     // В случае если пользователь на авторизован, то перекидываем его на главную страницу

@@ -1,4 +1,4 @@
-type ScrollSchema = Record<string, number>
+type ScrollSchema = Record<string, number>;
 
 export interface ScrollSaveSchema {
     scroll: ScrollSchema;

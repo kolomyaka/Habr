@@ -17,19 +17,12 @@ interface ModalProps {
 }
 
 export const Modal = (props: ModalProps) => {
-
-    const {
-        className,
-        children,
-        isOpen,
-        lazy,
-        onClose
-    } = props;
+    const { className, children, isOpen, lazy, onClose } = props;
 
     const { isMounted, close } = useModal({
         animationDelay: 3000,
         onClose,
-        isOpen
+        isOpen,
     });
 
     if (lazy && !isMounted) {
@@ -45,16 +38,11 @@ export const Modal = (props: ModalProps) => {
         <Portal>
             <div
                 data-testid={'modal'}
-                className={classNames(cls.modal, mods, [className])}>
+                className={classNames(cls.modal, mods, [className])}
+            >
                 <Overlay onClick={close} />
-                <div
-                    className={cls.content}
-                >
-                    {children}
-                </div>
+                <div className={cls.content}>{children}</div>
             </div>
         </Portal>
     );
 };
-
-

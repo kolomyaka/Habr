@@ -5,8 +5,8 @@ import { useSelector } from 'react-redux';
 import { ProfileCard } from '@/entities/Profile';
 
 import { DynamicModuleLoader, ReducersList } from '@/shared/lib/components';
-import { useAppDispatch , useInitialEffect } from '@/shared/lib/hooks';
-import { VStack , Text, TextTheme } from '@/shared/ui';
+import { useAppDispatch, useInitialEffect } from '@/shared/lib/hooks';
+import { VStack, Text, TextTheme } from '@/shared/ui';
 
 import { getProfileError } from '../../model/selectors/getProfileError/getProfileError';
 import { getProfileForm } from '../../model/selectors/getProfileForm/getProfileForm';
@@ -23,7 +23,7 @@ interface EditableProfileCardProps {
 }
 
 const reducers: ReducersList = {
-    profile: profileReducer
+    profile: profileReducer,
 };
 
 export const EditableProfileCard = ({ id }: EditableProfileCardProps) => {
@@ -36,25 +36,36 @@ export const EditableProfileCard = ({ id }: EditableProfileCardProps) => {
     const validateErrors = useSelector(getProfileValidateErrors);
 
     const validateErrorTranslates = {
-        [ValidateProfileError.SERVER_ERROR]: t('Серверная ошибка при сохранении'),
+        [ValidateProfileError.SERVER_ERROR]: t(
+            'Серверная ошибка при сохранении',
+        ),
         [ValidateProfileError.INCORRECT_AGE]: t('Некорректный возраст'),
-        [ValidateProfileError.INCORRECT_USER_DATA]: t('Имя и фамилия обязательны'),
+        [ValidateProfileError.INCORRECT_USER_DATA]: t(
+            'Имя и фамилия обязательны',
+        ),
         [ValidateProfileError.INCORRECT_COUNTRY]: t('Некорректный регион'),
         [ValidateProfileError.NO_DATA]: t('Данные не указаны'),
-        [ValidateProfileError.INCORRECT_USERNAME]: t('Логин обязателен')
+        [ValidateProfileError.INCORRECT_USERNAME]: t('Логин обязателен'),
     };
 
-    const onInputChangeHandler = useCallback((value: string, name: string) => {
-        switch (name) {
-        case 'age':
-            if (!/[^\d]/g.test(value || '')) {
-                dispatch(profileActions.updateProfile({ [name]: Number(value) }));
+    const onInputChangeHandler = useCallback(
+        (value: string, name: string) => {
+            switch (name) {
+                case 'age':
+                    if (!/[^\d]/g.test(value || '')) {
+                        dispatch(
+                            profileActions.updateProfile({
+                                [name]: Number(value),
+                            }),
+                        );
+                    }
+                    break;
+                default:
+                    dispatch(profileActions.updateProfile({ [name]: value }));
             }
-            break;
-        default:
-            dispatch(profileActions.updateProfile({ [name]: value }));
-        }
-    }, [dispatch]);
+        },
+        [dispatch],
+    );
 
     useInitialEffect(() => {
         if (id) {
@@ -66,14 +77,15 @@ export const EditableProfileCard = ({ id }: EditableProfileCardProps) => {
         <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
             <VStack max gap={16}>
                 <EditableProfileCardHeader />
-                {validateErrors?.length && validateErrors.map(err => (
-                    <Text
-                        key={err}
-                        theme={TextTheme.ERROR}
-                        description={validateErrorTranslates[err]}
-                        data-testid={'EditableProfileCard.Error'}
-                    />
-                ))}
+                {validateErrors?.length &&
+                    validateErrors.map((err) => (
+                        <Text
+                            key={err}
+                            theme={TextTheme.ERROR}
+                            description={validateErrorTranslates[err]}
+                            data-testid={'EditableProfileCard.Error'}
+                        />
+                    ))}
                 <ProfileCard
                     data={formData}
                     isLoading={isLoading}
@@ -85,5 +97,3 @@ export const EditableProfileCard = ({ id }: EditableProfileCardProps) => {
         </DynamicModuleLoader>
     );
 };
-
-

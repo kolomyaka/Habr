@@ -13,18 +13,14 @@ export default {
     },
 } as ComponentMeta<typeof Navbar>;
 
-
 const Template: ComponentStory<typeof Navbar> = (args) => <Navbar {...args} />;
 
-export const notAuthorize = Template.bind({});
-notAuthorize.args = {};
+export const NotAuthorize = Template.bind({});
+NotAuthorize.args = {};
 
-notAuthorize.decorators = [StoreDecorator({  })];
+NotAuthorize.decorators = [StoreDecorator({})];
 
-export const isAuthorize = Template.bind({});
-isAuthorize.args = {};
+export const IsAuthorize = Template.bind({});
+IsAuthorize.args = {};
 
-isAuthorize.decorators = [StoreDecorator({ user: { authData: {} } })];
-
-
-
+IsAuthorize.decorators = [StoreDecorator({ user: { authData: {} } })];

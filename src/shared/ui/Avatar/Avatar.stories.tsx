@@ -5,7 +5,6 @@ import AvatarImg from '../../assets/tests/avatar.png';
 
 import { Avatar } from './Avatar';
 
-
 export default {
     title: 'shared/Avatar',
     component: Avatar,
@@ -14,18 +13,17 @@ export default {
     },
 } as ComponentMeta<typeof Avatar>;
 
-
 const Template: ComponentStory<typeof Avatar> = (args) => <Avatar {...args} />;
 
 export const Primary = Template.bind({});
 Primary.args = {
     src: AvatarImg,
-    alt: 'Avatar img'
+    alt: 'Avatar img',
 };
 
 export const Small = Template.bind({});
 Small.args = {
     src: AvatarImg,
     size: 50,
-    alt: 'Avatar img'
+    alt: 'Avatar img',
 };

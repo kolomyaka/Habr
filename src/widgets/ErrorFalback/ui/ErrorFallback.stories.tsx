@@ -11,10 +11,11 @@ export default {
     },
 } as ComponentMeta<typeof ErrorFallback>;
 
-
-const Template: ComponentStory<typeof ErrorFallback> = (args) => <ErrorFallback {...args} />;
+const Template: ComponentStory<typeof ErrorFallback> = (args) => (
+    <ErrorFallback {...args} />
+);
 
 export const ErrorComponent = Template.bind({});
 ErrorComponent.args = {
-    error: new Error('Текст ошибки')
+    error: new Error('Текст ошибки'),
 };

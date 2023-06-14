@@ -12,19 +12,15 @@ import { Input } from '@/shared/ui/Input/Input';
 import cls from './AddNewComment.module.scss';
 
 interface AddArticleCommentProps {
-    className?: string
+    className?: string;
     text: string;
-    sendCommentHandler: (text: string) => void
-    onChangeCommentHandler: (text: string) => void
+    sendCommentHandler: (text: string) => void;
+    onChangeCommentHandler: (text: string) => void;
 }
 
 export const AddNewComment = memo((props: AddArticleCommentProps) => {
-    const {
-        className,
-        text,
-        sendCommentHandler,
-        onChangeCommentHandler
-    } = props;
+    const { className, text, sendCommentHandler, onChangeCommentHandler } =
+        props;
 
     const { t } = useTranslation();
     const userData = useSelector(getUserAuthData);
@@ -32,7 +28,6 @@ export const AddNewComment = memo((props: AddArticleCommentProps) => {
     const onSendHandler = useCallback(() => {
         sendCommentHandler(text);
     }, [sendCommentHandler, text]);
-
 
     return (
         <div
@@ -58,5 +53,3 @@ export const AddNewComment = memo((props: AddArticleCommentProps) => {
         </div>
     );
 });
-
-

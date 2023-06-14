@@ -16,24 +16,26 @@ export default {
     },
 } as ComponentMeta<typeof ProfilePage>;
 
-
-const Template: ComponentStory<typeof ProfilePage> = (args) => <ProfilePage {...args} />;
+const Template: ComponentStory<typeof ProfilePage> = (args) => (
+    <ProfilePage {...args} />
+);
 
 export const Normal = Template.bind({});
 Normal.args = {};
-Normal.decorators = [StoreDecorator({
-    profile: {
-        readonly: true,
-        form: {
-            username: 'Kolomyaka',
-            first_name: 'Nikita',
-            last_name: 'Kolomoycev',
-            age: 22,
-            country: Country.Russia,
-            currency: Currency.RUB,
-            city: 'Saint-Petersburg',
-            avatar: 'https://gravatar.com/avatar/d79a01fc6611be42996b4f3a6994?s=400&d=monsterid&r=x'
-        }
-    }
-})];
-
+Normal.decorators = [
+    StoreDecorator({
+        profile: {
+            readonly: true,
+            form: {
+                username: 'Kolomyaka',
+                first_name: 'Nikita',
+                last_name: 'Kolomoycev',
+                age: 22,
+                country: Country.Russia,
+                currency: Currency.RUB,
+                city: 'Saint-Petersburg',
+                avatar: 'https://gravatar.com/avatar/d79a01fc6611be42996b4f3a6994?s=400&d=monsterid&r=x',
+            },
+        },
+    }),
+];

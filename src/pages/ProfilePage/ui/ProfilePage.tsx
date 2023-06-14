@@ -9,18 +9,21 @@ import { classNames } from '@/shared/lib/classNames/classNames';
 import { VStack } from '@/shared/ui';
 
 interface ProfilePageProps {
-    className?: string
+    className?: string;
 }
 
 const ProfilePage = ({ className }: ProfilePageProps) => {
-    const { id } = useParams<{id: string}>();
+    const { id } = useParams<{ id: string }>();
 
     if (!id) {
         return null;
     }
 
     return (
-        <Page data-testid={'ProfilePage'} className={classNames('', {}, [className])}>
+        <Page
+            data-testid={'ProfilePage'}
+            className={classNames('', {}, [className])}
+        >
             <VStack max gap={16}>
                 <EditableProfileCard id={id} />
                 <ProfileRating profileId={id} />
@@ -30,5 +33,3 @@ const ProfilePage = ({ className }: ProfilePageProps) => {
 };
 
 export default ProfilePage;
-
-

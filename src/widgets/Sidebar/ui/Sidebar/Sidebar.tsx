@@ -4,31 +4,31 @@ import { useSelector } from 'react-redux';
 import { ThemeSwitcher } from '@/features/ThemeSwitcher';
 
 import { classNames } from '@/shared/lib/classNames';
-import { Button, ButtonSize, ButtonTheme , VStack } from '@/shared/ui';
+import { Button, ButtonSize, ButtonTheme, VStack } from '@/shared/ui';
 
 import { getSidebarItems } from '../../model/selectors/getSidebarItems';
 import { SidebarItem } from '../SidebarItem/SidebarItem';
 
 import cls from './Sidebar.module.scss';
 
-
 interface SidebarProps {
-    className?: string
+    className?: string;
 }
 
 export const Sidebar = memo(({ className }: SidebarProps) => {
-
     const [collapsed, setCollapsed] = useState(false);
     const sidebarItems = useSelector(getSidebarItems);
 
     const onToggle = () => {
-        setCollapsed(prev => !prev);
+        setCollapsed((prev) => !prev);
     };
 
     return (
         <div
             data-testid={'sidebar'}
-            className={classNames(cls.sidebar, { [cls.collapsed]: collapsed }, [className])}
+            className={classNames(cls.sidebar, { [cls.collapsed]: collapsed }, [
+                className,
+            ])}
         >
             <Button
                 data-testid={'sidebar-toggle'}
@@ -38,9 +38,7 @@ export const Sidebar = memo(({ className }: SidebarProps) => {
                 className={cls.collapseBtn}
                 round
             >
-                {
-                    collapsed ? '>' : '<'
-                }
+                {collapsed ? '>' : '<'}
             </Button>
             <VStack gap={16} className={cls.items}>
                 {sidebarItems.map((item) => (
@@ -57,5 +55,3 @@ export const Sidebar = memo(({ className }: SidebarProps) => {
         </div>
     );
 });
-
-

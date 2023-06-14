@@ -2,7 +2,7 @@ import { memo } from 'react';
 
 import { getRouteProfile } from '@/shared/const/router';
 import { classNames } from '@/shared/lib';
-import { AppLink , Avatar , Skeleton , Text } from '@/shared/ui';
+import { AppLink, Avatar, Skeleton, Text } from '@/shared/ui';
 
 import { Comment } from '../../model/types/comment';
 
@@ -15,23 +15,18 @@ interface CommentCardProps {
 }
 
 export const CommentCard = memo((props: CommentCardProps) => {
-    const {
-        className,
-        comment,
-        isLoading
-    } = props;
+    const { className, comment, isLoading } = props;
 
     if (isLoading) {
         return (
             <div
-                className={classNames(cls.commentCard, {}, [className, cls.loading])}
+                className={classNames(cls.commentCard, {}, [
+                    className,
+                    cls.loading,
+                ])}
                 data-testid={'CommentCard.Loading'}
             >
-                <Skeleton
-                    border={'50%'}
-                    width={45}
-                    height={45}
-                />
+                <Skeleton border={'50%'} width={45} height={45} />
                 <div className={cls.content}>
                     <Skeleton width={150} height={20} />
                     <Skeleton width={'100%'} height={40} />
@@ -49,16 +44,18 @@ export const CommentCard = memo((props: CommentCardProps) => {
             className={classNames(cls.commentCard, {}, [className])}
             data-testid={'CommentCard.Content'}
         >
-            {comment.user.avatar
-                ? <>
+            {comment.user.avatar ? (
+                <>
                     <AppLink to={getRouteProfile(comment.user.id)}>
                         <Avatar size={45} src={comment.user.avatar} />
                     </AppLink>
                 </>
-                : null
-            }
+            ) : null}
             <div className={cls.content}>
-                <AppLink className={cls.commentUsername} to={getRouteProfile(comment.user.id)}>
+                <AppLink
+                    className={cls.commentUsername}
+                    to={getRouteProfile(comment.user.id)}
+                >
                     <Text description={comment.user.username} />
                 </AppLink>
                 <Text description={comment.text} />
@@ -66,5 +63,3 @@ export const CommentCard = memo((props: CommentCardProps) => {
         </div>
     );
 });
-
-

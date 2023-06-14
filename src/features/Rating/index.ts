@@ -1,7 +1,3 @@
-export {
-    ArticleRating
-} from './ArticleRating';
+export { ArticleRating } from './ArticleRating';
 
-export {
-    ProfileRating
-} from './ProfileRating';
+export { ProfileRating } from './ProfileRating';

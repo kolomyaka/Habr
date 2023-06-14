@@ -3,7 +3,6 @@ import React from 'react';
 
 import ArticleEditPage from './ArticleEditPage';
 
-
 export default {
     title: 'pages/ArticleEditPage',
     component: ArticleEditPage,
@@ -12,12 +11,9 @@ export default {
     },
 } as ComponentMeta<typeof ArticleEditPage>;
 
-
-const Template: ComponentStory<typeof ArticleEditPage> = () => <ArticleEditPage />;
+const Template: ComponentStory<typeof ArticleEditPage> = () => (
+    <ArticleEditPage />
+);
 
 export const Primary = Template.bind({});
 Primary.args = {};
-
-
-
-

@@ -6,18 +6,18 @@ import cls from './Text.module.scss';
 
 export enum TextTheme {
     PRIMARY = 'primary',
-    ERROR = 'error'
+    ERROR = 'error',
 }
 
 export enum TextAlign {
     LEFT = 'left',
     CENTER = 'center',
-    RIGHT = 'right'
+    RIGHT = 'right',
 }
 
 export enum TextSize {
     M = 'sizeM',
-    L = 'sizeL'
+    L = 'sizeL',
 }
 
 interface TextProps {
@@ -32,7 +32,6 @@ interface TextProps {
 }
 
 export const Text = memo((props: TextProps) => {
-
     const {
         className,
         title,
@@ -40,28 +39,29 @@ export const Text = memo((props: TextProps) => {
         description,
         align = TextAlign.LEFT,
         size = TextSize.M,
-        'data-testid': dataTestId = ''
+        'data-testid': dataTestId = '',
     } = props;
 
     const mods: Mods = {
         [cls[theme]]: true,
-        [cls[size]]: true
+        [cls[size]]: true,
     };
 
     return (
         <div className={classNames(cls.text, mods, [className, cls[align]])}>
-            {title &&
+            {title && (
                 <p className={cls.title} data-testid={`${dataTestId}.Title`}>
                     {title}
                 </p>
-            }
-            {description &&
-                <p className={cls.description} data-testid={`${dataTestId}.Description`}>
+            )}
+            {description && (
+                <p
+                    className={cls.description}
+                    data-testid={`${dataTestId}.Description`}
+                >
                     {description}
                 </p>
-            }
+            )}
         </div>
     );
 });
-
-

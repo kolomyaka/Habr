@@ -17,7 +17,6 @@ const data = {
 };
 
 describe('validateProfileData.test', () => {
-
     test('Without error', async () => {
         const result = validateProfileData(data);
 
@@ -25,7 +24,11 @@ describe('validateProfileData.test', () => {
     });
 
     test('With USER_DATA error', async () => {
-        const result = validateProfileData({ ...data, last_name: '', first_name: '' });
+        const result = validateProfileData({
+            ...data,
+            last_name: '',
+            first_name: '',
+        });
 
         expect(result).toEqual([ValidateProfileError.INCORRECT_USER_DATA]);
     });
@@ -49,7 +52,7 @@ describe('validateProfileData.test', () => {
     });
 
     test('Incorrect all', async () => {
-        const result = validateProfileData({  });
+        const result = validateProfileData({});
 
         expect(result).toEqual([
             ValidateProfileError.INCORRECT_USER_DATA,

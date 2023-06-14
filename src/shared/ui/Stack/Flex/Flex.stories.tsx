@@ -3,7 +3,6 @@ import React from 'react';
 
 import { Flex } from './Flex';
 
-
 export default {
     title: 'shared/Flex',
     component: Flex,
@@ -19,22 +18,16 @@ export default {
                 <div>flex</div>
                 <div>flex</div>
             </>
-        )
-    }
+        ),
+    },
 } as ComponentMeta<typeof Flex>;
-
 
 const Template: ComponentStory<typeof Flex> = (args) => <Flex {...args} />;
 
 export const Primary = Template.bind({});
-Primary.args = {
-
-};
+Primary.args = {};
 
 export const FlexColumn = Template.bind({});
 FlexColumn.args = {
     direction: 'column',
 };
-
-
-

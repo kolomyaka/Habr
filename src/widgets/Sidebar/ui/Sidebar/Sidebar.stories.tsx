@@ -13,12 +13,14 @@ export default {
     },
 } as ComponentMeta<typeof Sidebar>;
 
-const Template: ComponentStory<typeof Sidebar> = (args) => <Sidebar {...args} />;
+const Template: ComponentStory<typeof Sidebar> = (args) => (
+    <Sidebar {...args} />
+);
 
 export const Primary = Template.bind({});
 Primary.args = {};
-Primary.decorators = [StoreDecorator({  })];
+Primary.decorators = [StoreDecorator({})];
 
-export const isAuthSidebar = Template.bind({});
-isAuthSidebar.args = {};
-isAuthSidebar.decorators = [StoreDecorator({ user: { authData: {} } })];
+export const IsAuthSidebar = Template.bind({});
+IsAuthSidebar.args = {};
+IsAuthSidebar.decorators = [StoreDecorator({ user: { authData: {} } })];

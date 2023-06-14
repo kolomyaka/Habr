@@ -1,7 +1,6 @@
 import { Country } from '@/entities/Country';
 import { Currency } from '@/entities/Currency';
 
-
 import { TestAsyncThunk } from '@/shared/lib/tests';
 
 import { ValidateProfileError } from '../../types/EditableProfileCard';
@@ -20,14 +19,12 @@ const data = {
 };
 
 describe('updateProfileData.test', () => {
-
     test('should return fulfilled request', async () => {
-
         // Создаем экземпляр нашего класса и передаем санку
         const thunk = new TestAsyncThunk(updateProfileData, {
             profile: {
-                form: data
-            }
+                form: data,
+            },
         });
         thunk.api.put.mockReturnValue(Promise.resolve({ data }));
         // Вызываем метод класса, передавая данные для санки и получаем ответ от action'a
@@ -42,8 +39,8 @@ describe('updateProfileData.test', () => {
     test('should return rejected request', async () => {
         const thunk = new TestAsyncThunk(updateProfileData, {
             profile: {
-                form: data
-            }
+                form: data,
+            },
         });
         thunk.api.put.mockReturnValue(Promise.resolve({ status: 403 }));
         const result = await thunk.callThunk();
@@ -55,12 +52,14 @@ describe('updateProfileData.test', () => {
     test('validate error', async () => {
         const thunk = new TestAsyncThunk(updateProfileData, {
             profile: {
-                form: { ...data, last_name: '' }
-            }
+                form: { ...data, last_name: '' },
+            },
         });
         const result = await thunk.callThunk();
 
         expect(result.meta.requestStatus).toBe('rejected');
-        expect(result.payload).toEqual([ValidateProfileError.INCORRECT_USER_DATA]);
+        expect(result.payload).toEqual([
+            ValidateProfileError.INCORRECT_USER_DATA,
+        ]);
     });
 });

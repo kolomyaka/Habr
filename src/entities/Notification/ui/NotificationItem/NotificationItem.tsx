@@ -11,41 +11,40 @@ import cls from './NotificationItem.module.scss';
 
 interface NotificationItemProps {
     className?: string;
-    notification: Notification
+    notification: Notification;
 }
 
 export const NotificationItem = memo((props: NotificationItemProps) => {
-    const {
-        className,
-        notification
-    } = props;
+    const { className, notification } = props;
 
-    const content = useCallback((isLink: boolean) => (
-        <Card className={classNames('',   { [cls.isLink]: isLink },[className])}>
-            <Text
-                title={notification.title}
-                description={notification.description}
-            />
-        </Card>
-    ), [className, notification.description, notification.title]);
-    
+    const content = useCallback(
+        (isLink: boolean) => (
+            <Card
+                className={classNames('', { [cls.isLink]: isLink }, [
+                    className,
+                ])}
+            >
+                <Text
+                    title={notification.title}
+                    description={notification.description}
+                />
+            </Card>
+        ),
+        [className, notification.description, notification.title],
+    );
+
     return (
         <>
-            {
-                notification.href ?
-                    (
-                        <AppLink to={notification.href} className={cls.notificationLink}>
-                            {content(true)}
-                        </AppLink>
-                    )
-                    : (
-                        <>
-                            {content(false)}
-                        </>
-                    )
-            }
+            {notification.href ? (
+                <AppLink
+                    to={notification.href}
+                    className={cls.notificationLink}
+                >
+                    {content(true)}
+                </AppLink>
+            ) : (
+                <>{content(false)}</>
+            )}
         </>
     );
 });
-
-

@@ -11,12 +11,11 @@ export default {
     },
 } as ComponentMeta<typeof Code>;
 
-
 const Template: ComponentStory<typeof Code> = (args) => <Code {...args} />;
 
 export const Primary = Template.bind({});
 
 Primary.args = {
-    children: '<!DOCTYPE html>\n<html>\n  <body>\n    <p id="hello"></p>\n\n    <script>\n      document.getElementById("hello").innerHTML = "Hello, world!";\n    </script>\n  </body>\n</html>;'
+    children:
+        '<!DOCTYPE html>\n<html>\n  <body>\n    <p id="hello"></p>\n\n    <script>\n      document.getElementById("hello").innerHTML = "Hello, world!";\n    </script>\n  </body>\n</html>;',
 };
-

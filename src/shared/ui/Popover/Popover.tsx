@@ -1,4 +1,10 @@
-import { autoUpdate, flip, offset, shift, useFloating } from '@floating-ui/react';
+import {
+    autoUpdate,
+    flip,
+    offset,
+    shift,
+    useFloating,
+} from '@floating-ui/react';
 import { Popover as HPopover } from '@headlessui/react';
 import { Fragment, ReactNode } from 'react';
 
@@ -8,16 +14,12 @@ import cls from './Popover.module.scss';
 
 interface PopoverProps {
     className?: string;
-    trigger: ReactNode,
-    children: ReactNode
+    trigger: ReactNode;
+    children: ReactNode;
 }
 
 export const Popover = (props: PopoverProps) => {
-    const {
-        className,
-        trigger,
-        children
-    } = props;
+    const { className, trigger, children } = props;
 
     const { x, y, strategy, refs } = useFloating({
         placement: 'bottom-start',
@@ -30,9 +32,7 @@ export const Popover = (props: PopoverProps) => {
             ref={refs.setReference}
             className={classNames(cls.popover, {}, [className])}
         >
-            <HPopover.Button as={Fragment}>
-                {trigger}
-            </HPopover.Button>
+            <HPopover.Button as={Fragment}>{trigger}</HPopover.Button>
 
             <HPopover.Panel
                 ref={refs.setFloating}
@@ -49,5 +49,3 @@ export const Popover = (props: PopoverProps) => {
         </HPopover>
     );
 };
-
-

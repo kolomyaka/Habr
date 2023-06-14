@@ -13,5 +13,3 @@ const ForbiddenPage = memo(() => {
 });
 
 export default ForbiddenPage;
-
-

@@ -1,7 +1,6 @@
 import { Country } from '@/entities/Country';
 import { Currency } from '@/entities/Currency';
 
-
 import { TestAsyncThunk } from '@/shared/lib/tests';
 
 import { ValidateProfileError } from '../../types/EditableProfileCard';
@@ -20,10 +19,7 @@ const data = {
 };
 
 describe('fetchProfileData.test', () => {
-
     test('should return fulfilled request', async () => {
-
-
         // Создаем экземпляр нашего класса и передаем санку
         const thunk = new TestAsyncThunk(fetchProfileData);
         thunk.api.get.mockReturnValue(Promise.resolve({ data }));

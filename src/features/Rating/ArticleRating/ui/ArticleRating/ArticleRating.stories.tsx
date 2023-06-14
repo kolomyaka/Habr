@@ -11,10 +11,11 @@ export default {
     },
 } as ComponentMeta<typeof ArticleRating>;
 
-
-const Template: ComponentStory<typeof ArticleRating> = (args) => <ArticleRating {...args} />;
+const Template: ComponentStory<typeof ArticleRating> = (args) => (
+    <ArticleRating {...args} />
+);
 
 export const Primary = Template.bind({});
 Primary.args = {
-    articleId: '1'
+    articleId: '1',
 };

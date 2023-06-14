@@ -1,12 +1,5 @@
-export {
-    DynamicModuleLoader,
-} from './DynamicModuleLoader/DynamicModuleLoader';
+export { DynamicModuleLoader } from './DynamicModuleLoader/DynamicModuleLoader';
 
-export type {
-    ReducersList
-} from './DynamicModuleLoader/DynamicModuleLoader';
+export type { ReducersList } from './DynamicModuleLoader/DynamicModuleLoader';
 
-export {
-    AnimationProvider,
-    useAnimationModules
-} from './AnimationProvider';
+export { AnimationProvider, useAnimationModules } from './AnimationProvider';

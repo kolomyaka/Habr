@@ -3,7 +3,6 @@ import React from 'react';
 
 import { CommentList } from './CommentList';
 
-
 export default {
     title: 'entities/CommentList',
     component: CommentList,
@@ -12,8 +11,9 @@ export default {
     },
 } as ComponentMeta<typeof CommentList>;
 
-
-const Template: ComponentStory<typeof CommentList> = (args) => <CommentList {...args} />;
+const Template: ComponentStory<typeof CommentList> = (args) => (
+    <CommentList {...args} />
+);
 
 export const Primary = Template.bind({});
 Primary.args = {
@@ -23,26 +23,23 @@ Primary.args = {
             user: {
                 id: '1',
                 avatar: 'https://gravatar.com/avatar/d79a01fc6611be42996b4f3a6994?s=400&d=monsterid&r=x',
-                username: 'Kolomyaka'
+                username: 'Kolomyaka',
             },
-            text: 'Comment text'
+            text: 'Comment text',
         },
         {
             id: '2',
             user: {
                 id: '1',
                 avatar: 'https://gravatar.com/avatar/d79a01fc6611be42996b4f3a6994?s=400&d=monsterid&r=x',
-                username: 'Kolomyaka'
+                username: 'Kolomyaka',
             },
-            text: 'Comment text 2'
-        }
-    ]
+            text: 'Comment text 2',
+        },
+    ],
 };
 
 export const Loader = Template.bind({});
 Loader.args = {
-    isLoading: true
+    isLoading: true,
 };
-
-
-

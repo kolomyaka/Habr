@@ -23,11 +23,7 @@ interface DropdownProps {
 }
 
 export const Dropdown = (props: DropdownProps) => {
-    const {
-        className,
-        trigger,
-        items,
-    } = props;
+    const { className, trigger, items } = props;
 
     const { x, y, strategy, refs } = useFloating({
         placement: 'bottom-start',
@@ -41,11 +37,7 @@ export const Dropdown = (props: DropdownProps) => {
             ref={refs.setReference}
             className={classNames(cls.dropdown, {}, [className])}
         >
-            <Menu.Button
-                className={cls.trigger}
-            >
-                {trigger}
-            </Menu.Button>
+            <Menu.Button className={cls.trigger}>{trigger}</Menu.Button>
             <Menu.Items
                 className={cls.items}
                 ref={refs.setFloating}
@@ -56,12 +48,14 @@ export const Dropdown = (props: DropdownProps) => {
                     width: 'max-content',
                 }}
             >
-                {items.map((item,index) => {
-                    const content = ({ active }: {active: boolean}) => (
+                {items.map((item, index) => {
+                    const content = ({ active }: { active: boolean }) => (
                         <Button
                             theme={ButtonTheme.CLEAR}
                             onClick={item.onClick}
-                            className={classNames(cls.item, { [cls.active]: active })}
+                            className={classNames(cls.item, {
+                                [cls.active]: active,
+                            })}
                         >
                             {item.content}
                         </Button>
@@ -80,13 +74,7 @@ export const Dropdown = (props: DropdownProps) => {
                         );
                     }
 
-                    return (
-                        <Menu.Item
-                            key={index}
-                        >
-                            {content}
-                        </Menu.Item>
-                    );
+                    return <Menu.Item key={index}>{content}</Menu.Item>;
                 })}
             </Menu.Items>
         </Menu>

@@ -1,11 +1,5 @@
-export {
-    useGetNotifications
-} from './api/NotificationsApi';
+export { useGetNotifications } from './api/NotificationsApi';
 
-export type {
-    Notification
-} from './model/notification';
+export type { Notification } from './model/notification';
 
-export {
-    NotificationsList
-} from './ui/NotificationsList/NotificationsList';
+export { NotificationsList } from './ui/NotificationsList/NotificationsList';

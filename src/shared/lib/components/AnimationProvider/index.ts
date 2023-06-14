@@ -1,4 +1,1 @@
-export {
-    AnimationProvider,
-    useAnimationModules
-} from './AnimationProvider';
+export { AnimationProvider, useAnimationModules } from './AnimationProvider';

@@ -9,7 +9,7 @@ import { LoginFormAsync } from '../LoginForm/LoginForm.async';
 interface LoginModalProps {
     className?: string;
     isOpen: boolean;
-    onClose: () => void
+    onClose: () => void;
 }
 
 export const LoginModal = ({ className, isOpen, onClose }: LoginModalProps) => {
@@ -26,5 +26,3 @@ export const LoginModal = ({ className, isOpen, onClose }: LoginModalProps) => {
         </Modal>
     );
 };
-
-

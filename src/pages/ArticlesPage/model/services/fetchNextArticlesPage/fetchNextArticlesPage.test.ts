@@ -7,7 +7,6 @@ import { fetchNextArticlesPage } from './fetchNextArticlesPage';
 jest.mock('../fetchArticlesList/fetchArticlesList');
 
 describe('fetchNextArticlesPage.test', () => {
-
     test('should return fulfilled request', async () => {
         // Создаем экземпляр нашего класса и передаем санку
         const thunk = new TestAsyncThunk(fetchNextArticlesPage, {
@@ -18,8 +17,8 @@ describe('fetchNextArticlesPage.test', () => {
                 view: 'small',
                 limit: 5,
                 isLoading: false,
-                hasMore: true
-            }
+                hasMore: true,
+            },
         });
         // Вызываем метод класса, передавая данные для санки и получаем ответ от action'a
         await thunk.callThunk();
@@ -35,8 +34,8 @@ describe('fetchNextArticlesPage.test', () => {
                 entities: {},
                 limit: 5,
                 isLoading: false,
-                hasMore: false
-            }
+                hasMore: false,
+            },
         });
         // Вызываем метод класса, передавая данные для санки и получаем ответ от action'a
         await thunk.callThunk();
@@ -53,8 +52,8 @@ describe('fetchNextArticlesPage.test', () => {
                 entities: {},
                 limit: 5,
                 isLoading: true,
-                hasMore: true
-            }
+                hasMore: true,
+            },
         });
         // Вызываем метод класса, передавая данные для санки и получаем ответ от action'a
         await thunk.callThunk();

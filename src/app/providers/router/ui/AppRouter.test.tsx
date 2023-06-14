@@ -4,7 +4,11 @@ import { AppRouter } from '@/app/providers/router';
 
 import { UserRoles } from '@/entities/User';
 
-import { getRouteAbout, getRouteAdmin, getRouteProfile } from '@/shared/const/router';
+import {
+    getRouteAbout,
+    getRouteAdmin,
+    getRouteProfile,
+} from '@/shared/const/router';
 import { componentRender } from '@/shared/lib/tests/componentRender';
 
 describe('app/router/AppRouter', () => {
@@ -26,7 +30,7 @@ describe('app/router/AppRouter', () => {
 
     test('Проверяем отображение страницы', async () => {
         componentRender(<AppRouter />, {
-            route: getRouteAbout()
+            route: getRouteAbout(),
         });
 
         const page = await screen.findByTestId('AboutPage');
@@ -35,7 +39,7 @@ describe('app/router/AppRouter', () => {
 
     test('Проверяем "Страница не найдена"', async () => {
         componentRender(<AppRouter />, {
-            route: '/qwewqeqwe'
+            route: '/qwewqeqwe',
         });
 
         const page = await screen.findByTestId('NotFoundPage');
@@ -57,9 +61,9 @@ describe('app/router/AppRouter', () => {
             initialState: {
                 user: {
                     authData: {},
-                    _inited: true
-                }
-            }
+                    _inited: true,
+                },
+            },
         });
 
         const page = await screen.findByTestId('ProfilePage');
@@ -72,8 +76,8 @@ describe('app/router/AppRouter', () => {
             initialState: {
                 user: {
                     authData: { roles: [] },
-                }
-            }
+                },
+            },
         });
 
         const page = await screen.findByTestId('ForbiddenPage');
@@ -86,8 +90,8 @@ describe('app/router/AppRouter', () => {
             initialState: {
                 user: {
                     authData: { roles: [UserRoles.ADMIN] },
-                }
-            }
+                },
+            },
         });
 
         const page = await screen.findByTestId('AdminPanelPage');

@@ -5,7 +5,7 @@ import { Page } from '@/widgets/Page';
 
 import { classNames } from '@/shared/lib/classNames';
 import { DynamicModuleLoader, ReducersList } from '@/shared/lib/components';
-import { useAppDispatch , useInitialEffect } from '@/shared/lib/hooks';
+import { useAppDispatch, useInitialEffect } from '@/shared/lib/hooks';
 
 import { fetchNextArticlesPage } from '../../model/services/fetchNextArticlesPage/fetchNextArticlesPage';
 import { initArticlesPage } from '../../model/services/initArticlesPage/initArticlesPage';
@@ -16,17 +16,15 @@ import { ArticlesPageFilters } from '../ArticlesPageFilters/ArticlesPageFilters'
 import cls from './ArticlesPage.module.scss';
 
 interface ArticlesPageProps {
-    className?: string
+    className?: string;
 }
 
 const reducers: ReducersList = {
-    articlesPage: articlesPageReducer
+    articlesPage: articlesPageReducer,
 };
 
 const ArticlesPage = (props: ArticlesPageProps) => {
-    const {
-        className
-    } = props;
+    const { className } = props;
     const dispatch = useAppDispatch();
     const [searchParams] = useSearchParams();
 
@@ -53,4 +51,3 @@ const ArticlesPage = (props: ArticlesPageProps) => {
 };
 
 export default memo(ArticlesPage);
-

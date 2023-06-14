@@ -1,3 +1,1 @@
-export {
-    NotificationButton
-} from './ui/NotificationButton';
+export { NotificationButton } from './ui/NotificationButton';

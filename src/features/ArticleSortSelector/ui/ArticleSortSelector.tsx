@@ -12,47 +12,48 @@ import cls from './ArticleSortSelector.module.scss';
 interface ArticleSortSelectorProps {
     className?: string;
     order: OrderType;
-    sortField: ArticleSortField; 
+    sortField: ArticleSortField;
     onChangeOrder: (order: OrderType) => void;
     onChangeSortField: (sortField: ArticleSortField) => void;
 }
 
 export const ArticleSortSelector = memo((props: ArticleSortSelectorProps) => {
-    const {
-        className,
-        order,
-        sortField,
-        onChangeOrder,
-        onChangeSortField
-    } = props;
+    const { className, order, sortField, onChangeOrder, onChangeSortField } =
+        props;
 
     const { t } = useTranslation('articles');
     // Сохраняем результат полученый из мемо. Коллбек возвращает массив.
-    const sortOrderOptions = useMemo<SelectOption<OrderType>[]>(() => [
-        {
-            value: 'asc',
-            content: t('Возрастанию')
-        },
-        {
-            value: 'desc',
-            content: t('Убыванию')
-        }
-    ], [t]);
+    const sortOrderOptions = useMemo<SelectOption<OrderType>[]>(
+        () => [
+            {
+                value: 'asc',
+                content: t('Возрастанию'),
+            },
+            {
+                value: 'desc',
+                content: t('Убыванию'),
+            },
+        ],
+        [t],
+    );
 
-    const sortFieldOptions = useMemo<SelectOption<ArticleSortField>[]>(() => [
-        {
-            value: 'createdAt',
-            content: t('Дате создания')
-        },
-        {
-            value: 'views',
-            content: t('Просмотрам')
-        },
-        {
-            value: 'title',
-            content: t('Названию')
-        }
-    ], [t]);
+    const sortFieldOptions = useMemo<SelectOption<ArticleSortField>[]>(
+        () => [
+            {
+                value: 'createdAt',
+                content: t('Дате создания'),
+            },
+            {
+                value: 'views',
+                content: t('Просмотрам'),
+            },
+            {
+                value: 'title',
+                content: t('Названию'),
+            },
+        ],
+        [t],
+    );
 
     return (
         <div className={classNames(cls.articleSortSelector, {}, [className])}>
@@ -71,5 +72,3 @@ export const ArticleSortSelector = memo((props: ArticleSortSelectorProps) => {
         </div>
     );
 });
-
-

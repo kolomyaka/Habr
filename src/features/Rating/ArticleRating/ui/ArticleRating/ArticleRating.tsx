@@ -7,7 +7,10 @@ import { getUserAuthData } from '@/entities/User';
 
 import { Skeleton } from '@/shared/ui';
 
-import { useGetArticleRating, useRateArticle } from '../../api/articleRatingApi';
+import {
+    useGetArticleRating,
+    useRateArticle,
+} from '../../api/articleRatingApi';
 
 export interface ArticleRatingProps {
     articleId: string;
@@ -19,30 +22,39 @@ const ArticleRating = memo(({ articleId }: ArticleRatingProps) => {
 
     const { data, isLoading } = useGetArticleRating({
         articleId,
-        userId: userData?.id || ''
+        userId: userData?.id || '',
     });
     const [rateArticle] = useRateArticle();
 
-    const onRateArticleHandler = useCallback((starsCount: number, feedback?: string) => {
-        try {
-            rateArticle({
-                articleId,
-                userId: userData?.id || '',
-                rate: starsCount,
-                feedback
-            });
-        } catch (e) {
-            console.log(e);
-        }
-    }, [articleId, rateArticle, userData?.id]);
+    const onRateArticleHandler = useCallback(
+        (starsCount: number, feedback?: string) => {
+            try {
+                rateArticle({
+                    articleId,
+                    userId: userData?.id || '',
+                    rate: starsCount,
+                    feedback,
+                });
+            } catch (e) {
+                console.log(e);
+            }
+        },
+        [articleId, rateArticle, userData?.id],
+    );
 
-    const onAcceptHandler = useCallback((starsCount: number, feedback: string) => {
-        onRateArticleHandler(starsCount, feedback);
-    }, [onRateArticleHandler]);
+    const onAcceptHandler = useCallback(
+        (starsCount: number, feedback: string) => {
+            onRateArticleHandler(starsCount, feedback);
+        },
+        [onRateArticleHandler],
+    );
 
-    const onCancelHandler = useCallback((starsCount: number) => {
-        onRateArticleHandler(starsCount);
-    }, [onRateArticleHandler]);
+    const onCancelHandler = useCallback(
+        (starsCount: number) => {
+            onRateArticleHandler(starsCount);
+        },
+        [onRateArticleHandler],
+    );
 
     if (isLoading) {
         return <Skeleton width={'100%'} height={120} />;

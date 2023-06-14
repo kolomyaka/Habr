@@ -3,7 +3,6 @@ import React from 'react';
 
 import { ListBox } from './ListBox';
 
-
 export default {
     title: 'shared/ListBox',
     component: ListBox,
@@ -12,8 +11,9 @@ export default {
     },
 } as ComponentMeta<typeof ListBox>;
 
-
-const Template: ComponentStory<typeof ListBox> = (args) => <ListBox {...args} />;
+const Template: ComponentStory<typeof ListBox> = (args) => (
+    <ListBox {...args} />
+);
 
 export const Primary = Template.bind({});
 Primary.args = {
@@ -22,19 +22,15 @@ Primary.args = {
     items: [
         {
             content: 'Content 1',
-            value: 'content1'
+            value: 'content1',
         },
         {
             content: 'Content 2',
-            value: 'content1'
+            value: 'content1',
         },
         {
             content: 'Content 2',
-            value: 'content1'
-        }
-    ]
+            value: 'content1',
+        },
+    ],
 };
-
-
-
-

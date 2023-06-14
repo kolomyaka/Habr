@@ -10,15 +10,15 @@ export default {
         backgroundColor: { control: 'color' },
     },
     args: {
-        to: '/'
-    }
+        to: '/',
+    },
 } as ComponentMeta<typeof AppCheckbox>;
 
-
-const Template: ComponentStory<typeof AppCheckbox> = (args) => <AppCheckbox {...args} />;
+const Template: ComponentStory<typeof AppCheckbox> = (args) => (
+    <AppCheckbox {...args} />
+);
 
 export const Primary = Template.bind({});
 Primary.args = {
     children: 'Text',
 };
-

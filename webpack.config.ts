@@ -16,7 +16,7 @@ export default (env: BuildEnv) => {
         html: path.resolve(__dirname, 'public', 'index.html'),
         src: path.resolve(__dirname, 'src'),
         locales: path.resolve(__dirname, 'public', 'locales'),
-        buildLocales: path.resolve(__dirname, 'build', 'locales')
+        buildLocales: path.resolve(__dirname, 'build', 'locales'),
     };
     // Смотрим в какой среде текущая сборка (дев, продакшн)
     const mode = env?.mode || 'development';
@@ -24,7 +24,10 @@ export default (env: BuildEnv) => {
 
     // В зависимости от среды сборки смотрим из какого файла нужны .env-переменные
     dotenv.config({
-        path: path.resolve(__dirname, `.env.${isDev ? 'development' : 'production'}`)
+        path: path.resolve(
+            __dirname,
+            `.env.${isDev ? 'development' : 'production'}`,
+        ),
     });
     const apiUrl = process.env.apiUrl || 'http://localhost:8000';
     const PORT = process.env.port || 3000;
@@ -37,7 +40,7 @@ export default (env: BuildEnv) => {
         isDev,
         apiUrl,
         PORT,
-        project: 'frontend'
+        project: 'frontend',
     });
 
     return config;

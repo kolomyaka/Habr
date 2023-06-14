@@ -9,10 +9,10 @@ export enum AppLinkTheme {
     PRIMARY = 'primary',
     SECONDARY = 'secondary',
     RED = 'red',
-    OUTLINE = 'outline'
+    OUTLINE = 'outline',
 }
 
-interface AppLinkProps extends LinkProps{
+interface AppLinkProps extends LinkProps {
     className?: string;
     theme?: AppLinkTheme;
     children?: ReactNode;
@@ -20,26 +20,25 @@ interface AppLinkProps extends LinkProps{
 
 type Ref = HTMLAnchorElement;
 
-export const AppLink = memo(forwardRef<Ref, AppLinkProps>((props: AppLinkProps, ref) => {
+export const AppLink = memo(
+    forwardRef<Ref, AppLinkProps>((props: AppLinkProps, ref) => {
+        const {
+            to,
+            className,
+            children,
+            theme = AppLinkTheme.PRIMARY,
+            ...otherProps
+        } = props;
 
-    const {
-        to,
-        className,
-        children,
-        theme = AppLinkTheme.PRIMARY,
-        ...otherProps
-    } = props;
-
-    return (
-        <Link
-            to={to}
-            ref={ref}
-            className={classNames(cls.appLink, {}, [className, cls[theme]])}
-            {...otherProps}
-        >
-            {children}
-        </Link>
-    );
-}));
-
-
+        return (
+            <Link
+                to={to}
+                ref={ref}
+                className={classNames(cls.appLink, {}, [className, cls[theme]])}
+                {...otherProps}
+            >
+                {children}
+            </Link>
+        );
+    }),
+);

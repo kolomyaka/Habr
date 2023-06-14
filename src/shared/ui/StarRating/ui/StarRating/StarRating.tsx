@@ -7,7 +7,6 @@ import { Icon } from '../../../Icon/Icon';
 
 import cls from './StarRating.module.scss';
 
-
 interface StarRatingProps {
     className?: string;
     size?: number;
@@ -18,12 +17,7 @@ interface StarRatingProps {
 const stars = [1, 2, 3, 4, 5];
 
 export const StarRating = memo((props: StarRatingProps) => {
-    const {
-        className,
-        selectedStars = 0,
-        size = 30,
-        onSelect
-    } = props;
+    const { className, selectedStars = 0, size = 30, onSelect } = props;
 
     const [currentStarsCount, setCurrentStarsCount] = useState(selectedStars);
     const [isSelected, setIsSelected] = useState(Boolean(selectedStars));
@@ -53,15 +47,12 @@ export const StarRating = memo((props: StarRatingProps) => {
             className={classNames(cls.starRating, {}, [className])}
             data-testid={'StarRating'}
         >
-            {stars.map(star => (
+            {stars.map((star) => (
                 <Icon
-                    className={classNames(
-                        cls.star,
-                        {
-                            [cls.hovered]: currentStarsCount >= star,
-                            [cls.selected]: isSelected
-                        }
-                    )}
+                    className={classNames(cls.star, {
+                        [cls.hovered]: currentStarsCount >= star,
+                        [cls.selected]: isSelected,
+                    })}
                     key={star}
                     Svg={StarIcon}
                     width={size}

@@ -3,7 +3,6 @@ import React from 'react';
 
 import { ArticleViewSelector } from './ArticleViewSelector';
 
-
 export default {
     title: 'features/ArticleViewSelector',
     component: ArticleViewSelector,
@@ -12,12 +11,9 @@ export default {
     },
 } as ComponentMeta<typeof ArticleViewSelector>;
 
-
-const Template: ComponentStory<typeof ArticleViewSelector> = (args) => <ArticleViewSelector {...args} />;
+const Template: ComponentStory<typeof ArticleViewSelector> = (args) => (
+    <ArticleViewSelector {...args} />
+);
 
 export const Primary = Template.bind({});
 Primary.args = {};
-
-
-
-

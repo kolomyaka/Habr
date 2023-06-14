@@ -10,21 +10,22 @@ export default {
         backgroundColor: { control: 'color' },
     },
     args: {
-        to: '/'
-    }
+        to: '/',
+    },
 } as ComponentMeta<typeof AppLink>;
 
-
-const Template: ComponentStory<typeof AppLink> = (args) => <AppLink {...args} />;
+const Template: ComponentStory<typeof AppLink> = (args) => (
+    <AppLink {...args} />
+);
 
 export const Primary = Template.bind({});
 Primary.args = {
     children: 'Text',
-    theme: AppLinkTheme.PRIMARY
+    theme: AppLinkTheme.PRIMARY,
 };
 
 export const Secondary = Template.bind({});
 Secondary.args = {
     children: 'Text',
-    theme: AppLinkTheme.SECONDARY
+    theme: AppLinkTheme.SECONDARY,
 };

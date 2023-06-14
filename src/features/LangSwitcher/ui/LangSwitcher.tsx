@@ -12,7 +12,6 @@ interface LangSwitcherProps {
 }
 
 export const LangSwitcher = memo(({ className }: LangSwitcherProps) => {
-
     const { i18n } = useTranslation();
 
     const toggleLanguage = () => {
@@ -29,5 +28,3 @@ export const LangSwitcher = memo(({ className }: LangSwitcherProps) => {
         </Button>
     );
 });
-
-

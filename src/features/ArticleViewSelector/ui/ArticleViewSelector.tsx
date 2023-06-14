@@ -5,19 +5,19 @@ import { ArticleView } from '@/entities/Article';
 import BigIcon from '@/shared/assets/icons/big_view.svg';
 import SmallIcon from '@/shared/assets/icons/small_view.svg';
 import { classNames } from '@/shared/lib/classNames/classNames';
-import { Button, ButtonTheme , Icon } from '@/shared/ui';
+import { Button, ButtonTheme, Icon } from '@/shared/ui';
 
 import cls from './ArticleViewSelector.module.scss';
 
 const viewTypes = [
     {
         view: 'small',
-        icon: SmallIcon
+        icon: SmallIcon,
     },
     {
         view: 'big',
-        icon: BigIcon
-    }
+        icon: BigIcon,
+    },
 ];
 
 interface ArticleViewSelectorProps {
@@ -26,13 +26,8 @@ interface ArticleViewSelectorProps {
     onChangeView: (view: ArticleView) => void;
 }
 
-
 export const ArticleViewSelector = memo((props: ArticleViewSelectorProps) => {
-    const {
-        className,
-        view,
-        onChangeView
-    } = props;
+    const { className, view, onChangeView } = props;
 
     const onClick = (viewType: string) => () => {
         onChangeView?.(viewType as ArticleView);
@@ -48,12 +43,12 @@ export const ArticleViewSelector = memo((props: ArticleViewSelectorProps) => {
                 >
                     <Icon
                         Svg={viewType.icon}
-                        className={classNames('', { [cls.notSelected]: viewType.view !== view })}
+                        className={classNames('', {
+                            [cls.notSelected]: viewType.view !== view,
+                        })}
                     />
                 </Button>
             ))}
         </div>
     );
 });
-
-

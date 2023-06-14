@@ -6,8 +6,8 @@ describe('getProfileReadonly.test', () => {
     test('should return true', () => {
         const state: DeepPartial<StateSchema> = {
             profile: {
-                readonly: true
-            }
+                readonly: true,
+            },
         };
         expect(getProfileReadonly(state as StateSchema)).toBe(true);
     });

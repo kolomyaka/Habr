@@ -5,7 +5,10 @@ import { StateSchema, StoreProvider } from '@/app/providers/StoreProvider';
 
 import { articlesPageReducer } from '@/pages/ArticlesPage';
 
-import { articleDetailsCommentFormReducer, articleDetailsCommentsReducer } from '@/features/ArticleDetailsComment';
+import {
+    articleDetailsCommentFormReducer,
+    articleDetailsCommentsReducer,
+} from '@/features/ArticleDetailsComment';
 import { loginReducer } from '@/features/AuthByUsername';
 import { profileReducer } from '@/features/EditableProfileCard';
 
@@ -19,16 +22,21 @@ const defaultAsyncReducers: ReducersList = {
     articleDetails: articleDetailsReducer,
     articleDetailsComments: articleDetailsCommentsReducer,
     articleDetailsCommentForm: articleDetailsCommentFormReducer,
-    articlesPage: articlesPageReducer
+    articlesPage: articlesPageReducer,
 };
 
-export const StoreDecorator = (
-    store: DeepPartial<StateSchema>,
-    asyncReducers?: DeepPartial<ReducersMapObject<StateSchema>>
-) => (StoryComponent: Story) => {
-    return (
-        <StoreProvider initialState={store} asyncReducers={{ ...defaultAsyncReducers,...asyncReducers }}>
-            <StoryComponent />
-        </StoreProvider>
-    );
-};
+export const StoreDecorator =
+    (
+        store: DeepPartial<StateSchema>,
+        asyncReducers?: DeepPartial<ReducersMapObject<StateSchema>>,
+    ) =>
+    (StoryComponent: Story) => {
+        return (
+            <StoreProvider
+                initialState={store}
+                asyncReducers={{ ...defaultAsyncReducers, ...asyncReducers }}
+            >
+                <StoryComponent />
+            </StoreProvider>
+        );
+    };

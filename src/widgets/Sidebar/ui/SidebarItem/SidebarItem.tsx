@@ -11,7 +11,6 @@ import { SidebarItemType } from '../../model/types/items';
 
 import cls from './SidebarItem.module.scss';
 
-
 interface SidebarItemProps {
     item: SidebarItemType;
     collapsed: boolean;
@@ -36,5 +35,3 @@ export const SidebarItem = memo(({ item, collapsed }: SidebarItemProps) => {
         </AppNavLink>
     );
 });
-
-

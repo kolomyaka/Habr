@@ -7,10 +7,13 @@ export function useThrottle(callback: (...args: any[]) => void, delay: number) {
         throttleRef.current = false;
     }, delay);
 
-    return useCallback((...args: []) => {
-        if (!throttleRef.current) {
-            callback(...args);
-            throttleRef.current = true;
-        }
-    }, [callback]);
+    return useCallback(
+        (...args: []) => {
+            if (!throttleRef.current) {
+                callback(...args);
+                throttleRef.current = true;
+            }
+        },
+        [callback],
+    );
 }

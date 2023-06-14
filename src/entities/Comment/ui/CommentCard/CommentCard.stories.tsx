@@ -3,7 +3,6 @@ import React from 'react';
 
 import { CommentCard } from './CommentCard';
 
-
 export default {
     title: 'entities/CommentCard',
     component: CommentCard,
@@ -12,7 +11,9 @@ export default {
     },
 } as ComponentMeta<typeof CommentCard>;
 
-const Template: ComponentStory<typeof CommentCard> = (args) => <CommentCard {...args} />;
+const Template: ComponentStory<typeof CommentCard> = (args) => (
+    <CommentCard {...args} />
+);
 
 export const Primary = Template.bind({});
 Primary.args = {
@@ -22,11 +23,7 @@ Primary.args = {
         user: {
             id: '1',
             username: 'Kolomyaka',
-            avatar: 'https://i.ytimg.com/vi/tXPUueXzmG8/maxresdefault.jpg'
-        }
-    }
+            avatar: 'https://i.ytimg.com/vi/tXPUueXzmG8/maxresdefault.jpg',
+        },
+    },
 };
-
-
-
-

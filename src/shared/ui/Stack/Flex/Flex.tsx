@@ -6,11 +6,11 @@ import cls from './Flex.module.scss';
 
 type FlexAlign = 'center' | 'start' | 'end' | 'inherit';
 
-type FlexJustify = 'center' | 'between' | 'start' | 'end'
+type FlexJustify = 'center' | 'between' | 'start' | 'end';
 
-type FlexGap = 4 | 8 | 12 | 16 | 20 | 24 | 32
+type FlexGap = 4 | 8 | 12 | 16 | 20 | 24 | 32;
 
-type FlexDirection = 'row' | 'column'
+type FlexDirection = 'row' | 'column';
 
 export interface FlexProps {
     align?: FlexAlign;
@@ -26,19 +26,19 @@ const justifyClasses: Record<FlexJustify, string> = {
     center: cls.jusityCenter,
     between: cls.justifyBetween,
     start: cls.justifyStart,
-    end: cls.justifyEnd
+    end: cls.justifyEnd,
 };
 
 const alignClasses: Record<FlexAlign, string> = {
     center: cls.alignCenter,
     start: cls.alignStart,
     end: cls.alignEnd,
-    inherit: cls.alignInherit
+    inherit: cls.alignInherit,
 };
 
 const directionClasses: Record<FlexDirection, string> = {
     row: cls.directionRow,
-    column: cls.directionColumn
+    column: cls.directionColumn,
 };
 
 const gapClasses: Record<FlexGap, string> = {
@@ -48,11 +48,10 @@ const gapClasses: Record<FlexGap, string> = {
     16: cls.gap16,
     20: cls.gap20,
     24: cls.gap24,
-    32: cls.gap32
+    32: cls.gap32,
 };
 
 export const Flex = memo((props: FlexProps) => {
-
     const {
         className,
         align = 'inherit',
@@ -60,11 +59,11 @@ export const Flex = memo((props: FlexProps) => {
         justify = 'start',
         direction = 'row',
         max,
-        children
+        children,
     } = props;
 
     const mods: Mods = {
-        [cls.max]: max
+        [cls.max]: max,
     };
 
     const classes = [
@@ -72,14 +71,10 @@ export const Flex = memo((props: FlexProps) => {
         justifyClasses[justify],
         alignClasses[align],
         directionClasses[direction],
-        gap && gapClasses[gap]
+        gap && gapClasses[gap],
     ];
 
     return (
-        <div className={classNames(cls.flex, mods, classes)}>
-            {children}
-        </div>
+        <div className={classNames(cls.flex, mods, classes)}>{children}</div>
     );
 });
-
-

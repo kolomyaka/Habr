@@ -11,8 +11,9 @@ export default {
     },
 } as ComponentMeta<typeof NotificationItem>;
 
-
-const Template: ComponentStory<typeof NotificationItem> = (args) => <NotificationItem {...args} />;
+const Template: ComponentStory<typeof NotificationItem> = (args) => (
+    <NotificationItem {...args} />
+);
 
 export const Primary = Template.bind({});
 Primary.args = {
@@ -20,10 +21,6 @@ Primary.args = {
         id: '1',
         userId: '1',
         title: 'Notification title',
-        description: 'Notification description'
-    }
+        description: 'Notification description',
+    },
 };
-
-
-
-

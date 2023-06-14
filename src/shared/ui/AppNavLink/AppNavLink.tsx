@@ -10,13 +10,12 @@ export enum AppNavLinkTheme {
     SECONDARY = 'secondary',
 }
 
-interface AppNavLinkProps extends NavLinkProps{
-    className?: string
-    theme?: AppNavLinkTheme
+interface AppNavLinkProps extends NavLinkProps {
+    className?: string;
+    theme?: AppNavLinkTheme;
 }
 
 export const AppNavLink = memo((props: AppNavLinkProps) => {
-
     const {
         to,
         className,
@@ -29,12 +28,14 @@ export const AppNavLink = memo((props: AppNavLinkProps) => {
         <NavLink
             to={to}
             className={({ isActive }) =>
-                classNames(cls.AppNavLink, { [cls['active']]: isActive }, [className, cls[theme]])}
+                classNames(cls.AppNavLink, { [cls['active']]: isActive }, [
+                    className,
+                    cls[theme],
+                ])
+            }
             {...otherProps}
         >
             {children}
         </NavLink>
     );
 });
-
-

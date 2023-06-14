@@ -1,13 +1,13 @@
 {
-  "extends": "stylelint-config-standard-scss",
-  "rules": {
-    "indentation": [2],
-    "string-quotes": "single",
-    "selector-class-pattern": null,
-    "no-descending-specificity": null,
-    "no-missing-end-of-source-newline": null,
-    "number-leading-zero": null,
-    "property-no-vendor-prefix": null,
-    "block-no-empty": [true, {"severity": "warning"}]
-  }
+    "extends": "stylelint-config-standard-scss",
+    "rules": {
+        "indentation": [2],
+        "string-quotes": "single",
+        "selector-class-pattern": null,
+        "no-descending-specificity": null,
+        "no-missing-end-of-source-newline": null,
+        "number-leading-zero": null,
+        "property-no-vendor-prefix": null,
+        "block-no-empty": [true, { "severity": "warning" }]
+    }
 }

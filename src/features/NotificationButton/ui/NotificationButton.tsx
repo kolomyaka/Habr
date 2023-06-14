@@ -12,7 +12,6 @@ import { Popover } from '@/shared/ui/Popover/Popover';
 import cls from './NotificationButton.module.scss';
 
 export const NotificationButton = () => {
-
     const [isOpen, setIsOpen] = useState(false);
     const isMobile = useDevice();
 
@@ -29,27 +28,21 @@ export const NotificationButton = () => {
             <Icon Svg={NotificationIcon} />
         </Button>
     );
-    
+
     return (
         <>
-            {isMobile
-                ? (
-                    <>
-                        {trigger}
-                        <Drawer isOpen={isOpen} onClose={onCloseDrawer}>
-                            <NotificationsList />
-                        </Drawer>
-                    </>
-                )
-                : (
-                    <Popover
-                        trigger={trigger}>
-                        <NotificationsList className={cls.notificationList} />
-                    </Popover>
-                )
-            }
+            {isMobile ? (
+                <>
+                    {trigger}
+                    <Drawer isOpen={isOpen} onClose={onCloseDrawer}>
+                        <NotificationsList />
+                    </Drawer>
+                </>
+            ) : (
+                <Popover trigger={trigger}>
+                    <NotificationsList className={cls.notificationList} />
+                </Popover>
+            )}
         </>
     );
 };
-
-

@@ -7,7 +7,10 @@ import { getUserAuthData } from '@/entities/User';
 
 import { Skeleton } from '@/shared/ui/Skeleton/Skeleton';
 
-import { useGetProfileRating, useRateProfile } from '../../api/profileRatingApi';
+import {
+    useGetProfileRating,
+    useRateProfile,
+} from '../../api/profileRatingApi';
 
 export interface ProfileRatingProps {
     profileId: string;
@@ -19,30 +22,39 @@ const ProfileRating = memo(({ profileId }: ProfileRatingProps) => {
 
     const { data, isLoading } = useGetProfileRating({
         profileId,
-        userId: userData?.id || ''
+        userId: userData?.id || '',
     });
     const [rateProfile] = useRateProfile();
 
-    const onRateProfileHandler = useCallback((starsCount: number, feedback?: string) => {
-        try {
-            rateProfile({
-                profileId,
-                userId: userData?.id || '',
-                rate: starsCount,
-                feedback
-            });
-        } catch (e) {
-            console.log(e);
-        }
-    }, [profileId, rateProfile, userData?.id]);
+    const onRateProfileHandler = useCallback(
+        (starsCount: number, feedback?: string) => {
+            try {
+                rateProfile({
+                    profileId,
+                    userId: userData?.id || '',
+                    rate: starsCount,
+                    feedback,
+                });
+            } catch (e) {
+                console.log(e);
+            }
+        },
+        [profileId, rateProfile, userData?.id],
+    );
 
-    const onAcceptHandler = useCallback((starsCount: number, feedback: string) => {
-        onRateProfileHandler(starsCount, feedback);
-    }, [onRateProfileHandler]);
+    const onAcceptHandler = useCallback(
+        (starsCount: number, feedback: string) => {
+            onRateProfileHandler(starsCount, feedback);
+        },
+        [onRateProfileHandler],
+    );
 
-    const onCancelHandler = useCallback((starsCount: number) => {
-        onRateProfileHandler(starsCount);
-    }, [onRateProfileHandler]);
+    const onCancelHandler = useCallback(
+        (starsCount: number) => {
+            onRateProfileHandler(starsCount);
+        },
+        [onRateProfileHandler],
+    );
 
     const rating = data?.[0];
 

@@ -3,7 +3,6 @@ import React from 'react';
 
 import { Tabs } from './Tabs';
 
-
 export default {
     title: 'shared/Tabs',
     component: Tabs,
@@ -11,7 +10,6 @@ export default {
         backgroundColor: { control: 'color' },
     },
 } as ComponentMeta<typeof Tabs>;
-
 
 const Template: ComponentStory<typeof Tabs> = (args) => <Tabs {...args} />;
 
@@ -30,10 +28,6 @@ Primary.args = {
         {
             value: 'ECONOMICS',
             content: 'ECONOMICS',
-        }
+        },
     ],
 };
-
-
-
-

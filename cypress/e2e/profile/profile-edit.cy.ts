@@ -23,6 +23,9 @@ describe('Проверяем работу с профилем пользоват
         const newLastName = 'Kolomoycev';
         cy.updateProfile(newName, newLastName);
         cy.getByTestId('ProfileCard.firstName').should('have.value', newName);
-        cy.getByTestId('ProfileCard.lastName').should('have.value', newLastName);
+        cy.getByTestId('ProfileCard.lastName').should(
+            'have.value',
+            newLastName,
+        );
     });
 });

@@ -5,7 +5,16 @@ import { CountrySelect } from '@/entities/Country';
 import { CurrencySelect } from '@/entities/Currency';
 
 import { classNames } from '@/shared/lib';
-import { Avatar , Input , VStack , Text, TextAlign, TextTheme , Card , Skeleton } from '@/shared/ui';
+import {
+    Avatar,
+    Input,
+    VStack,
+    Text,
+    TextAlign,
+    TextTheme,
+    Card,
+    Skeleton,
+} from '@/shared/ui';
 
 import { Profile } from '../../model/types/profile';
 
@@ -17,27 +26,32 @@ interface ProfileCardProps {
     error?: string;
     readonly?: boolean;
     isLoading?: boolean;
-    onInputChangeHandler?: (value: string, name: string) => void
+    onInputChangeHandler?: (value: string, name: string) => void;
 }
 
 // entities - чаще всего просто переиспользуемый компонент, который берет данные из вне,
 // Поэтому логику получения данных и т.д мы вынесли на уровень выше
 export const ProfileCard = memo((props: ProfileCardProps) => {
-
     const {
         className,
         data,
         isLoading,
         error,
         readonly,
-        onInputChangeHandler
+        onInputChangeHandler,
     } = props;
 
-    const { t } = useTranslation('profile' );
+    const { t } = useTranslation('profile');
 
     if (isLoading) {
         return (
-            <VStack max className={classNames(cls.profileCard, {}, [className, cls.loader])}>
+            <VStack
+                max
+                className={classNames(cls.profileCard, {}, [
+                    className,
+                    cls.loader,
+                ])}
+            >
                 <Skeleton width={'100%'} height={550} />
             </VStack>
         );
@@ -45,7 +59,13 @@ export const ProfileCard = memo((props: ProfileCardProps) => {
 
     if (error) {
         return (
-            <VStack max className={classNames(cls.profileCard, {}, [className, cls.error])}>
+            <VStack
+                max
+                className={classNames(cls.profileCard, {}, [
+                    className,
+                    cls.error,
+                ])}
+            >
                 <Text
                     theme={TextTheme.ERROR}
                     title={t('Произошла ошибка при загрузке данных профиля')}
@@ -84,7 +104,7 @@ export const ProfileCard = memo((props: ProfileCardProps) => {
                 />
                 <Input
                     name={'username'}
-                    label={t('Логин' )}
+                    label={t('Логин')}
                     value={data?.username}
                     className={cls.input}
                     readonly={readonly}
@@ -130,5 +150,3 @@ export const ProfileCard = memo((props: ProfileCardProps) => {
         </Card>
     );
 });
-
-

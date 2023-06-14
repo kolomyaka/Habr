@@ -3,7 +3,6 @@ import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { sendComment } from '../services/sendComment';
 import { ArticleDetailsCommentFormSchema } from '../types/ArticleDetailsCommentFormSchema';
 
-
 const initialState: ArticleDetailsCommentFormSchema = {
     isLoading: false,
     error: undefined,
@@ -16,7 +15,7 @@ export const articleDetailsCommentFormSlice = createSlice({
     reducers: {
         setText: (state, action: PayloadAction<string>) => {
             state.text = action.payload;
-        }
+        },
     },
     extraReducers: (builder) => {
         builder
@@ -28,13 +27,17 @@ export const articleDetailsCommentFormSlice = createSlice({
                 state.isLoading = false;
                 state.error = undefined;
             })
-            .addCase(sendComment.rejected, (state, action:PayloadAction<string | undefined>) => {
-                state.isLoading = false;
-                state.error = action.payload;
-            });
+            .addCase(
+                sendComment.rejected,
+                (state, action: PayloadAction<string | undefined>) => {
+                    state.isLoading = false;
+                    state.error = action.payload;
+                },
+            );
     },
 });
 
-
-export const { actions: articleDetailsCommentFormActions } = articleDetailsCommentFormSlice;
-export const { reducer: articleDetailsCommentFormReducer } = articleDetailsCommentFormSlice;
+export const { actions: articleDetailsCommentFormActions } =
+    articleDetailsCommentFormSlice;
+export const { reducer: articleDetailsCommentFormReducer } =
+    articleDetailsCommentFormSlice;

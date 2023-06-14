@@ -5,27 +5,22 @@ import { useDispatch, useStore } from 'react-redux';
 import {
     type ReduxStoreWithManager,
     type StateSchema,
-    type StateSchemaKey
+    type StateSchemaKey,
 } from '@/app/providers/StoreProvider';
 
 export type ReducersList = {
     // Делаем более строгую типизацию для reducersList, чтобы не могли добавить ошибочный редюсер
     [name in StateSchemaKey]?: Reducer<NonNullable<StateSchema[name]>>;
-}
+};
 
 interface DynamicModuleLoaderProps {
     children: ReactNode;
     removeAfterUnmount?: boolean;
-    reducers: ReducersList
+    reducers: ReducersList;
 }
 
 export const DynamicModuleLoader: FC<DynamicModuleLoaderProps> = (props) => {
-
-    const {
-        children,
-        removeAfterUnmount = true,
-        reducers
-    } = props;
+    const { children, removeAfterUnmount = true, reducers } = props;
 
     const store = useStore() as ReduxStoreWithManager;
     const dispatch = useDispatch();
@@ -51,12 +46,5 @@ export const DynamicModuleLoader: FC<DynamicModuleLoaderProps> = (props) => {
         // eslint-disable-next-line
     }, []);
 
-
-    return (
-        <>
-            { children }
-        </>
-    );
+    return <>{children}</>;
 };
-
-

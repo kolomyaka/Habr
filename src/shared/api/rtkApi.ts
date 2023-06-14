@@ -15,7 +15,7 @@ export const rtkApi = createApi({
 
             return headers;
         },
-        baseUrl: __API__
+        baseUrl: __API__,
     }),
-    endpoints: () => ({ }),
+    endpoints: () => ({}),
 });

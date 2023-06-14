@@ -16,7 +16,7 @@ export enum ButtonTheme {
 export enum ButtonSize {
     M = 'size_m',
     L = 'size_l',
-    XL = 'size_xl'
+    XL = 'size_xl',
 }
 
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
@@ -31,37 +31,35 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
 
 type Ref = HTMLButtonElement;
 
-export const Button = memo(forwardRef<Ref, ButtonProps>((props:ButtonProps, ref) => {
+export const Button = memo(
+    forwardRef<Ref, ButtonProps>((props: ButtonProps, ref) => {
+        const {
+            className,
+            children,
+            theme = ButtonTheme.OUTLINE,
+            square,
+            disabled,
+            round,
+            size = ButtonSize.M,
+            ...otherProps
+        } = props;
 
-    const {
-        className,
-        children,
-        theme = ButtonTheme.OUTLINE,
-        square,
-        disabled,
-        round,
-        size = ButtonSize.M,
-        ...otherProps
-    } = props;
+        const mods: Mods = {
+            [cls.square]: square,
+            [cls.round]: round,
+            [cls[theme]]: true,
+            [cls[size]]: true,
+        };
 
-    const mods: Mods = {
-        [cls.square]: square,
-        [cls.round]: round,
-        [cls[theme]]: true,
-        [cls[size]]: true,
-    };
-
-
-    return (
-        <button
-            ref={ref}
-            className={classNames(cls.button, mods, [className])}
-            disabled={disabled}
-            {...otherProps}
-        >
-            {children}
-        </button>
-    );
-}));
-
-
+        return (
+            <button
+                ref={ref}
+                className={classNames(cls.button, mods, [className])}
+                disabled={disabled}
+                {...otherProps}
+            >
+                {children}
+            </button>
+        );
+    }),
+);

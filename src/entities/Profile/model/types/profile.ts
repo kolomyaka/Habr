@@ -8,8 +8,7 @@ export interface Profile {
     age?: number;
     currency?: Currency;
     country?: Country;
-    city?:  string;
+    city?: string;
     username?: string;
     avatar?: string;
 }
-

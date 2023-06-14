@@ -1,6 +1,6 @@
 import { PluginItem } from '@babel/core';
 
-export default function(): PluginItem {
+export default function (): PluginItem {
     // Пишем плагин, который в прод сборке будет убирать атрибуты, которые мы зададим (Напр. data-testid)
 
     return {
@@ -15,9 +15,9 @@ export default function(): PluginItem {
                         if (forbidden.includes(nodeName)) {
                             current.parentPath.remove();
                         }
-                    }
+                    },
                 });
-            }
+            },
         },
     };
 }

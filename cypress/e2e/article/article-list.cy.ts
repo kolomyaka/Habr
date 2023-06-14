@@ -1,17 +1,14 @@
-
 let articleId: string;
 
 const testArticleForSearchTest = {
-    'title': 'JESTING SEARCH',
-    'subtitle': 'Тестовая статья',
-    'img': 'https://teknotower.com/wp-content/uploads/2020/11/js.png',
-    'views': 228,
-    'userId': '1',
-    'createdAt': '21.03.2001',
-    'type': [
-        'IT'
-    ],
-    'blocks': []
+    title: 'JESTING SEARCH',
+    subtitle: 'Тестовая статья',
+    img: 'https://teknotower.com/wp-content/uploads/2020/11/js.png',
+    views: 228,
+    userId: '1',
+    createdAt: '21.03.2001',
+    type: ['IT'],
+    blocks: [],
 };
 
 describe('Пользователь заходит на страницу списка статей', () => {
@@ -50,6 +47,8 @@ describe('Пользователь заходит на страницу спис
         cy.getByTestId('ArticlesPageFilters.Search').type('JESTING SEARCH');
         cy.getByTestId('ArticleListItem.Loading').should('exist');
         cy.getByTestId('ArticleListItem').should('have.length', 1);
-        cy.getByTestId('ArticleListItem.Description').contains('JESTING SEARCH');
+        cy.getByTestId('ArticleListItem.Description').contains(
+            'JESTING SEARCH',
+        );
     });
 });

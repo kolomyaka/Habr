@@ -14,29 +14,37 @@ interface ThemeSwitcherProps {
     short?: boolean;
 }
 
-export const ThemeSwitcher = memo(({ className,short }: ThemeSwitcherProps) => {
-    const { theme, toggleTheme } = useTheme();
-    const { t } = useTranslation();
+export const ThemeSwitcher = memo(
+    ({ className, short }: ThemeSwitcherProps) => {
+        const { theme, toggleTheme } = useTheme();
+        const { t } = useTranslation();
 
-    return (
-        <div className={classNames(cls.themeSwitcher,{}, [className])}>
-            <AppCheckbox
-                short={short}
-                checked={theme === Theme.DARK}
-                label={theme === Theme.LIGHT
-                    ? <>
-                        <IconSun className={cls.themeIcon} />
-                        <span className={cls.themeName}>{t('Светлая')}</span>
-                    </>
-                    : <>
-                        <IconMoon className={cls.themeIcon} />
-                        <span className={cls.themeName}>{t('Темная')}</span>
-                    </>}
-                className={short ? cls.short : ''}
-                onChange={toggleTheme}
-            />
-        </div>
-    );
-});
-
-
+        return (
+            <div className={classNames(cls.themeSwitcher, {}, [className])}>
+                <AppCheckbox
+                    short={short}
+                    checked={theme === Theme.DARK}
+                    label={
+                        theme === Theme.LIGHT ? (
+                            <>
+                                <IconSun className={cls.themeIcon} />
+                                <span className={cls.themeName}>
+                                    {t('Светлая')}
+                                </span>
+                            </>
+                        ) : (
+                            <>
+                                <IconMoon className={cls.themeIcon} />
+                                <span className={cls.themeName}>
+                                    {t('Темная')}
+                                </span>
+                            </>
+                        )
+                    }
+                    className={short ? cls.short : ''}
+                    onChange={toggleTheme}
+                />
+            </div>
+        );
+    },
+);

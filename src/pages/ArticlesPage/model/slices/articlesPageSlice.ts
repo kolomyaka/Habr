@@ -1,4 +1,8 @@
-import { createEntityAdapter, createSlice, PayloadAction, } from '@reduxjs/toolkit';
+import {
+    createEntityAdapter,
+    createSlice,
+    PayloadAction,
+} from '@reduxjs/toolkit';
 
 import type { StateSchema } from '@/app/providers/StoreProvider';
 
@@ -8,20 +12,18 @@ import type { Article } from '@/entities/Article';
 import { ARTICLE_VIEW_LOCALSTORAGE_KEY } from '@/shared/const/localstorage';
 import { OrderType } from '@/shared/types/types';
 
-
-
 import { fetchArticlesList } from '../services/fetchArticlesList/fetchArticlesList';
 import { ArticlesPageSchema } from '../types/ArticlesPageSchema';
 
 // Создаем адаптер для нормализации данных и указываем по какому полю будет идти поиск при нормализации
 // Обычно это айди сущности, который как раз берем из объекта комментария
 const articlesPageAdapter = createEntityAdapter<Article>({
-    selectId: (article) => article.id
+    selectId: (article) => article.id,
 });
 
 // Создаем селектор для получения всех комментариев статьи
 export const getArticles = articlesPageAdapter.getSelectors<StateSchema>(
-    (state) => state.articlesPage || articlesPageAdapter.getInitialState()
+    (state) => state.articlesPage || articlesPageAdapter.getInitialState(),
 );
 
 const articlesPageSlice = createSlice({
@@ -62,10 +64,12 @@ const articlesPageSlice = createSlice({
             state.type = action.payload;
         },
         initState: (state) => {
-            const view = localStorage.getItem(ARTICLE_VIEW_LOCALSTORAGE_KEY) as ArticleView;
+            const view = localStorage.getItem(
+                ARTICLE_VIEW_LOCALSTORAGE_KEY,
+            ) as ArticleView;
             state.view = view;
             state.limit = view === 'small' ? 9 : 4;
-        }
+        },
     },
     extraReducers: (builder) => {
         builder
@@ -87,10 +91,13 @@ const articlesPageSlice = createSlice({
                     articlesPageAdapter.addMany(state, action.payload);
                 }
             })
-            .addCase(fetchArticlesList.rejected, (state, action: PayloadAction<string | undefined>) => {
-                state.isLoading = false;
-                state.error = action.payload;
-            });
+            .addCase(
+                fetchArticlesList.rejected,
+                (state, action: PayloadAction<string | undefined>) => {
+                    state.isLoading = false;
+                    state.error = action.payload;
+                },
+            );
     },
 });
 

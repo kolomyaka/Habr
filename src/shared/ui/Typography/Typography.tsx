@@ -22,21 +22,22 @@ export const Typography = memo((props: TypographyProps) => {
         size = 'M',
         align = 'left',
         weight = 'regular',
-        children
+        children,
     } = props;
     const Component = as;
 
     return (
         <Component
-            className={classNames(
-                cls.typography,
-                {},
-                [className, cls[as], cls[color], cls[size], cls[align], cls[weight]]
-            )}
+            className={classNames(cls.typography, {}, [
+                className,
+                cls[as],
+                cls[color],
+                cls[size],
+                cls[align],
+                cls[weight],
+            ])}
         >
             {children}
         </Component>
     );
 });
-
-

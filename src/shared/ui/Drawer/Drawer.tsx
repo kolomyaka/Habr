@@ -1,8 +1,11 @@
 import { memo, ReactNode, useCallback, useEffect } from 'react';
 
 import { classNames, Mods } from '@/shared/lib';
-import { AnimationProvider, useAnimationModules } from '@/shared/lib/components';
-import { useWindowSize , useTheme } from '@/shared/lib/hooks';
+import {
+    AnimationProvider,
+    useAnimationModules,
+} from '@/shared/lib/components';
+import { useWindowSize, useTheme } from '@/shared/lib/hooks';
 
 import { Overlay } from '../Overlay/Overlay';
 import { Portal } from '../Portal/Portal';
@@ -10,7 +13,7 @@ import { Portal } from '../Portal/Portal';
 import cls from './Drawer.module.scss';
 
 interface DrawerProps {
-    className?: string
+    className?: string;
     children: ReactNode;
     isOpen?: boolean;
     onClose?: () => void;
@@ -18,24 +21,19 @@ interface DrawerProps {
 }
 
 const DrawerContent = memo((props: DrawerProps) => {
-    const {
-        className,
-        children,
-        isOpen,
-        onClose
-    } = props;
+    const { className, children, isOpen, onClose } = props;
     const { theme } = useTheme();
     const { Spring, Gesture } = useAnimationModules();
     const { height } = useWindowSize();
-    const [ { y }, api ] = Spring.useSpring(() => ({ y: height }));
+    const [{ y }, api] = Spring.useSpring(() => ({ y: height }));
 
     const openDrawer = useCallback(() => {
         api.start({ y: 0, immediate: false });
-    }, [ api ]);
+    }, [api]);
 
     useEffect(() => {
         if (isOpen) openDrawer();
-    }, [ api, isOpen, openDrawer ]);
+    }, [api, isOpen, openDrawer]);
 
     const close = (velocity = 0) => {
         api.start({
@@ -67,24 +65,37 @@ const DrawerContent = memo((props: DrawerProps) => {
             }
         },
         {
-            from: () => [0, y.get()], filterTaps: true, bounds: { top: 0 }, rubberband: true,
+            from: () => [0, y.get()],
+            filterTaps: true,
+            bounds: { top: 0 },
+            rubberband: true,
         },
     );
 
     if (!isOpen) return null;
 
     const mods: Mods = {
-        [cls.opened]: isOpen
+        [cls.opened]: isOpen,
     };
 
     const display = y.to((py) => (py < height ? 'block' : 'none'));
 
     return (
         <Portal>
-            <div className={classNames(cls.drawer, mods, [className, theme, 'app_drawer'])}>
+            <div
+                className={classNames(cls.drawer, mods, [
+                    className,
+                    theme,
+                    'app_drawer',
+                ])}
+            >
                 <Overlay onClick={close} />
                 <Spring.a.div
-                    style={{ display, bottom: `calc(-100vh + ${height - 300}px)`, y }}
+                    style={{
+                        display,
+                        bottom: `calc(-100vh + ${height - 300}px)`,
+                        y,
+                    }}
                     className={cls.sheet}
                     {...bind()}
                 >

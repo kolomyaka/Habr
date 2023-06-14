@@ -15,25 +15,18 @@ export default {
     },
 } as ComponentMeta<typeof Popover>;
 
-
-const Template: ComponentStory<typeof Popover> = (args) => <Popover {...args} />;
+const Template: ComponentStory<typeof Popover> = (args) => (
+    <Popover {...args} />
+);
 
 export const Primary = Template.bind({});
 Primary.args = {
     trigger: <Button>Click me!</Button>,
-    children: <VStack>
-        <Typography>
-            Text
-        </Typography>
-        <Typography>
-            Text
-        </Typography>
-        <Typography>
-            Text
-        </Typography>
-    </VStack>
+    children: (
+        <VStack>
+            <Typography>Text</Typography>
+            <Typography>Text</Typography>
+            <Typography>Text</Typography>
+        </VStack>
+    ),
 };
-
-
-
-
