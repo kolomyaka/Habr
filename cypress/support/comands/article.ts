@@ -1,4 +1,4 @@
-import { Article } from '@/entities/Article';
+import { Article, ArticleType } from '@/entities/Article';
 
 const articleMocked = {
     'title': 'Test article',
@@ -13,7 +13,7 @@ const articleMocked = {
     'blocks': []
 };
 
-export const createArticle = (article: Article) => {
+export const createArticle = (article: any) => {
     return cy.request({
         method: 'POST',
         url: 'http://localhost:8000/articles',
@@ -30,11 +30,16 @@ export const removeArticle = (articleId: string) => {
     });
 };
 
+export const filterArticlesBy = (articleType: ArticleType) => {
+    cy.getByTestId(`ArticleTab.${articleType}`).click();
+};
+
 declare global {
     namespace Cypress {
         interface Chainable {
-            createArticle(article?: Article): Chainable<Article>
+            createArticle(article?: any): Chainable<Article>
             removeArticle(articleId: string): Chainable<void>
+            filterArticlesBy(articleType: ArticleType): Chainable<void>
         }
     }
 }

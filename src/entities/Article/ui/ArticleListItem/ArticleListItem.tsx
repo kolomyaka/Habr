@@ -35,7 +35,7 @@ export const ArticleListItem = memo((props: ArticleListItemProps) => {
     } = props;
     const { t } = useTranslation('articles');
 
-    const types = <Text description={article.type.join(',')} className={cls.articleTags} />;
+    const types = <Text data-testid={'ArticleListItemType'} description={article.type.join(',')} className={cls.articleTags} />;
     const views = (
         <div className={cls.articleViewInfo}>
             <Icon Svg={EyeIcon} className={cls.icon} />
@@ -55,14 +55,21 @@ export const ArticleListItem = memo((props: ArticleListItemProps) => {
                                 className={cls.articleImage}
                                 fallback={<Skeleton width={'100%'} height={250} />}
                             />
-                            <Text description={article.createdAt} className={cls.articleCreated} />
+                            <Text
+                                description={article.createdAt}
+                                className={cls.articleCreated}
+                            />
                         </div>
                         <div className={cls.articleFooter}>
                             <div className={cls.articleInfo}>
                                 {types}
                                 {views}
                             </div>
-                            <Text className={cls.articleTitle} description={article.title} />
+                            <Text
+                                className={cls.articleTitle}
+                                description={article.title}
+                                data-testid={'ArticleListItem'}
+                            />
                         </div>
                     </Card>
                 </div>

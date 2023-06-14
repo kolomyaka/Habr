@@ -378,149 +378,6 @@
           ]
         }
       ]
-    },
-    {
-      "title": "Test article",
-      "subtitle": "Тестовая статья",
-      "userId": "1",
-      "img": "https://teknotower.com/wp-content/uploads/2020/11/js.png",
-      "views": 228,
-      "createdAt": "21.03.2001",
-      "type": [
-        "IT"
-      ],
-      "blocks": [],
-      "id": "WoYMvqQ"
-    },
-    {
-      "title": "Test article",
-      "subtitle": "Тестовая статья",
-      "userId": "1",
-      "img": "https://teknotower.com/wp-content/uploads/2020/11/js.png",
-      "views": 228,
-      "createdAt": "21.03.2001",
-      "type": [
-        "IT"
-      ],
-      "blocks": [],
-      "id": "5WZdvq2"
-    },
-    {
-      "title": "Test article",
-      "subtitle": "Тестовая статья",
-      "userId": "1",
-      "img": "https://teknotower.com/wp-content/uploads/2020/11/js.png",
-      "views": 228,
-      "createdAt": "21.03.2001",
-      "type": [
-        "IT"
-      ],
-      "blocks": [],
-      "id": "eVhPtIN"
-    },
-    {
-      "title": "Test article",
-      "subtitle": "Тестовая статья",
-      "userId": "1",
-      "img": "https://teknotower.com/wp-content/uploads/2020/11/js.png",
-      "views": 228,
-      "createdAt": "21.03.2001",
-      "type": [
-        "IT"
-      ],
-      "blocks": [],
-      "id": "l5-Dcda"
-    },
-    {
-      "title": "Test article",
-      "subtitle": "Тестовая статья",
-      "userId": "1",
-      "img": "https://teknotower.com/wp-content/uploads/2020/11/js.png",
-      "views": 228,
-      "createdAt": "21.03.2001",
-      "type": [
-        "IT"
-      ],
-      "blocks": [],
-      "id": "JRBVHHi"
-    },
-    {
-      "title": "Test article",
-      "subtitle": "Тестовая статья",
-      "userId": "1",
-      "img": "https://teknotower.com/wp-content/uploads/2020/11/js.png",
-      "views": 228,
-      "createdAt": "21.03.2001",
-      "type": [
-        "IT"
-      ],
-      "blocks": [],
-      "id": "tK5AsLn"
-    },
-    {
-      "title": "Test article",
-      "subtitle": "Тестовая статья",
-      "userId": "1",
-      "img": "https://teknotower.com/wp-content/uploads/2020/11/js.png",
-      "views": 228,
-      "createdAt": "21.03.2001",
-      "type": [
-        "IT"
-      ],
-      "blocks": [],
-      "id": "HlqOK-D"
-    },
-    {
-      "title": "Test article",
-      "subtitle": "Тестовая статья",
-      "userId": "1",
-      "img": "https://teknotower.com/wp-content/uploads/2020/11/js.png",
-      "views": 228,
-      "createdAt": "21.03.2001",
-      "type": [
-        "IT"
-      ],
-      "blocks": [],
-      "id": "mmCD7Aq"
-    },
-    {
-      "title": "Test article",
-      "subtitle": "Тестовая статья",
-      "userId": "1",
-      "img": "https://teknotower.com/wp-content/uploads/2020/11/js.png",
-      "views": 228,
-      "createdAt": "21.03.2001",
-      "type": [
-        "IT"
-      ],
-      "blocks": [],
-      "id": "J-Tc3VR"
-    },
-    {
-      "title": "Test article",
-      "subtitle": "Тестовая статья",
-      "userId": "1",
-      "img": "https://teknotower.com/wp-content/uploads/2020/11/js.png",
-      "views": 228,
-      "createdAt": "21.03.2001",
-      "type": [
-        "IT"
-      ],
-      "blocks": [],
-      "id": "P1rMKHs"
-    },
-    {
-      "title": "Test article",
-      "subtitle": "Тестовая статья",
-      "userId": "1",
-      "img": "https://teknotower.com/wp-content/uploads/2020/11/js.png",
-      "views": 228,
-      "createdAt": "21.03.2001",
-      "type": [
-        "IT"
-      ],
-      "blocks": [],
-      "id": "N1d63gp"
     }
   ],
   "comments": [
@@ -601,12 +458,6 @@
       "articleId": "3",
       "userId": "1",
       "id": "tGORFMu"
-    },
-    {
-      "text": "m",
-      "articleId": "HlqOK-D",
-      "userId": "3",
-      "id": "TFfwgAv"
     }
   ],
   "users": [
@@ -717,13 +568,6 @@
       "rate": 3,
       "feedback": "12312313",
       "id": "5vZgjI9"
-    },
-    {
-      "articleId": "N1d63gp",
-      "userId": "3",
-      "rate": 3,
-      "feedback": "feedback",
-      "id": "tB94wkD"
     }
   ],
   "profile-rating": [
