@@ -5,7 +5,6 @@ import ForkTsCheckerWebpackPlugin from 'fork-ts-checker-webpack-plugin';
 import HTMLWebpackPlugin from 'html-webpack-plugin';
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 import webpack from 'webpack';
-import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer';
 
 import { BuildOptions } from './types/config';
 
@@ -33,9 +32,10 @@ export function buildPlugins({ paths, isDev, apiUrl, project }: BuildOptions): w
         // Плагин для обновления элементов без перезагрузки страницы
         plugins.push(new webpack.HotModuleReplacementPlugin());
         // Плагин для анализа размеров сборки приложения
-        plugins.push(new BundleAnalyzerPlugin({
-            openAnalyzer: false
-        }));
+        // plugins.push(new BundleAnalyzerPlugin({
+        //     openAnalyzer: false,
+        //     analyzerMode: 'static'
+        // }));
         plugins.push(new CircularDependencyPlugin({
             exclude: /node_modules/,
             failOnError: true,

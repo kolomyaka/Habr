@@ -19,7 +19,7 @@ export default (env: BuildEnv) => {
         buildLocales: path.resolve(__dirname, 'build', 'locales')
     };
     // Смотрим в какой среде текущая сборка (дев, продакшн)
-    const mode = env.mode || 'development';
+    const mode = env?.mode || 'development';
     const isDev = mode === 'development';
 
     // В зависимости от среды сборки смотрим из какого файла нужны .env-переменные

@@ -14,25 +14,33 @@ module.exports = {
         'plugin:import/typescript',
         'plugin:storybook/recommended'
     ],
-    'overrides': [{
-        files: ['**/src/**/*.{test,stories}.{ts,tsx}'],
-        rules: {
-            'i18next/no-literal-string': 'off',
-            'max-len': 'off',
-            'react/jsx-props-no-spreading': 'off',
-            'boundaries/element-types': 'off'
-        }
-    }, {
-        files: ['**.config.ts'],
-        rules: {
-            '@typescript-eslint/no-non-null-assertion': 'off'
-        }
-    }, {
-        files: ['**/src/shared/ui/**/*.tsx', '**/src/**/*.async.tsx'],
-        rules: {
-            'react/jsx-props-no-spreading': 'off'
-        }
-    }],
+    'overrides': [
+        {
+            files: ['**/componentRender.tsx'],
+            rules: {
+                'boundaries/element-types': 'off'
+            }
+        },
+        {
+            files: ['**/src/**/*.{test,stories}.{ts,tsx}'],
+            rules: {
+                'i18next/no-literal-string': 'off',
+                'max-len': 'off',
+                'react/jsx-props-no-spreading': 'off',
+                'boundaries/element-types': 'off'
+            }
+        },
+        {
+            files: ['**.config.ts'],
+            rules: {
+                '@typescript-eslint/no-non-null-assertion': 'off'
+            }
+        }, {
+            files: ['**/src/shared/ui/**/*.tsx', '**/src/**/*.async.tsx'],
+            rules: {
+                'react/jsx-props-no-spreading': 'off'
+            }
+        }],
     'parser': '@typescript-eslint/parser',
     'parserOptions': {
         'ecmaVersion': 'latest',
