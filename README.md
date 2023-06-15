@@ -16,11 +16,13 @@ npm run start:dev или npm run start:dev:vite - Запуск проекта
 - `npm run start:dev:server` - Запуск backend сервера
 - `npm run build:prod` - Сборка в prod-режиме
 - `npm run build:dev` - Сборка в dev-режиме
+- `npm run prettier` - Форматирование кода с помощью prettier
 - `npm run lint:ts` - Проверка ts файлов линтером
 - `npm run lint:ts:fix` - Исправление ts файлов линтером
 - `npm run lint:scss` - Проверка scss файлов style-линтером
 - `npm run lint:scss:fix` - Исправление scss файлов style-линтером
 - `npm run test:unit` - Запуск unit тестов с jest
+- `npm run test:e2e` - Запуск e2e тестов с cypress
 - `npm run test:ui` - Запуск скриншотных тестов с loki
 - `npm run test:ui:ok` - Подтверждение новых скриншотов
 - `npm run test:ui:ci` - Запуск скриншотных тестов в CI
