@@ -43,6 +43,16 @@ module.exports = {
                 'react/jsx-props-no-spreading': 'off',
             },
         },
+        {
+            files: [
+                '**/cypress/**',
+                '**/src/shared/lib/**',
+                '**/src/app/types/**',
+            ],
+            rules: {
+                '@typescript-eslint/no-explicit-any': 'off',
+            },
+        },
     ],
     parser: '@typescript-eslint/parser',
     parserOptions: {
@@ -294,6 +304,12 @@ module.exports = {
         ],
         '@typescript-eslint/no-namespace': 'off',
         'linebreak-style': ['error', 'unix'],
+        '@typescript-eslint/no-explicit-any': [
+            'warn',
+            {
+                ignoreRestArgs: true,
+            },
+        ],
     },
     globals: {
         __IS_DEV__: true,
