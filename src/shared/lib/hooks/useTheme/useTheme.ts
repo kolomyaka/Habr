@@ -1,21 +1,21 @@
 import { useCallback, useContext, useEffect } from 'react';
 
-import { LOCAL_STORAGE_THEME_KEY } from '../../../const/localstorage';
 import { Theme } from '../../../const/theme';
 import { ThemeContext, ThemeContextProps } from '../../../context/ThemeContext';
 
 interface useThemeResult {
-    toggleTheme: () => void;
+    toggleTheme: (saveAction: (theme: Theme) => void) => void;
     theme: Theme;
 }
 
 export function useTheme(): useThemeResult {
     const { theme, setTheme }: ThemeContextProps = useContext(ThemeContext);
 
-    const toggleTheme = () => {
+    const toggleTheme = (saveAction?: (theme: Theme) => void) => {
         const newTheme = theme === Theme.DARK ? Theme.LIGHT : Theme.DARK;
-        localStorage.setItem(LOCAL_STORAGE_THEME_KEY, newTheme);
+
         setTheme?.(newTheme);
+        saveAction?.(newTheme);
     };
 
     const setThemeClass = useCallback(() => {

@@ -1,11 +1,13 @@
-import { memo } from 'react';
+import { memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
+
+import { saveJsonSettings } from '@/entities/User';
 
 import IconMoon from '@/shared/assets/icons/icon-moon.svg';
 import IconSun from '@/shared/assets/icons/icon-sun.svg';
 import { Theme } from '@/shared/const/theme';
 import { classNames } from '@/shared/lib/classNames';
-import { useTheme } from '@/shared/lib/hooks';
+import { useAppDispatch, useTheme } from '@/shared/lib/hooks';
 import { AppCheckbox } from '@/shared/ui';
 
 import cls from './ThemeSwitcher.module.scss';
@@ -18,6 +20,13 @@ export const ThemeSwitcher = memo(
     ({ className, short }: ThemeSwitcherProps) => {
         const { theme, toggleTheme } = useTheme();
         const { t } = useTranslation();
+        const dispatch = useAppDispatch();
+
+        const onToggleHandler = useCallback(() => {
+            toggleTheme((newTheme) => {
+                dispatch(saveJsonSettings({ theme: newTheme }));
+            });
+        }, [dispatch, toggleTheme]);
 
         return (
             <div className={classNames(cls.themeSwitcher, {}, [className])}>
@@ -42,7 +51,7 @@ export const ThemeSwitcher = memo(
                         )
                     }
                     className={short ? cls.short : ''}
-                    onChange={toggleTheme}
+                    onChange={onToggleHandler}
                 />
             </div>
         );
