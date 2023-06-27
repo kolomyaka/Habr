@@ -9,7 +9,7 @@ export interface TypographyProps {
     className?: string;
     as?: 'p' | 'h1' | 'h2' | 'h3' | 'h4' | 'span';
     color?: 'dark' | 'gray' | 'green';
-    size?: 'XL' | 'L' | 'M' | 'S';
+    size?: 'xl' | 'l' | 'm' | 's';
     align?: 'center' | 'left' | 'right';
     weight?: 'medium' | 'regular' | 'light';
 }
@@ -25,6 +25,8 @@ export const Typography = memo((props: TypographyProps) => {
         children,
     } = props;
     const Component = as;
+
+    console.log(cls, size, cls[size]);
 
     return (
         <Component

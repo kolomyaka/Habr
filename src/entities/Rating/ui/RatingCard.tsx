@@ -68,7 +68,7 @@ export const RatingCard = (props: RatingCardProps) => {
 
     const modalContent = (
         <>
-            <Typography size={'L'} as={'h4'}>
+            <Typography size={'l'} as={'h4'}>
                 {feedbackTitle}
             </Typography>
             <Input
@@ -83,7 +83,7 @@ export const RatingCard = (props: RatingCardProps) => {
     return (
         <Card className={className} data-testid={'RatingCard'}>
             <VStack gap={8} align={'center'}>
-                <Typography size={'L'} as={'h4'}>
+                <Typography size={'l'} as={'h4'}>
                     {starsCount ? t('Спасибо за ваш отзыв!') : title}
                 </Typography>
                 <StarRating

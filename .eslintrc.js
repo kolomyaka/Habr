@@ -292,6 +292,7 @@ module.exports = {
                     'gap',
                     'direction',
                     'as',
+                    'size',
                 ],
             },
         ],

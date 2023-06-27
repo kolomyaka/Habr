@@ -3,6 +3,8 @@ import { useSearchParams } from 'react-router-dom';
 
 import { Page } from '@/widgets/Page';
 
+import { ArticlePageGreeting } from '@/features/articlePageGreeting';
+
 import { classNames } from '@/shared/lib/classNames';
 import { DynamicModuleLoader, ReducersList } from '@/shared/lib/components';
 import { useAppDispatch, useInitialEffect } from '@/shared/lib/hooks';
@@ -45,6 +47,7 @@ const ArticlesPage = (props: ArticlesPageProps) => {
             >
                 <ArticlesPageFilters />
                 <ArticleInfiniteList />
+                <ArticlePageGreeting />
             </Page>
         </DynamicModuleLoader>
     );

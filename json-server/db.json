@@ -475,7 +475,8 @@
       "jsonSettings": {
         "theme": "app_dark_theme",
         "isFirstVisit": true,
-        "settingsPageHasBeenOpen": false
+        "settingsPageHasBeenOpen": false,
+        "isArticlePageWasOpened": true
       }
     },
     {
@@ -488,7 +489,10 @@
       "features": {
         "isArticleRatingEnabled": false
       },
-      "avatar": "https://gravatar.com/avatar/d79a01fc6611be42996b4f3a6994?s=400&d=monsterid&r=x"
+      "avatar": "https://gravatar.com/avatar/d79a01fc6611be42996b4f3a6994?s=400&d=monsterid&r=x",
+      "jsonSettings": {
+        "isArticlePageWasOpened": true
+      }
     },
     {
       "id": "3",

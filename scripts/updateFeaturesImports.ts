@@ -20,7 +20,6 @@ files.forEach((sourceFile) => {
 
         if (isFeatureImport(value)) {
             const finalValue = value.replace('feature', 'features');
-            console.log(finalValue);
             importDeclaration.setModuleSpecifier(finalValue);
         }
     });
